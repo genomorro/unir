@@ -14,6 +14,7 @@ pandas
 
 ## Extra
 # matplotlib
+opencv-python
 opencv-contrib-python
 # scikit-learn
 # seaborn
