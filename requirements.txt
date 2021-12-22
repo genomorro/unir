@@ -13,7 +13,7 @@ jupytext
 pandas
 
 ## Extra
-# matplotlib
+matplotlib
 opencv-python
 opencv-contrib-python
 # scikit-learn
