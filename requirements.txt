@@ -13,9 +13,9 @@ jupytext
 pandas
 
 ## Extra
-matplotlib
-opencv-python
-opencv-contrib-python
+# matplotlib
+# opencv-python
+# opencv-contrib-python
 # scikit-learn
 # seaborn
 # tensorflow
