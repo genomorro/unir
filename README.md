@@ -1,26 +1,33 @@
-# UNIR
+# Laboratorio: Eliminación de anomalías de la imagen
 
-Esquema de trabajo para proyectos de la UNIR. En cada rama hay un trabajo nuevo, en `main` las plantillas para cada uno de ellos.
+## Objetivos
 
-Esta rama contiene un ejercicio de openCV:
-```
-
-```
-
-
-## Nombre
-
-Cada rama se compone por las iniciales de una materia, sigue un guion y las iniciales de una actividad. Por ejemplo:
-
-    PC-R1 = Percepción Computacional, Reto 1
+El objetivo de esta actividad es familiarizarnos con las técnicas y herramientas básicas de procesado de imagen. Tras realizar esta actividad serás capaz de identificar anomalías (ruido o artefactos) en imágenes, así como de aplicar las operaciones necesarias para su eliminación.
 
 ## Descripción
+Has de buscar y seleccionar las imágenes con las anomalías que vas a corregir. Describe qué anomalías o tipología de ruido afectan a dichas imágenes. Posteriormente, idea una solución para corregirlas. Puedes utilizar operaciones a nivel de píxel, lineales o basadas en histograma para resolver dichas anomalías. La solución se implementará en un notebook Python que describirá y mostrará en pantalla los resultados de los principales pasos. El notebook deberá constar de las siguientes secciones:
+
+    1. Descripción del problema y/o anomalía.
+    2. Al menos dos imágenes de ejemplo con la anomalía a eliminar.
+    3. Solución propuesta.
+    4. Ejecución comentada paso a paso del algoritmo.
+
+El algoritmo propuesto no debe ser ad hoc, sino que debe poder extrapolarse a otras imágenes con la misma anomalía. Para aseguraros de que esto es así, debes aplicar el mismo algoritmo a al menos dos imágenes con la anomalía a corregir. 
+
+La solución aportada no debe ser básica: repetición de una solución bien conocida o existente en una librería. Se pueden utilizar funcionalidades proporcionadas por las librerías, pero la implementación de la operación principal debe ser propia. No se permite copiar código de Internet. En caso de que se reutilicen ideas deberá referenciarse la fuente.
+
+Extensión: el límite máximo son 6 páginas. [Ver Detalles](./mexmiart02_act1.docx "Ver archivo docx")
+
+## Forma de entrega
+
+Un notebook Python con la solución propuesta y los ficheros adicionales que se necesiten. Adjunta también un PDF donde aparezca toda la ejecución del notebook.
+
+## HFS
 
 - `apt.txt` configura dependencias a instalar sobre el contenedor, ubuntu por default para mybinder.org
 - `requirements.txt` configura las dependencias de python sobre el contenedor, se instalan vía pip.
 - La carpeta `im` contiene imágenes de ejemplo, se pueden agregar las necesarias.
 - La carpeta `out` contendrá los archivos de salida.
-- La carpeta `ds` contendrá los archivos datasets de entrada.
 
 ## Instalación
 
