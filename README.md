@@ -7,10 +7,10 @@ El objetivo de esta actividad es familiarizarnos con las técnicas y herramienta
 ## Descripción
 Has de buscar y seleccionar las imágenes con las anomalías que vas a corregir. Describe qué anomalías o tipología de ruido afectan a dichas imágenes. Posteriormente, idea una solución para corregirlas. Puedes utilizar operaciones a nivel de píxel, lineales o basadas en histograma para resolver dichas anomalías. La solución se implementará en un notebook Python que describirá y mostrará en pantalla los resultados de los principales pasos. El notebook deberá constar de las siguientes secciones:
 
-    1. Descripción del problema y/o anomalía.
-    2. Al menos dos imágenes de ejemplo con la anomalía a eliminar.
-    3. Solución propuesta.
-    4. Ejecución comentada paso a paso del algoritmo.
+1. Descripción del problema y/o anomalía.
+2. Al menos dos imágenes de ejemplo con la anomalía a eliminar.
+3. Solución propuesta.
+4. Ejecución comentada paso a paso del algoritmo.
 
 El algoritmo propuesto no debe ser ad hoc, sino que debe poder extrapolarse a otras imágenes con la misma anomalía. Para aseguraros de que esto es así, debes aplicar el mismo algoritmo a al menos dos imágenes con la anomalía a corregir. 
 
