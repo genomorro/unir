@@ -27,7 +27,7 @@ Un notebook Python con la solución propuesta y los ficheros adicionales que se 
 - `apt.txt` configura dependencias a instalar sobre el contenedor, ubuntu por default para mybinder.org
 - `requirements.txt` configura las dependencias de python sobre el contenedor, se instalan vía pip.
 - La carpeta `im` contiene imágenes de ejemplo, se pueden agregar las necesarias.
-- La carpeta `out` contendrá los archivos de salida.
+- La carpeta `out` contendrá los archivos de salida al correr el código Python.
 
 ## Instalación
 
