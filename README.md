@@ -22,11 +22,11 @@ Extensión: el límite máximo son 6 páginas. [Ver Detalles](./mexmiart02_act1.
 
 Un notebook Python con la solución propuesta y los ficheros adicionales que se necesiten. Adjunta también un PDF donde aparezca toda la ejecución del notebook.
 
-## HFS
+## FHS
 
 - La carpeta `im` contiene imágenes de ejemplo, se pueden agregar las necesarias.
 - La carpeta `out` contendrá los archivos de salida al correr el código Python.
-- La carpeta `writing` contiene el trabajo escrito `main.pdf`.
+- La carpeta `writing` contiene el trabajo escrito `[main.pdf](./writing/main.pdf)`.
 - `apt.txt` configura dependencias a instalar sobre el contenedor, ubuntu por default para mybinder.org
 - `main.ipynb` contiene el código modificable que sustenta el trabajo.
 - `requirements.txt` configura las dependencias de python sobre el contenedor, se instalan vía pip.
