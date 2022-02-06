@@ -1,0 +1,11 @@
+## Bibliografia 
+
+https://medium.com/swlh/image-processing-with-python-morphological-operations-26b7006c0359
+
+González, R. y R.E. Woods, 2006. Digital Image Processing. New Jersey, Prentice Hall, 
+(3ª edición).
+
+Ruiz Fernández, L.A, 2020, Universitat Politècnica de València, Ingeniería Cartográfica, Geodesia y 
+Fotogrametría.
+
+http://www.ece.northwestern.edu/local-apps/matlabhelp/toolbox/images/morph3.html
