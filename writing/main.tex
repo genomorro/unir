@@ -369,7 +369,7 @@
     % Slightly bigger margins than the latex defaults
     
     \geometry{verbose,tmargin=1in,bmargin=1in,lmargin=1in,rmargin=1in}
-
+    
     % UNIR
     \usepackage[spanish,mexico]{babel}
     \makeatletter
@@ -418,25 +418,23 @@ María Inés Calderón Zetter and Edgar Uriel Domínguez Espinoza},
       pdfsubject={Percepción computacional},
       pdfcreator={Emacs 27.2},
       pdflang={Spanish}}
-    %\usepackage[round]{natbib}
 
-    
 
 \begin{document}
     
     
-
+    
     
     \hypertarget{actividad-grupal-usos-reales-de-filtros-espaciales-y-morfoluxf3gicos}{%
 \textcolor{UnirDark}{\Large\bfseries\newtitle}\label{actividad-grupal-usos-reales-de-filtros-espaciales-y-morfoluxf3gicos}}
 
-\hypertarget{introduccion}{%
-\subsection*{Introducción}\label{introduccion}}
+\hypertarget{introducciuxf3n}{%
+\subsection*{Introducción}\label{introducciuxf3n}}
 
 La morfología es un estudio de la forma y la estructura. En el
 procesamiento de imágenes, se utiliza para analizar y modificar
 propiedades geométricas de una imagen probándola con diferentes formas.
-Las características geométicas de estas formas, llamadas elementos
+Las características geométricas de estas formas, llamadas elementos
 estructurales, conduce a medidas cuantitativas que son útiles en la
 visión informática. El proceso es similar a la convolución lineal y la
 correlación, excepto que las operaciones lógicas AND, OR, y NOT se
@@ -453,7 +451,7 @@ con operadores lógicos, podemos realizar diversos tipos de análisis de
 objetos. Aunque su uso primario es con imágenes binarias, la morfología
 también se extiende a las imágenes a escala gris.\cite{Sundararajan_2017}
 
-En el presente caso utilizamos imagenes de rayos X, que por la
+En el presente caso utilizamos imágenes de rayos X, que por la
 naturaleza de las mismas presentan alto contraste y escalas de grises.
 Estas imágenes corresponden directamente a consulta médica donde existió
 un agente extraño en el cuerpo humano y con las operaciones de filtros
@@ -494,11 +492,12 @@ rayos X.\cite{Children-Dental-Ark, Ortodoncis_2013, Radiologia-Etomatologica_201
 morfológicos}\label{implementaciuxf3n-de-operadores-morfoluxf3gicos}}
 
 La dilatación suele generar un efecto de ampliación del objeto en una
-imágen, llegando a eliminar algunos detalles que se consideren mínimos o
+imagen, llegando a eliminar algunos detalles que se consideren mínimos o
 ajenos al objeto que conforma la mayor parte de la composición de la
 misma. La erosión genera un efecto contrario, el cual amplia los
 detalles mínimos encontrados ajenos al agente principal de la imagen,
-minimizando el objeto que tenga mayor presencia en la misma.\cite{Northwestern-University_2003}
+minimizando el objeto que tenga mayor presencia en la
+misma.\cite{Northwestern-University_2003}
 
 Ambas operaciones se pueden ciclar e iterar en la forma que convenga
 para obtener un efecto deseado en determinado tipo de imágenes.
@@ -614,7 +613,7 @@ parámetros}\label{definiciuxf3n-de-paruxe1metros}}
 \subsubsection*{Operaciones}\label{operaciones}}
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{10}{\boxspacing}
+\prompt{In}{incolor}{9}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{c+c1}{\PYZsh{} Selección de la imagen a utilizar, es posible cambiarla por otras}
 \PY{n}{orginalImg} \PY{o}{=} \PY{n}{img\PYZus{}0}
@@ -632,8 +631,12 @@ parámetros}\label{definiciuxf3n-de-paruxe1metros}}
 \end{tcolorbox}
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{11}{\boxspacing}
+\prompt{In}{incolor}{10}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{cv}\PY{o}{.}\PY{n}{imwrite}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{out/Dil\PYZhy{}1.jpg}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{Dil}\PY{p}{)}
+\PY{n}{cv}\PY{o}{.}\PY{n}{imwrite}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{out/Ero\PYZhy{}1.jpg}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{Ero}\PY{p}{)}
+\PY{n}{cv}\PY{o}{.}\PY{n}{imwrite}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{out/Clo\PYZhy{}1.jpg}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{Clo}\PY{p}{)}
+\PY{n}{cv}\PY{o}{.}\PY{n}{imwrite}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{out/Opn\PYZhy{}1.jpg}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{Opn}\PY{p}{)}
 \PY{n}{orginalImg} \PY{o}{=} \PY{n}{cv}\PY{o}{.}\PY{n}{cvtColor}\PY{p}{(}\PY{n}{orginalImg}\PY{p}{,} \PY{n}{cv}\PY{o}{.}\PY{n}{COLOR\PYZus{}BGR2RGB}\PY{p}{)}
 \PY{n}{Ero} \PY{o}{=} \PY{n}{cv}\PY{o}{.}\PY{n}{cvtColor}\PY{p}{(}\PY{n}{Ero}\PY{p}{,} \PY{n}{cv}\PY{o}{.}\PY{n}{COLOR\PYZus{}BGR2RGB}\PY{p}{)}
 \PY{n}{Dil} \PY{o}{=} \PY{n}{cv}\PY{o}{.}\PY{n}{cvtColor}\PY{p}{(}\PY{n}{Dil}\PY{p}{,} \PY{n}{cv}\PY{o}{.}\PY{n}{COLOR\PYZus{}BGR2RGB}\PY{p}{)}
@@ -669,11 +672,11 @@ parámetros}\label{definiciuxf3n-de-paruxe1metros}}
 Una vez que se ha observado el efecto sobre una imagen de control, se
 aplicaron los filtros a las imágenes de Rayos X de interés. Sin embargo,
 solo se obtuvieron resultados parcialmente favorables. Las operaciones
-eliminaron elementos que no son de interés pero no permitian ver con
+eliminaron elementos que no son de interés pero no permitían ver con
 claridad la profundidad de otros elementos.
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{12}{\boxspacing}
+\prompt{In}{incolor}{11}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{c+c1}{\PYZsh{} Selección de la imagen a utilizar, es posible cambiarla por otras}
 \PY{n}{orginalImg} \PY{o}{=} \PY{n}{img\PYZus{}2}
@@ -691,8 +694,12 @@ claridad la profundidad de otros elementos.
 \end{tcolorbox}
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{13}{\boxspacing}
+\prompt{In}{incolor}{12}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{cv}\PY{o}{.}\PY{n}{imwrite}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{out/Dil\PYZhy{}2.jpg}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{Dil}\PY{p}{)}
+\PY{n}{cv}\PY{o}{.}\PY{n}{imwrite}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{out/Ero\PYZhy{}2.jpg}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{Ero}\PY{p}{)}
+\PY{n}{cv}\PY{o}{.}\PY{n}{imwrite}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{out/Clo\PYZhy{}2.jpg}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{Clo}\PY{p}{)}
+\PY{n}{cv}\PY{o}{.}\PY{n}{imwrite}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{out/Opn\PYZhy{}2.jpg}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{Opn}\PY{p}{)}
 \PY{n}{orginalImg} \PY{o}{=} \PY{n}{cv}\PY{o}{.}\PY{n}{cvtColor}\PY{p}{(}\PY{n}{orginalImg}\PY{p}{,} \PY{n}{cv}\PY{o}{.}\PY{n}{COLOR\PYZus{}BGR2RGB}\PY{p}{)}
 \PY{n}{Ero} \PY{o}{=} \PY{n}{cv}\PY{o}{.}\PY{n}{cvtColor}\PY{p}{(}\PY{n}{Ero}\PY{p}{,} \PY{n}{cv}\PY{o}{.}\PY{n}{COLOR\PYZus{}BGR2RGB}\PY{p}{)}
 \PY{n}{Dil} \PY{o}{=} \PY{n}{cv}\PY{o}{.}\PY{n}{cvtColor}\PY{p}{(}\PY{n}{Dil}\PY{p}{,} \PY{n}{cv}\PY{o}{.}\PY{n}{COLOR\PYZus{}BGR2RGB}\PY{p}{)}
@@ -722,17 +729,17 @@ claridad la profundidad de otros elementos.
     \end{center}
     { \hspace*{\fill} \\}
     
-    \hypertarget{gradiante-morfoluxf3gico}{%
-\subsubsection*{Gradiante morfológico}\label{gradiante-morfoluxf3gico}}
+    \hypertarget{gradiente-morfoluxf3gico}{%
+\subsubsection*{Gradiente morfológico}\label{gradiente-morfoluxf3gico}}
 
-El gradiante morfológico es resultado de restar la imagen erosionada a
-la imágen dilatada. El resultado es una imagen usada en la segmentación
+El gradiente morfológico es resultado de restar la imagen erosionada a
+la imagen dilatada. El resultado es una imagen usada en la segmentación
 debido a que cada valor de píxel (por lo general no negativo) indica la
-intensidad de contraste en la vecindad de ese píxel\cite{rivest1993morphological}. Con esta operación
-se ha conseguido el efecto deseado.
+intensidad de contraste en la vecindad de ese píxel\cite{rivest1993morphological}. Con esta
+operación se ha conseguido el efecto deseado.
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{14}{\boxspacing}
+\prompt{In}{incolor}{13}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{c+c1}{\PYZsh{} Selección de la imagen a utilizar, es posible cambiarla por otras}
 \PY{n}{orginalImg} \PY{o}{=} \PY{n}{img\PYZus{}1}
@@ -744,23 +751,24 @@ se ha conseguido el efecto deseado.
 \PY{c+c1}{\PYZsh{}Aplicamos las operaciones morfológicas}
 \PY{n}{Dil} \PY{o}{=} \PY{n}{Dilatacion}\PY{p}{(}\PY{n}{padImg}\PY{p}{,} \PY{n}{size}\PY{p}{)}
 \PY{n}{Ero} \PY{o}{=} \PY{n}{Erosion}\PY{p}{(}\PY{n}{padImg}\PY{p}{,} \PY{n}{kernel}\PY{p}{,} \PY{n}{size}\PY{p}{)}
-\PY{n}{Gradiante} \PY{o}{=} \PY{n}{Dil} \PY{o}{\PYZhy{}} \PY{n}{Ero}
+\PY{n}{Gradiente} \PY{o}{=} \PY{n}{Dil} \PY{o}{\PYZhy{}} \PY{n}{Ero}
 \end{Verbatim}
 \end{tcolorbox}
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{15}{\boxspacing}
+\prompt{In}{incolor}{14}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{cv}\PY{o}{.}\PY{n}{imwrite}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{out/Gradiente.jpg}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{Gradiente}\PY{p}{)}
 \PY{n}{orginalImg} \PY{o}{=} \PY{n}{cv}\PY{o}{.}\PY{n}{cvtColor}\PY{p}{(}\PY{n}{orginalImg}\PY{p}{,} \PY{n}{cv}\PY{o}{.}\PY{n}{COLOR\PYZus{}BGR2RGB}\PY{p}{)}
 \PY{n}{Ero} \PY{o}{=} \PY{n}{cv}\PY{o}{.}\PY{n}{cvtColor}\PY{p}{(}\PY{n}{Ero}\PY{p}{,} \PY{n}{cv}\PY{o}{.}\PY{n}{COLOR\PYZus{}BGR2RGB}\PY{p}{)}
 \PY{n}{Dil} \PY{o}{=} \PY{n}{cv}\PY{o}{.}\PY{n}{cvtColor}\PY{p}{(}\PY{n}{Dil}\PY{p}{,} \PY{n}{cv}\PY{o}{.}\PY{n}{COLOR\PYZus{}BGR2RGB}\PY{p}{)}
-\PY{n}{Gradiante} \PY{o}{=} \PY{n}{cv}\PY{o}{.}\PY{n}{cvtColor}\PY{p}{(}\PY{n}{Gradiante}\PY{p}{,} \PY{n}{cv}\PY{o}{.}\PY{n}{COLOR\PYZus{}BGR2RGB}\PY{p}{)}
+\PY{n}{Gradiente} \PY{o}{=} \PY{n}{cv}\PY{o}{.}\PY{n}{cvtColor}\PY{p}{(}\PY{n}{Gradiente}\PY{p}{,} \PY{n}{cv}\PY{o}{.}\PY{n}{COLOR\PYZus{}BGR2RGB}\PY{p}{)}
 \PY{n}{plt}\PY{o}{.}\PY{n}{subplot}\PY{p}{(}\PY{l+m+mi}{121}\PY{p}{)}
 \PY{n}{plt}\PY{o}{.}\PY{n}{imshow}\PY{p}{(}\PY{n}{orginalImg}\PY{p}{)}
 \PY{n}{plt}\PY{o}{.}\PY{n}{title}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Imagen Original}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{p}{,} \PY{n}{plt}\PY{o}{.}\PY{n}{xticks}\PY{p}{(}\PY{p}{[}\PY{p}{]}\PY{p}{)}\PY{p}{,} \PY{n}{plt}\PY{o}{.}\PY{n}{yticks}\PY{p}{(}\PY{p}{[}\PY{p}{]}\PY{p}{)}
 \PY{n}{plt}\PY{o}{.}\PY{n}{subplot}\PY{p}{(}\PY{l+m+mi}{122}\PY{p}{)}
-\PY{n}{plt}\PY{o}{.}\PY{n}{imshow}\PY{p}{(}\PY{n}{Gradiante}\PY{p}{)}
-\PY{n}{plt}\PY{o}{.}\PY{n}{title}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Gradiante}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{p}{,} \PY{n}{plt}\PY{o}{.}\PY{n}{xticks}\PY{p}{(}\PY{p}{[}\PY{p}{]}\PY{p}{)}\PY{p}{,} \PY{n}{plt}\PY{o}{.}\PY{n}{yticks}\PY{p}{(}\PY{p}{[}\PY{p}{]}\PY{p}{)}
+\PY{n}{plt}\PY{o}{.}\PY{n}{imshow}\PY{p}{(}\PY{n}{Gradiente}\PY{p}{)}
+\PY{n}{plt}\PY{o}{.}\PY{n}{title}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Gradiente}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{p}{,} \PY{n}{plt}\PY{o}{.}\PY{n}{xticks}\PY{p}{(}\PY{p}{[}\PY{p}{]}\PY{p}{)}\PY{p}{,} \PY{n}{plt}\PY{o}{.}\PY{n}{yticks}\PY{p}{(}\PY{p}{[}\PY{p}{]}\PY{p}{)}
 \PY{n}{plt}\PY{o}{.}\PY{n}{show}\PY{p}{(}\PY{p}{)}
 \end{Verbatim}
 \end{tcolorbox}
@@ -778,8 +786,8 @@ Estas operaciones son se pueden combinar a conveniencia para obtener
 operaciones secundarias, como la apertura y el cierre, que pueden ser
 usados dependiendo del objetivo o necesidades del caso particular.
 
-En la aplicación de los filtros puede verse que el gradiante morfológico
-permite distingir qué segmentos se encuentran más cercanos de otros en
+En la aplicación de los filtros puede verse que el gradiente morfológico
+permite distinguir qué segmentos se encuentran más cercanos de otros en
 una imagen de rayos X, además de definir el área de dichos segmentos.
 Esto es importante por el efecto de transparencia que llegan a tener las
 imágenes de rayos X.
@@ -789,5 +797,5 @@ imágenes de rayos X.
     \bibliographystyle{ieeetr}
     \bibliography{main}
     
-    
+        
 \end{document}
