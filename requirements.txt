@@ -11,6 +11,7 @@ IPython
 NumPy
 jupytext
 pandas
+jupyter-book
 
 ## Extra
 matplotlib
