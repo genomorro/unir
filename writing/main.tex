@@ -470,7 +470,7 @@ buscador
     \hypertarget{segmentaciuxf3n-con-canny}{%
 \subsection*{Segmentación con Canny}\label{segmentaciuxf3n-con-canny}}
 
-Primero seleccionaremos una de las seis imágenes de trabajo
+Primero seleccionaremos una de las seis imágenes de trabajo:
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
 \prompt{In}{incolor}{3}{\boxspacing}
@@ -584,10 +584,10 @@ Número de contornos/objetos encontrados:  4
     
     Como puede observarse en la imagen, los contornos son dibujados
 propiamente, sin embargo, el número de contornos puede no coincidir con
-el número de objetos en la imagen. Por ejemplo, los tréboles debido a lo
-angosto de la parte media del dibujo, pueden ser identificados como dos
-objetos y no como uno. A continuación se presenta una lista con la
-relación de objetos y contornos detectados:
+el número de objetos en la imagen. Por ejemplo, los tréboles de la carta
+\texttt{img\_10t}, debido a lo angosto de la parte media del dibujo
+pueden ser identificados como dos objetos y no como uno. A continuación
+se presenta una lista con la relación de objetos y contornos detectados:
 
 \begin{longtable}[]{@{}lll@{}}
 \toprule
@@ -704,7 +704,9 @@ imagen, esto es posible solucionando si el algoritmo del método
 \texttt{cv.findContours()} cambia a \texttt{RETR\_LIST}. Esto mejorará
 el comportamiento porque será posible identificar los contornos
 internos, no solo los externos. Pese a esto, en la mayoría de los casos
-eleva demasiado el número de bordes encontrados en la imagen.
+eleva demasiado el número de bordes encontrados en la imagen. Aquí se ha
+colocado el código que da los mejores resultados en general para todas
+las imágenes.
 
     \hypertarget{segmentaciuxf3n-con-color}{%
 \subsection*{Segmentación con color}\label{segmentaciuxf3n-con-color}}
@@ -788,6 +790,9 @@ imagen pendiente: \texttt{img\_10t}. Además este método es preciso con
 otras imágenes similares. En caso seleccionar una imagen con varias
 cartas, este método encontraría todos los elementos del color de
 interés, mas no contaría el número de cartas que aparecen en la imagen.
+Lo anterior puede ser muy útil para encontrar muchos objetos que
+compartan el mismo rango de color, en este caso, todos los objetos rojos
+o negros.
 
 \hypertarget{conclusiuxf3n}{%
 \subsection*{Conclusión}\label{conclusiuxf3n}}
