@@ -428,6 +428,10 @@
     \hypertarget{evaluaciuxf3n-de-la-segmentaciuxf3n}{%
 \textcolor{UnirDark}{\Large\bfseries\newtitle}\label{evaluaciuxf3n-de-la-segmentaciuxf3n}}
 
+\hypertarget{declaraciuxf3n-de-libreruxedas}{%
+\subsection*{Declaración de
+librerías}\label{declaraciuxf3n-de-libreruxedas}}
+
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
 \prompt{In}{incolor}{1}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
@@ -600,8 +604,8 @@ img\_4a6 & 4 & 4 \\
 \end{longtable}
 
 Es bien sabido que el algoritmo de Canny aplica una reducción de ruido
-con un filtro gausiano como primer paso. Parece ser que no es suficiente
-en todos los casos.
+con un filtro gaussiano como primer paso. Parece ser que no es
+suficiente en todos los casos.
 
     \hypertarget{segmentaciuxf3n-con-umbralado}{%
 \subsection*{Segmentación con
@@ -694,8 +698,8 @@ img\_all & 52 & 52 (160) \\
 \bottomrule
 \end{longtable}
 
-Así com sucede en el caso de la imagen \texttt{img\_10t}, es posible que
-este método encuentre como contorno más externo los límites de la
+Así como sucede en el caso de la imagen \texttt{img\_10t}, es posible
+que este método encuentre como contorno más externo los límites de la
 imagen, esto es posible solucionando si el algoritmo del método
 \texttt{cv.findContours()} cambia a \texttt{RETR\_LIST}. Esto mejorará
 el comportamiento porque será posible identificar los contornos
@@ -788,7 +792,7 @@ interés, mas no contaría el número de cartas que aparecen en la imagen.
 \hypertarget{conclusiuxf3n}{%
 \subsection*{Conclusión}\label{conclusiuxf3n}}
 
-La segmentación de una imagen es un trabajo de presición. Es necesario
+La segmentación de una imagen es un trabajo de precisión. Es necesario
 elegir el curso de acción adecuado para cada situación, debido a que
 hasta donde puede verse, no existe una forma que presente un resultado
 satisfactorio para todos los casos, incluso si la dificultad que
@@ -798,7 +802,6 @@ Para el presente caso, la segmentación con color parece ser un
 procedimiento fácilmente adaptable para imágenes que no exceden los dos
 colores, sin embargo podría traer problemas si la imagen a procesar
 tiene mayor número de colores.
-
 
     % Add a bibliography block to the postdoc
     \bibliographystyle{apalike}
