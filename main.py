@@ -76,7 +76,7 @@ cv.imwrite('out/canny.jpg', canny)
 contours, hierarchy = cv.findContours(canny, cv.RETR_EXTERNAL, cv.CHAIN_APPROX_NONE)
 out = cv.drawContours(im, contours, -1, (64,255,64), 1)
 cv.imwrite('out/out.jpg', out)
-print('Número de contornos encontrados: ', len(contours))
+print('Número de contornos/objetos encontrados: ', len(contours))
 
 # %%
 canny = cv.cvtColor(canny, cv.COLOR_BGR2RGB)
@@ -132,7 +132,7 @@ contours, hierarchy = cv.findContours(binary, cv.RETR_EXTERNAL, cv.CHAIN_APPROX_
 out = cv.drawContours(im, contours, -1, (64,255,64), 3)
 cv.imwrite('out/bin.jpg', binary)
 cv.imwrite('out/bin_out.jpg', out)
-print('Número de contornos encontrados: ', len(contours))
+print('Número de contornos/objetos encontrados: ', len(contours))
 
 # %%
 binary = cv.cvtColor(binary, cv.COLOR_BGR2RGB)
@@ -186,7 +186,7 @@ plt.show()
 contours, hierarchy = cv.findContours(mask, cv.RETR_EXTERNAL, cv.CHAIN_APPROX_SIMPLE)
 out = cv.drawContours(im, contours, -1, (64,255,64), 3)
 cv.imwrite('out/color_out.jpg', out)
-print('Número de contornos encontrados: ', len(contours))
+print('Número de contornos/objetos encontrados: ', len(contours))
 
 # %%
 plt.imshow(out)
@@ -201,5 +201,3 @@ plt.show()
 # La segmentación de una imagen es un trabajo de precisión. Es necesario elegir el curso de acción adecuado para cada situación, debido a que hasta donde puede verse, no existe una forma que presente un resultado satisfactorio para todos los casos, incluso si la dificultad que presentan las imágenes es relativamente sencilla.
 #
 # Para el presente caso, la segmentación con color parece ser un procedimiento fácilmente adaptable para imágenes que no exceden los dos colores, sin embargo podría traer problemas si la imagen a procesar tiene mayor número de colores.
-
-# %%
