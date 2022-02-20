@@ -554,12 +554,12 @@ grosor.\citep{Madhav2019Image, OpenCV2021OpenCV}
 \PY{n}{contours}\PY{p}{,} \PY{n}{hierarchy} \PY{o}{=} \PY{n}{cv}\PY{o}{.}\PY{n}{findContours}\PY{p}{(}\PY{n}{canny}\PY{p}{,} \PY{n}{cv}\PY{o}{.}\PY{n}{RETR\PYZus{}EXTERNAL}\PY{p}{,} \PY{n}{cv}\PY{o}{.}\PY{n}{CHAIN\PYZus{}APPROX\PYZus{}NONE}\PY{p}{)}
 \PY{n}{out} \PY{o}{=} \PY{n}{cv}\PY{o}{.}\PY{n}{drawContours}\PY{p}{(}\PY{n}{im}\PY{p}{,} \PY{n}{contours}\PY{p}{,} \PY{o}{\PYZhy{}}\PY{l+m+mi}{1}\PY{p}{,} \PY{p}{(}\PY{l+m+mi}{64}\PY{p}{,}\PY{l+m+mi}{255}\PY{p}{,}\PY{l+m+mi}{64}\PY{p}{)}\PY{p}{,} \PY{l+m+mi}{1}\PY{p}{)}
 \PY{n}{cv}\PY{o}{.}\PY{n}{imwrite}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{out/out.jpg}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{out}\PY{p}{)}
-\PY{n+nb}{print}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Número de contornos encontrados: }\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n+nb}{len}\PY{p}{(}\PY{n}{contours}\PY{p}{)}\PY{p}{)}
+\PY{n+nb}{print}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Número de contornos/objetos encontrados: }\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n+nb}{len}\PY{p}{(}\PY{n}{contours}\PY{p}{)}\PY{p}{)}
 \end{Verbatim}
 \end{tcolorbox}
 
     \begin{Verbatim}[commandchars=\\\{\}]
-Número de contornos encontrados:  4
+Número de contornos/objetos encontrados:  4
     \end{Verbatim}
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
@@ -658,12 +658,12 @@ Se hizo la prueba cambiando el algoritmo de umbralado a
 \PY{n}{out} \PY{o}{=} \PY{n}{cv}\PY{o}{.}\PY{n}{drawContours}\PY{p}{(}\PY{n}{im}\PY{p}{,} \PY{n}{contours}\PY{p}{,} \PY{o}{\PYZhy{}}\PY{l+m+mi}{1}\PY{p}{,} \PY{p}{(}\PY{l+m+mi}{64}\PY{p}{,}\PY{l+m+mi}{255}\PY{p}{,}\PY{l+m+mi}{64}\PY{p}{)}\PY{p}{,} \PY{l+m+mi}{3}\PY{p}{)}
 \PY{n}{cv}\PY{o}{.}\PY{n}{imwrite}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{out/bin.jpg}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{binary}\PY{p}{)}
 \PY{n}{cv}\PY{o}{.}\PY{n}{imwrite}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{out/bin\PYZus{}out.jpg}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{out}\PY{p}{)}
-\PY{n+nb}{print}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Número de contornos encontrados: }\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n+nb}{len}\PY{p}{(}\PY{n}{contours}\PY{p}{)}\PY{p}{)}
+\PY{n+nb}{print}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Número de contornos/objetos encontrados: }\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n+nb}{len}\PY{p}{(}\PY{n}{contours}\PY{p}{)}\PY{p}{)}
 \end{Verbatim}
 \end{tcolorbox}
 
     \begin{Verbatim}[commandchars=\\\{\}]
-Número de contornos encontrados:  13
+Número de contornos/objetos encontrados:  13
     \end{Verbatim}
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
@@ -761,12 +761,12 @@ seleccionada.
 \PY{n}{contours}\PY{p}{,} \PY{n}{hierarchy} \PY{o}{=} \PY{n}{cv}\PY{o}{.}\PY{n}{findContours}\PY{p}{(}\PY{n}{mask}\PY{p}{,} \PY{n}{cv}\PY{o}{.}\PY{n}{RETR\PYZus{}EXTERNAL}\PY{p}{,} \PY{n}{cv}\PY{o}{.}\PY{n}{CHAIN\PYZus{}APPROX\PYZus{}SIMPLE}\PY{p}{)}
 \PY{n}{out} \PY{o}{=} \PY{n}{cv}\PY{o}{.}\PY{n}{drawContours}\PY{p}{(}\PY{n}{im}\PY{p}{,} \PY{n}{contours}\PY{p}{,} \PY{o}{\PYZhy{}}\PY{l+m+mi}{1}\PY{p}{,} \PY{p}{(}\PY{l+m+mi}{64}\PY{p}{,}\PY{l+m+mi}{255}\PY{p}{,}\PY{l+m+mi}{64}\PY{p}{)}\PY{p}{,} \PY{l+m+mi}{3}\PY{p}{)}
 \PY{n}{cv}\PY{o}{.}\PY{n}{imwrite}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{out/color\PYZus{}out.jpg}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{out}\PY{p}{)}
-\PY{n+nb}{print}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Número de contornos encontrados: }\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n+nb}{len}\PY{p}{(}\PY{n}{contours}\PY{p}{)}\PY{p}{)}
+\PY{n+nb}{print}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Número de contornos/objetos encontrados: }\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n+nb}{len}\PY{p}{(}\PY{n}{contours}\PY{p}{)}\PY{p}{)}
 \end{Verbatim}
 \end{tcolorbox}
 
     \begin{Verbatim}[commandchars=\\\{\}]
-Número de contornos encontrados:  16
+Número de contornos/objetos encontrados:  16
     \end{Verbatim}
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
@@ -802,6 +802,7 @@ Para el presente caso, la segmentación con color parece ser un
 procedimiento fácilmente adaptable para imágenes que no exceden los dos
 colores, sin embargo podría traer problemas si la imagen a procesar
 tiene mayor número de colores.
+
 
     % Add a bibliography block to the postdoc
     \bibliographystyle{apalike}
