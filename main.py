@@ -38,7 +38,7 @@ img_4a6 = cv.imread('im/4a6.jpg')
 # %% [markdown]
 # ## Segmentación con Canny
 #
-# Primero seleccionaremos una de las seis imágenes de trabajo
+# Primero seleccionaremos una de las seis imágenes de trabajo:
 
 # %%
 im = img_4a6
@@ -90,7 +90,7 @@ plt.title('Imagen segmentada'), plt.xticks([]), plt.yticks([])
 plt.show()
 
 # %% [markdown]
-# Como puede observarse en la imagen, los contornos son dibujados propiamente, sin embargo, el número de contornos puede no coincidir con el número de objetos en la imagen. Por ejemplo, los tréboles debido a lo angosto de la parte media del dibujo, pueden ser identificados como dos objetos y no como uno. A continuación se presenta una lista con la relación de objetos y contornos detectados:
+# Como puede observarse en la imagen, los contornos son dibujados propiamente, sin embargo, el número de contornos puede no coincidir con el número de objetos en la imagen. Por ejemplo, los tréboles de la carta `img_10t`, debido a lo angosto de la parte media del dibujo pueden ser identificados como dos objetos y no como uno. A continuación se presenta una lista con la relación de objetos y contornos detectados:
 #
 # <a id="tbl:1"></a>
 #
@@ -153,7 +153,7 @@ plt.show()
 # | img_10t | 16 | 1
 # | img_all | 52 | 52 (160)
 #
-# Así como sucede en el caso de la imagen `img_10t`, es posible que este método encuentre como contorno más externo los límites de la imagen, esto es posible solucionando si el algoritmo del método `cv.findContours()` cambia a `RETR_LIST`. Esto mejorará el comportamiento porque será posible identificar los contornos internos, no solo los externos. Pese a esto, en la mayoría de los casos eleva demasiado el número de bordes encontrados en la imagen.
+# Así como sucede en el caso de la imagen `img_10t`, es posible que este método encuentre como contorno más externo los límites de la imagen, esto es posible solucionando si el algoritmo del método `cv.findContours()` cambia a `RETR_LIST`. Esto mejorará el comportamiento porque será posible identificar los contornos internos, no solo los externos. Pese a esto, en la mayoría de los casos eleva demasiado el número de bordes encontrados en la imagen. Aquí se ha colocado el código que da los mejores resultados en general para todas las imágenes.
 
 # %% [markdown] tags=[]
 # ## Segmentación con color
@@ -194,7 +194,7 @@ plt.title("Segmentación por color"), plt.xticks([]), plt.yticks([])
 plt.show()
 
 # %% [markdown]
-# En esta ocasión fue posible obtener el resultado deseado para la última imagen pendiente: `img_10t`. Además este método es preciso con otras imágenes similares. En caso seleccionar una imagen con varias cartas, este método encontraría todos los elementos del color de interés, mas no contaría el número de cartas que aparecen en la imagen.
+# En esta ocasión fue posible obtener el resultado deseado para la última imagen pendiente: `img_10t`. Además este método es preciso con otras imágenes similares. En caso seleccionar una imagen con varias cartas, este método encontraría todos los elementos del color de interés, mas no contaría el número de cartas que aparecen en la imagen. Lo anterior puede ser muy útil para encontrar muchos objetos que compartan el mismo rango de color, en este caso, todos los objetos rojos o negros.
 #
 # ## Conclusión
 #
