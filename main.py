@@ -103,7 +103,7 @@ plt.show()
 # | img_all | 52 | 56
 # | img_4a6 | 4 | 4
 #
-# Es bien sabido que el algoritmo de Canny aplica una reducción de ruido con un filtro gausiano como primer paso. Parece ser que no es suficiente en todos los casos.
+# Es bien sabido que el algoritmo de Canny aplica una reducción de ruido con un filtro gaussiano como primer paso. Parece ser que no es suficiente en todos los casos.
 
 # %% [markdown] tags=[]
 # ## Segmentación con umbralado
@@ -153,7 +153,7 @@ plt.show()
 # | img_10t | 16 | 1
 # | img_all | 52 | 52 (160)
 #
-# Así com sucede en el caso de la imagen `img_10t`, es posible que este método encuentre como contorno más externo los límites de la imagen, esto es posible solucionando si el algoritmo del método `cv.findContours()` cambia a `RETR_LIST`. Esto mejorará el comportamiento porque será posible identificar los contornos internos, no solo los externos. Pese a esto, en la mayoría de los casos eleva demasiado el número de bordes encontrados en la imagen.
+# Así como sucede en el caso de la imagen `img_10t`, es posible que este método encuentre como contorno más externo los límites de la imagen, esto es posible solucionando si el algoritmo del método `cv.findContours()` cambia a `RETR_LIST`. Esto mejorará el comportamiento porque será posible identificar los contornos internos, no solo los externos. Pese a esto, en la mayoría de los casos eleva demasiado el número de bordes encontrados en la imagen.
 
 # %% [markdown] tags=[]
 # ## Segmentación con color
@@ -198,6 +198,8 @@ plt.show()
 #
 # ## Conclusión
 #
-# La segmentación de una imagen es un trabajo de presición. Es necesario elegir el curso de acción adecuado para cada situación, debido a que hasta donde puede verse, no existe una forma que presente un resultado satisfactorio para todos los casos, incluso si la dificultad que presentan las imágenes es relativamente sencilla.
+# La segmentación de una imagen es un trabajo de precisión. Es necesario elegir el curso de acción adecuado para cada situación, debido a que hasta donde puede verse, no existe una forma que presente un resultado satisfactorio para todos los casos, incluso si la dificultad que presentan las imágenes es relativamente sencilla.
 #
 # Para el presente caso, la segmentación con color parece ser un procedimiento fácilmente adaptable para imágenes que no exceden los dos colores, sin embargo podría traer problemas si la imagen a procesar tiene mayor número de colores.
+
+# %%
