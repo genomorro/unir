@@ -14,7 +14,7 @@ Cada rama se compone por las iniciales de una materia, sigue un guion y las inic
 - `requirements.txt` configura las dependencias de python sobre el contenedor, se instalan vía pip.
 - La carpeta `im` contiene imágenes de ejemplo, se pueden agregar las necesarias.
 - La carpeta `out` contendrá los archivos de salida.
-- La carpeta `ds` contendrá los archivos datasets de entrada.
+- La carpeta `writinc` contendrá los archivos con el trabajo escrito.
 
 ## Instalación
 
@@ -51,3 +51,19 @@ Actividades escolares UNIR is distributed in the hope that it will be useful, bu
 
 You should have received a copy of the GNU General Public License along with Actividades escolares UNIR; if not, see <http://www.gnu.org/licenses/> or write to the Free Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA
 
+## Otros detalles
+
+### Referencias cruzadas en MD
+
+Por favor ver [Tabla 1](#tbl:1) y [Imágenes a utilizar](#Imágenes-a-utilizar)
+
+
+\begin{align}
+    g &= \int_a^b f(x)dx \label{eq1}\tag{1} \\
+    a &= b + c \label{eq2}\tag{2}
+\end{align}
+
+See (\ref{eq1}) and (\ref{eq2})
+
+See (\ref{eq1}) and (\ref{eq2}) does not work from another cell.
+See ([1](#mjx-eqn-eq1)) and ([2](#mjx-eqn-eq2)) does work from another cell.
