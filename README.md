@@ -40,6 +40,13 @@ Después de eso hacer algo como:
 
     jupytext --update --to notebook test.py
 
+### unir.patch
+
+Este parche integra el formato UNIR en un archivo LaTeX:
+
+    patch writing/main.tex unir.patch
+
+Hay que tener cuidado con cambiar el nombre de la actividad dentro o posterior al parche.
 ## Licencia
 This repo is part of Actividades escolares UNIR
 
