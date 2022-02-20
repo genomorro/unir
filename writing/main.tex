@@ -1,4 +1,4 @@
-\documentclass[11pt]{article}
+\documentclass[11pt,a4paper,table]{article}
 
     \usepackage[breakable]{tcolorbox}
     \usepackage{parskip} % Stop auto-indenting (to mimic markdown behaviour)
@@ -155,7 +155,7 @@
     \renewcommand{\LaTeX}{\textrm{\Oldlatex}}
     % Document parameters
     % Document title
-    \title{main}
+    \title{Actividad: Evaluación de la segmentación}
     
     
     
@@ -369,19 +369,64 @@
     % Slightly bigger margins than the latex defaults
     
     \geometry{verbose,tmargin=1in,bmargin=1in,lmargin=1in,rmargin=1in}
-    
+
+    %% BEGIN: UNIR
+    \usepackage[spanish,mexico]{babel}
+    \makeatletter
+    \let\newtitle\@title
+    \makeatother
+    \usepackage{amsmath}
+    \usepackage{multirow}
+    \definecolor{UnirLight}{HTML}{E6F4F9}
+    \definecolor{UnirDark}{HTML}{0098CD}
+    \arrayrulecolor{UnirDark}
+    \usepackage{titlesec}
+    \titleformat*{\section}{\color{UnirDark}\normalsize\bfseries}
+    \titleformat*{\subsection}{\color{UnirDark}\normalsize\bfseries}
+    \titleformat*{\subsubsection}{\color{UnirDark}\normalsize\bfseries}
+    \usepackage{fancyhdr}
+    \pagestyle{fancy}
+    \renewcommand{\headrulewidth}{0pt}
+    \headheight=45pt
+    \setlength{\footskip}{64pt}
+    \lhead{}
+    \chead{
+    \begin{tabular}{|c|l|c|}
+     \hline
+     \rowcolor{UnirLight}
+     \textcolor{UnirDark}{Asignatura} & \textcolor{UnirDark}{Datos del alumno} & \textcolor{UnirDark}{Fecha} \\
+     \hline
+     \multirow{2}{12em}{\textbf{Percepción computacional}} & Apellidos: Domínguez Espinoza & \multirow{2}{6em}{\today} \\
+     & Nombre: Edgar Uriel & \\
+     \hline
+    \end{tabular}}
+    \rhead{}
+    \lfoot{}
+    \cfoot{}
+    \rfoot{\makebox(70,56)[t]{\textcolor{UnirDark}{Actividades}}
+        \colorbox{UnirDark}{
+            \makebox(10,56)[t]{
+                \textcolor{white}{\thepage}}}}
+    \usepackage[color={[gray]{0.5}}, angle=90,fontsize=9pt,anchor=lb,pos={0.03\paperwidth,0.95\paperheight}]{draftwatermark}
+    \SetWatermarkText{{\copyright} Universidad Internacional de La Rioja en México (UNIR)}
+    \hypersetup{
+      pdfauthor={Edgar Uriel Domínguez Espinoza},
+      pdftitle={Actividad: Evaluación de la segmentación},
+      pdfkeywords={segmentación, Percepción Computacional, imágenes, umbral, Canny, color},
+      pdfsubject={Percepción computacional},
+      pdfcreator={Emacs 27.2}, 
+      pdflang={Spanish}}
+    \usepackage[round]{natbib}
+    %% END: UNIR
     
 
 \begin{document}
-    
-    \maketitle
-    
+        
     
 
     
     \hypertarget{evaluaciuxf3n-de-la-segmentaciuxf3n}{%
-\section{Evaluación de la
-segmentación}\label{evaluaciuxf3n-de-la-segmentaciuxf3n}}
+\textcolor{UnirDark}{\Large\bfseries\newtitle}\label{evaluaciuxf3n-de-la-segmentaciuxf3n}}
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
 \prompt{In}{incolor}{1}{\boxspacing}
@@ -393,7 +438,7 @@ segmentación}\label{evaluaciuxf3n-de-la-segmentaciuxf3n}}
 \end{tcolorbox}
 
     \hypertarget{imuxe1genes-a-utilizar}{%
-\subsection{Imágenes a utilizar}\label{imuxe1genes-a-utilizar}}
+\subsection*{Imágenes a utilizar}\label{imuxe1genes-a-utilizar}}
 
 En esta ocasión se usarán cartas de póquer para establecer la
 segmentación de objetos. Las imágenes \texttt{img\_07c},
@@ -419,7 +464,7 @@ buscador
 \end{tcolorbox}
 
     \hypertarget{segmentaciuxf3n-con-canny}{%
-\subsection{Segmentación con Canny}\label{segmentaciuxf3n-con-canny}}
+\subsection*{Segmentación con Canny}\label{segmentaciuxf3n-con-canny}}
 
 Primero seleccionaremos una de las seis imágenes de trabajo
 
@@ -497,7 +542,7 @@ sobre la imagen original (primer parámetro); para ello debe acceder a
 los contornos previamente obtenidos (segundo parámetro). El tercer
 parámetro es aquel contorno específico a dibujar, \texttt{-1} significa
 todos. Los parámetros siguientes serán el color del contorno y su
-grosor.\cite{Madhav2019Image, OpenCV2021OpenCV}
+grosor.\citep{Madhav2019Image, OpenCV2021OpenCV}
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
 \prompt{In}{incolor}{5}{\boxspacing}
@@ -559,7 +604,7 @@ con un filtro gausiano como primer paso. Parece ser que no es suficiente
 en todos los casos.
 
     \hypertarget{segmentaciuxf3n-con-umbralado}{%
-\subsection{Segmentación con
+\subsection*{Segmentación con
 umbralado}\label{segmentaciuxf3n-con-umbralado}}
 
 Es posible usar un umbralado directo para generar una imagen en binario.
@@ -568,7 +613,7 @@ sección anterior: \texttt{img\_09d}, \texttt{img\_10t} y
 \texttt{img\_all}.
 
 Este método mejora el resultado siempre y cuando la variable
-\texttt{thresh} tenga el valor ideal\cite{Madhav2019Image}. Aquí se
+\texttt{thresh} tenga el valor ideal\citep{Madhav2019Image}. Aquí se
 coloca el ejemplo que funciona con la imagen \texttt{img\_09d} donde
 \texttt{thresh\ =\ 32}, para corregir la imagen \texttt{img\_all} es
 necesario establecer \texttt{thresh\ =\ 160}.
@@ -658,11 +703,11 @@ internos, no solo los externos. Pese a esto, en la mayoría de los casos
 eleva demasiado el número de bordes encontrados en la imagen.
 
     \hypertarget{segmentaciuxf3n-con-color}{%
-\subsection{Segmentación con color}\label{segmentaciuxf3n-con-color}}
+\subsection*{Segmentación con color}\label{segmentaciuxf3n-con-color}}
 
 Otra forma de identificar los segmentos es usando el color en el
 proceso. La ventaja de este método es que permitirá identificar objetos
-que se encuentren en un rango de color.\cite{Maindola20214}
+que se encuentren en un rango de color.\citep{Maindola20214}
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
 \prompt{In}{incolor}{11}{\boxspacing}
@@ -741,7 +786,7 @@ cartas, este método encontraría todos los elementos del color de
 interés, mas no contaría el número de cartas que aparecen en la imagen.
 
 \hypertarget{conclusiuxf3n}{%
-\subsection{Conclusión}\label{conclusiuxf3n}}
+\subsection*{Conclusión}\label{conclusiuxf3n}}
 
 La segmentación de una imagen es un trabajo de presición. Es necesario
 elegir el curso de acción adecuado para cada situación, debido a que
@@ -756,7 +801,8 @@ tiene mayor número de colores.
 
 
     % Add a bibliography block to the postdoc
-    
+    \bibliographystyle{apalike}
+    \bibliography{main}    
     
     
 \end{document}
