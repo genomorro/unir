@@ -15,6 +15,7 @@
 
 # %% [markdown]
 # # Evaluación de la segmentación
+# ## Declaración de librerías
 
 # %%
 import cv2 as cv # ver. 4.5.5
@@ -69,7 +70,7 @@ cv.imwrite('out/canny.jpg', canny)
 #
 # Al cambiar este último parámetro no se han observado cambios en el resultado.
 #
-# Por su parte el método `drawContours()` dibujará los contornos sobre la imagen original (primer parámetro); para ello debe acceder a los contornos previamente obtenidos (segundo parámetro). El tercer parámetro es aquel contorno específico a dibujar, `-1` significa todos. Los parámetros siguientes serán el color del contorno y su grosor.\cite{Madhav2019Image, OpenCV2021OpenCV}
+# Por su parte el método `drawContours()` dibujará los contornos sobre la imagen original (primer parámetro); para ello debe acceder a los contornos previamente obtenidos (segundo parámetro). El tercer parámetro es aquel contorno específico a dibujar, `-1` significa todos. Los parámetros siguientes serán el color del contorno y su grosor.\citep{Madhav2019Image, OpenCV2021OpenCV}
 
 # %%
 contours, hierarchy = cv.findContours(canny, cv.RETR_EXTERNAL, cv.CHAIN_APPROX_NONE)
@@ -109,7 +110,7 @@ plt.show()
 #
 # Es posible usar un umbralado directo para generar una imagen en binario. En este caso usaremos solo las imágenes que presentaron fallas en la sección anterior: `img_09d`, `img_10t` y `img_all`.
 #
-# Este método mejora el resultado siempre y cuando la variable `thresh` tenga el valor ideal\cite{Madhav2019Image}. Aquí se coloca el ejemplo que funciona con la imagen `img_09d` donde `thresh = 32`, para corregir la imagen `img_all` es necesario establecer `thresh = 160`.
+# Este método mejora el resultado siempre y cuando la variable `thresh` tenga el valor ideal\citep{Madhav2019Image}. Aquí se coloca el ejemplo que funciona con la imagen `img_09d` donde `thresh = 32`, para corregir la imagen `img_all` es necesario establecer `thresh = 160`.
 #
 # Se hizo la prueba cambiando el algoritmo de umbralado a `THRESH_OTSU`, pero no se observó ninguna mejora.
 
@@ -154,10 +155,10 @@ plt.show()
 #
 # Así com sucede en el caso de la imagen `img_10t`, es posible que este método encuentre como contorno más externo los límites de la imagen, esto es posible solucionando si el algoritmo del método `cv.findContours()` cambia a `RETR_LIST`. Esto mejorará el comportamiento porque será posible identificar los contornos internos, no solo los externos. Pese a esto, en la mayoría de los casos eleva demasiado el número de bordes encontrados en la imagen.
 
-# %% [markdown] jp-MarkdownHeadingCollapsed=true tags=[]
+# %% [markdown] tags=[]
 # ## Segmentación con color
 #
-# Otra forma de identificar los segmentos es usando el color en el proceso. La ventaja de este método es que permitirá identificar objetos que se encuentren en un rango de color.\cite{Maindola20214}
+# Otra forma de identificar los segmentos es usando el color en el proceso. La ventaja de este método es que permitirá identificar objetos que se encuentren en un rango de color.\citep{Maindola20214}
 
 # %%
 im = img_10t
