@@ -1,0 +1,69 @@
+Bootstrap: docker
+From: ubuntu:xenial
+
+%post
+    ## Install all necessary dependencies.
+    ## dependencies siw bsf
+    apt-get update
+    apt-get install --no-install-recommends -y \
+    build-essential \
+    g++\
+    gcc\
+    make\
+    cmake\
+    python\
+    ca-certificates \
+    xutils-dev \
+    scons \
+    gcc-multilib \
+    flex \
+    bison \
+    python3 \
+    libboost-dev \
+    libjudy-dev \
+    libboost-program-options-dev \
+    g++-multilib \
+    libgmp3-dev \
+    gawk \
+    pypy\
+    python-pyparsing\
+    python-psutil\
+    libncurses5-dev\
+    default-jre \
+    git
+    rm -rf /var/lib/apt/lists/*
+
+    git clone -b ipc-2018-seq-sat https://bitbucket.org/ipc2018-classical/team35.git /planner
+
+    ## Build
+    MAKE_FLAGS="-j 6"
+    export MAKE_FLAGS
+    ./planner/build
+
+    ## Clean up
+    rm -rf /planner/.git
+
+%runscript
+    ## The runscript is called whenever the container is used to solve
+    ## an instance.
+    ROOT=$PWD
+
+    DOMAINFILE=$1
+    PROBLEMFILE=$2
+    PLANFILE=$3
+    echo $DOMAINFILE
+    echo $PROBLEMFILE
+    echo $PLANFILE
+    ## Call your planner.
+    python2.7 /planner/src/launcher/solve.py "$DOMAINFILE" "$PROBLEMFILE" "$PLANFILE"
+
+
+## Update the following fields with meta data about your submission.
+## Please use the same field names and use only one line for each value.
+%labels
+Name        IBaCoP2-2018
+Description New version IBaCoP2 Sat  Dynamic portfolio. The selection of planner changes per instance.
+Authors     Isabel Cenamor <icenamorg@gmail.com>, Tomas de la Rosa <trosa@inf.uc3m.es> and Fernando Fernandez <ffernand@inf.uc3m.es>
+SupportsDerivedPredicates yes
+SupportsQuantifiedPreconditions no
+SupportsQuantifiedEffects no

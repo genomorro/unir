@@ -1,0 +1,32 @@
+INFO:    Starting build...
+Getting image source signatures
+Copying blob sha256:58690f9b18fca6469a14da4e212c96849469f9b1be6661d2342a4bf01774aa50
+Copying blob sha256:b51569e7c50720acf6860327847fe342a1afbe148d24c529fb81df105e3eed01
+Copying blob sha256:da8ef40b9ecabc2679fe2419957220c0272a965c5cf7e0269fa1aeeb8c56f2e1
+Copying blob sha256:fb15d46c38dcd1ea0b1990006c3366ecd10c79d374f341687eb2cb23a2c8672e
+Copying config sha256:a19b95490ca5a60cd7d1fbeec41cd03da618683602f81f5d2a96ab5f50cbb520
+Writing manifest to image destination
+Storing signatures
+2022/03/01 16:45:19  info unpack layer: sha256:58690f9b18fca6469a14da4e212c96849469f9b1be6661d2342a4bf01774aa50
+2022/03/01 16:45:20  info unpack layer: sha256:b51569e7c50720acf6860327847fe342a1afbe148d24c529fb81df105e3eed01
+2022/03/01 16:45:20  info unpack layer: sha256:da8ef40b9ecabc2679fe2419957220c0272a965c5cf7e0269fa1aeeb8c56f2e1
+2022/03/01 16:45:20  info unpack layer: sha256:fb15d46c38dcd1ea0b1990006c3366ecd10c79d374f341687eb2cb23a2c8672e
+INFO:    Running post scriptlet
++ apt update
+
+WARNING: apt does not have a stable CLI interface. Use with caution in scripts.
+
++ apt -y install cmake g++ g++-multilib make python ca-certificates git
+
+WARNING: apt does not have a stable CLI interface. Use with caution in scripts.
+
+debconf: delaying package configuration, since apt-utils is not installed
++ rm -rf /var/lib/apt/lists/archive.ubuntu.com_ubuntu_dists_xenial-backports_InRelease /var/lib/apt/lists/archive.ubuntu.com_ubuntu_dists_xenial-backports_main_binary-amd64_Packages.lz4 /var/lib/apt/lists/archive.ubuntu.com_ubuntu_dists_xenial-backports_universe_binary-amd64_Packages.lz4 /var/lib/apt/lists/archive.ubuntu.com_ubuntu_dists_xenial-updates_InRelease /var/lib/apt/lists/archive.ubuntu.com_ubuntu_dists_xenial-updates_main_binary-amd64_Packages.lz4 /var/lib/apt/lists/archive.ubuntu.com_ubuntu_dists_xenial-updates_multiverse_binary-amd64_Packages.lz4 /var/lib/apt/lists/archive.ubuntu.com_ubuntu_dists_xenial-updates_restricted_binary-amd64_Packages.lz4 /var/lib/apt/lists/archive.ubuntu.com_ubuntu_dists_xenial-updates_universe_binary-amd64_Packages.lz4 /var/lib/apt/lists/archive.ubuntu.com_ubuntu_dists_xenial_InRelease /var/lib/apt/lists/archive.ubuntu.com_ubuntu_dists_xenial_main_binary-amd64_Packages.lz4 /var/lib/apt/lists/archive.ubuntu.com_ubuntu_dists_xenial_multiverse_binary-amd64_Packages.lz4 /var/lib/apt/lists/archive.ubuntu.com_ubuntu_dists_xenial_restricted_binary-amd64_Packages.lz4 /var/lib/apt/lists/archive.ubuntu.com_ubuntu_dists_xenial_universe_binary-amd64_Packages.lz4 /var/lib/apt/lists/lock /var/lib/apt/lists/partial /var/lib/apt/lists/security.ubuntu.com_ubuntu_dists_xenial-security_InRelease /var/lib/apt/lists/security.ubuntu.com_ubuntu_dists_xenial-security_main_binary-amd64_Packages.lz4 /var/lib/apt/lists/security.ubuntu.com_ubuntu_dists_xenial-security_multiverse_binary-amd64_Packages.lz4 /var/lib/apt/lists/security.ubuntu.com_ubuntu_dists_xenial-security_restricted_binary-amd64_Packages.lz4 /var/lib/apt/lists/security.ubuntu.com_ubuntu_dists_xenial-security_universe_binary-amd64_Packages.lz4
++ git clone -b ipc-2018-seq-opt https://bitbucket.org/ipc2018-classical/team22.git /planner
+Cloning into '/planner'...
++ cd /planner
++ ./build.py release64 -j4
+INFO:    Adding labels
+INFO:    Adding runscript
+INFO:    Creating SIF file...
+INFO:    Build complete: /home/genomorro/School/UNIR/RazonamientoPlanificacion/planners/metis/singularity.img

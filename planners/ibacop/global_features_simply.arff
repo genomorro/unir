@@ -1,0 +1,126 @@
+@relation 'problem-to-evaluate2022-03-0118:00:54-weka.filters.unsupervised.attribute.Remove-R1-3,18,20,65,78-79,119-120'
+
+@attribute types numeric
+@attribute objects numeric
+@attribute predicates numeric
+@attribute functions numeric
+@attribute init numeric
+@attribute goal numeric
+@attribute actions numeric
+@attribute axioms numeric
+@attribute use_min_cost_metric numeric
+@attribute generated_rules numeric
+@attribute relevant_atoms numeric
+@attribute auxiliary_atoms numeric
+@attribute final_queue_length numeric
+@attribute total_queue_pushes numeric
+@attribute effect_conditions_simplified numeric
+@attribute translator_variables numeric
+@attribute translator_derived_variables numeric
+@attribute translator_facts numeric
+@attribute translator_mutex_groups numeric
+@attribute translator_total_mutex_groups_size numeric
+@attribute translator_operators numeric
+@attribute translator_task_size numeric
+@attribute numberVariablesCG numeric
+@attribute highLevelVariablesCG numeric
+@attribute totalEdgesCG numeric
+@attribute totalWeightCG numeric
+@attribute veRatio numeric
+@attribute weRatio numeric
+@attribute wvRatio numeric
+@attribute hvRatio numeric
+@attribute inputEdgeCGMax numeric
+@attribute inputEdgeCGAvg numeric
+@attribute inputEdgeCGStd numeric
+@attribute outputEdgeCGMax numeric
+@attribute outputEdgeCGAvg numeric
+@attribute outputEdgeCGStd numeric
+@attribute inputWeightCGMax numeric
+@attribute inputWeightCGAvg numeric
+@attribute inputWeightCGStd numeric
+@attribute outputWeightCGMax numeric
+@attribute outputWeightCGAvg numeric
+@attribute outputWeightCGStd numeric
+@attribute inputEdgeHVMax numeric
+@attribute inputEdgeHVAvg numeric
+@attribute inputEdgeHVStd numeric
+@attribute outputEdgeHVMax numeric
+@attribute outputEdgeHVAvg numeric
+@attribute outputEdgeHVStd numeric
+@attribute inputWeightHVMax numeric
+@attribute inputWeightHVAvg numeric
+@attribute inputWeightHVStd numeric
+@attribute outputWeightHVMax numeric
+@attribute outputWeightHVAvg numeric
+@attribute outputWeightHVStd numeric
+@attribute numberVariablesDTG numeric
+@attribute totalEdgesDTG numeric
+@attribute totalWeigthDTG numeric
+@attribute edVaRatioDTG numeric
+@attribute weEdRatioDTG numeric
+@attribute inputEdgeDTGMax numeric
+@attribute inputEdgeDTGAvg numeric
+@attribute inputEdgeDTGStd numeric
+@attribute outputEdgeDTGMax numeric
+@attribute outputEdgeDTGAvg numeric
+@attribute outputEdgeDTGStd numeric
+@attribute inputWeightDTGMax numeric
+@attribute inputWeightDTGAvg numeric
+@attribute inputWeightDTGStd numeric
+@attribute outputWeightDTGMax numeric
+@attribute outputWeightDTGAvg numeric
+@attribute outputWeightDTGStd numeric
+@attribute num_relevant_facts numeric
+@attribute num_actions numeric
+@attribute h_max numeric
+@attribute h_ff numeric
+@attribute h_ff_ratio numeric
+@attribute rp_fact_balance_min numeric
+@attribute rp_fact_balance_avg numeric
+@attribute rp_fact_balance_var numeric
+@attribute rp_goal_balance_min numeric
+@attribute rp_goal_balance_avg numeric
+@attribute rp_goal_balance_var numeric
+@attribute balance_Ratio numeric
+@attribute Unbalance_Ratio numeric
+@attribute Balance_Distorsion numeric
+@attribute Additive numeric
+@attribute Blind numeric
+@attribute Causal_graph numeric
+@attribute Context-enhanced_additive numeric
+@attribute FF numeric
+@attribute Goal_count numeric
+@attribute Landmark_count numeric
+@attribute Landmark-cut numeric
+@attribute Max numeric
+@attribute n_landmarks numeric
+@attribute numberEdges numeric
+@attribute edVaratioLand numeric
+@attribute numberFatherNodes numeric
+@attribute numberChildrenNodes numeric
+@attribute nodosbetween numeric
+@attribute avginput numeric
+@attribute maxinput numeric
+@attribute stdinput numeric
+@attribute avgoutput numeric
+@attribute maxoutput numeric
+@attribute stdoutput numeric
+@attribute blackVariables numeric
+@attribute blackRootVariables numeric
+@attribute redBlackVariables numeric
+@attribute allpairsvaluesconnected numeric
+@attribute Maximaleffectsblack numeric
+@attribute Hred-black numeric
+@attribute planner {mercury,siw,jasper,bfs-f,arvand,lamar,fd-autotune-1,fd-autotune-2,fdss-2,lama-2008,lama-2011,lpg,madagascar,madagascar-p,probe,yahsp2-mt}
+@attribute class {True,False}
+
+@data
+
+19,96,33,2,410,1,22,0,1,258,247776,2324,250100,920610,266095,105,0,305,12,119,246879,2777047,99,1,1220,5412485,0.081148,4436.46,54671.6,0.010101,73,11.8586,14.7744,52,11.8586,9.77113,930298,54671.6,147538,1332010,42642.8,181217,9,0.090909,0.899954,6,0.060606,0.599969,15,0.151515,1.49992,6,0.060606,0.599969,293,351746,2214615,0.158829,0.000833,67873,926.563,2046.34,68673,925.881,2073.45,393101,4544.19,11926.9,398701,4542.14,2073.45,?,?,?,?,?,?,?,?,?,?,?,?,?,?,304,1,8,304,25,1,25,24,24,53,341,6.43396,28,1,24,6.43396,24,7.14143,6.43396,31,8.42615,?,?,?,?,?,25,fdss-2,True
+19,96,33,2,410,1,22,0,1,258,247776,2324,250100,920610,266095,105,0,305,12,119,246879,2777047,99,1,1220,5412485,0.081148,4436.46,54671.6,0.010101,73,11.8586,14.7744,52,11.8586,9.77113,930298,54671.6,147538,1332010,42642.8,181217,9,0.090909,0.899954,6,0.060606,0.599969,15,0.151515,1.49992,6,0.060606,0.599969,293,351746,2214615,0.158829,0.000833,67873,926.563,2046.34,68673,925.881,2073.45,393101,4544.19,11926.9,398701,4542.14,2073.45,?,?,?,?,?,?,?,?,?,?,?,?,?,?,304,1,8,304,25,1,25,24,24,53,341,6.43396,28,1,24,6.43396,24,7.14143,6.43396,31,8.42615,?,?,?,?,?,25,probe,True
+19,96,33,2,410,1,22,0,1,258,247776,2324,250100,920610,266095,105,0,305,12,119,246879,2777047,99,1,1220,5412485,0.081148,4436.46,54671.6,0.010101,73,11.8586,14.7744,52,11.8586,9.77113,930298,54671.6,147538,1332010,42642.8,181217,9,0.090909,0.899954,6,0.060606,0.599969,15,0.151515,1.49992,6,0.060606,0.599969,293,351746,2214615,0.158829,0.000833,67873,926.563,2046.34,68673,925.881,2073.45,393101,4544.19,11926.9,398701,4542.14,2073.45,?,?,?,?,?,?,?,?,?,?,?,?,?,?,304,1,8,304,25,1,25,24,24,53,341,6.43396,28,1,24,6.43396,24,7.14143,6.43396,31,8.42615,?,?,?,?,?,25,yahsp2-mt,True
+19,96,33,2,410,1,22,0,1,258,247776,2324,250100,920610,266095,105,0,305,12,119,246879,2777047,99,1,1220,5412485,0.081148,4436.46,54671.6,0.010101,73,11.8586,14.7744,52,11.8586,9.77113,930298,54671.6,147538,1332010,42642.8,181217,9,0.090909,0.899954,6,0.060606,0.599969,15,0.151515,1.49992,6,0.060606,0.599969,293,351746,2214615,0.158829,0.000833,67873,926.563,2046.34,68673,925.881,2073.45,393101,4544.19,11926.9,398701,4542.14,2073.45,?,?,?,?,?,?,?,?,?,?,?,?,?,?,304,1,8,304,25,1,25,24,24,53,341,6.43396,28,1,24,6.43396,24,7.14143,6.43396,31,8.42615,?,?,?,?,?,25,mercury,True
+19,96,33,2,410,1,22,0,1,258,247776,2324,250100,920610,266095,105,0,305,12,119,246879,2777047,99,1,1220,5412485,0.081148,4436.46,54671.6,0.010101,73,11.8586,14.7744,52,11.8586,9.77113,930298,54671.6,147538,1332010,42642.8,181217,9,0.090909,0.899954,6,0.060606,0.599969,15,0.151515,1.49992,6,0.060606,0.599969,293,351746,2214615,0.158829,0.000833,67873,926.563,2046.34,68673,925.881,2073.45,393101,4544.19,11926.9,398701,4542.14,2073.45,?,?,?,?,?,?,?,?,?,?,?,?,?,?,304,1,8,304,25,1,25,24,24,53,341,6.43396,28,1,24,6.43396,24,7.14143,6.43396,31,8.42615,?,?,?,?,?,25,jasper,True
+19,96,33,2,410,1,22,0,1,258,247776,2324,250100,920610,266095,105,0,305,12,119,246879,2777047,99,1,1220,5412485,0.081148,4436.46,54671.6,0.010101,73,11.8586,14.7744,52,11.8586,9.77113,930298,54671.6,147538,1332010,42642.8,181217,9,0.090909,0.899954,6,0.060606,0.599969,15,0.151515,1.49992,6,0.060606,0.599969,293,351746,2214615,0.158829,0.000833,67873,926.563,2046.34,68673,925.881,2073.45,393101,4544.19,11926.9,398701,4542.14,2073.45,?,?,?,?,?,?,?,?,?,?,?,?,?,?,304,1,8,304,25,1,25,24,24,53,341,6.43396,28,1,24,6.43396,24,7.14143,6.43396,31,8.42615,?,?,?,?,?,25,siw,True
+19,96,33,2,410,1,22,0,1,258,247776,2324,250100,920610,266095,105,0,305,12,119,246879,2777047,99,1,1220,5412485,0.081148,4436.46,54671.6,0.010101,73,11.8586,14.7744,52,11.8586,9.77113,930298,54671.6,147538,1332010,42642.8,181217,9,0.090909,0.899954,6,0.060606,0.599969,15,0.151515,1.49992,6,0.060606,0.599969,293,351746,2214615,0.158829,0.000833,67873,926.563,2046.34,68673,925.881,2073.45,393101,4544.19,11926.9,398701,4542.14,2073.45,?,?,?,?,?,?,?,?,?,?,?,?,?,?,304,1,8,304,25,1,25,24,24,53,341,6.43396,28,1,24,6.43396,24,7.14143,6.43396,31,8.42615,?,?,?,?,?,25,bfs-f,True

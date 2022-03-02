@@ -1,0 +1,1670 @@
+INFO:    Starting build...
+Getting image source signatures
+Copying blob sha256:58690f9b18fca6469a14da4e212c96849469f9b1be6661d2342a4bf01774aa50
+Copying blob sha256:b51569e7c50720acf6860327847fe342a1afbe148d24c529fb81df105e3eed01
+Copying blob sha256:da8ef40b9ecabc2679fe2419957220c0272a965c5cf7e0269fa1aeeb8c56f2e1
+Copying blob sha256:fb15d46c38dcd1ea0b1990006c3366ecd10c79d374f341687eb2cb23a2c8672e
+Copying config sha256:a19b95490ca5a60cd7d1fbeec41cd03da618683602f81f5d2a96ab5f50cbb520
+Writing manifest to image destination
+Storing signatures
+2022/03/01 17:28:16  info unpack layer: sha256:58690f9b18fca6469a14da4e212c96849469f9b1be6661d2342a4bf01774aa50
+2022/03/01 17:28:17  info unpack layer: sha256:b51569e7c50720acf6860327847fe342a1afbe148d24c529fb81df105e3eed01
+2022/03/01 17:28:17  info unpack layer: sha256:da8ef40b9ecabc2679fe2419957220c0272a965c5cf7e0269fa1aeeb8c56f2e1
+2022/03/01 17:28:17  info unpack layer: sha256:fb15d46c38dcd1ea0b1990006c3366ecd10c79d374f341687eb2cb23a2c8672e
+INFO:    Running post scriptlet
++ apt-get update
++ apt-get install --no-install-recommends -y build-essential g++ gcc make cmake python ca-certificates xutils-dev scons gcc-multilib flex bison python3 libboost-dev libjudy-dev libboost-program-options-dev g++-multilib libgmp3-dev gawk pypy python-pyparsing python-psutil libncurses5-dev default-jre git
+debconf: delaying package configuration, since apt-utils is not installed
++ rm -rf /var/lib/apt/lists/archive.ubuntu.com_ubuntu_dists_xenial-backports_InRelease /var/lib/apt/lists/archive.ubuntu.com_ubuntu_dists_xenial-backports_main_binary-amd64_Packages.lz4 /var/lib/apt/lists/archive.ubuntu.com_ubuntu_dists_xenial-backports_universe_binary-amd64_Packages.lz4 /var/lib/apt/lists/archive.ubuntu.com_ubuntu_dists_xenial-updates_InRelease /var/lib/apt/lists/archive.ubuntu.com_ubuntu_dists_xenial-updates_main_binary-amd64_Packages.lz4 /var/lib/apt/lists/archive.ubuntu.com_ubuntu_dists_xenial-updates_multiverse_binary-amd64_Packages.lz4 /var/lib/apt/lists/archive.ubuntu.com_ubuntu_dists_xenial-updates_restricted_binary-amd64_Packages.lz4 /var/lib/apt/lists/archive.ubuntu.com_ubuntu_dists_xenial-updates_universe_binary-amd64_Packages.lz4 /var/lib/apt/lists/archive.ubuntu.com_ubuntu_dists_xenial_InRelease /var/lib/apt/lists/archive.ubuntu.com_ubuntu_dists_xenial_main_binary-amd64_Packages.lz4 /var/lib/apt/lists/archive.ubuntu.com_ubuntu_dists_xenial_multiverse_binary-amd64_Packages.lz4 /var/lib/apt/lists/archive.ubuntu.com_ubuntu_dists_xenial_restricted_binary-amd64_Packages.lz4 /var/lib/apt/lists/archive.ubuntu.com_ubuntu_dists_xenial_universe_binary-amd64_Packages.lz4 /var/lib/apt/lists/lock /var/lib/apt/lists/partial /var/lib/apt/lists/security.ubuntu.com_ubuntu_dists_xenial-security_InRelease /var/lib/apt/lists/security.ubuntu.com_ubuntu_dists_xenial-security_main_binary-amd64_Packages.lz4 /var/lib/apt/lists/security.ubuntu.com_ubuntu_dists_xenial-security_multiverse_binary-amd64_Packages.lz4 /var/lib/apt/lists/security.ubuntu.com_ubuntu_dists_xenial-security_restricted_binary-amd64_Packages.lz4 /var/lib/apt/lists/security.ubuntu.com_ubuntu_dists_xenial-security_universe_binary-amd64_Packages.lz4
++ git clone -b ipc-2018-seq-sat https://bitbucket.org/ipc2018-classical/team35.git /planner
+Cloning into '/planner'...
++ MAKE_FLAGS=-j 6
++ export MAKE_FLAGS
++ ./planner/build
+In file included from ff_heuristic.h:28:0,
+                 from planner.cc:26:
+heuristic.h:64:55: warning: unused parameter 'state' [-Wunused-parameter]
+     virtual void set_recompute_heuristic(const State &state){}
+                                                       ^
+In file included from heuristic.cc:24:0:
+heuristic.h:64:55: warning: unused parameter 'state' [-Wunused-parameter]
+     virtual void set_recompute_heuristic(const State &state){}
+                                                       ^
+In file included from fd_ff_heuristic.h:4:0,
+                 from fd_ff_heuristic.cc:1:
+heuristic.h:64:55: warning: unused parameter 'state' [-Wunused-parameter]
+     virtual void set_recompute_heuristic(const State &state){}
+                                                       ^
+In file included from ff_heuristic.h:28:0,
+                 from ff_heuristic.cc:25:
+heuristic.h:64:55: warning: unused parameter 'state' [-Wunused-parameter]
+     virtual void set_recompute_heuristic(const State &state){}
+                                                       ^
+In file included from wa_star_search.cc:24:0:
+heuristic.h:64:55: warning: unused parameter 'state' [-Wunused-parameter]
+     virtual void set_recompute_heuristic(const State &state){}
+                                                       ^
+In file included from ff_heuristic.h:28:0,
+                 from globals.cc:43:
+heuristic.h:64:55: warning: unused parameter 'state' [-Wunused-parameter]
+     virtual void set_recompute_heuristic(const State &state){}
+                                                       ^
+In file included from best_first_search.cc:27:0:
+heuristic.h:64:55: warning: unused parameter 'state' [-Wunused-parameter]
+     virtual void set_recompute_heuristic(const State &state){}
+                                                       ^
+In file included from ff_heuristic.h:28:0,
+                 from landmarks_graph.cc:38:
+heuristic.h:64:55: warning: unused parameter 'state' [-Wunused-parameter]
+     virtual void set_recompute_heuristic(const State &state){}
+                                                       ^
+In file included from landmarks_count_heuristic.h:27:0,
+                 from landmarks_count_heuristic.cc:25:
+heuristic.h:64:55: warning: unused parameter 'state' [-Wunused-parameter]
+     virtual void set_recompute_heuristic(const State &state){}
+                                                       ^
+In file included from walker.h:9:0,
+                 from walker.cc:1:
+heuristic.h:64:55: warning: unused parameter 'state' [-Wunused-parameter]
+     virtual void set_recompute_heuristic(const State &state){}
+                                                       ^
+In file included from mrw.h:5:0,
+                 from smart_restarts.h:7,
+                 from smart_restarts.cc:1:
+heuristic.h:64:55: warning: unused parameter 'state' [-Wunused-parameter]
+     virtual void set_recompute_heuristic(const State &state){}
+                                                       ^
+In file included from mrw.h:5:0,
+                 from mrw.cc:1:
+heuristic.h:64:55: warning: unused parameter 'state' [-Wunused-parameter]
+     virtual void set_recompute_heuristic(const State &state){}
+                                                       ^
+mrw.cc:422:34: warning: unused parameter 'walk_number' [-Wunused-parameter]
+ void MRW::update_current_min(int walk_number, int index, WalkInfo& info, Path& min_path, int cost, int& min_cost, int& arg_min) {
+                                  ^
+In file included from plan_booster.h:9:0,
+                 from plan_booster.cc:1:
+heuristic.h:64:55: warning: unused parameter 'state' [-Wunused-parameter]
+     virtual void set_recompute_heuristic(const State &state){}
+                                                       ^
+plan_booster.cc: In member function 'std::vector<const Operator*> PlanBooster::any_time_neighborhood_search_star(std::vector<const Operator*>&, bool, bool)':
+plan_booster.cc:302:6: warning: variable 'current_size' set but not used [-Wunused-but-set-variable]
+  int current_size = 0;
+      ^
+In file included from mrw.h:5:0,
+                 from config_parser.h:5,
+                 from config_parser.cc:1:
+heuristic.h:64:55: warning: unused parameter 'state' [-Wunused-parameter]
+     virtual void set_recompute_heuristic(const State &state){}
+                                                       ^
+In file included from main.c:39:0:
+ff.h:1492:8: warning: extra tokens at end of #endif directive [-Wendif-labels]
+ #endif __FF_H
+        ^
+main.c: In function 'output_grounded_SIMPLEADL_task':
+main.c:737:3: warning: implicit declaration of function 'strcpy' [-Wimplicit-function-declaration]
+   strcpy (output_problem_file,gcmd_line.output_path);
+   ^
+main.c:737:3: warning: incompatible implicit declaration of built-in function 'strcpy'
+main.c:737:3: note: include '<string.h>' or provide a declaration of 'strcpy'
+main.c:738:3: warning: implicit declaration of function 'strcat' [-Wimplicit-function-declaration]
+   strcat (output_problem_file,"facts_wce.txt");
+   ^
+main.c:738:3: warning: incompatible implicit declaration of built-in function 'strcat'
+main.c:738:3: note: include '<string.h>' or provide a declaration of 'strcat'
+main.c: In function 'output_grounded_STRIPS_task':
+main.c:854:3: warning: incompatible implicit declaration of built-in function 'strcpy'
+   strcpy (output_domain_file,gcmd_line.output_path);
+   ^
+main.c:854:3: note: include '<string.h>' or provide a declaration of 'strcpy'
+main.c:855:3: warning: incompatible implicit declaration of built-in function 'strcat'
+   strcat (output_domain_file,"domain_wce.txt");
+   ^
+main.c:855:3: note: include '<string.h>' or provide a declaration of 'strcat'
+main.c: In function 'process_command_line':
+main.c:1615:3: warning: implicit declaration of function 'memset' [-Wimplicit-function-declaration]
+   memset(gcmd_line.ops_file_name, 0, MAX_LENGTH);
+   ^
+main.c:1615:3: warning: incompatible implicit declaration of built-in function 'memset'
+main.c:1615:3: note: include '<string.h>' or provide a declaration of 'memset'
+main.c:1621:29: warning: implicit declaration of function 'strlen' [-Wimplicit-function-declaration]
+     if ( *argv[0] != '-' || strlen(*argv) != 2 ) {
+                             ^
+main.c:1621:29: warning: incompatible implicit declaration of built-in function 'strlen'
+main.c:1621:29: note: include '<string.h>' or provide a declaration of 'strlen'
+main.c:1636:4: warning: implicit declaration of function 'strncpy' [-Wimplicit-function-declaration]
+    strncpy( gcmd_line.output_path, *argv, MAX_LENGTH );
+    ^
+main.c:1636:4: warning: incompatible implicit declaration of built-in function 'strncpy'
+main.c:1636:4: note: include '<string.h>' or provide a declaration of 'strncpy'
+In file included from memory.c:39:0:
+ff.h:1492:8: warning: extra tokens at end of #endif directive [-Wendif-labels]
+ #endif __FF_H
+        ^
+memory.c: In function 'new_PlOperator':
+memory.c:178:30: warning: implicit declaration of function 'strlen' [-Wimplicit-function-declaration]
+     result->name = new_Token(strlen(name)+1);
+                              ^
+memory.c:178:30: warning: incompatible implicit declaration of built-in function 'strlen'
+memory.c:178:30: note: include '<string.h>' or provide a declaration of 'strlen'
+memory.c:180:5: warning: implicit declaration of function 'strcpy' [-Wimplicit-function-declaration]
+     strcpy(result->name, name);
+     ^
+memory.c:180:5: warning: incompatible implicit declaration of built-in function 'strcpy'
+memory.c:180:5: note: include '<string.h>' or provide a declaration of 'strcpy'
+memory.c: In function 'new_axiom_op_list':
+memory.c:212:20: warning: incompatible implicit declaration of built-in function 'strlen'
+   name = new_Token(strlen(HIDDEN_STR)+strlen(AXIOM_STR)+4+1);
+                    ^
+memory.c:212:20: note: include '<string.h>' or provide a declaration of 'strlen'
+memory.c: In function 'new_Operator':
+memory.c:362:31: warning: incompatible implicit declaration of built-in function 'strlen'
+     result->name = new_Token( strlen( name ) + 1 );
+                               ^
+memory.c:362:31: note: include '<string.h>' or provide a declaration of 'strlen'
+memory.c:364:5: warning: incompatible implicit declaration of built-in function 'strcpy'
+     strcpy( result->name, name );
+     ^
+memory.c:364:5: note: include '<string.h>' or provide a declaration of 'strcpy'
+In file included from output.c:37:0:
+ff.h:1492:8: warning: extra tokens at end of #endif directive [-Wendif-labels]
+ #endif __FF_H
+        ^
+In file included from parse.c:38:0:
+ff.h:1492:8: warning: extra tokens at end of #endif directive [-Wendif-labels]
+ #endif __FF_H
+        ^
+parse.c: In function 'copy_Token':
+parse.c:68:24: warning: implicit declaration of function 'strlen' [-Wimplicit-function-declaration]
+   char *d = new_Token( strlen( s ) + 1 );
+                        ^
+parse.c:68:24: warning: incompatible implicit declaration of built-in function 'strlen'
+parse.c:68:24: note: include '<string.h>' or provide a declaration of 'strlen'
+parse.c:69:3: warning: implicit declaration of function 'strcpy' [-Wimplicit-function-declaration]
+   strcpy(d, s);
+   ^
+parse.c:69:3: warning: incompatible implicit declaration of built-in function 'strcpy'
+parse.c:69:3: note: include '<string.h>' or provide a declaration of 'strcpy'
+parse.c: In function 'copy_TokenList':
+parse.c:88:31: warning: incompatible implicit declaration of built-in function 'strlen'
+       temp->item = new_Token( strlen( source->item ) + 1 );
+                               ^
+parse.c:88:31: note: include '<string.h>' or provide a declaration of 'strlen'
+parse.c:89:7: warning: incompatible implicit declaration of built-in function 'strcpy'
+       strcpy( temp->item, source->item );
+       ^
+parse.c:89:7: note: include '<string.h>' or provide a declaration of 'strcpy'
+parse.c: In function 'build_orig_constant_list':
+parse.c:180:7: warning: incompatible implicit declaration of built-in function 'strcpy'
+       strcpy( tmp, EITHER_STR );
+       ^
+parse.c:180:7: note: include '<string.h>' or provide a declaration of 'strcpy'
+parse.c:182:2: warning: implicit declaration of function 'strcat' [-Wimplicit-function-declaration]
+  strcat( tmp, CONNECTOR );
+  ^
+parse.c:182:2: warning: incompatible implicit declaration of built-in function 'strcat'
+parse.c:182:2: note: include '<string.h>' or provide a declaration of 'strcat'
+parse.c:201:7: warning: incompatible implicit declaration of built-in function 'strcpy'
+       strcpy( tmp, EITHER_STR );
+       ^
+parse.c:201:7: note: include '<string.h>' or provide a declaration of 'strcpy'
+parse.c:203:2: warning: incompatible implicit declaration of built-in function 'strcat'
+  strcat( tmp, CONNECTOR );
+  ^
+parse.c:203:2: note: include '<string.h>' or provide a declaration of 'strcat'
+parse.c:222:7: warning: incompatible implicit declaration of built-in function 'strcpy'
+       strcpy( tmp, EITHER_STR );
+       ^
+parse.c:222:7: note: include '<string.h>' or provide a declaration of 'strcpy'
+parse.c:224:2: warning: incompatible implicit declaration of built-in function 'strcat'
+  strcat( tmp, CONNECTOR );
+  ^
+parse.c:224:2: note: include '<string.h>' or provide a declaration of 'strcat'
+parse.c:244:2: warning: incompatible implicit declaration of built-in function 'strcpy'
+  strcpy( tmp, EITHER_STR );
+  ^
+parse.c:244:2: note: include '<string.h>' or provide a declaration of 'strcpy'
+parse.c:246:4: warning: incompatible implicit declaration of built-in function 'strcat'
+    strcat( tmp, CONNECTOR );
+    ^
+parse.c:246:4: note: include '<string.h>' or provide a declaration of 'strcat'
+parse.c:271:2: warning: incompatible implicit declaration of built-in function 'strcpy'
+  strcpy( tmp, EITHER_STR );
+  ^
+parse.c:271:2: note: include '<string.h>' or provide a declaration of 'strcpy'
+parse.c:273:4: warning: incompatible implicit declaration of built-in function 'strcat'
+    strcat( tmp, CONNECTOR );
+    ^
+parse.c:273:4: note: include '<string.h>' or provide a declaration of 'strcat'
+parse.c:330:10: warning: implicit declaration of function 'strcmp' [-Wimplicit-function-declaration]
+     if ( strcmp( ltype_names[i], STANDARD_TYPE ) == SAME ) {
+          ^
+parse.c:412:7: warning: incompatible implicit declaration of built-in function 'strcpy'
+       strcpy( fl->item->next->item, EITHER_STR );
+       ^
+parse.c:412:7: note: include '<string.h>' or provide a declaration of 'strcpy'
+parse.c:414:2: warning: incompatible implicit declaration of built-in function 'strcat'
+  strcat( fl->item->next->item, CONNECTOR );
+  ^
+parse.c:414:2: note: include '<string.h>' or provide a declaration of 'strcat'
+parse.c:444:7: warning: incompatible implicit declaration of built-in function 'strcpy'
+       strcpy( fl->item->next->item, EITHER_STR );
+       ^
+parse.c:444:7: note: include '<string.h>' or provide a declaration of 'strcpy'
+parse.c:446:2: warning: incompatible implicit declaration of built-in function 'strcat'
+  strcat( fl->item->next->item, CONNECTOR );
+  ^
+parse.c:446:2: note: include '<string.h>' or provide a declaration of 'strcat'
+parse.c:491:7: warning: incompatible implicit declaration of built-in function 'strcpy'
+       strcpy( fl->item->next->item, EITHER_STR );
+       ^
+parse.c:491:7: note: include '<string.h>' or provide a declaration of 'strcpy'
+parse.c:493:2: warning: incompatible implicit declaration of built-in function 'strcat'
+  strcat( fl->item->next->item, CONNECTOR );
+  ^
+parse.c:493:2: note: include '<string.h>' or provide a declaration of 'strcat'
+parse.c:508:2: warning: incompatible implicit declaration of built-in function 'strcpy'
+  strcpy( fl->item->next->item, EITHER_STR );
+  ^
+parse.c:508:2: note: include '<string.h>' or provide a declaration of 'strcpy'
+parse.c:510:4: warning: incompatible implicit declaration of built-in function 'strcat'
+    strcat( fl->item->next->item, CONNECTOR );
+    ^
+parse.c:510:4: note: include '<string.h>' or provide a declaration of 'strcat'
+parse.c:539:7: warning: incompatible implicit declaration of built-in function 'strcpy'
+       strcpy( fl->item->next->item, EITHER_STR );
+       ^
+parse.c:539:7: note: include '<string.h>' or provide a declaration of 'strcpy'
+parse.c:541:2: warning: incompatible implicit declaration of built-in function 'strcat'
+  strcat( fl->item->next->item, CONNECTOR );
+  ^
+parse.c:541:2: note: include '<string.h>' or provide a declaration of 'strcat'
+parse.c:552:2: warning: incompatible implicit declaration of built-in function 'strcpy'
+  strcpy( tmp_tl->item, EITHER_STR );
+  ^
+parse.c:552:2: note: include '<string.h>' or provide a declaration of 'strcpy'
+parse.c:554:4: warning: incompatible implicit declaration of built-in function 'strcat'
+    strcat( tmp_tl->item, CONNECTOR );
+    ^
+parse.c:554:4: note: include '<string.h>' or provide a declaration of 'strcat'
+parse.c: In function 'collect_type_names_in_pl':
+parse.c:601:2: warning: incompatible implicit declaration of built-in function 'strcpy'
+  strcpy( tmp, EITHER_STR );
+  ^
+parse.c:601:2: note: include '<string.h>' or provide a declaration of 'strcpy'
+parse.c:603:4: warning: incompatible implicit declaration of built-in function 'strcat'
+    strcat( tmp, CONNECTOR );
+    ^
+parse.c:603:4: note: include '<string.h>' or provide a declaration of 'strcat'
+parse.c: In function 'normalize_tyl_in_pl':
+parse.c:754:7: warning: incompatible implicit declaration of built-in function 'strcpy'
+       strcpy( tmp_tl->next->item, EITHER_STR );
+       ^
+parse.c:754:7: note: include '<string.h>' or provide a declaration of 'strcpy'
+parse.c:756:2: warning: incompatible implicit declaration of built-in function 'strcat'
+  strcat( tmp_tl->next->item, CONNECTOR );
+  ^
+parse.c:756:2: note: include '<string.h>' or provide a declaration of 'strcat'
+parse.c:773:2: warning: incompatible implicit declaration of built-in function 'strcpy'
+  strcpy( tmp_tl->next->item, EITHER_STR );
+  ^
+parse.c:773:2: note: include '<string.h>' or provide a declaration of 'strcpy'
+parse.c:775:4: warning: incompatible implicit declaration of built-in function 'strcat'
+    strcat( tmp_tl->next->item, CONNECTOR );
+    ^
+parse.c:775:4: note: include '<string.h>' or provide a declaration of 'strcat'
+In file included from inst_pre.c:56:0:
+ff.h:1492:8: warning: extra tokens at end of #endif directive [-Wendif-labels]
+ #endif __FF_H
+        ^
+inst_pre.c: In function 'collect_all_strings':
+inst_pre.c:211:44: warning: implicit declaration of function 'strlen' [-Wimplicit-function-declaration]
+       gtype_names[gnum_types] = new_Token( strlen( f->item->next->item ) + 1 );
+                                            ^
+inst_pre.c:211:44: warning: incompatible implicit declaration of built-in function 'strlen'
+inst_pre.c:211:44: note: include '<string.h>' or provide a declaration of 'strlen'
+inst_pre.c:212:7: warning: implicit declaration of function 'strcpy' [-Wimplicit-function-declaration]
+       strcpy( gtype_names[gnum_types], f->item->next->item );
+       ^
+inst_pre.c:212:7: warning: incompatible implicit declaration of built-in function 'strcpy'
+inst_pre.c:212:7: note: include '<string.h>' or provide a declaration of 'strcpy'
+inst_pre.c:226:47: warning: incompatible implicit declaration of built-in function 'strlen'
+       gconstants[gnum_constants] = new_Token( strlen( f->item->item ) + 1 );
+                                               ^
+inst_pre.c:226:47: note: include '<string.h>' or provide a declaration of 'strlen'
+inst_pre.c:227:7: warning: incompatible implicit declaration of built-in function 'strcpy'
+       strcpy( gconstants[gnum_constants], f->item->item );
+       ^
+inst_pre.c:227:7: note: include '<string.h>' or provide a declaration of 'strcpy'
+inst_pre.c:271:47: warning: incompatible implicit declaration of built-in function 'strlen'
+     gpredicates[gnum_predicates] = new_Token( strlen( f->item->item ) + 1 );
+                                               ^
+inst_pre.c:271:47: note: include '<string.h>' or provide a declaration of 'strlen'
+inst_pre.c:272:5: warning: incompatible implicit declaration of built-in function 'strcpy'
+     strcpy( gpredicates[gnum_predicates], f->item->item );
+     ^
+inst_pre.c:272:5: note: include '<string.h>' or provide a declaration of 'strcpy'
+inst_pre.c: In function 'position_in_types_table':
+inst_pre.c:307:4: warning: implicit declaration of function 'strcmp' [-Wimplicit-function-declaration]
+   (strcmp( str, gtype_names[i] ) == SAME) ) {
+    ^
+inst_pre.c: In function 'create_integer_representation':
+inst_pre.c:415:50: warning: incompatible implicit declaration of built-in function 'strlen'
+       tmp->var_names[tmp->num_vars] = new_Token( strlen( ff->item->item ) + 1 );
+                                                  ^
+inst_pre.c:415:50: note: include '<string.h>' or provide a declaration of 'strlen'
+inst_pre.c:416:7: warning: incompatible implicit declaration of built-in function 'strcpy'
+       strcpy( tmp->var_names[tmp->num_vars], ff->item->item );
+       ^
+inst_pre.c:416:7: note: include '<string.h>' or provide a declaration of 'strcpy'
+inst_pre.c: In function 'make_Wff':
+inst_pre.c:602:32: warning: incompatible implicit declaration of built-in function 'strlen'
+     tmp->var_name = new_Token( strlen( p->atom->item ) + 1 );
+                                ^
+inst_pre.c:602:32: note: include '<string.h>' or provide a declaration of 'strlen'
+inst_pre.c:603:5: warning: incompatible implicit declaration of built-in function 'strcpy'
+     strcpy( tmp->var_name, p->atom->item );
+     ^
+inst_pre.c:603:5: note: include '<string.h>' or provide a declaration of 'strcpy'
+inst_pre.c: In function 'make_effect':
+inst_pre.c:667:48: warning: incompatible implicit declaration of built-in function 'strlen'
+     tmp->var_names[tmp->num_vars] = new_Token( strlen( n->atom->item ) + 1 ); 
+                                                ^
+inst_pre.c:667:48: note: include '<string.h>' or provide a declaration of 'strlen'
+inst_pre.c:668:5: warning: incompatible implicit declaration of built-in function 'strcpy'
+     strcpy( tmp->var_names[tmp->num_vars], n->atom->item );
+     ^
+inst_pre.c:668:5: note: include '<string.h>' or provide a declaration of 'strcpy'
+inst_pre.c: In function 'translate_one_negative_cond':
+inst_pre.c:1956:45: warning: incompatible implicit declaration of built-in function 'strlen'
+   gpredicates[gnum_predicates] = new_Token( strlen( gpredicates[p] ) + 5 );
+                                             ^
+inst_pre.c:1956:45: note: include '<string.h>' or provide a declaration of 'strlen'
+In file included from inst_easy.c:44:0:
+ff.h:1492:8: warning: extra tokens at end of #endif directive [-Wendif-labels]
+ #endif __FF_H
+        ^
+In file included from inst_hard.c:44:0:
+ff.h:1492:8: warning: extra tokens at end of #endif directive [-Wendif-labels]
+ #endif __FF_H
+        ^
+In file included from inst_final.c:44:0:
+ff.h:1492:8: warning: extra tokens at end of #endif directive [-Wendif-labels]
+ #endif __FF_H
+        ^
+inst_final.c: In function 'build_connectivity_graph':
+inst_final.c:1104:3: warning: implicit declaration of function 'srandom' [-Wimplicit-function-declaration]
+   srandom( tp.millitm );
+   ^
+inst_final.c:1121:24: warning: implicit declaration of function 'random' [-Wimplicit-function-declaration]
+     gft_conn[i].rand = random() % BIG_INT;
+                        ^
+scan-fct_pddl.y: warning: 1 shift/reduce conflict [-Wconflicts-sr]
+In file included from scan-fct_pddl.y:9:0:
+ff.h:1492:8: warning: extra tokens at end of #endif directive [-Wendif-labels]
+ #endif __FF_H
+        ^
+scan-fct_pddl.tab.c: In function 'fct_pddlparse':
+scan-fct_pddl.tab.c:64:25: warning: implicit declaration of function 'fct_pddllex' [-Wimplicit-function-declaration]
+ #define yylex           fct_pddllex
+                         ^
+scan-fct_pddl.tab.c:1319:16: note: in expansion of macro 'yylex'
+       yychar = yylex ();
+                ^
+scan-fct_pddl.y:156:3: warning: implicit declaration of function 'fcterr' [-Wimplicit-function-declaration]
+   fcterr( PROBNAME_EXPECTED, NULL ); 
+   ^
+scan-fct_pddl.tab.c:65:25: warning: implicit declaration of function 'fct_pddlerror' [-Wimplicit-function-declaration]
+ #define yyerror         fct_pddlerror
+                         ^
+scan-fct_pddl.y:184:5: note: in expansion of macro 'yyerror'
+     yyerror();
+     ^
+In file included from scan-fct_pddl.y:593:0:
+lex.fct_pddl.c: At top level:
+lex.fct_pddl.c:660:12: warning: prototype for 'fct_pddlwrap' follows non-prototype definition
+ extern int fct_pddlwrap (void );
+            ^
+In file included from scan-fct_pddl.y:593:0:
+lex.fct_pddl.c: In function 'fct_pddl_init_buffer':
+lex.fct_pddl.c:1662:48: warning: implicit declaration of function 'fileno' [-Wimplicit-function-declaration]
+         b->yy_is_interactive = file ? (isatty( fileno(file) ) > 0) : 0;
+                                                ^
+scan-fct_pddl.y: At top level:
+scan-fct_pddl.y:604:6: warning: conflicting types for 'fcterr'
+ void fcterr( int errno, char *par ) {
+      ^
+scan-fct_pddl.y:156:3: note: previous implicit declaration of 'fcterr' was here
+   fcterr( PROBNAME_EXPECTED, NULL ); 
+   ^
+In file included from scan-fct_pddl.y:593:0:
+lex.fct_pddl.c:1416:17: warning: 'yyunput' defined but not used [-Wunused-function]
+     static void yyunput (int c, char * yy_bp )
+                 ^
+lex.fct_pddl.c:1459:16: warning: 'input' defined but not used [-Wunused-function]
+     static int input  (void)
+                ^
+scan-ops_pddl.y: warning: 1 shift/reduce conflict [-Wconflicts-sr]
+In file included from scan-ops_pddl.y:9:0:
+ff.h:1492:8: warning: extra tokens at end of #endif directive [-Wendif-labels]
+ #endif __FF_H
+        ^
+scan-ops_pddl.tab.c: In function 'ops_pddlparse':
+scan-ops_pddl.tab.c:64:25: warning: implicit declaration of function 'ops_pddllex' [-Wimplicit-function-declaration]
+ #define yylex           ops_pddllex
+                         ^
+scan-ops_pddl.tab.c:1366:16: note: in expansion of macro 'yylex'
+       yychar = yylex ();
+                ^
+scan-ops_pddl.y:164:3: warning: implicit declaration of function 'opserr' [-Wimplicit-function-declaration]
+   opserr( DOMDEF_EXPECTED, NULL ); 
+   ^
+scan-ops_pddl.tab.c:65:25: warning: implicit declaration of function 'ops_pddlerror' [-Wimplicit-function-declaration]
+ #define yyerror         ops_pddlerror
+                         ^
+scan-ops_pddl.y:262:5: note: in expansion of macro 'yyerror'
+     yyerror();
+     ^
+In file included from scan-ops_pddl.y:743:0:
+lex.ops_pddl.c: At top level:
+lex.ops_pddl.c:658:12: warning: prototype for 'ops_pddlwrap' follows non-prototype definition
+ extern int ops_pddlwrap (void );
+            ^
+In file included from scan-ops_pddl.y:743:0:
+lex.ops_pddl.c: In function 'ops_pddl_init_buffer':
+lex.ops_pddl.c:1666:48: warning: implicit declaration of function 'fileno' [-Wimplicit-function-declaration]
+         b->yy_is_interactive = file ? (isatty( fileno(file) ) > 0) : 0;
+                                                ^
+scan-ops_pddl.y: At top level:
+scan-ops_pddl.y:754:6: warning: conflicting types for 'opserr'
+ void opserr( int errno, char *par )
+      ^
+scan-ops_pddl.y:164:3: note: previous implicit declaration of 'opserr' was here
+   opserr( DOMDEF_EXPECTED, NULL ); 
+   ^
+In file included from scan-ops_pddl.y:743:0:
+lex.ops_pddl.c:1420:17: warning: 'yyunput' defined but not used [-Wunused-function]
+     static void yyunput (int c, char * yy_bp )
+                 ^
+lex.ops_pddl.c:1463:16: warning: 'input' defined but not used [-Wunused-function]
+     static int input  (void)
+                ^
+makedepend: warning:  main.c (reading /usr/include/stdlib.h, line 32): cannot find include file "stddef.h"
+	not in /usr/include/stddef.h
+makedepend: warning:  main.c (reading /usr/include/sys/types.h, line 146): cannot find include file "stddef.h"
+	not in /usr/include/stddef.h
+makedepend: warning:  main.c (reading /usr/include/alloca.h, line 24): cannot find include file "stddef.h"
+	not in /usr/include/stddef.h
+makedepend: warning:  main.c (reading /usr/include/stdio.h, line 33): cannot find include file "stddef.h"
+	not in /usr/include/stddef.h
+makedepend: warning:  main.c (reading /usr/include/_G_config.h, line 15): cannot find include file "stddef.h"
+	not in /usr/include/stddef.h
+makedepend: warning:  main.c (reading /usr/include/wchar.h, line 51): cannot find include file "stddef.h"
+	not in /usr/include/stddef.h
+makedepend: warning:  main.c (reading /usr/include/libio.h, line 49): cannot find include file "stdarg.h"
+	not in /usr/include/stdarg.h
+makedepend: warning:  main.c (reading /usr/include/strings.h, line 28): cannot find include file "stddef.h"
+	not in /usr/include/stddef.h
+makedepend: warning:  main.c (reading /usr/include/string.h, line 32): cannot find include file "stddef.h"
+	not in /usr/include/stddef.h
+makedepend: warning:  cannot open "scan-fct_pddl.tab.c"
+makedepend: warning:  cannot open "scan-ops_pddl.tab.c"
+makedepend: warning:  cannot open "scan-probname.tab.c"
+makedepend: warning:  cannot open "lex.fct_pddl.c"
+makedepend: warning:  cannot open "lex.ops_pddl.c"
+makedepend: warning:  test_main.cxx, line 3: cannot find include file "iostream"
+	not in /usr/include/iostream
+makedepend: warning:  test_main.cxx, line 4: cannot find include file "fstream"
+	not in /usr/include/fstream
+In file included from libff.c:1:0:
+libff.h:221:8: warning: extra tokens at end of #endif directive [-Wendif-labels]
+ #endif // libff.h
+        ^
+libff.c: In function 'FF_parse_problem':
+libff.c:378:2: warning: implicit declaration of function 'snprintf' [-Wimplicit-function-declaration]
+  snprintf( ops_file, MAX_LENGTH, "%s", domain_file );
+  ^
+inst_final.c: In function 'build_connectivity_graph':
+inst_final.c:1932:3: warning: implicit declaration of function 'srandom' [-Wimplicit-function-declaration]
+   srandom( tp.millitm );
+   ^
+inst_final.c:1948:24: warning: implicit declaration of function 'random' [-Wimplicit-function-declaration]
+     gft_conn[i].rand = random() % BIG_INT;
+                        ^
+scan-fct_pddl.y: warning: 1 nonterminal useless in grammar [-Wother]
+scan-fct_pddl.y: warning: 2 rules useless in grammar [-Wother]
+scan-fct_pddl.y:135.17-33: warning: nonterminal useless in grammar: literal_name_plus [-Wother]
+ %type <pPlNode> literal_name_plus
+                 ^^^^^^^^^^^^^^^^^
+scan-fct_pddl.y:814.1-817.1: warning: rule useless in grammar [-Wother]
+ literal_name
+ ^^^^^^^^^^^^
+scan-fct_pddl.y:819.1-823.1: warning: rule useless in grammar [-Wother]
+ literal_name literal_name_plus
+ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+scan-fct_pddl.y: warning: 1 shift/reduce conflict [-Wconflicts-sr]
+scan-fct_pddl.y: warning: 1 reduce/reduce conflict [-Wconflicts-rr]
+scan-fct_pddl.tab.c: In function 'fct_pddlparse':
+scan-fct_pddl.tab.c:64:25: warning: implicit declaration of function 'fct_pddllex' [-Wimplicit-function-declaration]
+ #define yylex           fct_pddllex
+                         ^
+scan-fct_pddl.tab.c:1382:16: note: in expansion of macro 'yylex'
+       yychar = yylex ();
+                ^
+scan-fct_pddl.y:194:3: warning: implicit declaration of function 'fcterr' [-Wimplicit-function-declaration]
+   fcterr( PROBNAME_EXPECTED, NULL ); 
+   ^
+scan-fct_pddl.tab.c:65:25: warning: implicit declaration of function 'fct_pddlerror' [-Wimplicit-function-declaration]
+ #define yyerror         fct_pddlerror
+                         ^
+scan-fct_pddl.y:222:5: note: in expansion of macro 'yyerror'
+     yyerror();
+     ^
+In file included from scan-fct_pddl.y:876:0:
+lex.fct_pddl.c: At top level:
+lex.fct_pddl.c:696:12: warning: prototype for 'fct_pddlwrap' follows non-prototype definition
+ extern int fct_pddlwrap (void );
+            ^
+In file included from scan-fct_pddl.y:876:0:
+lex.fct_pddl.c: In function 'fct_pddl_init_buffer':
+lex.fct_pddl.c:1742:48: warning: implicit declaration of function 'fileno' [-Wimplicit-function-declaration]
+         b->yy_is_interactive = file ? (isatty( fileno(file) ) > 0) : 0;
+                                                ^
+scan-fct_pddl.y: At top level:
+scan-fct_pddl.y:887:6: warning: conflicting types for 'fcterr'
+ void fcterr( int errno, char *par ) {
+      ^
+scan-fct_pddl.y:194:3: note: previous implicit declaration of 'fcterr' was here
+   fcterr( PROBNAME_EXPECTED, NULL ); 
+   ^
+In file included from scan-fct_pddl.y:876:0:
+lex.fct_pddl.c:1496:17: warning: 'yyunput' defined but not used [-Wunused-function]
+     static void yyunput (int c, char * yy_bp )
+                 ^
+lex.fct_pddl.c:1539:16: warning: 'input' defined but not used [-Wunused-function]
+     static int input  (void)
+                ^
+scan-ops_pddl.y: warning: 1 shift/reduce conflict [-Wconflicts-sr]
+scan-ops_pddl.tab.c: In function 'ops_pddlparse':
+scan-ops_pddl.tab.c:64:25: warning: implicit declaration of function 'ops_pddllex' [-Wimplicit-function-declaration]
+ #define yylex           ops_pddllex
+                         ^
+scan-ops_pddl.tab.c:1439:16: note: in expansion of macro 'yylex'
+       yychar = yylex ();
+                ^
+scan-ops_pddl.y:205:3: warning: implicit declaration of function 'opserr' [-Wimplicit-function-declaration]
+   opserr( DOMDEF_EXPECTED, NULL ); 
+   ^
+scan-ops_pddl.tab.c:65:25: warning: implicit declaration of function 'ops_pddlerror' [-Wimplicit-function-declaration]
+ #define yyerror         ops_pddlerror
+                         ^
+scan-ops_pddl.y:379:5: note: in expansion of macro 'yyerror'
+     yyerror();
+     ^
+In file included from scan-ops_pddl.y:994:0:
+lex.ops_pddl.c: At top level:
+lex.ops_pddl.c:711:12: warning: prototype for 'ops_pddlwrap' follows non-prototype definition
+ extern int ops_pddlwrap (void );
+            ^
+In file included from scan-ops_pddl.y:994:0:
+lex.ops_pddl.c: In function 'ops_pddl_init_buffer':
+lex.ops_pddl.c:1783:48: warning: implicit declaration of function 'fileno' [-Wimplicit-function-declaration]
+         b->yy_is_interactive = file ? (isatty( fileno(file) ) > 0) : 0;
+                                                ^
+scan-ops_pddl.y: At top level:
+scan-ops_pddl.y:1005:6: warning: conflicting types for 'opserr'
+ void opserr( int errno, char *par )
+      ^
+scan-ops_pddl.y:205:3: note: previous implicit declaration of 'opserr' was here
+   opserr( DOMDEF_EXPECTED, NULL ); 
+   ^
+In file included from scan-ops_pddl.y:994:0:
+lex.ops_pddl.c:1537:17: warning: 'yyunput' defined but not used [-Wunused-function]
+     static void yyunput (int c, char * yy_bp )
+                 ^
+lex.ops_pddl.c:1580:16: warning: 'input' defined but not used [-Wunused-function]
+     static int input  (void)
+                ^
+ar: `u' modifier ignored since `D' is the default (see `U')
+src/heuristic/h2.cxx: In member function 'void NFF::H2::compute_with_persist(NFF::State*, NFF::Atom_Op_Vec*, NFF::Bool_Vec*, NFF::Operator_Vec*)':
+src/heuristic/h2.cxx:192:22: warning: variable 'del_useable' set but not used [-Wunused-but-set-variable]
+                 bool del_useable = false;
+                      ^
+src/heuristic/heuristics.cxx: In member function 'void NFF::BestSupporter::extractAllSupPlanForAction(unsigned int, NFF::RelaxedPlan&)':
+src/heuristic/heuristics.cxx:461:42: warning: variable 'op' set but not used [-Wunused-but-set-variable]
+                                 unsigned op = 0;
+                                          ^
+In file included from src/search/node.hxx:33:0,
+                 from src/search/focus_bfs.hxx:22,
+                 from src/search/focus_bfs.cxx:20:
+src/inference/propagation_graph.hxx: In instantiation of 'float NFF::Lazy_Abstract_Propagator<Heuristic>::build_propagation_graph_commited(Node_Type*, bool) [with Node_Type = NFF::Node; Heuristic = NFF::Heuristic_Cls]':
+src/search/focus_bfs.cxx:152:67:   required from here
+src/inference/propagation_graph.hxx:189:46: warning: variable 'at_least_one_supporter' set but not used [-Wunused-but-set-variable]
+                                         bool at_least_one_supporter = false;
+                                              ^
+globals.cc: In function 'std::__cxx11::string get_selfpath()':
+globals.cc:37:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
+option_parser.cc: In member function 'double OptionParser::parse_double(const std::vector<std::__cxx11::basic_string<char> >&, int, int&)':
+option_parser.cc:337:39: warning: parameter 'start' set but not used [-Wunused-but-set-parameter]
+     const vector<string> &config, int start, int &end) {
+                                       ^
+option_parser.cc: In member function 'int OptionParser::parse_int(const std::vector<std::__cxx11::basic_string<char> >&, int, int&)':
+option_parser.cc:350:39: warning: parameter 'start' set but not used [-Wunused-but-set-parameter]
+     const vector<string> &config, int start, int &end) {
+                                       ^
+general_path_h_stats_lazy_best_first_search.cc: In static member function 'static SearchEngine* GeneralPathHStatsLazyBestFirstSearch::create_greedy(const std::vector<std::__cxx11::basic_string<char> >&, int, int&, bool)':
+general_path_h_stats_lazy_best_first_search.cc:136:38: warning: variable 'local_open' set but not used [-Wunused-but-set-variable]
+         OpenList<OpenListEntryLazy> *local_open;
+                                      ^
+general_count_discrepancy_lazy_best_first_search.cc: In static member function 'static SearchEngine* GeneralCountDiscrepancyLazyBestFirstSearch::create_greedy(const std::vector<std::__cxx11::basic_string<char> >&, int, int&, bool)':
+general_count_discrepancy_lazy_best_first_search.cc:186:38: warning: variable 'local_open' set but not used [-Wunused-but-set-variable]
+         OpenList<OpenListEntryLazy> *local_open;
+                                      ^
+general_two_level_macro_rw_eager_best_first_search.cc: In static member function 'static SearchEngine* GeneralTwoLevelMacroRwEagerBestFirstSearch::create_greedy(const std::vector<std::__cxx11::basic_string<char> >&, int, int&, bool)':
+general_two_level_macro_rw_eager_best_first_search.cc:434:10: warning: unused variable 'reopen_closed' [-Wunused-variable]
+     bool reopen_closed = false;
+          ^
+iterated_search_aras.cc: In member function 'virtual int IteratedSearchAras::step()':
+iterated_search_aras.cc:70:17: warning: unused variable 'memory_limit' [-Wunused-variable]
+             int memory_limit = 2000000000 / 1000;
+                 ^
+cg_heuristic.cc: In destructor 'virtual CGHeuristic::~CGHeuristic()':
+cg_heuristic.cc:35:29: warning: deleting object of polymorphic class type 'AdaptiveQueue<ValueNode*>' which has non-virtual destructor might cause undefined behaviour [-Wdelete-non-virtual-dtor]
+         delete prio_queues[i];
+                             ^
+landmarks/landmark_status_manager.cc: In member function 'bool LandmarkStatusManager::update_lm_status(const State&)':
+landmarks/landmark_status_manager.cc:125:16: warning: variable 'proxy' set but not used [-Wunused-but-set-variable]
+     StateProxy proxy = StateProxy(&state);
+                ^
+globals.cc: In function 'std::__cxx11::string get_selfpath()':
+globals.cc:37:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
+option_parser.cc: In member function 'double OptionParser::parse_double(const std::vector<std::__cxx11::basic_string<char> >&, int, int&)':
+option_parser.cc:337:39: warning: parameter 'start' set but not used [-Wunused-but-set-parameter]
+     const vector<string> &config, int start, int &end) {
+                                       ^
+option_parser.cc: In member function 'int OptionParser::parse_int(const std::vector<std::__cxx11::basic_string<char> >&, int, int&)':
+option_parser.cc:350:39: warning: parameter 'start' set but not used [-Wunused-but-set-parameter]
+     const vector<string> &config, int start, int &end) {
+                                       ^
+general_path_h_stats_lazy_best_first_search.cc: In static member function 'static SearchEngine* GeneralPathHStatsLazyBestFirstSearch::create_greedy(const std::vector<std::__cxx11::basic_string<char> >&, int, int&, bool)':
+general_path_h_stats_lazy_best_first_search.cc:136:38: warning: variable 'local_open' set but not used [-Wunused-but-set-variable]
+         OpenList<OpenListEntryLazy> *local_open;
+                                      ^
+general_count_discrepancy_lazy_best_first_search.cc: In static member function 'static SearchEngine* GeneralCountDiscrepancyLazyBestFirstSearch::create_greedy(const std::vector<std::__cxx11::basic_string<char> >&, int, int&, bool)':
+general_count_discrepancy_lazy_best_first_search.cc:186:38: warning: variable 'local_open' set but not used [-Wunused-but-set-variable]
+         OpenList<OpenListEntryLazy> *local_open;
+                                      ^
+general_two_level_macro_rw_eager_best_first_search.cc: In static member function 'static SearchEngine* GeneralTwoLevelMacroRwEagerBestFirstSearch::create_greedy(const std::vector<std::__cxx11::basic_string<char> >&, int, int&, bool)':
+general_two_level_macro_rw_eager_best_first_search.cc:434:10: warning: unused variable 'reopen_closed' [-Wunused-variable]
+     bool reopen_closed = false;
+          ^
+iterated_search_aras.cc: In member function 'virtual int IteratedSearchAras::step()':
+iterated_search_aras.cc:70:17: warning: unused variable 'memory_limit' [-Wunused-variable]
+             int memory_limit = 2000000000 / 1000;
+                 ^
+cg_heuristic.cc: In destructor 'virtual CGHeuristic::~CGHeuristic()':
+cg_heuristic.cc:35:29: warning: deleting object of polymorphic class type 'AdaptiveQueue<ValueNode*>' which has non-virtual destructor might cause undefined behaviour [-Wdelete-non-virtual-dtor]
+         delete prio_queues[i];
+                             ^
+landmarks/landmark_status_manager.cc: In member function 'bool LandmarkStatusManager::update_lm_status(const State&)':
+landmarks/landmark_status_manager.cc:125:16: warning: variable 'proxy' set but not used [-Wunused-but-set-variable]
+     StateProxy proxy = StateProxy(&state);
+                ^
+globals.cc: In function 'std::__cxx11::string get_selfpath()':
+globals.cc:37:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
+option_parser.cc: In member function 'double OptionParser::parse_double(const std::vector<std::__cxx11::basic_string<char> >&, int, int&)':
+option_parser.cc:337:39: warning: parameter 'start' set but not used [-Wunused-but-set-parameter]
+     const vector<string> &config, int start, int &end) {
+                                       ^
+option_parser.cc: In member function 'int OptionParser::parse_int(const std::vector<std::__cxx11::basic_string<char> >&, int, int&)':
+option_parser.cc:350:39: warning: parameter 'start' set but not used [-Wunused-but-set-parameter]
+     const vector<string> &config, int start, int &end) {
+                                       ^
+general_path_h_stats_lazy_best_first_search.cc: In static member function 'static SearchEngine* GeneralPathHStatsLazyBestFirstSearch::create_greedy(const std::vector<std::__cxx11::basic_string<char> >&, int, int&, bool)':
+general_path_h_stats_lazy_best_first_search.cc:136:38: warning: variable 'local_open' set but not used [-Wunused-but-set-variable]
+         OpenList<OpenListEntryLazy> *local_open;
+                                      ^
+general_count_discrepancy_lazy_best_first_search.cc: In static member function 'static SearchEngine* GeneralCountDiscrepancyLazyBestFirstSearch::create_greedy(const std::vector<std::__cxx11::basic_string<char> >&, int, int&, bool)':
+general_count_discrepancy_lazy_best_first_search.cc:186:38: warning: variable 'local_open' set but not used [-Wunused-but-set-variable]
+         OpenList<OpenListEntryLazy> *local_open;
+                                      ^
+general_two_level_macro_rw_eager_best_first_search.cc: In static member function 'static SearchEngine* GeneralTwoLevelMacroRwEagerBestFirstSearch::create_greedy(const std::vector<std::__cxx11::basic_string<char> >&, int, int&, bool)':
+general_two_level_macro_rw_eager_best_first_search.cc:434:10: warning: unused variable 'reopen_closed' [-Wunused-variable]
+     bool reopen_closed = false;
+          ^
+iterated_search_aras.cc: In member function 'virtual int IteratedSearchAras::step()':
+iterated_search_aras.cc:70:17: warning: unused variable 'memory_limit' [-Wunused-variable]
+             int memory_limit = 2000000000 / 1000;
+                 ^
+cg_heuristic.cc: In destructor 'virtual CGHeuristic::~CGHeuristic()':
+cg_heuristic.cc:35:29: warning: deleting object of polymorphic class type 'AdaptiveQueue<ValueNode*>' which has non-virtual destructor might cause undefined behaviour [-Wdelete-non-virtual-dtor]
+         delete prio_queues[i];
+                             ^
+landmarks/landmark_status_manager.cc: In member function 'bool LandmarkStatusManager::update_lm_status(const State&)':
+landmarks/landmark_status_manager.cc:125:16: warning: variable 'proxy' set but not used [-Wunused-but-set-variable]
+     StateProxy proxy = StateProxy(&state);
+                ^
+mrw.cc:424:34: warning: unused parameter 'walk_number' [-Wunused-parameter]
+ void MRW::update_current_min(int walk_number, int index, WalkInfo& info, Path& min_path, int cost, int& min_cost, int& arg_min) {
+                                  ^
+plan_booster.cc: In member function 'std::vector<const Operator*> PlanBooster::any_time_neighborhood_search_star(std::vector<const Operator*>&, bool, bool)':
+plan_booster.cc:325:6: warning: variable 'current_size' set but not used [-Wunused-but-set-variable]
+  int current_size = 0;
+      ^
+plan_booster.cc: In member function 'std::vector<const Operator*> PlanBooster::any_time_neighborhood_search_star_for_statistics(std::vector<const Operator*>&, bool, bool)':
+plan_booster.cc:452:9: warning: variable 'current_size' set but not used [-Wunused-but-set-variable]
+     int current_size = 0;
+         ^
+bfmrw.cc:1105:36: warning: unused parameter 'walk_number' [-Wunused-parameter]
+ void BFMRW::update_current_min(int walk_number, int index, WalkInfo& info, Path& min_path, int cost, int& min_cost, int& arg_min) {
+                                    ^
+bfmrw.cc: In member function 'void BFMRW::s_restart()':
+bfmrw.cc:1184:11: warning: variable 'walk_value' set but not used [-Wunused-but-set-variable]
+     float walk_value = 0;
+           ^
+In file included from plan_distance_estimator.cc:8:0:
+plan_distance_estimator.h: In constructor 'PlanDistance::PlanDistance()':
+plan_distance_estimator.h:48:14: warning: 'PlanDistance::m_nuMatched' will be initialized after [-Wreorder]
+     unsigned m_nuMatched;
+              ^
+plan_distance_estimator.h:47:14: warning:   'unsigned int PlanDistance::m_nuTotal' [-Wreorder]
+     unsigned m_nuTotal;
+              ^
+plan_distance_estimator.cc:39:1: warning:   when initialized here [-Wreorder]
+ PlanDistance::PlanDistance() : m_type(UnKnown), m_nuMatched(-1), m_nuTotal(-1)
+ ^
+makedepend: warning:  main.c (reading /usr/include/stdlib.h, line 32): cannot find include file "stddef.h"
+	not in /usr/include/stddef.h
+makedepend: warning:  main.c (reading /usr/include/sys/types.h, line 146): cannot find include file "stddef.h"
+	not in /usr/include/stddef.h
+makedepend: warning:  main.c (reading /usr/include/alloca.h, line 24): cannot find include file "stddef.h"
+	not in /usr/include/stddef.h
+makedepend: warning:  main.c (reading /usr/include/stdio.h, line 33): cannot find include file "stddef.h"
+	not in /usr/include/stddef.h
+makedepend: warning:  main.c (reading /usr/include/_G_config.h, line 15): cannot find include file "stddef.h"
+	not in /usr/include/stddef.h
+makedepend: warning:  main.c (reading /usr/include/wchar.h, line 51): cannot find include file "stddef.h"
+	not in /usr/include/stddef.h
+makedepend: warning:  main.c (reading /usr/include/libio.h, line 49): cannot find include file "stdarg.h"
+	not in /usr/include/stdarg.h
+makedepend: warning:  main.c (reading /usr/include/strings.h, line 28): cannot find include file "stddef.h"
+	not in /usr/include/stddef.h
+makedepend: warning:  main.c (reading /usr/include/string.h, line 32): cannot find include file "stddef.h"
+	not in /usr/include/stddef.h
+makedepend: warning:  cannot open "scan-fct_pddl.tab.c"
+makedepend: warning:  cannot open "scan-ops_pddl.tab.c"
+makedepend: warning:  cannot open "scan-probname.tab.c"
+makedepend: warning:  cannot open "lex.fct_pddl.c"
+makedepend: warning:  cannot open "lex.ops_pddl.c"
+makedepend: warning:  test_main.cxx, line 3: cannot find include file "iostream"
+	not in /usr/include/iostream
+makedepend: warning:  test_main.cxx, line 4: cannot find include file "fstream"
+	not in /usr/include/fstream
+In file included from libff.c:1:0:
+libff.h:410:8: warning: extra tokens at end of #endif directive [-Wendif-labels]
+ #endif //libff.h
+        ^
+libff.c: In function 'FF_parse_problem':
+libff.c:378:2: warning: implicit declaration of function 'snprintf' [-Wimplicit-function-declaration]
+  snprintf( ops_file, MAX_LENGTH, "%s", domain_file );
+  ^
+inst_final.c: In function 'build_connectivity_graph':
+inst_final.c:1932:3: warning: implicit declaration of function 'srandom' [-Wimplicit-function-declaration]
+   srandom( tp.millitm );
+   ^
+inst_final.c:1948:24: warning: implicit declaration of function 'random' [-Wimplicit-function-declaration]
+     gft_conn[i].rand = random() % BIG_INT;
+                        ^
+search.c: In function 'do_best_first_search':
+search.c:936:5: warning: implicit declaration of function 'print_state' [-Wimplicit-function-declaration]
+     print_state( &(first->S) );
+     ^
+scan-fct_pddl.y: warning: 1 nonterminal useless in grammar [-Wother]
+scan-fct_pddl.y: warning: 2 rules useless in grammar [-Wother]
+scan-fct_pddl.y:135.17-33: warning: nonterminal useless in grammar: literal_name_plus [-Wother]
+ %type <pPlNode> literal_name_plus
+                 ^^^^^^^^^^^^^^^^^
+scan-fct_pddl.y:814.1-817.1: warning: rule useless in grammar [-Wother]
+ literal_name
+ ^^^^^^^^^^^^
+scan-fct_pddl.y:819.1-823.1: warning: rule useless in grammar [-Wother]
+ literal_name literal_name_plus
+ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+scan-fct_pddl.y: warning: 1 shift/reduce conflict [-Wconflicts-sr]
+scan-fct_pddl.y: warning: 1 reduce/reduce conflict [-Wconflicts-rr]
+scan-fct_pddl.tab.c: In function 'fct_pddlparse':
+scan-fct_pddl.tab.c:64:25: warning: implicit declaration of function 'fct_pddllex' [-Wimplicit-function-declaration]
+ #define yylex           fct_pddllex
+                         ^
+scan-fct_pddl.tab.c:1382:16: note: in expansion of macro 'yylex'
+       yychar = yylex ();
+                ^
+scan-fct_pddl.y:194:3: warning: implicit declaration of function 'fcterr' [-Wimplicit-function-declaration]
+   fcterr( PROBNAME_EXPECTED, NULL ); 
+   ^
+scan-fct_pddl.tab.c:65:25: warning: implicit declaration of function 'fct_pddlerror' [-Wimplicit-function-declaration]
+ #define yyerror         fct_pddlerror
+                         ^
+scan-fct_pddl.y:222:5: note: in expansion of macro 'yyerror'
+     yyerror();
+     ^
+In file included from scan-fct_pddl.y:876:0:
+lex.fct_pddl.c: At top level:
+lex.fct_pddl.c:696:12: warning: prototype for 'fct_pddlwrap' follows non-prototype definition
+ extern int fct_pddlwrap (void );
+            ^
+In file included from scan-fct_pddl.y:876:0:
+lex.fct_pddl.c: In function 'fct_pddl_init_buffer':
+lex.fct_pddl.c:1742:48: warning: implicit declaration of function 'fileno' [-Wimplicit-function-declaration]
+         b->yy_is_interactive = file ? (isatty( fileno(file) ) > 0) : 0;
+                                                ^
+scan-fct_pddl.y: At top level:
+scan-fct_pddl.y:887:6: warning: conflicting types for 'fcterr'
+ void fcterr( int errno, char *par ) {
+      ^
+scan-fct_pddl.y:194:3: note: previous implicit declaration of 'fcterr' was here
+   fcterr( PROBNAME_EXPECTED, NULL ); 
+   ^
+In file included from scan-fct_pddl.y:876:0:
+lex.fct_pddl.c:1496:17: warning: 'yyunput' defined but not used [-Wunused-function]
+     static void yyunput (int c, char * yy_bp )
+                 ^
+lex.fct_pddl.c:1539:16: warning: 'input' defined but not used [-Wunused-function]
+     static int input  (void)
+                ^
+scan-ops_pddl.y: warning: 1 shift/reduce conflict [-Wconflicts-sr]
+scan-ops_pddl.tab.c: In function 'ops_pddlparse':
+scan-ops_pddl.tab.c:64:25: warning: implicit declaration of function 'ops_pddllex' [-Wimplicit-function-declaration]
+ #define yylex           ops_pddllex
+                         ^
+scan-ops_pddl.tab.c:1439:16: note: in expansion of macro 'yylex'
+       yychar = yylex ();
+                ^
+scan-ops_pddl.y:205:3: warning: implicit declaration of function 'opserr' [-Wimplicit-function-declaration]
+   opserr( DOMDEF_EXPECTED, NULL ); 
+   ^
+scan-ops_pddl.tab.c:65:25: warning: implicit declaration of function 'ops_pddlerror' [-Wimplicit-function-declaration]
+ #define yyerror         ops_pddlerror
+                         ^
+scan-ops_pddl.y:379:5: note: in expansion of macro 'yyerror'
+     yyerror();
+     ^
+In file included from scan-ops_pddl.y:994:0:
+lex.ops_pddl.c: At top level:
+lex.ops_pddl.c:711:12: warning: prototype for 'ops_pddlwrap' follows non-prototype definition
+ extern int ops_pddlwrap (void );
+            ^
+In file included from scan-ops_pddl.y:994:0:
+lex.ops_pddl.c: In function 'ops_pddl_init_buffer':
+lex.ops_pddl.c:1783:48: warning: implicit declaration of function 'fileno' [-Wimplicit-function-declaration]
+         b->yy_is_interactive = file ? (isatty( fileno(file) ) > 0) : 0;
+                                                ^
+scan-ops_pddl.y: At top level:
+scan-ops_pddl.y:1005:6: warning: conflicting types for 'opserr'
+ void opserr( int errno, char *par )
+      ^
+scan-ops_pddl.y:205:3: note: previous implicit declaration of 'opserr' was here
+   opserr( DOMDEF_EXPECTED, NULL ); 
+   ^
+In file included from scan-ops_pddl.y:994:0:
+lex.ops_pddl.c:1537:17: warning: 'yyunput' defined but not used [-Wunused-function]
+     static void yyunput (int c, char * yy_bp )
+                 ^
+lex.ops_pddl.c:1580:16: warning: 'input' defined but not used [-Wunused-function]
+     static int input  (void)
+                ^
+ar: `u' modifier ignored since `D' is the default (see `U')
+In file included from /planner/src/siw/interfaces/agnostic/strips_prob.hxx:28:0,
+                 from /planner/src/siw/interfaces/ff-wrapped/ff_to_aptk.hxx:25,
+                 from src/main.cxx:26:
+/planner/src/siw/interfaces/agnostic/types.hxx: In member function 'unsigned int aptk::Pair_Value_Table::get_value(unsigned int, unsigned int)':
+/planner/src/siw/interfaces/agnostic/types.hxx:57:61: warning: overflow in implicit constant conversion [-Woverflow]
+ #define infty          std::numeric_limits<float>::infinity()
+                                                             ^
+/planner/src/siw/interfaces/agnostic/types.hxx:67:31: note: in expansion of macro 'infty'
+     if ( it == end() ) return infty;
+                               ^
+In file included from /planner/src/siw/interfaces/agnostic/action.hxx:24:0,
+                 from /planner/src/siw/interfaces/agnostic/action.cxx:21:
+/planner/src/siw/interfaces/agnostic/types.hxx: In member function 'unsigned int aptk::Pair_Value_Table::get_value(unsigned int, unsigned int)':
+/planner/src/siw/interfaces/agnostic/types.hxx:57:61: warning: overflow in implicit constant conversion [-Woverflow]
+ #define infty          std::numeric_limits<float>::infinity()
+                                                             ^
+/planner/src/siw/interfaces/agnostic/types.hxx:67:31: note: in expansion of macro 'infty'
+     if ( it == end() ) return infty;
+                               ^
+In file included from /planner/src/siw/interfaces/agnostic/cond_eff.hxx:24:0,
+                 from /planner/src/siw/interfaces/agnostic/cond_eff.cxx:21:
+/planner/src/siw/interfaces/agnostic/types.hxx: In member function 'unsigned int aptk::Pair_Value_Table::get_value(unsigned int, unsigned int)':
+/planner/src/siw/interfaces/agnostic/types.hxx:57:61: warning: overflow in implicit constant conversion [-Woverflow]
+ #define infty          std::numeric_limits<float>::infinity()
+                                                             ^
+/planner/src/siw/interfaces/agnostic/types.hxx:67:31: note: in expansion of macro 'infty'
+     if ( it == end() ) return infty;
+                               ^
+In file included from /planner/src/siw/interfaces/agnostic/strips_prob.hxx:28:0,
+                 from /planner/src/siw/interfaces/agnostic/conj_comp_prob.hxx:4,
+                 from /planner/src/siw/interfaces/agnostic/conj_comp_prob.cxx:1:
+/planner/src/siw/interfaces/agnostic/types.hxx: In member function 'unsigned int aptk::Pair_Value_Table::get_value(unsigned int, unsigned int)':
+/planner/src/siw/interfaces/agnostic/types.hxx:57:61: warning: overflow in implicit constant conversion [-Woverflow]
+ #define infty          std::numeric_limits<float>::infinity()
+                                                             ^
+/planner/src/siw/interfaces/agnostic/types.hxx:67:31: note: in expansion of macro 'infty'
+     if ( it == end() ) return infty;
+                               ^
+In file included from /planner/src/siw/interfaces/agnostic/fl_conj.hxx:6:0,
+                 from /planner/src/siw/interfaces/agnostic/fl_conj.cxx:1:
+/planner/src/siw/interfaces/agnostic/types.hxx: In member function 'unsigned int aptk::Pair_Value_Table::get_value(unsigned int, unsigned int)':
+/planner/src/siw/interfaces/agnostic/types.hxx:57:61: warning: overflow in implicit constant conversion [-Woverflow]
+ #define infty          std::numeric_limits<float>::infinity()
+                                                             ^
+/planner/src/siw/interfaces/agnostic/types.hxx:67:31: note: in expansion of macro 'infty'
+     if ( it == end() ) return infty;
+                               ^
+In file included from /planner/src/siw/interfaces/agnostic/fluent.hxx:24:0,
+                 from /planner/src/siw/interfaces/agnostic/fluent.cxx:21:
+/planner/src/siw/interfaces/agnostic/types.hxx: In member function 'unsigned int aptk::Pair_Value_Table::get_value(unsigned int, unsigned int)':
+/planner/src/siw/interfaces/agnostic/types.hxx:57:61: warning: overflow in implicit constant conversion [-Woverflow]
+ #define infty          std::numeric_limits<float>::infinity()
+                                                             ^
+/planner/src/siw/interfaces/agnostic/types.hxx:67:31: note: in expansion of macro 'infty'
+     if ( it == end() ) return infty;
+                               ^
+In file included from /planner/src/siw/interfaces/agnostic/strips_prob.hxx:28:0,
+                 from /planner/src/siw/interfaces/agnostic/fwd_search_prob.hxx:24,
+                 from /planner/src/siw/interfaces/agnostic/fwd_search_prob.cxx:21:
+/planner/src/siw/interfaces/agnostic/types.hxx: In member function 'unsigned int aptk::Pair_Value_Table::get_value(unsigned int, unsigned int)':
+/planner/src/siw/interfaces/agnostic/types.hxx:57:61: warning: overflow in implicit constant conversion [-Woverflow]
+ #define infty          std::numeric_limits<float>::infinity()
+                                                             ^
+/planner/src/siw/interfaces/agnostic/types.hxx:67:31: note: in expansion of macro 'infty'
+     if ( it == end() ) return infty;
+                               ^
+In file included from /planner/src/siw/interfaces/agnostic/strips_prob.hxx:28:0,
+                 from /planner/src/siw/interfaces/agnostic/strips_state.hxx:24,
+                 from /planner/src/siw/interfaces/agnostic/landmark_graph.hxx:26,
+                 from /planner/src/siw/interfaces/agnostic/landmark_graph.cxx:21:
+/planner/src/siw/interfaces/agnostic/types.hxx: In member function 'unsigned int aptk::Pair_Value_Table::get_value(unsigned int, unsigned int)':
+/planner/src/siw/interfaces/agnostic/types.hxx:57:61: warning: overflow in implicit constant conversion [-Woverflow]
+ #define infty          std::numeric_limits<float>::infinity()
+                                                             ^
+/planner/src/siw/interfaces/agnostic/types.hxx:67:31: note: in expansion of macro 'infty'
+     if ( it == end() ) return infty;
+                               ^
+In file included from /planner/src/siw/interfaces/agnostic/match_tree.hxx:25:0,
+                 from /planner/src/siw/interfaces/agnostic/match_tree.cxx:22:
+/planner/src/siw/interfaces/agnostic/types.hxx: In member function 'unsigned int aptk::Pair_Value_Table::get_value(unsigned int, unsigned int)':
+/planner/src/siw/interfaces/agnostic/types.hxx:57:61: warning: overflow in implicit constant conversion [-Woverflow]
+ #define infty          std::numeric_limits<float>::infinity()
+                                                             ^
+/planner/src/siw/interfaces/agnostic/types.hxx:67:31: note: in expansion of macro 'infty'
+     if ( it == end() ) return infty;
+                               ^
+In file included from /planner/src/siw/interfaces/agnostic/mutex_set.hxx:5:0,
+                 from /planner/src/siw/interfaces/agnostic/mutex_set.cxx:1:
+/planner/src/siw/interfaces/agnostic/types.hxx: In member function 'unsigned int aptk::Pair_Value_Table::get_value(unsigned int, unsigned int)':
+/planner/src/siw/interfaces/agnostic/types.hxx:57:61: warning: overflow in implicit constant conversion [-Woverflow]
+ #define infty          std::numeric_limits<float>::infinity()
+                                                             ^
+/planner/src/siw/interfaces/agnostic/types.hxx:67:31: note: in expansion of macro 'infty'
+     if ( it == end() ) return infty;
+                               ^
+In file included from /planner/src/siw/interfaces/agnostic/strips_prob.hxx:28:0,
+                 from /planner/src/siw/interfaces/agnostic/reachability.hxx:24,
+                 from /planner/src/siw/interfaces/agnostic/reachability.cxx:21:
+/planner/src/siw/interfaces/agnostic/types.hxx: In member function 'unsigned int aptk::Pair_Value_Table::get_value(unsigned int, unsigned int)':
+/planner/src/siw/interfaces/agnostic/types.hxx:57:61: warning: overflow in implicit constant conversion [-Woverflow]
+ #define infty          std::numeric_limits<float>::infinity()
+                                                             ^
+/planner/src/siw/interfaces/agnostic/types.hxx:67:31: note: in expansion of macro 'infty'
+     if ( it == end() ) return infty;
+                               ^
+In file included from /planner/src/siw/interfaces/agnostic/strips_prob.hxx:28:0,
+                 from /planner/src/siw/interfaces/agnostic/strips_prob.cxx:21:
+/planner/src/siw/interfaces/agnostic/types.hxx: In member function 'unsigned int aptk::Pair_Value_Table::get_value(unsigned int, unsigned int)':
+/planner/src/siw/interfaces/agnostic/types.hxx:57:61: warning: overflow in implicit constant conversion [-Woverflow]
+ #define infty          std::numeric_limits<float>::infinity()
+                                                             ^
+/planner/src/siw/interfaces/agnostic/types.hxx:67:31: note: in expansion of macro 'infty'
+     if ( it == end() ) return infty;
+                               ^
+In file included from /planner/src/siw/interfaces/agnostic/strips_prob.hxx:28:0,
+                 from /planner/src/siw/interfaces/agnostic/strips_state.hxx:24,
+                 from /planner/src/siw/interfaces/agnostic/strips_state.cxx:21:
+/planner/src/siw/interfaces/agnostic/types.hxx: In member function 'unsigned int aptk::Pair_Value_Table::get_value(unsigned int, unsigned int)':
+/planner/src/siw/interfaces/agnostic/types.hxx:57:61: warning: overflow in implicit constant conversion [-Woverflow]
+ #define infty          std::numeric_limits<float>::infinity()
+                                                             ^
+/planner/src/siw/interfaces/agnostic/types.hxx:67:31: note: in expansion of macro 'infty'
+     if ( it == end() ) return infty;
+                               ^
+In file included from /planner/src/siw/interfaces/agnostic/succ_gen.hxx:24:0,
+                 from /planner/src/siw/interfaces/agnostic/succ_gen.cxx:21:
+/planner/src/siw/interfaces/agnostic/types.hxx: In member function 'unsigned int aptk::Pair_Value_Table::get_value(unsigned int, unsigned int)':
+/planner/src/siw/interfaces/agnostic/types.hxx:57:61: warning: overflow in implicit constant conversion [-Woverflow]
+ #define infty          std::numeric_limits<float>::infinity()
+                                                             ^
+/planner/src/siw/interfaces/agnostic/types.hxx:67:31: note: in expansion of macro 'infty'
+     if ( it == end() ) return infty;
+                               ^
+In file included from /planner/src/siw/interfaces/agnostic/strips_prob.hxx:28:0,
+                 from /planner/src/siw/interfaces/ff-wrapped/ff_to_aptk.hxx:25,
+                 from /planner/src/siw/interfaces/ff-wrapped/ff_to_aptk.cxx:21:
+/planner/src/siw/interfaces/agnostic/types.hxx: In member function 'unsigned int aptk::Pair_Value_Table::get_value(unsigned int, unsigned int)':
+/planner/src/siw/interfaces/agnostic/types.hxx:57:61: warning: overflow in implicit constant conversion [-Woverflow]
+ #define infty          std::numeric_limits<float>::infinity()
+                                                             ^
+/planner/src/siw/interfaces/agnostic/types.hxx:67:31: note: in expansion of macro 'infty'
+     if ( it == end() ) return infty;
+                               ^
+makedepend: warning:  main.c (reading /usr/include/stdlib.h, line 32): cannot find include file "stddef.h"
+	not in /usr/include/stddef.h
+makedepend: warning:  main.c (reading /usr/include/sys/types.h, line 146): cannot find include file "stddef.h"
+	not in /usr/include/stddef.h
+makedepend: warning:  main.c (reading /usr/include/alloca.h, line 24): cannot find include file "stddef.h"
+	not in /usr/include/stddef.h
+makedepend: warning:  main.c (reading /usr/include/stdio.h, line 33): cannot find include file "stddef.h"
+	not in /usr/include/stddef.h
+makedepend: warning:  main.c (reading /usr/include/_G_config.h, line 15): cannot find include file "stddef.h"
+	not in /usr/include/stddef.h
+makedepend: warning:  main.c (reading /usr/include/wchar.h, line 51): cannot find include file "stddef.h"
+	not in /usr/include/stddef.h
+makedepend: warning:  main.c (reading /usr/include/libio.h, line 49): cannot find include file "stdarg.h"
+	not in /usr/include/stdarg.h
+makedepend: warning:  main.c (reading /usr/include/strings.h, line 28): cannot find include file "stddef.h"
+	not in /usr/include/stddef.h
+makedepend: warning:  main.c (reading /usr/include/string.h, line 32): cannot find include file "stddef.h"
+	not in /usr/include/stddef.h
+makedepend: warning:  cannot open "scan-fct_pddl.tab.c"
+makedepend: warning:  cannot open "scan-ops_pddl.tab.c"
+makedepend: warning:  cannot open "scan-probname.tab.c"
+makedepend: warning:  cannot open "lex.fct_pddl.c"
+makedepend: warning:  cannot open "lex.ops_pddl.c"
+makedepend: warning:  test_main.cxx, line 3: cannot find include file "iostream"
+	not in /usr/include/iostream
+makedepend: warning:  test_main.cxx, line 4: cannot find include file "fstream"
+	not in /usr/include/fstream
+In file included from libff.c:1:0:
+libff.h:410:8: warning: extra tokens at end of #endif directive [-Wendif-labels]
+ #endif //libff.h
+        ^
+libff.c: In function 'FF_parse_problem':
+libff.c:378:2: warning: implicit declaration of function 'snprintf' [-Wimplicit-function-declaration]
+  snprintf( ops_file, MAX_LENGTH, "%s", domain_file );
+  ^
+inst_final.c: In function 'build_connectivity_graph':
+inst_final.c:1932:3: warning: implicit declaration of function 'srandom' [-Wimplicit-function-declaration]
+   srandom( tp.millitm );
+   ^
+inst_final.c:1948:24: warning: implicit declaration of function 'random' [-Wimplicit-function-declaration]
+     gft_conn[i].rand = random() % BIG_INT;
+                        ^
+search.c: In function 'do_best_first_search':
+search.c:936:5: warning: implicit declaration of function 'print_state' [-Wimplicit-function-declaration]
+     print_state( &(first->S) );
+     ^
+scan-fct_pddl.y: warning: 1 nonterminal useless in grammar [-Wother]
+scan-fct_pddl.y: warning: 2 rules useless in grammar [-Wother]
+scan-fct_pddl.y:135.17-33: warning: nonterminal useless in grammar: literal_name_plus [-Wother]
+ %type <pPlNode> literal_name_plus
+                 ^^^^^^^^^^^^^^^^^
+scan-fct_pddl.y:814.1-817.1: warning: rule useless in grammar [-Wother]
+ literal_name
+ ^^^^^^^^^^^^
+scan-fct_pddl.y:819.1-823.1: warning: rule useless in grammar [-Wother]
+ literal_name literal_name_plus
+ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+scan-fct_pddl.y: warning: 1 shift/reduce conflict [-Wconflicts-sr]
+scan-fct_pddl.y: warning: 1 reduce/reduce conflict [-Wconflicts-rr]
+scan-fct_pddl.tab.c: In function 'fct_pddlparse':
+scan-fct_pddl.tab.c:64:25: warning: implicit declaration of function 'fct_pddllex' [-Wimplicit-function-declaration]
+ #define yylex           fct_pddllex
+                         ^
+scan-fct_pddl.tab.c:1382:16: note: in expansion of macro 'yylex'
+       yychar = yylex ();
+                ^
+scan-fct_pddl.y:194:3: warning: implicit declaration of function 'fcterr' [-Wimplicit-function-declaration]
+   fcterr( PROBNAME_EXPECTED, NULL ); 
+   ^
+scan-fct_pddl.tab.c:65:25: warning: implicit declaration of function 'fct_pddlerror' [-Wimplicit-function-declaration]
+ #define yyerror         fct_pddlerror
+                         ^
+scan-fct_pddl.y:222:5: note: in expansion of macro 'yyerror'
+     yyerror();
+     ^
+In file included from scan-fct_pddl.y:876:0:
+lex.fct_pddl.c: At top level:
+lex.fct_pddl.c:696:12: warning: prototype for 'fct_pddlwrap' follows non-prototype definition
+ extern int fct_pddlwrap (void );
+            ^
+In file included from scan-fct_pddl.y:876:0:
+lex.fct_pddl.c: In function 'fct_pddl_init_buffer':
+lex.fct_pddl.c:1742:48: warning: implicit declaration of function 'fileno' [-Wimplicit-function-declaration]
+         b->yy_is_interactive = file ? (isatty( fileno(file) ) > 0) : 0;
+                                                ^
+scan-fct_pddl.y: At top level:
+scan-fct_pddl.y:887:6: warning: conflicting types for 'fcterr'
+ void fcterr( int errno, char *par ) {
+      ^
+scan-fct_pddl.y:194:3: note: previous implicit declaration of 'fcterr' was here
+   fcterr( PROBNAME_EXPECTED, NULL ); 
+   ^
+In file included from scan-fct_pddl.y:876:0:
+lex.fct_pddl.c:1496:17: warning: 'yyunput' defined but not used [-Wunused-function]
+     static void yyunput (int c, char * yy_bp )
+                 ^
+lex.fct_pddl.c:1539:16: warning: 'input' defined but not used [-Wunused-function]
+     static int input  (void)
+                ^
+scan-ops_pddl.y: warning: 1 shift/reduce conflict [-Wconflicts-sr]
+scan-ops_pddl.tab.c: In function 'ops_pddlparse':
+scan-ops_pddl.tab.c:64:25: warning: implicit declaration of function 'ops_pddllex' [-Wimplicit-function-declaration]
+ #define yylex           ops_pddllex
+                         ^
+scan-ops_pddl.tab.c:1439:16: note: in expansion of macro 'yylex'
+       yychar = yylex ();
+                ^
+scan-ops_pddl.y:205:3: warning: implicit declaration of function 'opserr' [-Wimplicit-function-declaration]
+   opserr( DOMDEF_EXPECTED, NULL ); 
+   ^
+scan-ops_pddl.tab.c:65:25: warning: implicit declaration of function 'ops_pddlerror' [-Wimplicit-function-declaration]
+ #define yyerror         ops_pddlerror
+                         ^
+scan-ops_pddl.y:379:5: note: in expansion of macro 'yyerror'
+     yyerror();
+     ^
+In file included from scan-ops_pddl.y:994:0:
+lex.ops_pddl.c: At top level:
+lex.ops_pddl.c:711:12: warning: prototype for 'ops_pddlwrap' follows non-prototype definition
+ extern int ops_pddlwrap (void );
+            ^
+In file included from scan-ops_pddl.y:994:0:
+lex.ops_pddl.c: In function 'ops_pddl_init_buffer':
+lex.ops_pddl.c:1783:48: warning: implicit declaration of function 'fileno' [-Wimplicit-function-declaration]
+         b->yy_is_interactive = file ? (isatty( fileno(file) ) > 0) : 0;
+                                                ^
+scan-ops_pddl.y: At top level:
+scan-ops_pddl.y:1005:6: warning: conflicting types for 'opserr'
+ void opserr( int errno, char *par )
+      ^
+scan-ops_pddl.y:205:3: note: previous implicit declaration of 'opserr' was here
+   opserr( DOMDEF_EXPECTED, NULL ); 
+   ^
+In file included from scan-ops_pddl.y:994:0:
+lex.ops_pddl.c:1537:17: warning: 'yyunput' defined but not used [-Wunused-function]
+     static void yyunput (int c, char * yy_bp )
+                 ^
+lex.ops_pddl.c:1580:16: warning: 'input' defined but not used [-Wunused-function]
+     static int input  (void)
+                ^
+ar: `u' modifier ignored since `D' is the default (see `U')
+In file included from /planner/src/bfs-f/interfaces/agnostic/strips_prob.hxx:28:0,
+                 from /planner/src/bfs-f/interfaces/ff-wrapped/ff_to_aptk.hxx:25,
+                 from src/main.cxx:26:
+/planner/src/bfs-f/interfaces/agnostic/types.hxx: In member function 'unsigned int aptk::Pair_Value_Table::get_value(unsigned int, unsigned int)':
+/planner/src/bfs-f/interfaces/agnostic/types.hxx:57:61: warning: overflow in implicit constant conversion [-Woverflow]
+ #define infty          std::numeric_limits<float>::infinity()
+                                                             ^
+/planner/src/bfs-f/interfaces/agnostic/types.hxx:67:31: note: in expansion of macro 'infty'
+     if ( it == end() ) return infty;
+                               ^
+In file included from /planner/src/bfs-f/interfaces/agnostic/action.hxx:24:0,
+                 from /planner/src/bfs-f/interfaces/agnostic/action.cxx:21:
+/planner/src/bfs-f/interfaces/agnostic/types.hxx: In member function 'unsigned int aptk::Pair_Value_Table::get_value(unsigned int, unsigned int)':
+/planner/src/bfs-f/interfaces/agnostic/types.hxx:57:61: warning: overflow in implicit constant conversion [-Woverflow]
+ #define infty          std::numeric_limits<float>::infinity()
+                                                             ^
+/planner/src/bfs-f/interfaces/agnostic/types.hxx:67:31: note: in expansion of macro 'infty'
+     if ( it == end() ) return infty;
+                               ^
+In file included from /planner/src/bfs-f/interfaces/agnostic/cond_eff.hxx:24:0,
+                 from /planner/src/bfs-f/interfaces/agnostic/cond_eff.cxx:21:
+/planner/src/bfs-f/interfaces/agnostic/types.hxx: In member function 'unsigned int aptk::Pair_Value_Table::get_value(unsigned int, unsigned int)':
+/planner/src/bfs-f/interfaces/agnostic/types.hxx:57:61: warning: overflow in implicit constant conversion [-Woverflow]
+ #define infty          std::numeric_limits<float>::infinity()
+                                                             ^
+/planner/src/bfs-f/interfaces/agnostic/types.hxx:67:31: note: in expansion of macro 'infty'
+     if ( it == end() ) return infty;
+                               ^
+In file included from /planner/src/bfs-f/interfaces/agnostic/strips_prob.hxx:28:0,
+                 from /planner/src/bfs-f/interfaces/agnostic/conj_comp_prob.hxx:4,
+                 from /planner/src/bfs-f/interfaces/agnostic/conj_comp_prob.cxx:1:
+/planner/src/bfs-f/interfaces/agnostic/types.hxx: In member function 'unsigned int aptk::Pair_Value_Table::get_value(unsigned int, unsigned int)':
+/planner/src/bfs-f/interfaces/agnostic/types.hxx:57:61: warning: overflow in implicit constant conversion [-Woverflow]
+ #define infty          std::numeric_limits<float>::infinity()
+                                                             ^
+/planner/src/bfs-f/interfaces/agnostic/types.hxx:67:31: note: in expansion of macro 'infty'
+     if ( it == end() ) return infty;
+                               ^
+In file included from /planner/src/bfs-f/interfaces/agnostic/fl_conj.hxx:6:0,
+                 from /planner/src/bfs-f/interfaces/agnostic/fl_conj.cxx:1:
+/planner/src/bfs-f/interfaces/agnostic/types.hxx: In member function 'unsigned int aptk::Pair_Value_Table::get_value(unsigned int, unsigned int)':
+/planner/src/bfs-f/interfaces/agnostic/types.hxx:57:61: warning: overflow in implicit constant conversion [-Woverflow]
+ #define infty          std::numeric_limits<float>::infinity()
+                                                             ^
+/planner/src/bfs-f/interfaces/agnostic/types.hxx:67:31: note: in expansion of macro 'infty'
+     if ( it == end() ) return infty;
+                               ^
+In file included from /planner/src/bfs-f/interfaces/agnostic/fluent.hxx:24:0,
+                 from /planner/src/bfs-f/interfaces/agnostic/fluent.cxx:21:
+/planner/src/bfs-f/interfaces/agnostic/types.hxx: In member function 'unsigned int aptk::Pair_Value_Table::get_value(unsigned int, unsigned int)':
+/planner/src/bfs-f/interfaces/agnostic/types.hxx:57:61: warning: overflow in implicit constant conversion [-Woverflow]
+ #define infty          std::numeric_limits<float>::infinity()
+                                                             ^
+/planner/src/bfs-f/interfaces/agnostic/types.hxx:67:31: note: in expansion of macro 'infty'
+     if ( it == end() ) return infty;
+                               ^
+In file included from /planner/src/bfs-f/interfaces/agnostic/strips_prob.hxx:28:0,
+                 from /planner/src/bfs-f/interfaces/agnostic/fwd_search_prob.hxx:24,
+                 from /planner/src/bfs-f/interfaces/agnostic/fwd_search_prob.cxx:21:
+/planner/src/bfs-f/interfaces/agnostic/types.hxx: In member function 'unsigned int aptk::Pair_Value_Table::get_value(unsigned int, unsigned int)':
+/planner/src/bfs-f/interfaces/agnostic/types.hxx:57:61: warning: overflow in implicit constant conversion [-Woverflow]
+ #define infty          std::numeric_limits<float>::infinity()
+                                                             ^
+/planner/src/bfs-f/interfaces/agnostic/types.hxx:67:31: note: in expansion of macro 'infty'
+     if ( it == end() ) return infty;
+                               ^
+In file included from /planner/src/bfs-f/interfaces/agnostic/strips_prob.hxx:28:0,
+                 from /planner/src/bfs-f/interfaces/agnostic/strips_state.hxx:24,
+                 from /planner/src/bfs-f/interfaces/agnostic/landmark_graph.hxx:26,
+                 from /planner/src/bfs-f/interfaces/agnostic/landmark_graph.cxx:21:
+/planner/src/bfs-f/interfaces/agnostic/types.hxx: In member function 'unsigned int aptk::Pair_Value_Table::get_value(unsigned int, unsigned int)':
+/planner/src/bfs-f/interfaces/agnostic/types.hxx:57:61: warning: overflow in implicit constant conversion [-Woverflow]
+ #define infty          std::numeric_limits<float>::infinity()
+                                                             ^
+/planner/src/bfs-f/interfaces/agnostic/types.hxx:67:31: note: in expansion of macro 'infty'
+     if ( it == end() ) return infty;
+                               ^
+In file included from /planner/src/bfs-f/interfaces/agnostic/match_tree.hxx:25:0,
+                 from /planner/src/bfs-f/interfaces/agnostic/match_tree.cxx:22:
+/planner/src/bfs-f/interfaces/agnostic/types.hxx: In member function 'unsigned int aptk::Pair_Value_Table::get_value(unsigned int, unsigned int)':
+/planner/src/bfs-f/interfaces/agnostic/types.hxx:57:61: warning: overflow in implicit constant conversion [-Woverflow]
+ #define infty          std::numeric_limits<float>::infinity()
+                                                             ^
+/planner/src/bfs-f/interfaces/agnostic/types.hxx:67:31: note: in expansion of macro 'infty'
+     if ( it == end() ) return infty;
+                               ^
+In file included from /planner/src/bfs-f/interfaces/agnostic/mutex_set.hxx:5:0,
+                 from /planner/src/bfs-f/interfaces/agnostic/mutex_set.cxx:1:
+/planner/src/bfs-f/interfaces/agnostic/types.hxx: In member function 'unsigned int aptk::Pair_Value_Table::get_value(unsigned int, unsigned int)':
+/planner/src/bfs-f/interfaces/agnostic/types.hxx:57:61: warning: overflow in implicit constant conversion [-Woverflow]
+ #define infty          std::numeric_limits<float>::infinity()
+                                                             ^
+/planner/src/bfs-f/interfaces/agnostic/types.hxx:67:31: note: in expansion of macro 'infty'
+     if ( it == end() ) return infty;
+                               ^
+In file included from /planner/src/bfs-f/interfaces/agnostic/strips_prob.hxx:28:0,
+                 from /planner/src/bfs-f/interfaces/agnostic/reachability.hxx:24,
+                 from /planner/src/bfs-f/interfaces/agnostic/reachability.cxx:21:
+/planner/src/bfs-f/interfaces/agnostic/types.hxx: In member function 'unsigned int aptk::Pair_Value_Table::get_value(unsigned int, unsigned int)':
+/planner/src/bfs-f/interfaces/agnostic/types.hxx:57:61: warning: overflow in implicit constant conversion [-Woverflow]
+ #define infty          std::numeric_limits<float>::infinity()
+                                                             ^
+/planner/src/bfs-f/interfaces/agnostic/types.hxx:67:31: note: in expansion of macro 'infty'
+     if ( it == end() ) return infty;
+                               ^
+In file included from /planner/src/bfs-f/interfaces/agnostic/strips_prob.hxx:28:0,
+                 from /planner/src/bfs-f/interfaces/agnostic/strips_prob.cxx:21:
+/planner/src/bfs-f/interfaces/agnostic/types.hxx: In member function 'unsigned int aptk::Pair_Value_Table::get_value(unsigned int, unsigned int)':
+/planner/src/bfs-f/interfaces/agnostic/types.hxx:57:61: warning: overflow in implicit constant conversion [-Woverflow]
+ #define infty          std::numeric_limits<float>::infinity()
+                                                             ^
+/planner/src/bfs-f/interfaces/agnostic/types.hxx:67:31: note: in expansion of macro 'infty'
+     if ( it == end() ) return infty;
+                               ^
+In file included from /planner/src/bfs-f/interfaces/agnostic/strips_prob.hxx:28:0,
+                 from /planner/src/bfs-f/interfaces/agnostic/strips_state.hxx:24,
+                 from /planner/src/bfs-f/interfaces/agnostic/strips_state.cxx:21:
+/planner/src/bfs-f/interfaces/agnostic/types.hxx: In member function 'unsigned int aptk::Pair_Value_Table::get_value(unsigned int, unsigned int)':
+/planner/src/bfs-f/interfaces/agnostic/types.hxx:57:61: warning: overflow in implicit constant conversion [-Woverflow]
+ #define infty          std::numeric_limits<float>::infinity()
+                                                             ^
+/planner/src/bfs-f/interfaces/agnostic/types.hxx:67:31: note: in expansion of macro 'infty'
+     if ( it == end() ) return infty;
+                               ^
+In file included from /planner/src/bfs-f/interfaces/agnostic/succ_gen.hxx:24:0,
+                 from /planner/src/bfs-f/interfaces/agnostic/succ_gen.cxx:21:
+/planner/src/bfs-f/interfaces/agnostic/types.hxx: In member function 'unsigned int aptk::Pair_Value_Table::get_value(unsigned int, unsigned int)':
+/planner/src/bfs-f/interfaces/agnostic/types.hxx:57:61: warning: overflow in implicit constant conversion [-Woverflow]
+ #define infty          std::numeric_limits<float>::infinity()
+                                                             ^
+/planner/src/bfs-f/interfaces/agnostic/types.hxx:67:31: note: in expansion of macro 'infty'
+     if ( it == end() ) return infty;
+                               ^
+In file included from /planner/src/bfs-f/interfaces/agnostic/strips_prob.hxx:28:0,
+                 from /planner/src/bfs-f/interfaces/ff-wrapped/ff_to_aptk.hxx:25,
+                 from /planner/src/bfs-f/interfaces/ff-wrapped/ff_to_aptk.cxx:21:
+/planner/src/bfs-f/interfaces/agnostic/types.hxx: In member function 'unsigned int aptk::Pair_Value_Table::get_value(unsigned int, unsigned int)':
+/planner/src/bfs-f/interfaces/agnostic/types.hxx:57:61: warning: overflow in implicit constant conversion [-Woverflow]
+ #define infty          std::numeric_limits<float>::infinity()
+                                                             ^
+/planner/src/bfs-f/interfaces/agnostic/types.hxx:67:31: note: in expansion of macro 'infty'
+     if ( it == end() ) return infty;
+                               ^
+parser.y:23.1-13: warning: deprecated directive, use '%name-prefix' [-Wdeprecated]
+ %name-prefix="pddl_"
+ ^^^^^^^^^^^^^
+instantiation.c: In function 'bool compute_resource(PDDLDomain*, PDDLLitteral*, Action*, PDDLTerm**, long int)':
+instantiation.c:268:10: warning: enumeration value 'NO_FUNC_MOD' not handled in switch [-Wswitch]
+   switch (litteral->mod.function) {
+          ^
+instantiation.c: In function 'void compute_nb_resources(PDDLOperator*, PDDLLitteral*)':
+instantiation.c:435:10: warning: enumeration value 'NO_FUNC_MOD' not handled in switch [-Wswitch]
+   switch (litteral->mod.function) {
+          ^
+preprocess.c: In function 'void compute_landmarks()':
+preprocess.c:167:13: warning: variable 'cl' set but not used [-Wunused-but-set-variable]
+     Action *cl = NULL;
+             ^
+parser.yy.c: In function 'int yy_get_next_buffer()':
+parser.yy.c:1684:44: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+  if ((int) ((yy_n_chars) + number_to_move) > YY_CURRENT_BUFFER_LVALUE->yy_buf_size) {
+                                            ^
+main.c: In function 'output_learner_info_to_file':
+main.c:768:29: warning: format '%d' expects argument of type 'int', but argument 15 has type 'long int' [-Wformat=]
+        fprintf(output_file, "%3d %s %8d %10.2f %8ld %8ld %6d %6d %6d %6ld %6ld %6ld %4d \n", 
+                             ^
+main.c:768:29: warning: too many arguments for format [-Wformat-extra-args]
+main.c: In function 'output_initfeature_info_to_file':
+main.c:796:10: warning: format not a string literal and no format arguments [-Wformat-security]
+   printf(nameFile);
+          ^
+main.c:811:10: warning: too many arguments for format [-Wformat-extra-args]
+   printf("initfeature-info.txt",  "\n");
+          ^
+main.c:788:9: warning: unused variable 'total_time' [-Wunused-variable]
+   float total_time = gtempl_time + greach_time + grelev_time + gLNF_time + gconn_time + gsearch_time;
+         ^
+main.c: In function 'execute_learner':
+main.c:1241:5: warning: implicit declaration of function 'data_draw_search_tree' [-Wimplicit-function-declaration]
+     data_draw_search_tree();
+     ^
+main.c:1247:5: warning: implicit declaration of function 'record_h_labeled_nodes' [-Wimplicit-function-declaration]
+     record_h_labeled_nodes();
+     ^
+main.c: In function 'main':
+main.c:1531:5: warning: implicit declaration of function 'print_static_literals' [-Wimplicit-function-declaration]
+     print_static_literals();
+     ^
+main.c:1598:12: warning: format not a string literal and no format arguments [-Wformat-security]
+     printf(route);
+            ^
+relax.c: In function 'features_from_relaxed_graphplan':
+relax.c:3720:28: warning: implicit declaration of function 'sqrt' [-Wimplicit-function-declaration]
+   feature_rp_balance_var = sqrt(((float) rp_balance_square_sum / (float) gnum_relevant_facts) - (feature_rp_balance_avg * feature_rp_balance_avg));
+                            ^
+relax.c:3720:28: warning: incompatible implicit declaration of built-in function 'sqrt'
+relax.c:3720:28: note: include '<math.h>' or provide a declaration of 'sqrt'
+relax.c:3921:9: warning: implicit declaration of function 'fact_is_goal' [-Wimplicit-function-declaration]
+     if (fact_is_goal(j))
+         ^
+relax.c:3779:49: warning: variable 'dfactor' set but not used [-Wunused-but-set-variable]
+   int k, balance_target, layersum, balance_gap, dfactor, kdistorsion;
+                                                 ^
+relax.c:3649:22: warning: unused variable 'diff_hmax' [-Wunused-variable]
+   int hmax_momentum, diff_hmax;
+                      ^
+relax.c:3649:7: warning: unused variable 'hmax_momentum' [-Wunused-variable]
+   int hmax_momentum, diff_hmax;
+       ^
+relax.c:3648:25: warning: unused variable 'rgraph_level_actions' [-Wunused-variable]
+   int rp_level_actions, rgraph_level_actions;
+                         ^
+relax.c:3648:7: warning: unused variable 'rp_level_actions' [-Wunused-variable]
+   int rp_level_actions, rgraph_level_actions;
+       ^
+relax.c:3647:19: warning: unused variable 'ft' [-Wunused-variable]
+   int i,j, level, ft, op;
+                   ^
+relax.c:3647:12: warning: unused variable 'level' [-Wunused-variable]
+   int i,j, level, ft, op;
+            ^
+search.c: In function 'same_no_metric_state':
+search.c:2155:26: warning: logical not is only applied to the left hand side of comparison [-Wlogical-not-parentheses]
+  if ( !glnf_metric.pF[j] == i ) 
+                          ^
+search.c: In function 'do_anytime_best_first_search':
+search.c:2502:2: warning: implicit declaration of function 'output_planner_info_to_file' [-Wimplicit-function-declaration]
+  output_planner_info_to_file();
+  ^
+search.c: In function 'do_anytime_bfs_bnb_learn':
+search.c:2847:9: warning: format '%d' expects argument of type 'int', but argument 3 has type 'long int' [-Wformat=]
+  printf("\n New cost bound [g:%d] with %d generated nodes",first->g, ggenerated_nodes);
+         ^
+search.c:2886:15: warning: format '%d' expects argument of type 'int', but argument 2 has type 'long int' [-Wformat=]
+       printf ("\n Node bound %d vs generated %d", gcmd_line.node_bound, ggenerated_nodes);
+               ^
+search.c:2886:15: warning: format '%d' expects argument of type 'int', but argument 3 has type 'long int' [-Wformat=]
+search.c: In function 'add_to_anytime_bfs_bnb_learn_space':
+search.c:3136:11: warning: assignment from incompatible pointer type [-Wincompatible-pointer-types]
+       aux = rep_node->repeated_list;
+           ^
+search.c:3138:22: warning: assignment from incompatible pointer type [-Wincompatible-pointer-types]
+       nodelist->next = aux;
+                      ^
+search.c: In function 'full_clean_commutative_states':
+search.c:3154:15: warning: unused variable 'rep_node' [-Wunused-variable]
+   BfsNode *i,*rep_node;
+               ^
+search.c: In function 'clean_repeated_already_in_solution':
+search.c:3261:14: warning: format '%ld' expects argument of type 'long int', but argument 2 has type 'int' [-Wformat=]
+       printf("\n removing node %ld", i->number);
+              ^
+search.c: In function 'do_anytime_bfs_bnb_learn_delay_repeat':
+search.c:3370:9: warning: format '%d' expects argument of type 'int', but argument 3 has type 'long int' [-Wformat=]
+  printf("\n New cost bound [g:%d] with %d generated nodes",first->g, ggenerated_nodes);
+         ^
+search.c:3407:10: warning: format '%d' expects argument of type 'int', but argument 2 has type 'long int' [-Wformat=]
+  printf ("\n Node bound %d vs generated %d", gcmd_line.node_bound, ggenerated_nodes);
+          ^
+search.c:3407:10: warning: format '%d' expects argument of type 'int', but argument 3 has type 'long int' [-Wformat=]
+search.c: In function 'add_to_anytime_bfs_bnb_learn_delay_repeat_space':
+search.c:3660:11: warning: assignment from incompatible pointer type [-Wincompatible-pointer-types]
+       aux = rep_node->repeated_list;
+           ^
+search.c:3662:22: warning: assignment from incompatible pointer type [-Wincompatible-pointer-types]
+       nodelist->next = aux;
+                      ^
+search.c: In function 'do_anytime_bfs_HA_rescue_lookahead_recomputeh':
+search.c:6084:12: warning: unused variable 'lookahead' [-Wunused-variable]
+   BfsNode *lookahead, *added_node, *next;
+            ^
+search.c: In function 'obtain_lookahead_state_order_rep':
+search.c:6842:6: warning: unused variable 'old_min_RP_order' [-Wunused-variable]
+  int old_min_RP_order;
+      ^
+search.c:6841:6: warning: unused variable 'old_max_RP_order' [-Wunused-variable]
+  int old_max_RP_order;
+      ^
+search.c:6840:7: warning: unused variable 'old_RPorder' [-Wunused-variable]
+  int *old_RPorder;
+       ^
+search.c:6839:6: warning: unused variable 'old_gnum_RP' [-Wunused-variable]
+  int old_gnum_RP;
+      ^
+search.c:6838:7: warning: unused variable 'old_g_RP' [-Wunused-variable]
+  int *old_g_RP;
+       ^
+search.c:6837:10: warning: unused variable 'h' [-Wunused-variable]
+  int i,j,h;
+          ^
+search.c:6837:8: warning: unused variable 'j' [-Wunused-variable]
+  int i,j,h;
+        ^
+search.c: In function 'do_depth_first_chronological_backtraking_random':
+search.c:7179:9: warning: unknown escape sequence: '\G'
+  printf("\Goals achieved, tried %d steps more ahead (total %d)", 
+         ^
+search.c:7060:8: warning: variable 'sstart' set but not used [-Wunused-but-set-variable]
+   Bool sstart = TRUE;
+        ^
+search.c:7059:10: warning: variable 'min' set but not used [-Wunused-but-set-variable]
+   int i, min = INFINITY;
+          ^
+search.c:7057:34: warning: unused variable 'node_most_near' [-Wunused-variable]
+   BfsNode *first, *added, *aux, *node_most_near = NULL;
+                                  ^
+search.c:7057:28: warning: unused variable 'aux' [-Wunused-variable]
+   BfsNode *first, *added, *aux, *node_most_near = NULL;
+                            ^
+search.c: In function 'do_depth_first_chronological_backtraking_roller':
+search.c:7609:5: warning: implicit declaration of function 'assign_LT_heuristic_info' [-Wimplicit-function-declaration]
+     assign_LT_heuristic_info(first);
+     ^
+search.c: In function 'add_to_depth_first_space_roller':
+search.c:8095:9: warning: unused variable 'j' [-Wunused-variable]
+   int g,j;
+         ^
+search.c: In function 'do_hill_climbing_horizon':
+search.c:8882:7: warning: 'return' with no value, in function returning non-void
+       return;
+       ^
+search.c: In function 'compute_init_state_features':
+search.c:8924:8: warning: unused variable 'solvable' [-Wunused-variable]
+   Bool solvable;
+        ^
+search.c:8923:11: warning: unused variable 'max_levels' [-Wunused-variable]
+   int op, max_levels;
+           ^
+search.c:8923:7: warning: unused variable 'op' [-Wunused-variable]
+   int op, max_levels;
+       ^
+search.c:8922:21: warning: unused variable 'end' [-Wunused-variable]
+   struct tms start, end;
+                     ^
+search.c:8922:14: warning: unused variable 'start' [-Wunused-variable]
+   struct tms start, end;
+              ^
+search.c:8921:8: warning: unused variable 'sstart' [-Wunused-variable]
+   Bool sstart = TRUE;
+        ^
+search.c:8920:10: warning: unused variable 'min' [-Wunused-variable]
+   int i, min = INFINITY;
+          ^
+search.c: In function 'do_dptrees_depth_first':
+search.c:9014:3: warning: implicit declaration of function 'load_tilde_dp_clauses' [-Wimplicit-function-declaration]
+   load_tilde_dp_clauses();
+   ^
+search.c:9015:3: warning: implicit declaration of function 'load_tilde_dp_trees' [-Wimplicit-function-declaration]
+   load_tilde_dp_trees();
+   ^
+search.c: In function 'add_to_depth_first_space_dptrees':
+search.c:9230:9: warning: unused variable 'j' [-Wunused-variable]
+   int g,j;
+         ^
+matcher.c: In function 'match_main_dp_tree':
+matcher.c:410:10: warning: implicit declaration of function 'result_to_dest' [-Wimplicit-function-declaration]
+     if ( result_to_dest( &next_S, LT_current_state, gH[i] ) ) {
+          ^
+matcher.c: In function 'match_candidate_bounded_tag':
+matcher.c:648:8: warning: unused variable 'there_is_new_match' [-Wunused-variable]
+   Bool there_is_new_match = FALSE;
+        ^
+matcher.c:646:12: warning: unused variable 'last_match' [-Wunused-variable]
+   LTmatch *last_match;
+            ^
+matcher.c:642:11: warning: variable 'a' set but not used [-Wunused-but-set-variable]
+   Action *a;
+           ^
+matcher.c:641:11: warning: unused variable 'l' [-Wunused-variable]
+   int i,j,l;
+           ^
+matcher.c:641:9: warning: unused variable 'j' [-Wunused-variable]
+   int i,j,l;
+         ^
+learner.c: In function 'compute_tree_h_star':
+learner.c:411:12: warning: unused variable 'iSolPath' [-Wunused-variable]
+   SolPath *iSolPath;
+            ^
+learner.c: In function 'record_node_data':
+learner.c:458:19: warning: format '%ld' expects argument of type 'long int', but argument 4 has type 'int' [-Wformat=]
+     fprintf(file, "%6ld %6ld %6ld %2d %2d %3d %3d\n", record_node_counter, node->number, aux_int2,  
+                   ^
+learner.c:458:19: warning: format '%ld' expects argument of type 'long int', but argument 5 has type 'int' [-Wformat=]
+learn-ltl.c: In function 'write_ltl_episode':
+learn-ltl.c:85:9: warning: variable 'next_S' set but not used [-Wunused-but-set-variable]
+   State next_S, parent_S;
+         ^
+learn-ltl.c: In function 'ltl_tag_solution_tree':
+learn-ltl.c:265:12: warning: unused variable 'rep_node' [-Wunused-variable]
+   BfsNode *rep_node;
+            ^
+learn-ltl.c:264:23: warning: unused variable 'next' [-Wunused-variable]
+   SolPath *iSolPath, *next;
+                       ^
+learn-helpful.c: In function 'siblings_episode_metastate':
+learn-helpful.c:289:12: warning: implicit declaration of function 'fact_is_goal' [-Wimplicit-function-declaration]
+       if (!fact_is_goal(add))
+            ^
+learn-helpful.c: In function 'execute_learner_roller':
+learn-helpful.c:562:5: warning: implicit declaration of function 'print_plan' [-Wimplicit-function-declaration]
+     print_plan();
+     ^
+hornclause-reader.c: In function 'load_tilde_dp_clauses':
+hornclause-reader.c:414:5: warning: implicit declaration of function 'compute_derived_literals' [-Wimplicit-function-declaration]
+     compute_derived_literals(&(gDP_bgclauses[i]));
+     ^
+derived-preds.c: In function 'dpstate_from_derived':
+derived-preds.c:372:9: warning: unused variable 'fact' [-Wunused-variable]
+   Fact *fact; 
+         ^
+/usr/share/bison++/bison.cc: In function 'fct_pddlparse':
+/usr/share/bison++/bison.cc:136:24: warning: implicit declaration of function 'fct_pddlerror' [-Wimplicit-function-declaration]
+/usr/share/bison++/bison.cc:667:4: note: in expansion of macro 'YY_parse_ERROR'
+/usr/share/bison++/bison.cc:135:22: warning: implicit declaration of function 'fct_pddllex' [-Wimplicit-function-declaration]
+/usr/share/bison++/bison.cc:465:25: note: in expansion of macro 'YY_parse_LEX'
+/usr/share/bison++/bison.cc:730:23: note: in expansion of macro 'YYLEX'
+scan-fct_pddl.y:170:3: warning: implicit declaration of function 'fcterr' [-Wimplicit-function-declaration]
+   fcterr( PROBNAME_EXPECTED, NULL ); 
+   ^
+scan-fct_pddl.y: At top level:
+scan-fct_pddl.y:853:6: warning: conflicting types for 'fcterr'
+ void fcterr( int errno, char *par ) {
+      ^
+scan-fct_pddl.y:170:3: note: previous implicit declaration of 'fcterr' was here
+   fcterr( PROBNAME_EXPECTED, NULL ); 
+   ^
+In file included from scan-fct_pddl.y:842:0:
+lex.fct_pddl.c:1347:13: warning: 'yyunput' defined but not used [-Wunused-function]
+ static void yyunput( int c, register char *yy_bp )
+             ^
+lex.fct_pddl.c:1393:12: warning: 'input' defined but not used [-Wunused-function]
+ static int input()
+            ^
+/usr/share/bison++/bison.cc: In function 'ops_pddlparse':
+/usr/share/bison++/bison.cc:136:24: warning: implicit declaration of function 'ops_pddlerror' [-Wimplicit-function-declaration]
+/usr/share/bison++/bison.cc:667:4: note: in expansion of macro 'YY_parse_ERROR'
+/usr/share/bison++/bison.cc:135:22: warning: implicit declaration of function 'ops_pddllex' [-Wimplicit-function-declaration]
+/usr/share/bison++/bison.cc:465:25: note: in expansion of macro 'YY_parse_LEX'
+/usr/share/bison++/bison.cc:730:23: note: in expansion of macro 'YYLEX'
+scan-ops_pddl.y:181:3: warning: implicit declaration of function 'opserr' [-Wimplicit-function-declaration]
+   opserr( DOMDEF_EXPECTED, NULL ); 
+   ^
+scan-ops_pddl.y: At top level:
+scan-ops_pddl.y:956:6: warning: conflicting types for 'opserr'
+ void opserr( int errno, char *par )
+      ^
+scan-ops_pddl.y:181:3: note: previous implicit declaration of 'opserr' was here
+   opserr( DOMDEF_EXPECTED, NULL ); 
+   ^
+In file included from scan-ops_pddl.y:945:0:
+lex.ops_pddl.c:1389:13: warning: 'yyunput' defined but not used [-Wunused-function]
+ static void yyunput( int c, register char *yy_bp )
+             ^
+lex.ops_pddl.c:1435:12: warning: 'input' defined but not used [-Wunused-function]
+ static int input()
+            ^
++ rm -rf /planner/.git
+INFO:    Adding labels
+INFO:    Adding runscript
+INFO:    Creating SIF file...
+INFO:    Build complete: /home/genomorro/School/UNIR/RazonamientoPlanificacion/planners/ibacop/singularity.img
+Segmentation fault
+/planner/src/search/downward: line 188:    53 Segmentation fault      "$PLANNER" "$@" < $TEMPFILE
+warning: error reading memory from procfile

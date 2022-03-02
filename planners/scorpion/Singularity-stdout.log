@@ -1,0 +1,2287 @@
+Get:1 http://security.ubuntu.com/ubuntu bionic-security InRelease [88.7 kB]
+Get:2 http://archive.ubuntu.com/ubuntu bionic InRelease [242 kB]
+Get:3 http://security.ubuntu.com/ubuntu bionic-security/universe amd64 Packages [1474 kB]
+Get:4 http://archive.ubuntu.com/ubuntu bionic-updates InRelease [88.7 kB]
+Get:5 http://archive.ubuntu.com/ubuntu bionic-backports InRelease [74.6 kB]
+Get:6 http://archive.ubuntu.com/ubuntu bionic/multiverse amd64 Packages [186 kB]
+Get:7 http://archive.ubuntu.com/ubuntu bionic/main amd64 Packages [1344 kB]
+Get:8 http://security.ubuntu.com/ubuntu bionic-security/multiverse amd64 Packages [21.1 kB]
+Get:9 http://security.ubuntu.com/ubuntu bionic-security/main amd64 Packages [2596 kB]
+Get:10 http://archive.ubuntu.com/ubuntu bionic/restricted amd64 Packages [13.5 kB]
+Get:11 http://archive.ubuntu.com/ubuntu bionic/universe amd64 Packages [11.3 MB]
+Get:12 http://security.ubuntu.com/ubuntu bionic-security/restricted amd64 Packages [806 kB]
+Get:13 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 Packages [3035 kB]
+Get:14 http://archive.ubuntu.com/ubuntu bionic-updates/universe amd64 Packages [2252 kB]
+Get:15 http://archive.ubuntu.com/ubuntu bionic-updates/restricted amd64 Packages [840 kB]
+Get:16 http://archive.ubuntu.com/ubuntu bionic-updates/multiverse amd64 Packages [29.0 kB]
+Get:17 http://archive.ubuntu.com/ubuntu bionic-backports/universe amd64 Packages [12.6 kB]
+Get:18 http://archive.ubuntu.com/ubuntu bionic-backports/main amd64 Packages [11.6 kB]
+Fetched 24.5 MB in 16s (1571 kB/s)
+Reading package lists...
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following additional packages will be installed:
+  binutils binutils-common binutils-x86-64-linux-gnu cmake-data cpp cpp-7
+  g++-7 gcc gcc-7 gcc-7-base git-man libarchive13 libasan4 libasn1-8-heimdal
+  libatomic1 libbinutils libc-dev-bin libc6 libc6-dev libcc1-0 libcilkrts5
+  libcurl3-gnutls libcurl4 liberror-perl libexpat1 libgcc-7-dev
+  libgdbm-compat4 libgdbm5 libgomp1 libgssapi-krb5-2 libgssapi3-heimdal
+  libhcrypto4-heimdal libheimbase1-heimdal libheimntlm0-heimdal
+  libhx509-5-heimdal libicu60 libisl19 libitm1 libjsoncpp1 libk5crypto3
+  libkeyutils1 libkrb5-26-heimdal libkrb5-3 libkrb5support0 libldap-2.4-2
+  libldap-common liblsan0 liblzo2-2 libmpc3 libmpfr6 libmpx2 libnghttp2-14
+  libperl5.26 libpsl5 libpython-stdlib libpython2.7-minimal
+  libpython2.7-stdlib libquadmath0 libreadline7 librhash0 libroken18-heimdal
+  librtmp1 libsasl2-2 libsasl2-modules-db libsqlite3-0 libssl1.1
+  libstdc++-7-dev libtsan0 libubsan0 libuv1 libwind0-heimdal libxml2
+  linux-libc-dev mime-support multiarch-support openssl perl perl-modules-5.26
+  python-minimal python2.7 python2.7-minimal readline-common
+Suggested packages:
+  binutils-doc cmake-doc ninja-build cpp-doc gcc-7-locales g++-multilib
+  g++-7-multilib gcc-7-doc libstdc++6-7-dbg gcc-multilib manpages-dev autoconf
+  automake libtool flex bison gdb gcc-doc gcc-7-multilib libgcc1-dbg
+  libgomp1-dbg libitm1-dbg libatomic1-dbg libasan4-dbg liblsan0-dbg
+  libtsan0-dbg libubsan0-dbg libcilkrts5-dbg libmpx2-dbg libquadmath0-dbg
+  gettext-base git-daemon-run | git-daemon-sysvinit git-doc git-el git-email
+  git-gui gitk gitweb git-cvs git-mediawiki git-svn lrzip glibc-doc locales
+  gdbm-l10n krb5-doc krb5-user libstdc++-7-doc make-doc perl-doc
+  libterm-readline-gnu-perl | libterm-readline-perl-perl python-doc python-tk
+  python2.7-doc binfmt-support readline-doc
+Recommended packages:
+  patch less ssh-client manpages manpages-dev krb5-locales publicsuffix
+  libsasl2-modules file xz-utils netbase
+The following NEW packages will be installed:
+  binutils binutils-common binutils-x86-64-linux-gnu ca-certificates cmake
+  cmake-data cpp cpp-7 g++ g++-7 gcc gcc-7 gcc-7-base git git-man libarchive13
+  libasan4 libasn1-8-heimdal libatomic1 libbinutils libc-dev-bin libc6-dev
+  libcc1-0 libcilkrts5 libcurl3-gnutls libcurl4 liberror-perl libexpat1
+  libgcc-7-dev libgdbm-compat4 libgdbm5 libgomp1 libgssapi-krb5-2
+  libgssapi3-heimdal libhcrypto4-heimdal libheimbase1-heimdal
+  libheimntlm0-heimdal libhx509-5-heimdal libicu60 libisl19 libitm1
+  libjsoncpp1 libk5crypto3 libkeyutils1 libkrb5-26-heimdal libkrb5-3
+  libkrb5support0 libldap-2.4-2 libldap-common liblsan0 liblzo2-2 libmpc3
+  libmpfr6 libmpx2 libnghttp2-14 libperl5.26 libpsl5 libpython-stdlib
+  libpython2.7-minimal libpython2.7-stdlib libquadmath0 libreadline7 librhash0
+  libroken18-heimdal librtmp1 libsasl2-2 libsasl2-modules-db libsqlite3-0
+  libssl1.1 libstdc++-7-dev libtsan0 libubsan0 libuv1 libwind0-heimdal libxml2
+  linux-libc-dev make mime-support multiarch-support openssl perl
+  perl-modules-5.26 python python-minimal python2.7 python2.7-minimal
+  readline-common
+The following packages will be upgraded:
+  libc6
+1 upgraded, 87 newly installed, 0 to remove and 1 not upgraded.
+Need to get 76.8 MB of archives.
+After this operation, 325 MB of additional disk space will be used.
+Get:1 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 libc6 amd64 2.27-3ubuntu1.5 [2830 kB]
+Get:2 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 multiarch-support amd64 2.27-3ubuntu1.5 [6960 B]
+Get:3 http://archive.ubuntu.com/ubuntu bionic/main amd64 liblzo2-2 amd64 2.08-1.2 [48.7 kB]
+Get:4 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 perl-modules-5.26 all 5.26.1-6ubuntu0.5 [2762 kB]
+Get:5 http://archive.ubuntu.com/ubuntu bionic/main amd64 libgdbm5 amd64 1.14.1-6 [26.0 kB]
+Get:6 http://archive.ubuntu.com/ubuntu bionic/main amd64 libgdbm-compat4 amd64 1.14.1-6 [6084 B]
+Get:7 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 libperl5.26 amd64 5.26.1-6ubuntu0.5 [3534 kB]
+Get:8 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 perl amd64 5.26.1-6ubuntu0.5 [201 kB]
+Get:9 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 libpython2.7-minimal amd64 2.7.17-1~18.04ubuntu1.6 [335 kB]
+Get:10 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 python2.7-minimal amd64 2.7.17-1~18.04ubuntu1.6 [1291 kB]
+Get:11 http://archive.ubuntu.com/ubuntu bionic/main amd64 python-minimal amd64 2.7.15~rc1-1 [28.1 kB]
+Get:12 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 libssl1.1 amd64 1.1.1-1ubuntu2.1~18.04.14 [1302 kB]
+Get:13 http://archive.ubuntu.com/ubuntu bionic/main amd64 mime-support all 3.60ubuntu1 [30.1 kB]
+Get:14 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 libexpat1 amd64 2.2.5-3ubuntu0.4 [81.7 kB]
+Get:15 http://archive.ubuntu.com/ubuntu bionic/main amd64 readline-common all 7.0-3 [52.9 kB]
+Get:16 http://archive.ubuntu.com/ubuntu bionic/main amd64 libreadline7 amd64 7.0-3 [124 kB]
+Get:17 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 libsqlite3-0 amd64 3.22.0-1ubuntu0.4 [499 kB]
+Get:18 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 libpython2.7-stdlib amd64 2.7.17-1~18.04ubuntu1.6 [1917 kB]
+Get:19 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 python2.7 amd64 2.7.17-1~18.04ubuntu1.6 [248 kB]
+Get:20 http://archive.ubuntu.com/ubuntu bionic/main amd64 libpython-stdlib amd64 2.7.15~rc1-1 [7620 B]
+Get:21 http://archive.ubuntu.com/ubuntu bionic/main amd64 python amd64 2.7.15~rc1-1 [140 kB]
+Get:22 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 openssl amd64 1.1.1-1ubuntu2.1~18.04.14 [613 kB]
+Get:23 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 ca-certificates all 20210119~18.04.2 [145 kB]
+Get:24 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 libicu60 amd64 60.2-3ubuntu3.2 [8050 kB]
+Get:25 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 libxml2 amd64 2.9.4+dfsg1-6.1ubuntu1.4 [664 kB]
+Get:26 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 libkrb5support0 amd64 1.16-2ubuntu0.2 [30.8 kB]
+Get:27 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 libk5crypto3 amd64 1.16-2ubuntu0.2 [85.5 kB]
+Get:28 http://archive.ubuntu.com/ubuntu bionic/main amd64 libkeyutils1 amd64 1.5.9-9.2ubuntu2 [8720 B]
+Get:29 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 libkrb5-3 amd64 1.16-2ubuntu0.2 [279 kB]
+Get:30 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 libgssapi-krb5-2 amd64 1.16-2ubuntu0.2 [122 kB]
+Get:31 http://archive.ubuntu.com/ubuntu bionic/main amd64 libpsl5 amd64 0.19.1-5build1 [41.8 kB]
+Get:32 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 binutils-common amd64 2.30-21ubuntu1~18.04.7 [197 kB]
+Get:33 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 libbinutils amd64 2.30-21ubuntu1~18.04.7 [489 kB]
+Get:34 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 binutils-x86-64-linux-gnu amd64 2.30-21ubuntu1~18.04.7 [1839 kB]
+Get:35 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 binutils amd64 2.30-21ubuntu1~18.04.7 [3388 B]
+Get:36 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 cmake-data all 3.10.2-1ubuntu2.18.04.2 [1332 kB]
+Get:37 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 libarchive13 amd64 3.2.2-3.1ubuntu0.7 [288 kB]
+Get:38 http://archive.ubuntu.com/ubuntu bionic/main amd64 libroken18-heimdal amd64 7.5.0+dfsg-1 [41.3 kB]
+Get:39 http://archive.ubuntu.com/ubuntu bionic/main amd64 libasn1-8-heimdal amd64 7.5.0+dfsg-1 [175 kB]
+Get:40 http://archive.ubuntu.com/ubuntu bionic/main amd64 libheimbase1-heimdal amd64 7.5.0+dfsg-1 [29.3 kB]
+Get:41 http://archive.ubuntu.com/ubuntu bionic/main amd64 libhcrypto4-heimdal amd64 7.5.0+dfsg-1 [85.9 kB]
+Get:42 http://archive.ubuntu.com/ubuntu bionic/main amd64 libwind0-heimdal amd64 7.5.0+dfsg-1 [47.8 kB]
+Get:43 http://archive.ubuntu.com/ubuntu bionic/main amd64 libhx509-5-heimdal amd64 7.5.0+dfsg-1 [107 kB]
+Get:44 http://archive.ubuntu.com/ubuntu bionic/main amd64 libkrb5-26-heimdal amd64 7.5.0+dfsg-1 [206 kB]
+Get:45 http://archive.ubuntu.com/ubuntu bionic/main amd64 libheimntlm0-heimdal amd64 7.5.0+dfsg-1 [14.8 kB]
+Get:46 http://archive.ubuntu.com/ubuntu bionic/main amd64 libgssapi3-heimdal amd64 7.5.0+dfsg-1 [96.5 kB]
+Get:47 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 libsasl2-modules-db amd64 2.1.27~101-g0780600+dfsg-3ubuntu2.4 [15.0 kB]
+Get:48 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 libsasl2-2 amd64 2.1.27~101-g0780600+dfsg-3ubuntu2.4 [49.2 kB]
+Get:49 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 libldap-common all 2.4.45+dfsg-1ubuntu1.10 [15.8 kB]
+Get:50 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 libldap-2.4-2 amd64 2.4.45+dfsg-1ubuntu1.10 [154 kB]
+Get:51 http://archive.ubuntu.com/ubuntu bionic/main amd64 libnghttp2-14 amd64 1.30.0-1ubuntu1 [77.8 kB]
+Get:52 http://archive.ubuntu.com/ubuntu bionic/main amd64 librtmp1 amd64 2.4+20151223.gitfa8646d.1-1 [54.2 kB]
+Get:53 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 libcurl4 amd64 7.58.0-2ubuntu3.16 [220 kB]
+Get:54 http://archive.ubuntu.com/ubuntu bionic/main amd64 libjsoncpp1 amd64 1.7.4-3 [73.6 kB]
+Get:55 http://archive.ubuntu.com/ubuntu bionic/main amd64 librhash0 amd64 1.3.6-2 [78.1 kB]
+Get:56 http://archive.ubuntu.com/ubuntu bionic/main amd64 libuv1 amd64 1.18.0-3 [64.4 kB]
+Get:57 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 cmake amd64 3.10.2-1ubuntu2.18.04.2 [3152 kB]
+Get:58 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 gcc-7-base amd64 7.5.0-3ubuntu1~18.04 [18.3 kB]
+Get:59 http://archive.ubuntu.com/ubuntu bionic/main amd64 libisl19 amd64 0.19-1 [551 kB]
+Get:60 http://archive.ubuntu.com/ubuntu bionic/main amd64 libmpfr6 amd64 4.0.1-1 [243 kB]
+Get:61 http://archive.ubuntu.com/ubuntu bionic/main amd64 libmpc3 amd64 1.1.0-1 [40.8 kB]
+Get:62 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 cpp-7 amd64 7.5.0-3ubuntu1~18.04 [8591 kB]
+Get:63 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 cpp amd64 4:7.4.0-1ubuntu2.3 [27.7 kB]
+Get:64 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 libcc1-0 amd64 8.4.0-1ubuntu1~18.04 [39.4 kB]
+Get:65 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 libgomp1 amd64 8.4.0-1ubuntu1~18.04 [76.5 kB]
+Get:66 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 libitm1 amd64 8.4.0-1ubuntu1~18.04 [27.9 kB]
+Get:67 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 libatomic1 amd64 8.4.0-1ubuntu1~18.04 [9192 B]
+Get:68 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 libasan4 amd64 7.5.0-3ubuntu1~18.04 [358 kB]
+Get:69 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 liblsan0 amd64 8.4.0-1ubuntu1~18.04 [133 kB]
+Get:70 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 libtsan0 amd64 8.4.0-1ubuntu1~18.04 [288 kB]
+Get:71 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 libubsan0 amd64 7.5.0-3ubuntu1~18.04 [126 kB]
+Get:72 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 libcilkrts5 amd64 7.5.0-3ubuntu1~18.04 [42.5 kB]
+Get:73 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 libmpx2 amd64 8.4.0-1ubuntu1~18.04 [11.6 kB]
+Get:74 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 libquadmath0 amd64 8.4.0-1ubuntu1~18.04 [134 kB]
+Get:75 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 libgcc-7-dev amd64 7.5.0-3ubuntu1~18.04 [2378 kB]
+Get:76 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 gcc-7 amd64 7.5.0-3ubuntu1~18.04 [9381 kB]
+Get:77 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 gcc amd64 4:7.4.0-1ubuntu2.3 [5184 B]
+Get:78 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 libc-dev-bin amd64 2.27-3ubuntu1.5 [71.9 kB]
+Get:79 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 linux-libc-dev amd64 4.15.0-169.177 [993 kB]
+Get:80 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 libc6-dev amd64 2.27-3ubuntu1.5 [2587 kB]
+Get:81 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 libstdc++-7-dev amd64 7.5.0-3ubuntu1~18.04 [1471 kB]
+Get:82 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 g++-7 amd64 7.5.0-3ubuntu1~18.04 [9697 kB]
+Get:83 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 g++ amd64 4:7.4.0-1ubuntu2.3 [1568 B]
+Get:84 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 libcurl3-gnutls amd64 7.58.0-2ubuntu3.16 [218 kB]
+Get:85 http://archive.ubuntu.com/ubuntu bionic/main amd64 liberror-perl all 0.17025-1 [22.8 kB]
+Get:86 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 git-man all 1:2.17.1-1ubuntu0.9 [803 kB]
+Get:87 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 git amd64 1:2.17.1-1ubuntu0.9 [3923 kB]
+Get:88 http://archive.ubuntu.com/ubuntu bionic/main amd64 make amd64 4.1-9.1ubuntu1 [154 kB]
+Fetched 76.8 MB in 38s (2016 kB/s)
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 4051 files and directories currently installed.)
+Preparing to unpack .../libc6_2.27-3ubuntu1.5_amd64.deb ...
+debconf: unable to initialize frontend: Dialog
+debconf: (No usable dialog-like program is installed, so the dialog based frontend cannot be used. at /usr/share/perl5/Debconf/FrontEnd/Dialog.pm line 76.)
+debconf: falling back to frontend: Readline
+debconf: unable to initialize frontend: Readline
+debconf: (Can't locate Term/ReadLine.pm in @INC (you may need to install the Term::ReadLine module) (@INC contains: /etc/perl /usr/local/lib/x86_64-linux-gnu/perl/5.26.1 /usr/local/share/perl/5.26.1 /usr/lib/x86_64-linux-gnu/perl5/5.26 /usr/share/perl5 /usr/lib/x86_64-linux-gnu/perl/5.26 /usr/share/perl/5.26 /usr/local/lib/site_perl /usr/lib/x86_64-linux-gnu/perl-base) at /usr/share/perl5/Debconf/FrontEnd/Readline.pm line 7.)
+debconf: falling back to frontend: Teletype
+Unpacking libc6:amd64 (2.27-3ubuntu1.5) over (2.27-3ubuntu1.4) ...
+Setting up libc6:amd64 (2.27-3ubuntu1.5) ...
+debconf: unable to initialize frontend: Dialog
+debconf: (No usable dialog-like program is installed, so the dialog based frontend cannot be used. at /usr/share/perl5/Debconf/FrontEnd/Dialog.pm line 76.)
+debconf: falling back to frontend: Readline
+debconf: unable to initialize frontend: Readline
+debconf: (Can't locate Term/ReadLine.pm in @INC (you may need to install the Term::ReadLine module) (@INC contains: /etc/perl /usr/local/lib/x86_64-linux-gnu/perl/5.26.1 /usr/local/share/perl/5.26.1 /usr/lib/x86_64-linux-gnu/perl5/5.26 /usr/share/perl5 /usr/lib/x86_64-linux-gnu/perl/5.26 /usr/share/perl/5.26 /usr/local/lib/site_perl /usr/lib/x86_64-linux-gnu/perl-base) at /usr/share/perl5/Debconf/FrontEnd/Readline.pm line 7.)
+debconf: falling back to frontend: Teletype
+Selecting previously unselected package multiarch-support.
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 4051 files and directories currently installed.)
+Preparing to unpack .../multiarch-support_2.27-3ubuntu1.5_amd64.deb ...
+Unpacking multiarch-support (2.27-3ubuntu1.5) ...
+Setting up multiarch-support (2.27-3ubuntu1.5) ...
+Selecting previously unselected package liblzo2-2:amd64.
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 4054 files and directories currently installed.)
+Preparing to unpack .../00-liblzo2-2_2.08-1.2_amd64.deb ...
+Unpacking liblzo2-2:amd64 (2.08-1.2) ...
+Selecting previously unselected package perl-modules-5.26.
+Preparing to unpack .../01-perl-modules-5.26_5.26.1-6ubuntu0.5_all.deb ...
+Unpacking perl-modules-5.26 (5.26.1-6ubuntu0.5) ...
+Selecting previously unselected package libgdbm5:amd64.
+Preparing to unpack .../02-libgdbm5_1.14.1-6_amd64.deb ...
+Unpacking libgdbm5:amd64 (1.14.1-6) ...
+Selecting previously unselected package libgdbm-compat4:amd64.
+Preparing to unpack .../03-libgdbm-compat4_1.14.1-6_amd64.deb ...
+Unpacking libgdbm-compat4:amd64 (1.14.1-6) ...
+Selecting previously unselected package libperl5.26:amd64.
+Preparing to unpack .../04-libperl5.26_5.26.1-6ubuntu0.5_amd64.deb ...
+Unpacking libperl5.26:amd64 (5.26.1-6ubuntu0.5) ...
+Selecting previously unselected package perl.
+Preparing to unpack .../05-perl_5.26.1-6ubuntu0.5_amd64.deb ...
+Unpacking perl (5.26.1-6ubuntu0.5) ...
+Selecting previously unselected package libpython2.7-minimal:amd64.
+Preparing to unpack .../06-libpython2.7-minimal_2.7.17-1~18.04ubuntu1.6_amd64.deb ...
+Unpacking libpython2.7-minimal:amd64 (2.7.17-1~18.04ubuntu1.6) ...
+Selecting previously unselected package python2.7-minimal.
+Preparing to unpack .../07-python2.7-minimal_2.7.17-1~18.04ubuntu1.6_amd64.deb ...
+Unpacking python2.7-minimal (2.7.17-1~18.04ubuntu1.6) ...
+Selecting previously unselected package python-minimal.
+Preparing to unpack .../08-python-minimal_2.7.15~rc1-1_amd64.deb ...
+Unpacking python-minimal (2.7.15~rc1-1) ...
+Selecting previously unselected package libssl1.1:amd64.
+Preparing to unpack .../09-libssl1.1_1.1.1-1ubuntu2.1~18.04.14_amd64.deb ...
+Unpacking libssl1.1:amd64 (1.1.1-1ubuntu2.1~18.04.14) ...
+Selecting previously unselected package mime-support.
+Preparing to unpack .../10-mime-support_3.60ubuntu1_all.deb ...
+Unpacking mime-support (3.60ubuntu1) ...
+Selecting previously unselected package libexpat1:amd64.
+Preparing to unpack .../11-libexpat1_2.2.5-3ubuntu0.4_amd64.deb ...
+Unpacking libexpat1:amd64 (2.2.5-3ubuntu0.4) ...
+Selecting previously unselected package readline-common.
+Preparing to unpack .../12-readline-common_7.0-3_all.deb ...
+Unpacking readline-common (7.0-3) ...
+Selecting previously unselected package libreadline7:amd64.
+Preparing to unpack .../13-libreadline7_7.0-3_amd64.deb ...
+Unpacking libreadline7:amd64 (7.0-3) ...
+Selecting previously unselected package libsqlite3-0:amd64.
+Preparing to unpack .../14-libsqlite3-0_3.22.0-1ubuntu0.4_amd64.deb ...
+Unpacking libsqlite3-0:amd64 (3.22.0-1ubuntu0.4) ...
+Selecting previously unselected package libpython2.7-stdlib:amd64.
+Preparing to unpack .../15-libpython2.7-stdlib_2.7.17-1~18.04ubuntu1.6_amd64.deb ...
+Unpacking libpython2.7-stdlib:amd64 (2.7.17-1~18.04ubuntu1.6) ...
+Selecting previously unselected package python2.7.
+Preparing to unpack .../16-python2.7_2.7.17-1~18.04ubuntu1.6_amd64.deb ...
+Unpacking python2.7 (2.7.17-1~18.04ubuntu1.6) ...
+Selecting previously unselected package libpython-stdlib:amd64.
+Preparing to unpack .../17-libpython-stdlib_2.7.15~rc1-1_amd64.deb ...
+Unpacking libpython-stdlib:amd64 (2.7.15~rc1-1) ...
+Setting up libpython2.7-minimal:amd64 (2.7.17-1~18.04ubuntu1.6) ...
+Setting up python2.7-minimal (2.7.17-1~18.04ubuntu1.6) ...
+Linking and byte-compiling packages for runtime python2.7...
+Setting up python-minimal (2.7.15~rc1-1) ...
+Selecting previously unselected package python.
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 6795 files and directories currently installed.)
+Preparing to unpack .../00-python_2.7.15~rc1-1_amd64.deb ...
+Unpacking python (2.7.15~rc1-1) ...
+Selecting previously unselected package openssl.
+Preparing to unpack .../01-openssl_1.1.1-1ubuntu2.1~18.04.14_amd64.deb ...
+Unpacking openssl (1.1.1-1ubuntu2.1~18.04.14) ...
+Selecting previously unselected package ca-certificates.
+Preparing to unpack .../02-ca-certificates_20210119~18.04.2_all.deb ...
+Unpacking ca-certificates (20210119~18.04.2) ...
+Selecting previously unselected package libicu60:amd64.
+Preparing to unpack .../03-libicu60_60.2-3ubuntu3.2_amd64.deb ...
+Unpacking libicu60:amd64 (60.2-3ubuntu3.2) ...
+Selecting previously unselected package libxml2:amd64.
+Preparing to unpack .../04-libxml2_2.9.4+dfsg1-6.1ubuntu1.4_amd64.deb ...
+Unpacking libxml2:amd64 (2.9.4+dfsg1-6.1ubuntu1.4) ...
+Selecting previously unselected package libkrb5support0:amd64.
+Preparing to unpack .../05-libkrb5support0_1.16-2ubuntu0.2_amd64.deb ...
+Unpacking libkrb5support0:amd64 (1.16-2ubuntu0.2) ...
+Selecting previously unselected package libk5crypto3:amd64.
+Preparing to unpack .../06-libk5crypto3_1.16-2ubuntu0.2_amd64.deb ...
+Unpacking libk5crypto3:amd64 (1.16-2ubuntu0.2) ...
+Selecting previously unselected package libkeyutils1:amd64.
+Preparing to unpack .../07-libkeyutils1_1.5.9-9.2ubuntu2_amd64.deb ...
+Unpacking libkeyutils1:amd64 (1.5.9-9.2ubuntu2) ...
+Selecting previously unselected package libkrb5-3:amd64.
+Preparing to unpack .../08-libkrb5-3_1.16-2ubuntu0.2_amd64.deb ...
+Unpacking libkrb5-3:amd64 (1.16-2ubuntu0.2) ...
+Selecting previously unselected package libgssapi-krb5-2:amd64.
+Preparing to unpack .../09-libgssapi-krb5-2_1.16-2ubuntu0.2_amd64.deb ...
+Unpacking libgssapi-krb5-2:amd64 (1.16-2ubuntu0.2) ...
+Selecting previously unselected package libpsl5:amd64.
+Preparing to unpack .../10-libpsl5_0.19.1-5build1_amd64.deb ...
+Unpacking libpsl5:amd64 (0.19.1-5build1) ...
+Selecting previously unselected package binutils-common:amd64.
+Preparing to unpack .../11-binutils-common_2.30-21ubuntu1~18.04.7_amd64.deb ...
+Unpacking binutils-common:amd64 (2.30-21ubuntu1~18.04.7) ...
+Selecting previously unselected package libbinutils:amd64.
+Preparing to unpack .../12-libbinutils_2.30-21ubuntu1~18.04.7_amd64.deb ...
+Unpacking libbinutils:amd64 (2.30-21ubuntu1~18.04.7) ...
+Selecting previously unselected package binutils-x86-64-linux-gnu.
+Preparing to unpack .../13-binutils-x86-64-linux-gnu_2.30-21ubuntu1~18.04.7_amd64.deb ...
+Unpacking binutils-x86-64-linux-gnu (2.30-21ubuntu1~18.04.7) ...
+Selecting previously unselected package binutils.
+Preparing to unpack .../14-binutils_2.30-21ubuntu1~18.04.7_amd64.deb ...
+Unpacking binutils (2.30-21ubuntu1~18.04.7) ...
+Selecting previously unselected package cmake-data.
+Preparing to unpack .../15-cmake-data_3.10.2-1ubuntu2.18.04.2_all.deb ...
+Unpacking cmake-data (3.10.2-1ubuntu2.18.04.2) ...
+Selecting previously unselected package libarchive13:amd64.
+Preparing to unpack .../16-libarchive13_3.2.2-3.1ubuntu0.7_amd64.deb ...
+Unpacking libarchive13:amd64 (3.2.2-3.1ubuntu0.7) ...
+Selecting previously unselected package libroken18-heimdal:amd64.
+Preparing to unpack .../17-libroken18-heimdal_7.5.0+dfsg-1_amd64.deb ...
+Unpacking libroken18-heimdal:amd64 (7.5.0+dfsg-1) ...
+Selecting previously unselected package libasn1-8-heimdal:amd64.
+Preparing to unpack .../18-libasn1-8-heimdal_7.5.0+dfsg-1_amd64.deb ...
+Unpacking libasn1-8-heimdal:amd64 (7.5.0+dfsg-1) ...
+Selecting previously unselected package libheimbase1-heimdal:amd64.
+Preparing to unpack .../19-libheimbase1-heimdal_7.5.0+dfsg-1_amd64.deb ...
+Unpacking libheimbase1-heimdal:amd64 (7.5.0+dfsg-1) ...
+Selecting previously unselected package libhcrypto4-heimdal:amd64.
+Preparing to unpack .../20-libhcrypto4-heimdal_7.5.0+dfsg-1_amd64.deb ...
+Unpacking libhcrypto4-heimdal:amd64 (7.5.0+dfsg-1) ...
+Selecting previously unselected package libwind0-heimdal:amd64.
+Preparing to unpack .../21-libwind0-heimdal_7.5.0+dfsg-1_amd64.deb ...
+Unpacking libwind0-heimdal:amd64 (7.5.0+dfsg-1) ...
+Selecting previously unselected package libhx509-5-heimdal:amd64.
+Preparing to unpack .../22-libhx509-5-heimdal_7.5.0+dfsg-1_amd64.deb ...
+Unpacking libhx509-5-heimdal:amd64 (7.5.0+dfsg-1) ...
+Selecting previously unselected package libkrb5-26-heimdal:amd64.
+Preparing to unpack .../23-libkrb5-26-heimdal_7.5.0+dfsg-1_amd64.deb ...
+Unpacking libkrb5-26-heimdal:amd64 (7.5.0+dfsg-1) ...
+Selecting previously unselected package libheimntlm0-heimdal:amd64.
+Preparing to unpack .../24-libheimntlm0-heimdal_7.5.0+dfsg-1_amd64.deb ...
+Unpacking libheimntlm0-heimdal:amd64 (7.5.0+dfsg-1) ...
+Selecting previously unselected package libgssapi3-heimdal:amd64.
+Preparing to unpack .../25-libgssapi3-heimdal_7.5.0+dfsg-1_amd64.deb ...
+Unpacking libgssapi3-heimdal:amd64 (7.5.0+dfsg-1) ...
+Selecting previously unselected package libsasl2-modules-db:amd64.
+Preparing to unpack .../26-libsasl2-modules-db_2.1.27~101-g0780600+dfsg-3ubuntu2.4_amd64.deb ...
+Unpacking libsasl2-modules-db:amd64 (2.1.27~101-g0780600+dfsg-3ubuntu2.4) ...
+Selecting previously unselected package libsasl2-2:amd64.
+Preparing to unpack .../27-libsasl2-2_2.1.27~101-g0780600+dfsg-3ubuntu2.4_amd64.deb ...
+Unpacking libsasl2-2:amd64 (2.1.27~101-g0780600+dfsg-3ubuntu2.4) ...
+Selecting previously unselected package libldap-common.
+Preparing to unpack .../28-libldap-common_2.4.45+dfsg-1ubuntu1.10_all.deb ...
+Unpacking libldap-common (2.4.45+dfsg-1ubuntu1.10) ...
+Selecting previously unselected package libldap-2.4-2:amd64.
+Preparing to unpack .../29-libldap-2.4-2_2.4.45+dfsg-1ubuntu1.10_amd64.deb ...
+Unpacking libldap-2.4-2:amd64 (2.4.45+dfsg-1ubuntu1.10) ...
+Selecting previously unselected package libnghttp2-14:amd64.
+Preparing to unpack .../30-libnghttp2-14_1.30.0-1ubuntu1_amd64.deb ...
+Unpacking libnghttp2-14:amd64 (1.30.0-1ubuntu1) ...
+Selecting previously unselected package librtmp1:amd64.
+Preparing to unpack .../31-librtmp1_2.4+20151223.gitfa8646d.1-1_amd64.deb ...
+Unpacking librtmp1:amd64 (2.4+20151223.gitfa8646d.1-1) ...
+Selecting previously unselected package libcurl4:amd64.
+Preparing to unpack .../32-libcurl4_7.58.0-2ubuntu3.16_amd64.deb ...
+Unpacking libcurl4:amd64 (7.58.0-2ubuntu3.16) ...
+Selecting previously unselected package libjsoncpp1:amd64.
+Preparing to unpack .../33-libjsoncpp1_1.7.4-3_amd64.deb ...
+Unpacking libjsoncpp1:amd64 (1.7.4-3) ...
+Selecting previously unselected package librhash0:amd64.
+Preparing to unpack .../34-librhash0_1.3.6-2_amd64.deb ...
+Unpacking librhash0:amd64 (1.3.6-2) ...
+Selecting previously unselected package libuv1:amd64.
+Preparing to unpack .../35-libuv1_1.18.0-3_amd64.deb ...
+Unpacking libuv1:amd64 (1.18.0-3) ...
+Selecting previously unselected package cmake.
+Preparing to unpack .../36-cmake_3.10.2-1ubuntu2.18.04.2_amd64.deb ...
+Unpacking cmake (3.10.2-1ubuntu2.18.04.2) ...
+Selecting previously unselected package gcc-7-base:amd64.
+Preparing to unpack .../37-gcc-7-base_7.5.0-3ubuntu1~18.04_amd64.deb ...
+Unpacking gcc-7-base:amd64 (7.5.0-3ubuntu1~18.04) ...
+Selecting previously unselected package libisl19:amd64.
+Preparing to unpack .../38-libisl19_0.19-1_amd64.deb ...
+Unpacking libisl19:amd64 (0.19-1) ...
+Selecting previously unselected package libmpfr6:amd64.
+Preparing to unpack .../39-libmpfr6_4.0.1-1_amd64.deb ...
+Unpacking libmpfr6:amd64 (4.0.1-1) ...
+Selecting previously unselected package libmpc3:amd64.
+Preparing to unpack .../40-libmpc3_1.1.0-1_amd64.deb ...
+Unpacking libmpc3:amd64 (1.1.0-1) ...
+Selecting previously unselected package cpp-7.
+Preparing to unpack .../41-cpp-7_7.5.0-3ubuntu1~18.04_amd64.deb ...
+Unpacking cpp-7 (7.5.0-3ubuntu1~18.04) ...
+Selecting previously unselected package cpp.
+Preparing to unpack .../42-cpp_4%3a7.4.0-1ubuntu2.3_amd64.deb ...
+Unpacking cpp (4:7.4.0-1ubuntu2.3) ...
+Selecting previously unselected package libcc1-0:amd64.
+Preparing to unpack .../43-libcc1-0_8.4.0-1ubuntu1~18.04_amd64.deb ...
+Unpacking libcc1-0:amd64 (8.4.0-1ubuntu1~18.04) ...
+Selecting previously unselected package libgomp1:amd64.
+Preparing to unpack .../44-libgomp1_8.4.0-1ubuntu1~18.04_amd64.deb ...
+Unpacking libgomp1:amd64 (8.4.0-1ubuntu1~18.04) ...
+Selecting previously unselected package libitm1:amd64.
+Preparing to unpack .../45-libitm1_8.4.0-1ubuntu1~18.04_amd64.deb ...
+Unpacking libitm1:amd64 (8.4.0-1ubuntu1~18.04) ...
+Selecting previously unselected package libatomic1:amd64.
+Preparing to unpack .../46-libatomic1_8.4.0-1ubuntu1~18.04_amd64.deb ...
+Unpacking libatomic1:amd64 (8.4.0-1ubuntu1~18.04) ...
+Selecting previously unselected package libasan4:amd64.
+Preparing to unpack .../47-libasan4_7.5.0-3ubuntu1~18.04_amd64.deb ...
+Unpacking libasan4:amd64 (7.5.0-3ubuntu1~18.04) ...
+Selecting previously unselected package liblsan0:amd64.
+Preparing to unpack .../48-liblsan0_8.4.0-1ubuntu1~18.04_amd64.deb ...
+Unpacking liblsan0:amd64 (8.4.0-1ubuntu1~18.04) ...
+Selecting previously unselected package libtsan0:amd64.
+Preparing to unpack .../49-libtsan0_8.4.0-1ubuntu1~18.04_amd64.deb ...
+Unpacking libtsan0:amd64 (8.4.0-1ubuntu1~18.04) ...
+Selecting previously unselected package libubsan0:amd64.
+Preparing to unpack .../50-libubsan0_7.5.0-3ubuntu1~18.04_amd64.deb ...
+Unpacking libubsan0:amd64 (7.5.0-3ubuntu1~18.04) ...
+Selecting previously unselected package libcilkrts5:amd64.
+Preparing to unpack .../51-libcilkrts5_7.5.0-3ubuntu1~18.04_amd64.deb ...
+Unpacking libcilkrts5:amd64 (7.5.0-3ubuntu1~18.04) ...
+Selecting previously unselected package libmpx2:amd64.
+Preparing to unpack .../52-libmpx2_8.4.0-1ubuntu1~18.04_amd64.deb ...
+Unpacking libmpx2:amd64 (8.4.0-1ubuntu1~18.04) ...
+Selecting previously unselected package libquadmath0:amd64.
+Preparing to unpack .../53-libquadmath0_8.4.0-1ubuntu1~18.04_amd64.deb ...
+Unpacking libquadmath0:amd64 (8.4.0-1ubuntu1~18.04) ...
+Selecting previously unselected package libgcc-7-dev:amd64.
+Preparing to unpack .../54-libgcc-7-dev_7.5.0-3ubuntu1~18.04_amd64.deb ...
+Unpacking libgcc-7-dev:amd64 (7.5.0-3ubuntu1~18.04) ...
+Selecting previously unselected package gcc-7.
+Preparing to unpack .../55-gcc-7_7.5.0-3ubuntu1~18.04_amd64.deb ...
+Unpacking gcc-7 (7.5.0-3ubuntu1~18.04) ...
+Selecting previously unselected package gcc.
+Preparing to unpack .../56-gcc_4%3a7.4.0-1ubuntu2.3_amd64.deb ...
+Unpacking gcc (4:7.4.0-1ubuntu2.3) ...
+Selecting previously unselected package libc-dev-bin.
+Preparing to unpack .../57-libc-dev-bin_2.27-3ubuntu1.5_amd64.deb ...
+Unpacking libc-dev-bin (2.27-3ubuntu1.5) ...
+Selecting previously unselected package linux-libc-dev:amd64.
+Preparing to unpack .../58-linux-libc-dev_4.15.0-169.177_amd64.deb ...
+Unpacking linux-libc-dev:amd64 (4.15.0-169.177) ...
+Selecting previously unselected package libc6-dev:amd64.
+Preparing to unpack .../59-libc6-dev_2.27-3ubuntu1.5_amd64.deb ...
+Unpacking libc6-dev:amd64 (2.27-3ubuntu1.5) ...
+Selecting previously unselected package libstdc++-7-dev:amd64.
+Preparing to unpack .../60-libstdc++-7-dev_7.5.0-3ubuntu1~18.04_amd64.deb ...
+Unpacking libstdc++-7-dev:amd64 (7.5.0-3ubuntu1~18.04) ...
+Selecting previously unselected package g++-7.
+Preparing to unpack .../61-g++-7_7.5.0-3ubuntu1~18.04_amd64.deb ...
+Unpacking g++-7 (7.5.0-3ubuntu1~18.04) ...
+Selecting previously unselected package g++.
+Preparing to unpack .../62-g++_4%3a7.4.0-1ubuntu2.3_amd64.deb ...
+Unpacking g++ (4:7.4.0-1ubuntu2.3) ...
+Selecting previously unselected package libcurl3-gnutls:amd64.
+Preparing to unpack .../63-libcurl3-gnutls_7.58.0-2ubuntu3.16_amd64.deb ...
+Unpacking libcurl3-gnutls:amd64 (7.58.0-2ubuntu3.16) ...
+Selecting previously unselected package liberror-perl.
+Preparing to unpack .../64-liberror-perl_0.17025-1_all.deb ...
+Unpacking liberror-perl (0.17025-1) ...
+Selecting previously unselected package git-man.
+Preparing to unpack .../65-git-man_1%3a2.17.1-1ubuntu0.9_all.deb ...
+Unpacking git-man (1:2.17.1-1ubuntu0.9) ...
+Selecting previously unselected package git.
+Preparing to unpack .../66-git_1%3a2.17.1-1ubuntu0.9_amd64.deb ...
+Unpacking git (1:2.17.1-1ubuntu0.9) ...
+Selecting previously unselected package make.
+Preparing to unpack .../67-make_4.1-9.1ubuntu1_amd64.deb ...
+Unpacking make (4.1-9.1ubuntu1) ...
+Setting up libquadmath0:amd64 (8.4.0-1ubuntu1~18.04) ...
+Setting up libgomp1:amd64 (8.4.0-1ubuntu1~18.04) ...
+Setting up libatomic1:amd64 (8.4.0-1ubuntu1~18.04) ...
+Setting up readline-common (7.0-3) ...
+Setting up git-man (1:2.17.1-1ubuntu0.9) ...
+Setting up libexpat1:amd64 (2.2.5-3ubuntu0.4) ...
+Setting up libicu60:amd64 (60.2-3ubuntu3.2) ...
+Setting up libcc1-0:amd64 (8.4.0-1ubuntu1~18.04) ...
+Setting up make (4.1-9.1ubuntu1) ...
+Setting up libnghttp2-14:amd64 (1.30.0-1ubuntu1) ...
+Setting up mime-support (3.60ubuntu1) ...
+Setting up libldap-common (2.4.45+dfsg-1ubuntu1.10) ...
+Setting up libuv1:amd64 (1.18.0-3) ...
+Setting up libreadline7:amd64 (7.0-3) ...
+Setting up libpsl5:amd64 (0.19.1-5build1) ...
+Setting up libtsan0:amd64 (8.4.0-1ubuntu1~18.04) ...
+Setting up libsasl2-modules-db:amd64 (2.1.27~101-g0780600+dfsg-3ubuntu2.4) ...
+Setting up linux-libc-dev:amd64 (4.15.0-169.177) ...
+Setting up libmpfr6:amd64 (4.0.1-1) ...
+Setting up libsasl2-2:amd64 (2.1.27~101-g0780600+dfsg-3ubuntu2.4) ...
+Setting up cmake-data (3.10.2-1ubuntu2.18.04.2) ...
+Setting up libroken18-heimdal:amd64 (7.5.0+dfsg-1) ...
+Setting up librtmp1:amd64 (2.4+20151223.gitfa8646d.1-1) ...
+Setting up perl-modules-5.26 (5.26.1-6ubuntu0.5) ...
+Setting up libgdbm5:amd64 (1.14.1-6) ...
+Setting up libkrb5support0:amd64 (1.16-2ubuntu0.2) ...
+Setting up libxml2:amd64 (2.9.4+dfsg1-6.1ubuntu1.4) ...
+Setting up librhash0:amd64 (1.3.6-2) ...
+Setting up liblsan0:amd64 (8.4.0-1ubuntu1~18.04) ...
+Setting up gcc-7-base:amd64 (7.5.0-3ubuntu1~18.04) ...
+Setting up binutils-common:amd64 (2.30-21ubuntu1~18.04.7) ...
+Setting up libmpx2:amd64 (8.4.0-1ubuntu1~18.04) ...
+Setting up libssl1.1:amd64 (1.1.1-1ubuntu2.1~18.04.14) ...
+debconf: unable to initialize frontend: Dialog
+debconf: (No usable dialog-like program is installed, so the dialog based frontend cannot be used. at /usr/share/perl5/Debconf/FrontEnd/Dialog.pm line 76.)
+debconf: falling back to frontend: Readline
+Setting up libheimbase1-heimdal:amd64 (7.5.0+dfsg-1) ...
+Setting up openssl (1.1.1-1ubuntu2.1~18.04.14) ...
+Setting up libsqlite3-0:amd64 (3.22.0-1ubuntu0.4) ...
+Setting up libmpc3:amd64 (1.1.0-1) ...
+Setting up libc-dev-bin (2.27-3ubuntu1.5) ...
+Setting up libgdbm-compat4:amd64 (1.14.1-6) ...
+Setting up libkeyutils1:amd64 (1.5.9-9.2ubuntu2) ...
+Setting up ca-certificates (20210119~18.04.2) ...
+debconf: unable to initialize frontend: Dialog
+debconf: (No usable dialog-like program is installed, so the dialog based frontend cannot be used. at /usr/share/perl5/Debconf/FrontEnd/Dialog.pm line 76.)
+debconf: falling back to frontend: Readline
+Updating certificates in /etc/ssl/certs...
+128 added, 0 removed; done.
+Setting up libc6-dev:amd64 (2.27-3ubuntu1.5) ...
+Setting up libitm1:amd64 (8.4.0-1ubuntu1~18.04) ...
+Setting up libpython2.7-stdlib:amd64 (2.7.17-1~18.04ubuntu1.6) ...
+Setting up liblzo2-2:amd64 (2.08-1.2) ...
+Setting up libisl19:amd64 (0.19-1) ...
+Setting up libjsoncpp1:amd64 (1.7.4-3) ...
+Setting up libk5crypto3:amd64 (1.16-2ubuntu0.2) ...
+Setting up libwind0-heimdal:amd64 (7.5.0+dfsg-1) ...
+Setting up libasan4:amd64 (7.5.0-3ubuntu1~18.04) ...
+Setting up libbinutils:amd64 (2.30-21ubuntu1~18.04.7) ...
+Setting up libarchive13:amd64 (3.2.2-3.1ubuntu0.7) ...
+Setting up libcilkrts5:amd64 (7.5.0-3ubuntu1~18.04) ...
+Setting up libasn1-8-heimdal:amd64 (7.5.0+dfsg-1) ...
+Setting up libubsan0:amd64 (7.5.0-3ubuntu1~18.04) ...
+Setting up libhcrypto4-heimdal:amd64 (7.5.0+dfsg-1) ...
+Setting up python2.7 (2.7.17-1~18.04ubuntu1.6) ...
+Setting up libhx509-5-heimdal:amd64 (7.5.0+dfsg-1) ...
+Setting up libgcc-7-dev:amd64 (7.5.0-3ubuntu1~18.04) ...
+Setting up cpp-7 (7.5.0-3ubuntu1~18.04) ...
+Setting up libstdc++-7-dev:amd64 (7.5.0-3ubuntu1~18.04) ...
+Setting up libpython-stdlib:amd64 (2.7.15~rc1-1) ...
+Setting up libperl5.26:amd64 (5.26.1-6ubuntu0.5) ...
+Setting up libkrb5-3:amd64 (1.16-2ubuntu0.2) ...
+Setting up libkrb5-26-heimdal:amd64 (7.5.0+dfsg-1) ...
+Setting up libheimntlm0-heimdal:amd64 (7.5.0+dfsg-1) ...
+Setting up python (2.7.15~rc1-1) ...
+Setting up binutils-x86-64-linux-gnu (2.30-21ubuntu1~18.04.7) ...
+Setting up cpp (4:7.4.0-1ubuntu2.3) ...
+Setting up libgssapi-krb5-2:amd64 (1.16-2ubuntu0.2) ...
+Setting up perl (5.26.1-6ubuntu0.5) ...
+Setting up binutils (2.30-21ubuntu1~18.04.7) ...
+Setting up libgssapi3-heimdal:amd64 (7.5.0+dfsg-1) ...
+Setting up gcc-7 (7.5.0-3ubuntu1~18.04) ...
+Setting up liberror-perl (0.17025-1) ...
+Setting up g++-7 (7.5.0-3ubuntu1~18.04) ...
+Setting up gcc (4:7.4.0-1ubuntu2.3) ...
+Setting up libldap-2.4-2:amd64 (2.4.45+dfsg-1ubuntu1.10) ...
+Setting up g++ (4:7.4.0-1ubuntu2.3) ...
+update-alternatives: using /usr/bin/g++ to provide /usr/bin/c++ (c++) in auto mode
+update-alternatives: warning: skip creation of /usr/share/man/man1/c++.1.gz because associated file /usr/share/man/man1/g++.1.gz (of link group c++) doesn't exist
+Setting up libcurl3-gnutls:amd64 (7.58.0-2ubuntu3.16) ...
+Setting up libcurl4:amd64 (7.58.0-2ubuntu3.16) ...
+Setting up cmake (3.10.2-1ubuntu2.18.04.2) ...
+Setting up git (1:2.17.1-1ubuntu0.9) ...
+Processing triggers for libc-bin (2.27-3ubuntu1.4) ...
+Processing triggers for ca-certificates (20210119~18.04.2) ...
+Updating certificates in /etc/ssl/certs...
+0 added, 0 removed; done.
+Running hooks in /etc/ca-certificates/update.d...
+done.
+-- The C compiler identification is GNU 7.5.0
+-- The CXX compiler identification is GNU 7.5.0
+-- Check for working C compiler: /usr/bin/gcc
+-- Check for working C compiler: /usr/bin/gcc -- works
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Check for working CXX compiler: /usr/bin/g++
+-- Check for working CXX compiler: /usr/bin/g++ -- works
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Building for 64-bit.
+-- Performing Test CXX11_FOUND
+-- Performing Test CXX11_FOUND - Success
+-- Forcing static build.
+-- Enabling plugin causal_graph because plugin core_sources is enabled and depends on it.
+-- Enabling plugin int_packer because plugin core_sources is enabled and depends on it.
+-- Enabling plugin ordered_set because plugin core_sources is enabled and depends on it.
+-- Enabling plugin segmented_vector because plugin core_sources is enabled and depends on it.
+-- Enabling plugin successor_generator because plugin core_sources is enabled and depends on it.
+-- Enabling plugin task_properties because plugin core_sources is enabled and depends on it.
+-- Enabling plugin stubborn_sets because plugin stubborn_sets_simple is enabled and depends on it.
+-- Enabling plugin eager_search because plugin plugin_astar is enabled and depends on it.
+-- Enabling plugin search_common because plugin plugin_astar is enabled and depends on it.
+-- Enabling plugin lazy_search because plugin plugin_lazy is enabled and depends on it.
+-- Enabling plugin priority_queues because plugin additive_heuristic is enabled and depends on it.
+-- Enabling plugin relaxation_heuristic because plugin additive_heuristic is enabled and depends on it.
+-- Enabling plugin domain_transition_graph because plugin context_enhanced_additive_heuristic is enabled and depends on it.
+-- Enabling plugin dynamic_bitset because plugin cegar is enabled and depends on it.
+-- Enabling plugin extra_tasks because plugin cegar is enabled and depends on it.
+-- Enabling plugin lp_solver because plugin cost_saturation is enabled and depends on it.
+-- Enabling plugin equivalence_relation because plugin mas_heuristic is enabled and depends on it.
+-- Enabling plugin sccs because plugin mas_heuristic is enabled and depends on it.
+-- Enabling plugin variable_order_finder because plugin mas_heuristic is enabled and depends on it.
+-- Enabling plugin max_cliques because plugin pdbs is enabled and depends on it.
+-- Enabling plugin sampling because plugin pdbs is enabled and depends on it.
+-- Enabling plugin null_pruning_method because plugin eager_search is enabled and depends on it.
+-- Using plugin: core_sources
+-- Using plugin: options
+-- Using plugin: utils
+-- Using plugin: alternation_open_list
+-- Using plugin: epsilon_greedy_open_list
+-- Using plugin: pareto_open_list
+-- Using plugin: standard_scalar_open_list
+-- Using plugin: tiebreaking_open_list
+-- Using plugin: type_based_open_list
+-- Using plugin: dynamic_bitset
+-- Using plugin: equivalence_relation
+-- Using plugin: int_hash_set
+-- Using plugin: int_packer
+-- Using plugin: max_cliques
+-- Using plugin: priority_queues
+-- Using plugin: ordered_set
+-- Using plugin: segmented_vector
+-- Using plugin: const_evaluator
+-- Using plugin: g_evaluator
+-- Using plugin: combining_evaluator
+-- Using plugin: max_evaluator
+-- Using plugin: pref_evaluator
+-- Using plugin: weighted_evaluator
+-- Using plugin: sum_evaluator
+-- Using plugin: null_pruning_method
+-- Using plugin: stubborn_sets
+-- Using plugin: stubborn_sets_simple
+-- Using plugin: stubbornsetsec
+-- Using plugin: search_common
+-- Using plugin: eager_search
+-- Using plugin: plugin_astar
+-- Using plugin: plugin_eager
+-- Using plugin: plugin_eager_greedy
+-- Using plugin: plugin_lazy
+-- Using plugin: plugin_lazy_greedy
+-- Using plugin: plugin_lazy_wastar
+-- Using plugin: enforced_hill_climbing_search
+-- Using plugin: iterated_search
+-- Using plugin: lazy_search
+-- Using plugin: lp_solver
+-- Using plugin: relaxation_heuristic
+-- Using plugin: additive_heuristic
+-- Using plugin: blind_search_heuristic
+-- Using plugin: context_enhanced_additive_heuristic
+-- Using plugin: cg_heuristic
+-- Using plugin: domain_transition_graph
+-- Using plugin: ff_heuristic
+-- Using plugin: goal_count_heuristic
+-- Using plugin: hm_heuristic
+-- Using plugin: landmark_cut_heuristic
+-- Using plugin: max_heuristic
+-- Using plugin: core_tasks
+-- Using plugin: extra_tasks
+-- Using plugin: causal_graph
+-- Using plugin: sampling
+-- Using plugin: successor_generator
+-- Using plugin: task_properties
+-- Using plugin: variable_order_finder
+-- Using plugin: cegar
+-- Using plugin: cost_saturation
+-- Using plugin: mas_heuristic
+-- Using plugin: landmarks
+-- Using plugin: operator_counting
+-- Using plugin: pdbs
+-- Using plugin: potentials
+-- Using plugin: sccs
+-- Could NOT find OSI (missing: OSI_INCLUDE_DIRS OSI_LIBRARIES) 
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /planner/builds/release64
+Scanning dependencies of target translate
+Copying translator module into output directory
+[  0%] Built target translate
+Scanning dependencies of target downward
+[  1%] Building CXX object search/CMakeFiles/downward.dir/potentials/sample_based_potential_heuristics.cc.o
+[  1%] Building CXX object search/CMakeFiles/downward.dir/potentials/util.cc.o
+[  1%] Building CXX object search/CMakeFiles/downward.dir/potentials/potential_optimizer.cc.o
+[  1%] Building CXX object search/CMakeFiles/downward.dir/potentials/potential_max_heuristic.cc.o
+[  1%] Building CXX object search/CMakeFiles/downward.dir/potentials/potential_function.cc.o
+[  2%] Building CXX object search/CMakeFiles/downward.dir/potentials/potential_heuristic.cc.o
+[  2%] Building CXX object search/CMakeFiles/downward.dir/algorithms/sccs.cc.o
+[  3%] Building CXX object search/CMakeFiles/downward.dir/potentials/single_potential_heuristics.cc.o
+[  4%] Building CXX object search/CMakeFiles/downward.dir/potentials/diverse_potential_heuristics.cc.o
+[  4%] Building CXX object search/CMakeFiles/downward.dir/pdbs/zero_one_pdbs_heuristic.cc.o
+[  4%] Building CXX object search/CMakeFiles/downward.dir/pdbs/zero_one_pdbs.cc.o
+[  5%] Building CXX object search/CMakeFiles/downward.dir/pdbs/validation.cc.o
+[  5%] Building CXX object search/CMakeFiles/downward.dir/pdbs/pdb_heuristic.cc.o
+[  6%] Building CXX object search/CMakeFiles/downward.dir/pdbs/pattern_generator.cc.o
+[  6%] Building CXX object search/CMakeFiles/downward.dir/pdbs/pattern_generator_manual.cc.o
+[  7%] Building CXX object search/CMakeFiles/downward.dir/pdbs/pattern_generator_greedy.cc.o
+[  7%] Building CXX object search/CMakeFiles/downward.dir/pdbs/pattern_collection_generator_systematic.cc.o
+[  8%] Building CXX object search/CMakeFiles/downward.dir/pdbs/pattern_collection_generator_manual.cc.o
+[  8%] Building CXX object search/CMakeFiles/downward.dir/pdbs/pattern_collection_generator_hillclimbing.cc.o
+[  9%] Building CXX object search/CMakeFiles/downward.dir/pdbs/pattern_collection_generator_genetic.cc.o
+[  9%] Building CXX object search/CMakeFiles/downward.dir/pdbs/pattern_collection_generator_combo.cc.o
+[  9%] Building CXX object search/CMakeFiles/downward.dir/pdbs/pattern_database.cc.o
+[ 10%] Building CXX object search/CMakeFiles/downward.dir/pdbs/pattern_collection_information.cc.o
+[ 10%] Building CXX object search/CMakeFiles/downward.dir/pdbs/max_additive_pdb_sets.cc.o
+[ 11%] Building CXX object search/CMakeFiles/downward.dir/pdbs/match_tree.cc.o
+[ 11%] Building CXX object search/CMakeFiles/downward.dir/pdbs/incremental_canonical_pdbs.cc.o
+[ 12%] Building CXX object search/CMakeFiles/downward.dir/pdbs/dominance_pruning.cc.o
+[ 12%] Building CXX object search/CMakeFiles/downward.dir/pdbs/canonical_pdbs_heuristic.cc.o
+[ 13%] Building CXX object search/CMakeFiles/downward.dir/pdbs/canonical_pdbs.cc.o
+[ 13%] Building CXX object search/CMakeFiles/downward.dir/operator_counting/state_equation_constraints.cc.o
+[ 13%] Building CXX object search/CMakeFiles/downward.dir/operator_counting/pho_constraints.cc.o
+[ 14%] Building CXX object search/CMakeFiles/downward.dir/operator_counting/pho_abstraction_constraints.cc.o
+[ 14%] Building CXX object search/CMakeFiles/downward.dir/operator_counting/operator_counting_heuristic.cc.o
+[ 15%] Building CXX object search/CMakeFiles/downward.dir/operator_counting/lm_cut_constraints.cc.o
+[ 15%] Building CXX object search/CMakeFiles/downward.dir/operator_counting/constraint_generator.cc.o
+[ 16%] Building CXX object search/CMakeFiles/downward.dir/landmarks/util.cc.o
+[ 16%] Building CXX object search/CMakeFiles/downward.dir/landmarks/landmark_status_manager.cc.o
+[ 17%] Building CXX object search/CMakeFiles/downward.dir/landmarks/landmark_graph.cc.o
+[ 17%] Building CXX object search/CMakeFiles/downward.dir/landmarks/landmark_factory_zhu_givan.cc.o
+[ 18%] Building CXX object search/CMakeFiles/downward.dir/landmarks/landmark_factory_rpg_sasp.cc.o
+[ 18%] Building CXX object search/CMakeFiles/downward.dir/landmarks/landmark_factory_rpg_exhaust.cc.o
+[ 18%] Building CXX object search/CMakeFiles/downward.dir/landmarks/landmark_factory_merged.cc.o
+[ 19%] Building CXX object search/CMakeFiles/downward.dir/landmarks/landmark_factory_h_m.cc.o
+[ 19%] Building CXX object search/CMakeFiles/downward.dir/landmarks/landmark_factory.cc.o
+[ 20%] Building CXX object search/CMakeFiles/downward.dir/landmarks/landmark_count_heuristic.cc.o
+[ 20%] Building CXX object search/CMakeFiles/downward.dir/landmarks/landmark_cost_assignment.cc.o
+[ 21%] Building CXX object search/CMakeFiles/downward.dir/landmarks/lama_ff_synergy.cc.o
+[ 21%] Building CXX object search/CMakeFiles/downward.dir/landmarks/exploration.cc.o
+[ 22%] Building CXX object search/CMakeFiles/downward.dir/merge_and_shrink/utils.cc.o
+[ 22%] Building CXX object search/CMakeFiles/downward.dir/merge_and_shrink/types.cc.o
+[ 22%] Building CXX object search/CMakeFiles/downward.dir/merge_and_shrink/transition_system.cc.o
+[ 23%] Building CXX object search/CMakeFiles/downward.dir/merge_and_shrink/shrink_strategy.cc.o
+[ 23%] Building CXX object search/CMakeFiles/downward.dir/merge_and_shrink/shrink_random.cc.o
+[ 24%] Building CXX object search/CMakeFiles/downward.dir/merge_and_shrink/shrink_fh.cc.o
+[ 24%] Building CXX object search/CMakeFiles/downward.dir/merge_and_shrink/shrink_bucket_based.cc.o
+[ 25%] Building CXX object search/CMakeFiles/downward.dir/merge_and_shrink/shrink_bisimulation.cc.o
+[ 25%] Building CXX object search/CMakeFiles/downward.dir/merge_and_shrink/merge_tree_factory_linear.cc.o
+[ 26%] Building CXX object search/CMakeFiles/downward.dir/merge_and_shrink/merge_tree_factory.cc.o
+[ 26%] Building CXX object search/CMakeFiles/downward.dir/merge_and_shrink/merge_tree.cc.o
+[ 27%] Building CXX object search/CMakeFiles/downward.dir/merge_and_shrink/merge_strategy_stateless.cc.o
+[ 27%] Building CXX object search/CMakeFiles/downward.dir/merge_and_shrink/merge_strategy_sccs.cc.o
+[ 27%] Building CXX object search/CMakeFiles/downward.dir/merge_and_shrink/merge_strategy_precomputed.cc.o
+[ 28%] Building CXX object search/CMakeFiles/downward.dir/merge_and_shrink/merge_strategy_factory_stateless.cc.o
+[ 28%] Building CXX object search/CMakeFiles/downward.dir/merge_and_shrink/merge_strategy_factory_sccs.cc.o
+[ 29%] Building CXX object search/CMakeFiles/downward.dir/merge_and_shrink/merge_strategy_factory_precomputed.cc.o
+[ 29%] Building CXX object search/CMakeFiles/downward.dir/merge_and_shrink/merge_strategy_factory.cc.o
+[ 30%] Building CXX object search/CMakeFiles/downward.dir/merge_and_shrink/merge_strategy_aliases.cc.o
+[ 30%] Building CXX object search/CMakeFiles/downward.dir/merge_and_shrink/merge_strategy.cc.o
+[ 31%] Building CXX object search/CMakeFiles/downward.dir/merge_and_shrink/merge_selector_score_based_filtering.cc.o
+[ 31%] Building CXX object search/CMakeFiles/downward.dir/merge_and_shrink/merge_selector.cc.o
+[ 31%] Building CXX object search/CMakeFiles/downward.dir/merge_and_shrink/merge_scoring_function_total_order.cc.o
+[ 32%] Building CXX object search/CMakeFiles/downward.dir/merge_and_shrink/merge_scoring_function_single_random.cc.o
+[ 32%] Building CXX object search/CMakeFiles/downward.dir/merge_and_shrink/merge_scoring_function_goal_relevance.cc.o
+[ 33%] Building CXX object search/CMakeFiles/downward.dir/merge_and_shrink/merge_scoring_function_dfp.cc.o
+[ 33%] Building CXX object search/CMakeFiles/downward.dir/merge_and_shrink/merge_scoring_function.cc.o
+[ 34%] Building CXX object search/CMakeFiles/downward.dir/merge_and_shrink/merge_and_shrink_representation.cc.o
+[ 34%] Building CXX object search/CMakeFiles/downward.dir/merge_and_shrink/merge_and_shrink_heuristic.cc.o
+[ 35%] Building CXX object search/CMakeFiles/downward.dir/merge_and_shrink/labels.cc.o
+[ 35%] Building CXX object search/CMakeFiles/downward.dir/merge_and_shrink/label_reduction.cc.o
+[ 36%] Building CXX object search/CMakeFiles/downward.dir/merge_and_shrink/label_equivalence_relation.cc.o
+[ 36%] Building CXX object search/CMakeFiles/downward.dir/merge_and_shrink/fts_factory.cc.o
+[ 36%] Building CXX object search/CMakeFiles/downward.dir/merge_and_shrink/factored_transition_system.cc.o
+[ 37%] Building CXX object search/CMakeFiles/downward.dir/merge_and_shrink/distances.cc.o
+[ 37%] Building CXX object search/CMakeFiles/downward.dir/cost_saturation/zero_one_cost_partitioning_heuristic.cc.o
+[ 38%] Building CXX object search/CMakeFiles/downward.dir/cost_saturation/utils.cc.o
+[ 38%] Building CXX object search/CMakeFiles/downward.dir/cost_saturation/uniform_cost_partitioning_heuristic.cc.o
+[ 39%] Building CXX object search/CMakeFiles/downward.dir/cost_saturation/scoring_functions.cc.o
+[ 39%] Building CXX object search/CMakeFiles/downward.dir/cost_saturation/saturated_cost_partitioning_online_heuristic.cc.o
+[ 40%] Building CXX object search/CMakeFiles/downward.dir/cost_saturation/saturated_cost_partitioning_heuristic.cc.o
+[ 40%] Building CXX object search/CMakeFiles/downward.dir/cost_saturation/projection_generator.cc.o
+[ 40%] Building CXX object search/CMakeFiles/downward.dir/cost_saturation/projection.cc.o
+[ 41%] Building CXX object search/CMakeFiles/downward.dir/cost_saturation/order_optimizer.cc.o
+[ 41%] Building CXX object search/CMakeFiles/downward.dir/cost_saturation/order_generator_lookahead.cc.o
+[ 42%] Building CXX object search/CMakeFiles/downward.dir/cost_saturation/explicit_projection_factory.cc.o
+[ 42%] Building CXX object search/CMakeFiles/downward.dir/cost_saturation/explicit_abstraction.cc.o
+[ 43%] Building CXX object search/CMakeFiles/downward.dir/cost_saturation/diversifier.cc.o
+[ 43%] Building CXX object search/CMakeFiles/downward.dir/cost_saturation/cost_partitioning_heuristic.cc.o
+[ 44%] Building CXX object search/CMakeFiles/downward.dir/cost_saturation/cost_partitioning_generator_greedy.cc.o
+[ 44%] Building CXX object search/CMakeFiles/downward.dir/cost_saturation/cost_partitioning_generator.cc.o
+[ 45%] Building CXX object search/CMakeFiles/downward.dir/cost_saturation/cost_partitioning_collection_generator.cc.o
+[ 45%] Building CXX object search/CMakeFiles/downward.dir/cost_saturation/cost_partitioned_heuristic.cc.o
+[ 45%] Building CXX object search/CMakeFiles/downward.dir/cost_saturation/cartesian_abstraction_generator.cc.o
+[ 46%] Building CXX object search/CMakeFiles/downward.dir/cost_saturation/canonical_heuristic.cc.o
+[ 46%] Building CXX object search/CMakeFiles/downward.dir/cost_saturation/abstraction_generator.cc.o
+[ 47%] Building CXX object search/CMakeFiles/downward.dir/cost_saturation/abstraction.cc.o
+[ 47%] Building CXX object search/CMakeFiles/downward.dir/cegar/utils_landmarks.cc.o
+[ 48%] Building CXX object search/CMakeFiles/downward.dir/cegar/utils.cc.o
+[ 48%] Building CXX object search/CMakeFiles/downward.dir/cegar/transition_updater.cc.o
+[ 49%] Building CXX object search/CMakeFiles/downward.dir/cegar/transition_system.cc.o
+[ 49%] Building CXX object search/CMakeFiles/downward.dir/cegar/subtask_generators.cc.o
+[ 50%] Building CXX object search/CMakeFiles/downward.dir/cegar/split_selector.cc.o
+[ 50%] Building CXX object search/CMakeFiles/downward.dir/cegar/scp_optimizer.cc.o
+[ 50%] Building CXX object search/CMakeFiles/downward.dir/cegar/refinement_hierarchy.cc.o
+[ 51%] Building CXX object search/CMakeFiles/downward.dir/cegar/max_cartesian_heuristic.cc.o
+[ 51%] Building CXX object search/CMakeFiles/downward.dir/cegar/domains.cc.o
+[ 52%] Building CXX object search/CMakeFiles/downward.dir/cegar/cost_saturation.cc.o
+[ 52%] Building CXX object search/CMakeFiles/downward.dir/cegar/additive_cartesian_heuristic.cc.o
+[ 53%] Building CXX object search/CMakeFiles/downward.dir/cegar/abstract_state.cc.o
+[ 53%] Building CXX object search/CMakeFiles/downward.dir/cegar/abstract_search.cc.o
+[ 54%] Building CXX object search/CMakeFiles/downward.dir/cegar/abstraction.cc.o
+[ 54%] Building CXX object search/CMakeFiles/downward.dir/task_utils/variable_order_finder.cc.o
+[ 54%] Building CXX object search/CMakeFiles/downward.dir/task_utils/task_properties.cc.o
+[ 55%] Building CXX object search/CMakeFiles/downward.dir/task_utils/successor_generator_internals.cc.o
+[ 55%] Building CXX object search/CMakeFiles/downward.dir/task_utils/successor_generator_factory.cc.o
+[ 56%] Building CXX object search/CMakeFiles/downward.dir/task_utils/successor_generator.cc.o
+[ 56%] Building CXX object search/CMakeFiles/downward.dir/task_utils/sampling.cc.o
+[ 57%] Building CXX object search/CMakeFiles/downward.dir/task_utils/causal_graph.cc.o
+[ 57%] Building CXX object search/CMakeFiles/downward.dir/tasks/modified_operator_costs_task.cc.o
+[ 58%] Building CXX object search/CMakeFiles/downward.dir/tasks/modified_goals_task.cc.o
+[ 58%] Building CXX object search/CMakeFiles/downward.dir/tasks/domain_abstracted_task_factory.cc.o
+[ 59%] Building CXX object search/CMakeFiles/downward.dir/tasks/domain_abstracted_task.cc.o
+[ 59%] Building CXX object search/CMakeFiles/downward.dir/tasks/root_task.cc.o
+[ 59%] Building CXX object search/CMakeFiles/downward.dir/tasks/delegating_task.cc.o
+[ 60%] Building CXX object search/CMakeFiles/downward.dir/tasks/cost_adapted_task.cc.o
+[ 60%] Building CXX object search/CMakeFiles/downward.dir/heuristics/max_heuristic.cc.o
+[ 61%] Building CXX object search/CMakeFiles/downward.dir/heuristics/lm_cut_landmarks.cc.o
+[ 61%] Building CXX object search/CMakeFiles/downward.dir/heuristics/lm_cut_heuristic.cc.o
+[ 62%] Building CXX object search/CMakeFiles/downward.dir/heuristics/hm_heuristic.cc.o
+[ 62%] Building CXX object search/CMakeFiles/downward.dir/heuristics/goal_count_heuristic.cc.o
+[ 63%] Building CXX object search/CMakeFiles/downward.dir/heuristics/ff_heuristic.cc.o
+[ 63%] Building CXX object search/CMakeFiles/downward.dir/heuristics/domain_transition_graph.cc.o
+[ 63%] Building CXX object search/CMakeFiles/downward.dir/heuristics/cg_cache.cc.o
+[ 64%] Building CXX object search/CMakeFiles/downward.dir/heuristics/cg_heuristic.cc.o
+[ 64%] Building CXX object search/CMakeFiles/downward.dir/heuristics/cea_heuristic.cc.o
+[ 65%] Building CXX object search/CMakeFiles/downward.dir/heuristics/blind_search_heuristic.cc.o
+[ 65%] Building CXX object search/CMakeFiles/downward.dir/heuristics/additive_heuristic.cc.o
+[ 66%] Building CXX object search/CMakeFiles/downward.dir/heuristics/relaxation_heuristic.cc.o
+[ 66%] Building CXX object search/CMakeFiles/downward.dir/lp/lp_solver.cc.o
+[ 67%] Building CXX object search/CMakeFiles/downward.dir/lp/lp_internals.cc.o
+[ 67%] Building CXX object search/CMakeFiles/downward.dir/search_engines/lazy_search.cc.o
+[ 68%] Building CXX object search/CMakeFiles/downward.dir/search_engines/iterated_search.cc.o
+[ 68%] Building CXX object search/CMakeFiles/downward.dir/search_engines/enforced_hill_climbing_search.cc.o
+[ 68%] Building CXX object search/CMakeFiles/downward.dir/search_engines/plugin_lazy_wastar.cc.o
+[ 69%] Building CXX object search/CMakeFiles/downward.dir/search_engines/plugin_lazy_greedy.cc.o
+[ 69%] Building CXX object search/CMakeFiles/downward.dir/search_engines/plugin_lazy.cc.o
+[ 70%] Building CXX object search/CMakeFiles/downward.dir/search_engines/plugin_eager_greedy.cc.o
+[ 70%] Building CXX object search/CMakeFiles/downward.dir/search_engines/plugin_eager.cc.o
+[ 71%] Building CXX object search/CMakeFiles/downward.dir/search_engines/plugin_astar.cc.o
+[ 71%] Building CXX object search/CMakeFiles/downward.dir/search_engines/eager_search.cc.o
+[ 72%] Building CXX object search/CMakeFiles/downward.dir/search_engines/search_common.cc.o
+[ 72%] Building CXX object search/CMakeFiles/downward.dir/pruning/stubborn_sets_ec.cc.o
+[ 72%] Building CXX object search/CMakeFiles/downward.dir/pruning/stubborn_sets_simple.cc.o
+[ 73%] Building CXX object search/CMakeFiles/downward.dir/pruning/stubborn_sets.cc.o
+[ 73%] Building CXX object search/CMakeFiles/downward.dir/pruning/null_pruning_method.cc.o
+[ 74%] Building CXX object search/CMakeFiles/downward.dir/evaluators/sum_evaluator.cc.o
+[ 74%] Building CXX object search/CMakeFiles/downward.dir/evaluators/weighted_evaluator.cc.o
+[ 75%] Building CXX object search/CMakeFiles/downward.dir/evaluators/pref_evaluator.cc.o
+[ 75%] Building CXX object search/CMakeFiles/downward.dir/evaluators/max_evaluator.cc.o
+[ 76%] Building CXX object search/CMakeFiles/downward.dir/evaluators/combining_evaluator.cc.o
+[ 76%] Building CXX object search/CMakeFiles/downward.dir/evaluators/g_evaluator.cc.o
+[ 77%] Building CXX object search/CMakeFiles/downward.dir/evaluators/const_evaluator.cc.o
+[ 77%] Building CXX object search/CMakeFiles/downward.dir/algorithms/max_cliques.cc.o
+[ 77%] Building CXX object search/CMakeFiles/downward.dir/algorithms/int_packer.cc.o
+[ 78%] Building CXX object search/CMakeFiles/downward.dir/algorithms/equivalence_relation.cc.o
+[ 78%] Building CXX object search/CMakeFiles/downward.dir/open_lists/type_based_open_list.cc.o
+[ 79%] Building CXX object search/CMakeFiles/downward.dir/open_lists/tiebreaking_open_list.cc.o
+[ 79%] Building CXX object search/CMakeFiles/downward.dir/open_lists/standard_scalar_open_list.cc.o
+[ 80%] Building CXX object search/CMakeFiles/downward.dir/open_lists/pareto_open_list.cc.o
+[ 80%] Building CXX object search/CMakeFiles/downward.dir/open_lists/epsilon_greedy_open_list.cc.o
+[ 81%] Building CXX object search/CMakeFiles/downward.dir/open_lists/alternation_open_list.cc.o
+[ 81%] Building CXX object search/CMakeFiles/downward.dir/utils/timer.cc.o
+[ 81%] Building CXX object search/CMakeFiles/downward.dir/utils/system_windows.cc.o
+[ 82%] Building CXX object search/CMakeFiles/downward.dir/utils/system_unix.cc.o
+[ 82%] Building CXX object search/CMakeFiles/downward.dir/utils/system.cc.o
+[ 83%] Building CXX object search/CMakeFiles/downward.dir/utils/rng_options.cc.o
+[ 83%] Building CXX object search/CMakeFiles/downward.dir/utils/rng.cc.o
+[ 84%] Building CXX object search/CMakeFiles/downward.dir/utils/memory.cc.o
+[ 84%] Building CXX object search/CMakeFiles/downward.dir/utils/math.cc.o
+[ 85%] Building CXX object search/CMakeFiles/downward.dir/utils/markup.cc.o
+[ 85%] Building CXX object search/CMakeFiles/downward.dir/utils/logging.cc.o
+[ 86%] Building CXX object search/CMakeFiles/downward.dir/utils/countdown_timer.cc.o
+[ 86%] Building CXX object search/CMakeFiles/downward.dir/options/registries.cc.o
+[ 86%] Building CXX object search/CMakeFiles/downward.dir/options/plugin.cc.o
+[ 87%] Building CXX object search/CMakeFiles/downward.dir/options/option_parser.cc.o
+[ 87%] Building CXX object search/CMakeFiles/downward.dir/options/errors.cc.o
+[ 88%] Building CXX object search/CMakeFiles/downward.dir/options/doc_store.cc.o
+[ 88%] Building CXX object search/CMakeFiles/downward.dir/options/doc_printer.cc.o
+[ 89%] Building CXX object search/CMakeFiles/downward.dir/options/bounds.cc.o
+[ 89%] Building CXX object search/CMakeFiles/downward.dir/task_proxy.cc.o
+[ 90%] Building CXX object search/CMakeFiles/downward.dir/state_registry.cc.o
+[ 90%] Building CXX object search/CMakeFiles/downward.dir/state_id.cc.o
+[ 90%] Building CXX object search/CMakeFiles/downward.dir/search_statistics.cc.o
+[ 91%] Building CXX object search/CMakeFiles/downward.dir/search_space.cc.o
+[ 91%] Building CXX object search/CMakeFiles/downward.dir/search_progress.cc.o
+[ 92%] Building CXX object search/CMakeFiles/downward.dir/search_node_info.cc.o
+[ 92%] Building CXX object search/CMakeFiles/downward.dir/search_engine.cc.o
+[ 93%] Building CXX object search/CMakeFiles/downward.dir/pruning_method.cc.o
+[ 93%] Building CXX object search/CMakeFiles/downward.dir/operator_id.cc.o
+[ 94%] Building CXX object search/CMakeFiles/downward.dir/operator_cost.cc.o
+[ 94%] Building CXX object search/CMakeFiles/downward.dir/open_list_factory.cc.o
+[ 95%] Building CXX object search/CMakeFiles/downward.dir/heuristic.cc.o
+[ 95%] Building CXX object search/CMakeFiles/downward.dir/heuristic_cache.cc.o
+[ 95%] Building CXX object search/CMakeFiles/downward.dir/global_state.cc.o
+[ 96%] Building CXX object search/CMakeFiles/downward.dir/globals.cc.o
+[ 96%] Building CXX object search/CMakeFiles/downward.dir/global_operator.cc.o
+[ 97%] Building CXX object search/CMakeFiles/downward.dir/evaluator.cc.o
+[ 97%] Building CXX object search/CMakeFiles/downward.dir/evaluation_result.cc.o
+[ 98%] Building CXX object search/CMakeFiles/downward.dir/evaluation_context.cc.o
+[ 98%] Building CXX object search/CMakeFiles/downward.dir/axioms.cc.o
+[ 99%] Building CXX object search/CMakeFiles/downward.dir/abstract_task.cc.o
+[ 99%] Building CXX object search/CMakeFiles/downward.dir/planner.cc.o
+[100%] Linking CXX executable ../bin/downward
+[100%] Built target downward
+Building configuration release64.
+Executing command "cmake -G Unix Makefiles -DCMAKE_BUILD_TYPE=Release -DALLOW_64_BIT=True -DCMAKE_CXX_FLAGS='-m64' ../../src" in directory "./builds/release64".
+Executing command "make -j8" in directory "./builds/release64".
+Built configuration release64 successfully.
+-- Defaulting to release build.
+-- The C compiler identification is GNU 7.5.0
+-- The CXX compiler identification is GNU 7.5.0
+-- Check for working C compiler: /usr/bin/gcc
+-- Check for working C compiler: /usr/bin/gcc -- works
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Check for working CXX compiler: /usr/bin/g++
+-- Check for working CXX compiler: /usr/bin/g++ -- works
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Performing Test CXX11_FOUND
+-- Performing Test CXX11_FOUND - Success
+-- Forcing static build.
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /planner/builds/h2-mutexes
+Scanning dependencies of target preprocess
+[ 14%] Building CXX object src/CMakeFiles/preprocess.dir/planner.cc.o
+[ 14%] Building CXX object src/CMakeFiles/preprocess.dir/causal_graph.cc.o
+[ 21%] Building CXX object src/CMakeFiles/preprocess.dir/axiom.cc.o
+[ 28%] Building CXX object src/CMakeFiles/preprocess.dir/domain_transition_graph.cc.o
+[ 35%] Building CXX object src/CMakeFiles/preprocess.dir/h2_mutexes.cc.o
+[ 42%] Building CXX object src/CMakeFiles/preprocess.dir/helper_functions.cc.o
+[ 50%] Building CXX object src/CMakeFiles/preprocess.dir/max_dag.cc.o
+[ 57%] Building CXX object src/CMakeFiles/preprocess.dir/mutex_group.cc.o
+[ 64%] Building CXX object src/CMakeFiles/preprocess.dir/operator.cc.o
+[ 71%] Building CXX object src/CMakeFiles/preprocess.dir/scc.cc.o
+[ 78%] Building CXX object src/CMakeFiles/preprocess.dir/state.cc.o
+[ 85%] Building CXX object src/CMakeFiles/preprocess.dir/successor_generator.cc.o
+[ 92%] Building CXX object src/CMakeFiles/preprocess.dir/variable.cc.o
+[100%] Linking CXX executable ../bin/preprocess
+[100%] Built target preprocess
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following packages will be REMOVED:
+  binutils binutils-common binutils-x86-64-linux-gnu cmake cmake-data cpp
+  cpp-7 g++ g++-7 gcc gcc-7 libarchive13 libasan4 libatomic1 libbinutils
+  libc-dev-bin libc6-dev libcc1-0 libcilkrts5 libcurl4 libgcc-7-dev libgomp1
+  libicu60 libisl19 libitm1 libjsoncpp1 liblsan0 liblzo2-2 libmpc3 libmpfr6
+  libmpx2 libquadmath0 librhash0 libstdc++-7-dev libtsan0 libubsan0 libuv1
+  libxml2 linux-libc-dev make multiarch-support
+0 upgraded, 0 newly installed, 41 to remove and 0 not upgraded.
+After this operation, 218 MB disk space will be freed.
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 13578 files and directories currently installed.)
+Removing g++ (4:7.4.0-1ubuntu2.3) ...
+Removing g++-7 (7.5.0-3ubuntu1~18.04) ...
+Removing gcc (4:7.4.0-1ubuntu2.3) ...
+Removing gcc-7 (7.5.0-3ubuntu1~18.04) ...
+Removing binutils (2.30-21ubuntu1~18.04.7) ...
+Removing binutils-x86-64-linux-gnu (2.30-21ubuntu1~18.04.7) ...
+Removing libbinutils:amd64 (2.30-21ubuntu1~18.04.7) ...
+Removing binutils-common:amd64 (2.30-21ubuntu1~18.04.7) ...
+Removing cmake (3.10.2-1ubuntu2.18.04.2) ...
+Removing cmake-data (3.10.2-1ubuntu2.18.04.2) ...
+Removing cpp (4:7.4.0-1ubuntu2.3) ...
+Removing cpp-7 (7.5.0-3ubuntu1~18.04) ...
+Removing libarchive13:amd64 (3.2.2-3.1ubuntu0.7) ...
+Removing libstdc++-7-dev:amd64 (7.5.0-3ubuntu1~18.04) ...
+Removing libgcc-7-dev:amd64 (7.5.0-3ubuntu1~18.04) ...
+Removing libasan4:amd64 (7.5.0-3ubuntu1~18.04) ...
+Removing libatomic1:amd64 (8.4.0-1ubuntu1~18.04) ...
+Removing libc6-dev:amd64 (2.27-3ubuntu1.5) ...
+Removing libc-dev-bin (2.27-3ubuntu1.5) ...
+Removing libcc1-0:amd64 (8.4.0-1ubuntu1~18.04) ...
+Removing libcilkrts5:amd64 (7.5.0-3ubuntu1~18.04) ...
+Removing libcurl4:amd64 (7.58.0-2ubuntu3.16) ...
+Removing libgomp1:amd64 (8.4.0-1ubuntu1~18.04) ...
+Removing libxml2:amd64 (2.9.4+dfsg1-6.1ubuntu1.4) ...
+Removing libicu60:amd64 (60.2-3ubuntu3.2) ...
+Removing libisl19:amd64 (0.19-1) ...
+Removing libitm1:amd64 (8.4.0-1ubuntu1~18.04) ...
+Removing libjsoncpp1:amd64 (1.7.4-3) ...
+Removing liblsan0:amd64 (8.4.0-1ubuntu1~18.04) ...
+Removing liblzo2-2:amd64 (2.08-1.2) ...
+Removing libmpc3:amd64 (1.1.0-1) ...
+Removing libmpfr6:amd64 (4.0.1-1) ...
+Removing libmpx2:amd64 (8.4.0-1ubuntu1~18.04) ...
+Removing libquadmath0:amd64 (8.4.0-1ubuntu1~18.04) ...
+Removing librhash0:amd64 (1.3.6-2) ...
+Removing libtsan0:amd64 (8.4.0-1ubuntu1~18.04) ...
+Removing libubsan0:amd64 (7.5.0-3ubuntu1~18.04) ...
+Removing libuv1:amd64 (1.18.0-3) ...
+Removing linux-libc-dev:amd64 (4.15.0-169.177) ...
+Removing make (4.1-9.1ubuntu1) ...
+Removing multiarch-support (2.27-3ubuntu1.5) ...
+Processing triggers for libc-bin (2.27-3ubuntu1.4) ...
+INFO     Running translator.
+INFO     translator input: ['/home/genomorro/School/UNIR/RazonamientoPlanificacion/planners/scorpion/domain.pddl', '/home/genomorro/School/UNIR/RazonamientoPlanificacion/planners/scorpion/problem.pddl']
+INFO     translator arguments: []
+INFO     translator time limit: 7199.94s
+INFO     translator memory limit: 12288 MB
+INFO     callstring: /usr/bin/python /planner/builds/release64/bin/translate/translate.py /home/genomorro/School/UNIR/RazonamientoPlanificacion/planners/scorpion/domain.pddl /home/genomorro/School/UNIR/RazonamientoPlanificacion/planners/scorpion/problem.pddl
+time limit 7199.94 -> (7200, 7200)
+Parsing...
+Parsing: [0.010s CPU, 0.011s wall-clock]
+Normalizing task... [0.000s CPU, 0.000s wall-clock]
+Instantiating...
+Generating Datalog program... [0.000s CPU, 0.002s wall-clock]
+Normalizing Datalog program...
+Normalizing Datalog program: [0.010s CPU, 0.008s wall-clock]
+Preparing model... [0.010s CPU, 0.006s wall-clock]
+Generated 258 rules.
+Computing model... [2.660s CPU, 2.683s wall-clock]
+247776 relevant atoms
+2362 auxiliary atoms
+250138 final queue length
+920648 total queue pushes
+Completing instantiation... [17.610s CPU, 17.710s wall-clock]
+Instantiating: [20.340s CPU, 20.455s wall-clock]
+Computing fact groups...
+Finding invariants...
+44 initial candidates
+Finding invariants: [0.280s CPU, 0.278s wall-clock]
+Checking invariant weight... [0.000s CPU, 0.000s wall-clock]
+Instantiating groups... [0.000s CPU, 0.001s wall-clock]
+Collecting mutex groups... [0.000s CPU, 0.000s wall-clock]
+Choosing groups...
+104 uncovered facts
+Choosing groups: [0.000s CPU, 0.000s wall-clock]
+Building translation key... [0.000s CPU, 0.000s wall-clock]
+Computing fact groups: [0.280s CPU, 0.282s wall-clock]
+Building STRIPS to SAS dictionary... [0.000s CPU, 0.000s wall-clock]
+Building dictionary for full mutex groups... [0.000s CPU, 0.000s wall-clock]
+Building mutex information...
+Building mutex information: [0.000s CPU, 0.000s wall-clock]
+Translating task...
+Processing axioms...
+Simplifying axioms... [0.000s CPU, 0.000s wall-clock]
+Processing axioms: [0.630s CPU, 0.632s wall-clock]
+Translating task: [14.340s CPU, 14.389s wall-clock]
+266095 effect conditions simplified
+0 implied preconditions added
+Detecting unreachable propositions...
+0 operators removed
+0 axioms removed
+40 propositions removed
+Detecting unreachable propositions: [7.070s CPU, 7.113s wall-clock]
+Reordering and filtering variables...
+99 of 105 variables necessary.
+0 of 12 mutex groups necessary.
+246879 of 246879 operators necessary.
+0 of 0 axiom rules necessary.
+Reordering and filtering variables: [1.980s CPU, 1.982s wall-clock]
+Translator variables: 99
+Translator derived variables: 0
+Translator facts: 293
+Translator goal facts: 1
+Translator mutex groups: 0
+Translator total mutex groups size: 0
+Translator operators: 246879
+Translator axioms: 0
+Translator task size: 2606679
+Translator peak memory: 1939416 KB
+Writing output... [2.030s CPU, 2.052s wall-clock]
+Done! [46.490s CPU, 46.735s wall-clock]
+INFO     Run task transformation (/planner/preprocess).
+INFO     callstring: /planner/preprocess < output.sas
+Building causal graph...
+The causal graph is not acyclic.
+99 variables of 99 necessary
+0 of 0 mutex groups necessary.
+246879 of 246879 operators necessary.
+0 of 0 axiom rules necessary.
+Initializing mutex computation...
+Mutex computation initialized with 293 fluents.
+iteration for mutex detection and operator pruning
+Initialize m_index fw
+Initialized mvalues forward: reached=9801, notReached=74598, spurious=1450
+Initialize m_ops fw
+Computing mutexes...
+Mutex computation finished with reached=76153, notReached=8246, spurious=1450
+189362 operators are spurious because were not triggered
+Unreachable proposition: Atom harvest_phase(stage4, harvest_feeding)
+Unreachable proposition: Atom harvest_phase(stage4, harvest_breeding)
+H^2 mutexes added fw: 7082, unreachable: 2
+0 of 57517 operators detected as spurious
+iteration for mutex detection and operator pruning
+Initialize m_index bw
+Init values regression
+Initialized mvalues backward: reached=58065, notReached=18088, spurious=9696
+Initialize m_ops bw
+Computing mutexes...
+Mutex computation finished with reached=76135, notReached=18, spurious=9696
+0 operators are spurious because were not triggered
+H^2 mutexes added bw: 18, unreachable: 0
+0 of 57517 operators detected as spurious
+iteration for mutex detection and operator pruning
+Initialize m_index fw
+Initialized mvalues forward: reached=9801, notReached=66334, spurious=9714
+Initialize m_ops fw
+Computing mutexes...
+Mutex computation finished with reached=76135, notReached=0, spurious=9714
+0 operators are spurious because were not triggered
+H^2 mutexes added fw: 0, unreachable: 0
+0 of 57517 operators detected as spurious
+Total mutex and disambiguation time: 14.9949 iterations: 3
+3550 of 3550 mutex groups necessary.
+57517 of 246879 operators necessary.
+0 of 0 axiom rules necessary.
+Change id of operators: 57517
+Change id of mutexes
+Change id of goals
+Change id of initial state
+Remove unreachable facts from variables: 99
+3550 of 3550 mutex groups necessary.
+57517 of 57517 operators necessary.
+0 of 0 axiom rules necessary.
+Updating causal graph and pruning unnecessary facts
+97 variables of 99 of 99 necessary
+The causal graph is not acyclic.
+96 variables of 97 necessary
+3499 of 3550 mutex groups necessary.
+57517 of 57517 operators necessary.
+0 of 0 axiom rules necessary.
+Building domain transition graphs...
+solveable in poly time 0
+Building successor generator...
+Preprocessor variables: 96
+Preprocessor facts: 287
+Preprocessor derived variables: 0
+Preprocessor operators: 57517
+Preprocessor mutex groups: 3499
+Preprocessor task size: 608405
+Writing output...
+done
+INFO     Running search (release64).
+INFO     search input: output.sas
+INFO     search arguments: []
+INFO     search time limit: 7134.12s
+INFO     search memory limit: 12288 MB
+INFO     search executable: /planner/builds/release64/bin/downward
+INFO     search portfolio: /planner/driver/portfolios/seq_opt_scorpion.py
+Task has no conditional effects
+Exit codes: <generator object run_opt at 0x7fddb56c43c0>
+remaining time: 7134.12
+config 0: relative time 1, remaining 1
+args: ['/planner/builds/release64/bin/downward', '--search', 'astar(saturated_cost_partitioning([projections(systematic(2), max_time=100, max_peak_memory=2048), projections(hillclimbing(max_time=100, random_seed=0)), cartesian()], max_time=200, max_optimization_time=2, diversify=true, random_seed=0, orders=greedy(random_seed=0)), pruning=stubborn_sets_simple(min_pruning_ratio=0.2))', '--internal-plan-file', '/home/genomorro/School/UNIR/RazonamientoPlanificacion/planners/scorpion/sas_plan']
+time limit 7134.12 -> (7135, 7136)
+reading input... [t=0s]
+done reading input! [t=0.174993s]
+packing state variables...done! [t=0.174993s]
+Variables: 96
+FactPairs: 287
+Bytes per state: 20
+Building successor generator...done! [t=0.193822s]
+peak memory difference for root successor generator creation: 7588 KB
+time for root successor generation creation: 0.0188288s
+done initializing global data [t=0.193822s]
+[t=0.19777s, 39632 KB] Compute patterns
+building causal graph...done! [t=0.0178943s]
+Found 3 SGA patterns.
+Found 3 interesting patterns.
+[t=0.216652s, 39632 KB] Number of patterns: 3
+[t=0.216652s, 39632 KB] Time for computing patterns: 0.0218343s
+[t=0.216652s, 39632 KB] Build projections
+[t=0.279218s, 39632 KB] Time for building projections: 0.0635531s
+[t=0.280205s, 39632 KB] Number of projections: 3
+[t=0.281203s, 39632 KB] Compute patterns
+PDB collection construction time: 0.0108781s
+Done calculating initial PDB collection
+Average operator cost: 58.7817
+Done calculating initial candidate PDBs
+current collection size is 2
+current initial h value: 1
+pattern: [22, 95] - improvement: 1000
+pattern: [47, 95] - improvement: 1000
+found a better pattern with improvement 1000
+pattern: [22, 95]
+Hill climbing time so far: 0.0506982s
+current collection size is 6
+current initial h value: 2
+pattern: [22, 38, 95] - improvement: 1000
+pattern: [22, 47, 95] - improvement: 1000
+found a better pattern with improvement 1000
+pattern: [22, 38, 95]
+Hill climbing time so far: 0.102362s
+current collection size is 14
+current initial h value: 3
+pattern: [22, 37, 38, 95] - improvement: 1000
+pattern: [22, 38, 94, 95] - improvement: 1000
+pattern: [22, 38, 47, 95] - improvement: 1000
+found a better pattern with improvement 1000
+pattern: [22, 37, 38, 95]
+Hill climbing time so far: 0.156934s
+current collection size is 30
+current initial h value: 4
+pattern: [22, 38, 94, 95] - improvement: 1000
+pattern: [17, 22, 37, 38, 95] - improvement: 1000
+pattern: [22, 37, 38, 94, 95] - improvement: 1000
+pattern: [22, 37, 38, 47, 95] - improvement: 1000
+found a better pattern with improvement 1000
+pattern: [22, 38, 94, 95]
+Hill climbing time so far: 1.05615s
+current collection size is 118
+current initial h value: 11
+pattern: [22, 37, 38, 94, 95] - improvement: 1000
+pattern: [22, 38, 41, 94, 95] - improvement: 1000
+pattern: [22, 38, 47, 94, 95] - improvement: 1000
+found a better pattern with improvement 1000
+pattern: [22, 37, 38, 94, 95]
+Hill climbing time so far: 2.119s
+current collection size is 294
+current initial h value: 12
+pattern: [22, 38, 41, 94, 95] - improvement: 1000
+pattern: [17, 22, 37, 38, 94, 95] - improvement: 1000
+pattern: [22, 37, 38, 41, 94, 95] - improvement: 1000
+pattern: [22, 37, 38, 47, 94, 95] - improvement: 1000
+found a better pattern with improvement 1000
+pattern: [22, 38, 41, 94, 95]
+Hill climbing time so far: 3.1608s
+current collection size is 1086
+current initial h value: 363
+pattern: [17, 22, 37, 38, 95] - improvement: 199
+pattern: [22, 37, 38, 47, 95] - improvement: 199
+pattern: [17, 22, 37, 38, 94, 95] - improvement: 199
+pattern: [22, 37, 38, 41, 94, 95] - improvement: 801
+pattern: [22, 37, 38, 47, 94, 95] - improvement: 199
+pattern: [22, 38, 41, 47, 94, 95] - improvement: 801
+found a better pattern with improvement 801
+pattern: [22, 37, 38, 41, 94, 95]
+Hill climbing time so far: 4.37429s
+current collection size is 2670
+current initial h value: 364
+pattern: [17, 22, 37, 38, 95] - improvement: 218
+pattern: [22, 37, 38, 47, 95] - improvement: 218
+pattern: [17, 22, 37, 38, 94, 95] - improvement: 218
+pattern: [22, 37, 38, 47, 94, 95] - improvement: 218
+pattern: [17, 22, 37, 38, 41, 94, 95] - improvement: 1000
+pattern: [22, 37, 38, 41, 47, 94, 95] - improvement: 1000
+found a better pattern with improvement 1000
+pattern: [17, 22, 37, 38, 41, 94, 95]
+Hill climbing time so far: 5.89303s
+current collection size is 5838
+current initial h value: 365
+pattern: [17, 22, 36, 37, 38, 41, 94, 95] - improvement: 1000
+pattern: [17, 22, 37, 38, 41, 47, 94, 95] - improvement: 1000
+found a better pattern with improvement 1000
+pattern: [17, 22, 36, 37, 38, 41, 94, 95]
+Hill climbing time so far: 7.98497s
+current collection size is 12174
+current initial h value: 726
+pattern: [17, 22, 35, 36, 37, 38, 41, 94, 95] - improvement: 1000
+pattern: [17, 22, 36, 37, 38, 41, 88, 94, 95] - improvement: 16
+pattern: [17, 22, 36, 37, 38, 41, 47, 94, 95] - improvement: 1000
+found a better pattern with improvement 1000
+pattern: [17, 22, 35, 36, 37, 38, 41, 94, 95]
+Hill climbing time so far: 11.1495s
+current collection size is 24846
+current initial h value: 727
+pattern: [17, 22, 36, 37, 38, 41, 88, 94, 95] - improvement: 10
+pattern: [11, 17, 22, 35, 36, 37, 38, 41, 94, 95] - improvement: 608
+pattern: [7, 17, 22, 35, 36, 37, 38, 41, 94, 95] - improvement: 1000
+pattern: [17, 21, 22, 35, 36, 37, 38, 41, 94, 95] - improvement: 1000
+pattern: [17, 22, 35, 36, 37, 38, 41, 88, 94, 95] - improvement: 10
+pattern: [17, 22, 35, 36, 37, 38, 41, 47, 94, 95] - improvement: 1000
+found a better pattern with improvement 1000
+pattern: [7, 17, 22, 35, 36, 37, 38, 41, 94, 95]
+Hill climbing time so far: 16.572s
+current collection size is 50190
+current initial h value: 728
+pattern: [17, 22, 36, 37, 38, 41, 88, 94, 95] - improvement: 10
+pattern: [17, 22, 35, 36, 37, 38, 41, 88, 94, 95] - improvement: 10
+pattern: [7, 17, 21, 22, 35, 36, 37, 38, 41, 94, 95] - improvement: 1000
+pattern: [7, 17, 22, 35, 36, 37, 38, 41, 45, 94, 95] - improvement: 1000
+pattern: [7, 11, 17, 22, 35, 36, 37, 38, 41, 94, 95] - improvement: 613
+pattern: [7, 17, 22, 35, 36, 37, 38, 41, 88, 94, 95] - improvement: 10
+pattern: [7, 17, 22, 35, 36, 37, 38, 41, 47, 94, 95] - improvement: 1000
+found a better pattern with improvement 1000
+pattern: [7, 17, 21, 22, 35, 36, 37, 38, 41, 94, 95]
+Hill climbing time so far: 26.6689s
+current collection size is 100878
+current initial h value: 729
+pattern: [17, 22, 36, 37, 38, 41, 88, 94, 95] - improvement: 14
+pattern: [17, 22, 35, 36, 37, 38, 41, 88, 94, 95] - improvement: 14
+pattern: [7, 17, 22, 35, 36, 37, 38, 41, 88, 94, 95] - improvement: 14
+pattern: [7, 17, 21, 22, 35, 36, 37, 38, 41, 45, 94, 95] - improvement: 1000
+pattern: [7, 11, 17, 21, 22, 35, 36, 37, 38, 41, 94, 95] - improvement: 596
+pattern: [7, 17, 21, 22, 34, 35, 36, 37, 38, 41, 94, 95] - improvement: 1000
+pattern: [7, 17, 21, 22, 35, 36, 37, 38, 41, 88, 94, 95] - improvement: 14
+pattern: [7, 17, 21, 22, 35, 36, 37, 38, 41, 47, 94, 95] - improvement: 1000
+found a better pattern with improvement 1000
+pattern: [7, 17, 21, 22, 35, 36, 37, 38, 41, 45, 94, 95]
+Hill climbing time so far: 43.7393s
+current collection size is 202254
+current initial h value: 730
+pattern: [17, 22, 36, 37, 38, 41, 88, 94, 95] - improvement: 11
+pattern: [17, 22, 35, 36, 37, 38, 41, 88, 94, 95] - improvement: 11
+pattern: [7, 17, 22, 35, 36, 37, 38, 41, 88, 94, 95] - improvement: 11
+pattern: [7, 17, 21, 22, 34, 35, 36, 37, 38, 41, 94, 95] - improvement: 1000
+pattern: [7, 17, 21, 22, 35, 36, 37, 38, 41, 88, 94, 95] - improvement: 11
+pattern: [7, 11, 17, 21, 22, 35, 36, 37, 38, 41, 45, 94, 95] - improvement: 605
+pattern: [7, 17, 21, 22, 34, 35, 36, 37, 38, 41, 45, 94, 95] - improvement: 1000
+pattern: [7, 17, 21, 22, 35, 36, 37, 38, 41, 45, 88, 94, 95] - improvement: 11
+pattern: [7, 17, 21, 22, 35, 36, 37, 38, 41, 44, 45, 94, 95] - improvement: 1000
+pattern: [7, 17, 21, 22, 35, 36, 37, 38, 41, 45, 47, 94, 95] - improvement: 1000
+found a better pattern with improvement 1000
+pattern: [7, 17, 21, 22, 34, 35, 36, 37, 38, 41, 94, 95]
+Hill climbing time so far: 59.0467s
+current collection size is 303630
+current initial h value: 1090
+pattern: [17, 22, 37, 38, 41, 47, 94, 95] - improvement: 1
+pattern: [17, 22, 36, 37, 38, 41, 88, 94, 95] - improvement: 1
+pattern: [17, 22, 36, 37, 38, 41, 47, 94, 95] - improvement: 11
+pattern: [17, 22, 35, 36, 37, 38, 41, 88, 94, 95] - improvement: 1
+pattern: [17, 22, 35, 36, 37, 38, 41, 47, 94, 95] - improvement: 13
+pattern: [7, 17, 22, 35, 36, 37, 38, 41, 88, 94, 95] - improvement: 1
+pattern: [7, 17, 22, 35, 36, 37, 38, 41, 47, 94, 95] - improvement: 15
+pattern: [7, 17, 21, 22, 35, 36, 37, 38, 41, 88, 94, 95] - improvement: 1
+pattern: [7, 17, 21, 22, 35, 36, 37, 38, 41, 47, 94, 95] - improvement: 15
+pattern: [7, 17, 21, 22, 34, 35, 36, 37, 38, 41, 45, 94, 95] - improvement: 606
+pattern: [7, 17, 21, 22, 35, 36, 37, 38, 41, 45, 88, 94, 95] - improvement: 1
+pattern: [7, 17, 21, 22, 35, 36, 37, 38, 41, 44, 45, 94, 95] - improvement: 124
+pattern: [7, 17, 21, 22, 35, 36, 37, 38, 41, 45, 47, 94, 95] - improvement: 394
+pattern: [7, 11, 17, 21, 22, 34, 35, 36, 37, 38, 41, 94, 95] - improvement: 402
+pattern: [7, 17, 21, 22, 33, 34, 35, 36, 37, 38, 41, 94, 95] - improvement: 470
+pattern: [7, 17, 21, 22, 34, 35, 36, 37, 38, 41, 88, 94, 95] - improvement: 5
+pattern: [7, 17, 21, 22, 34, 35, 36, 37, 38, 41, 47, 94, 95] - improvement: 621
+found a better pattern with improvement 621
+pattern: [7, 17, 21, 22, 34, 35, 36, 37, 38, 41, 47, 94, 95]
+Hill climbing time so far: 90.2976s
+current collection size is 506382
+current initial h value: 1091
+pattern: [7, 17, 21, 22, 35, 36, 37, 38, 41, 44, 45, 94, 95] - improvement: 120
+pattern: [7, 17, 21, 22, 35, 36, 37, 38, 41, 45, 47, 94, 95] - improvement: 394
+pattern: [7, 17, 21, 22, 34, 35, 36, 37, 38, 41, 88, 94, 95] - improvement: 7
+pattern: [7, 17, 21, 22, 34, 35, 36, 37, 38, 41, 45, 47, 94, 95] - improvement: 977
+pattern: [7, 11, 17, 21, 22, 34, 35, 36, 37, 38, 41, 47, 94, 95] - improvement: 356
+pattern: [7, 17, 21, 22, 33, 34, 35, 36, 37, 38, 41, 47, 94, 95] - improvement: 437
+pattern: [7, 17, 21, 22, 34, 35, 36, 37, 38, 41, 47, 88, 94, 95] - improvement: 7
+pattern: [7, 17, 21, 22, 34, 35, 36, 37, 38, 41, 46, 47, 94, 95] - improvement: 1000
+found a better pattern with improvement 1000
+pattern: [7, 17, 21, 22, 34, 35, 36, 37, 38, 41, 46, 47, 94, 95]
+Time limit reached. Abort hill climbing.
+iPDB: iterations = 16
+iPDB: number of patterns = 17
+iPDB: size = 911886
+iPDB: generated = 658
+iPDB: rejected = 5
+iPDB: maximum pdb size = 1824768
+iPDB: hill climbing time: 100.157s
+Pattern generation (hill climbing) time: 100.173s
+[t=100.454s, 423196 KB] Number of patterns: 17
+[t=100.454s, 423196 KB] Time for computing patterns: 100.173s
+[t=100.454s, 423196 KB] Build projections
+[t=100.874s, 423196 KB] Time for building projections: 0.419854s
+[t=100.874s, 423196 KB] Number of projections: 17
+[t=100.874s, 423196 KB] Generate CEGAR abstractions
+Initializing Exploration...
+h^m landmarks m=1
+Using 287 P^m fluents.
+Level 1 completed.
+Level 2 completed.
+Level 3 completed.
+Level 4 completed.
+Level 5 completed.
+Level 6 completed.
+Level 7 completed.
+Level 8 completed.
+Level 9 completed.
+Level 10 completed.
+Level 11 completed.
+Level 12 completed.
+Level 13 completed.
+Level 14 completed.
+Level 15 completed.
+Level 16 completed.
+Level 17 completed.
+Level 18 completed.
+Level 19 completed.
+Level 20 completed.
+Level 21 completed.
+Level 22 completed.
+Level 23 completed.
+Level 24 completed.
+Level 25 completed.
+Level 26 completed.
+Level 27 completed.
+Level 28 completed.
+Level 29 completed.
+Level 30 completed.
+Level 31 completed.
+Level 32 completed.
+Level 33 completed.
+Level 34 completed.
+Level 35 completed.
+Level 36 completed.
+Level 37 completed.
+Level 38 completed.
+Level 39 completed.
+Level 40 completed.
+h^m landmarks computed.
+Removed 0 reasonable or obedient reasonable orders
+Calculating achievers.
+Landmarks generation time: 1.18523s
+Discovered 46 landmarks, of which 0 are disjunctive and 0 are conjunctive 
+119 edges
+Sort 40 facts
+[t=102.212s, 423196 KB] Start building abstraction.
+Maximum number of states: 53687091
+Maximum number of transitions: 25000
+Concrete solution found: 0
+[t=102.277s, 423196 KB] Done building abstraction.
+Time for building abstraction: 0.064804s
+Total operator cost: 3380946
+States: 561
+Dead ends: 3
+Init h: 207
+Looping transitions: 1367203
+Non-looping transitions: 25479
+Deviations: 429
+Unmet preconditions: 108
+Unmet goals: 1
+
+[t=102.296s, 423196 KB] Start building abstraction.
+Maximum number of states: 55063668
+Maximum number of transitions: 24987
+Concrete solution found: 0
+[t=102.377s, 423196 KB] Done building abstraction.
+Time for building abstraction: 0.0808358s
+Total operator cost: 3380946
+States: 542
+Dead ends: 3
+Init h: 211
+Looping transitions: 1116556
+Non-looping transitions: 25065
+Deviations: 429
+Unmet preconditions: 104
+Unmet goals: 1
+
+[t=102.396s, 423196 KB] Start building abstraction.
+Maximum number of states: 56512698
+Maximum number of transitions: 24985
+Concrete solution found: 0
+[t=102.454s, 423196 KB] Done building abstraction.
+Time for building abstraction: 0.0578822s
+Total operator cost: 3380946
+States: 562
+Dead ends: 3
+Init h: 206
+Looping transitions: 1210862
+Non-looping transitions: 25057
+Deviations: 430
+Unmet preconditions: 107
+Unmet goals: 1
+
+[t=102.472s, 423196 KB] Start building abstraction.
+Maximum number of states: 58040053
+Maximum number of transitions: 24983
+Concrete solution found: 1
+[t=102.492s, 423196 KB] Done building abstraction.
+Time for building abstraction: 0.0199224s
+Total operator cost: 3380946
+States: 76
+Dead ends: 0
+Init h: 6
+Looping transitions: 1070475
+Non-looping transitions: 3094
+Deviations: 0
+Unmet preconditions: 5
+Unmet goals: 1
+
+[t=102.508s, 423196 KB] Start building abstraction.
+Maximum number of states: 59652275
+Maximum number of transitions: 25591
+Concrete solution found: 0
+[t=102.582s, 423196 KB] Done building abstraction.
+Time for building abstraction: 0.0738498s
+Total operator cost: 3380946
+States: 547
+Dead ends: 3
+Init h: 209
+Looping transitions: 1073181
+Non-looping transitions: 26295
+Deviations: 433
+Unmet preconditions: 103
+Unmet goals: 1
+
+[t=102.599s, 423196 KB] Start building abstraction.
+Maximum number of states: 61356610
+Maximum number of transitions: 25571
+Concrete solution found: 1
+[t=102.653s, 423196 KB] Done building abstraction.
+Time for building abstraction: 0.0548711s
+Total operator cost: 3380946
+States: 462
+Dead ends: 3
+Init h: 197
+Looping transitions: 1039355
+Non-looping transitions: 25102
+Deviations: 330
+Unmet preconditions: 92
+Unmet goals: 1
+
+[t=102.671s, 423196 KB] Start building abstraction.
+Maximum number of states: 63161202
+Maximum number of transitions: 25585
+Concrete solution found: 1
+[t=102.719s, 423196 KB] Done building abstraction.
+Time for building abstraction: 0.0478565s
+Total operator cost: 3380946
+States: 466
+Dead ends: 3
+Init h: 195
+Looping transitions: 1005689
+Non-looping transitions: 25171
+Deviations: 330
+Unmet preconditions: 90
+Unmet goals: 1
+
+[t=102.736s, 423196 KB] Start building abstraction.
+Maximum number of states: 65075164
+Maximum number of transitions: 25598
+Concrete solution found: 1
+[t=102.751s, 423196 KB] Done building abstraction.
+Time for building abstraction: 0.0149687s
+Total operator cost: 3380946
+States: 82
+Dead ends: 0
+Init h: 180
+Looping transitions: 851736
+Non-looping transitions: 1725
+Deviations: 0
+Unmet preconditions: 1
+Unmet goals: 1
+
+[t=102.768s, 423196 KB] Start building abstraction.
+Maximum number of states: 67108760
+Maximum number of transitions: 26344
+Concrete solution found: 1
+[t=102.82s, 423196 KB] Done building abstraction.
+Time for building abstraction: 0.0518726s
+Total operator cost: 3380946
+States: 459
+Dead ends: 3
+Init h: 202
+Looping transitions: 1085118
+Non-looping transitions: 15997
+Deviations: 332
+Unmet preconditions: 98
+Unmet goals: 1
+
+[t=102.838s, 423196 KB] Start building abstraction.
+Maximum number of states: 69273544
+Maximum number of transitions: 26677
+Concrete solution found: 0
+[t=102.897s, 423196 KB] Done building abstraction.
+Time for building abstraction: 0.0588617s
+Total operator cost: 3380946
+States: 509
+Dead ends: 3
+Init h: 205
+Looping transitions: 1217535
+Non-looping transitions: 27332
+Deviations: 379
+Unmet preconditions: 104
+Unmet goals: 1
+
+[t=102.914s, 423196 KB] Start building abstraction.
+Maximum number of states: 71582646
+Maximum number of transitions: 26656
+Concrete solution found: 1
+[t=102.974s, 423196 KB] Done building abstraction.
+Time for building abstraction: 0.0598563s
+Total operator cost: 3380946
+States: 463
+Dead ends: 3
+Init h: 199
+Looping transitions: 1099132
+Non-looping transitions: 25557
+Deviations: 332
+Unmet preconditions: 95
+Unmet goals: 1
+
+[t=102.992s, 423196 KB] Start building abstraction.
+Maximum number of states: 74050997
+Maximum number of transitions: 26694
+Concrete solution found: 1
+[t=103.01s, 423196 KB] Done building abstraction.
+Time for building abstraction: 0.0179522s
+Total operator cost: 3380946
+States: 73
+Dead ends: 0
+Init h: 7
+Looping transitions: 997984
+Non-looping transitions: 2854
+Deviations: 0
+Unmet preconditions: 6
+Unmet goals: 1
+
+[t=103.027s, 423196 KB] Start building abstraction.
+Maximum number of states: 76695673
+Maximum number of transitions: 27545
+Concrete solution found: 1
+[t=103.075s, 423196 KB] Done building abstraction.
+Time for building abstraction: 0.0478862s
+Total operator cost: 3380946
+States: 465
+Dead ends: 3
+Init h: 195
+Looping transitions: 1017744
+Non-looping transitions: 25803
+Deviations: 330
+Unmet preconditions: 90
+Unmet goals: 1
+
+[t=103.092s, 423196 KB] Start building abstraction.
+Maximum number of states: 79536236
+Maximum number of transitions: 27609
+Concrete solution found: 1
+[t=103.112s, 423196 KB] Done building abstraction.
+Time for building abstraction: 0.019956s
+Total operator cost: 3380946
+States: 64
+Dead ends: 0
+Init h: 10
+Looping transitions: 898822
+Non-looping transitions: 1926
+Deviations: 0
+Unmet preconditions: 9
+Unmet goals: 1
+
+[t=103.128s, 423196 KB] Start building abstraction.
+Maximum number of states: 82595319
+Maximum number of transitions: 28597
+Concrete solution found: 0
+[t=103.21s, 423196 KB] Done building abstraction.
+Time for building abstraction: 0.0818365s
+Total operator cost: 3380946
+States: 549
+Dead ends: 3
+Init h: 213
+Looping transitions: 1092493
+Non-looping transitions: 28863
+Deviations: 436
+Unmet preconditions: 107
+Unmet goals: 1
+
+[t=103.23s, 423196 KB] Start building abstraction.
+Maximum number of states: 85899110
+Maximum number of transitions: 28587
+Concrete solution found: 1
+[t=103.249s, 423196 KB] Done building abstraction.
+Time for building abstraction: 0.0189386s
+Total operator cost: 3380946
+States: 73
+Dead ends: 0
+Init h: 8
+Looping transitions: 968373
+Non-looping transitions: 2703
+Deviations: 0
+Unmet preconditions: 7
+Unmet goals: 1
+
+[t=103.267s, 423196 KB] Start building abstraction.
+Maximum number of states: 89478237
+Maximum number of transitions: 29665
+Concrete solution found: 1
+[t=103.286s, 423196 KB] Done building abstraction.
+Time for building abstraction: 0.0199244s
+Total operator cost: 3380946
+States: 73
+Dead ends: 0
+Init h: 9
+Looping transitions: 980301
+Non-looping transitions: 3638
+Deviations: 0
+Unmet preconditions: 8
+Unmet goals: 1
+
+[t=103.304s, 423196 KB] Start building abstraction.
+Maximum number of states: 93368592
+Maximum number of transitions: 30797
+Concrete solution found: 1
+[t=103.319s, 423196 KB] Done building abstraction.
+Time for building abstraction: 0.01496s
+Total operator cost: 3380946
+States: 80
+Dead ends: 0
+Init h: 1
+Looping transitions: 833624
+Non-looping transitions: 2286
+Deviations: 0
+Unmet preconditions: 0
+Unmet goals: 1
+
+[t=103.337s, 423196 KB] Start building abstraction.
+Maximum number of states: 97612615
+Maximum number of transitions: 32093
+Concrete solution found: 1
+[t=103.347s, 423196 KB] Done building abstraction.
+Time for building abstraction: 0.00997595s
+Total operator cost: 3380946
+States: 98
+Dead ends: 0
+Init h: 180
+Looping transitions: 851525
+Non-looping transitions: 2511
+Deviations: 0
+Unmet preconditions: 0
+Unmet goals: 1
+
+[t=103.366s, 423196 KB] Start building abstraction.
+Maximum number of states: 102260830
+Maximum number of transitions: 33502
+Concrete solution found: 0
+[t=103.457s, 423196 KB] Done building abstraction.
+Time for building abstraction: 0.0907632s
+Total operator cost: 3380946
+States: 84
+Dead ends: 0
+Init h: 26
+Looping transitions: 1899582
+Non-looping transitions: 34313
+Deviations: 33
+Unmet preconditions: 44
+Unmet goals: 1
+
+[t=103.476s, 423196 KB] Start building abstraction.
+Maximum number of states: 107373867
+Maximum number of transitions: 33461
+Concrete solution found: 1
+[t=103.532s, 423196 KB] Done building abstraction.
+Time for building abstraction: 0.0558806s
+Total operator cost: 3380946
+States: 462
+Dead ends: 3
+Init h: 198
+Looping transitions: 1054774
+Non-looping transitions: 25843
+Deviations: 330
+Unmet preconditions: 93
+Unmet goals: 1
+
+[t=103.549s, 423196 KB] Start building abstraction.
+Maximum number of states: 113025099
+Maximum number of transitions: 33862
+Concrete solution found: 0
+[t=103.639s, 423196 KB] Done building abstraction.
+Time for building abstraction: 0.0897772s
+Total operator cost: 3380946
+States: 574
+Dead ends: 3
+Init h: 212
+Looping transitions: 1233351
+Non-looping transitions: 34229
+Deviations: 458
+Unmet preconditions: 108
+Unmet goals: 1
+
+[t=103.657s, 423196 KB] Start building abstraction.
+Maximum number of states: 119304240
+Maximum number of transitions: 33842
+Concrete solution found: 1
+[t=103.674s, 423196 KB] Done building abstraction.
+Time for building abstraction: 0.0179521s
+Total operator cost: 3380946
+States: 79
+Dead ends: 0
+Init h: 2
+Looping transitions: 797824
+Non-looping transitions: 1840
+Deviations: 0
+Unmet preconditions: 1
+Unmet goals: 1
+
+[t=103.692s, 423196 KB] Start building abstraction.
+Maximum number of states: 126322132
+Maximum number of transitions: 35724
+Concrete solution found: 1
+[t=103.74s, 423196 KB] Done building abstraction.
+Time for building abstraction: 0.0478769s
+Total operator cost: 3380946
+States: 465
+Dead ends: 3
+Init h: 195
+Looping transitions: 973932
+Non-looping transitions: 25162
+Deviations: 330
+Unmet preconditions: 90
+Unmet goals: 1
+
+[t=103.758s, 423196 KB] Start building abstraction.
+Maximum number of states: 134217236
+Maximum number of transitions: 36384
+Concrete solution found: 1
+[t=103.78s, 423196 KB] Done building abstraction.
+Time for building abstraction: 0.021939s
+Total operator cost: 3380946
+States: 64
+Dead ends: 0
+Init h: 12
+Looping transitions: 873959
+Non-looping transitions: 4968
+Deviations: 0
+Unmet preconditions: 11
+Unmet goals: 1
+
+[t=103.798s, 423196 KB] Start building abstraction.
+Maximum number of states: 143165047
+Maximum number of transitions: 38479
+Concrete solution found: 0
+[t=103.889s, 423196 KB] Done building abstraction.
+Time for building abstraction: 0.0908066s
+Total operator cost: 3380946
+States: 595
+Dead ends: 3
+Init h: 213
+Looping transitions: 1240346
+Non-looping transitions: 38791
+Deviations: 479
+Unmet preconditions: 111
+Unmet goals: 1
+
+[t=103.908s, 423196 KB] Start building abstraction.
+Maximum number of states: 153391080
+Maximum number of transitions: 38456
+Concrete solution found: 1
+[t=103.962s, 423196 KB] Done building abstraction.
+Time for building abstraction: 0.0538918s
+Total operator cost: 3380946
+States: 465
+Dead ends: 3
+Init h: 196
+Looping transitions: 1080012
+Non-looping transitions: 25537
+Deviations: 332
+Unmet preconditions: 92
+Unmet goals: 1
+
+[t=103.981s, 423196 KB] Start building abstraction.
+Maximum number of states: 165190358
+Maximum number of transitions: 39450
+Concrete solution found: 0
+[t=104.041s, 423196 KB] Done building abstraction.
+Time for building abstraction: 0.0598588s
+Total operator cost: 3380946
+States: 127
+Dead ends: 0
+Init h: 16
+Looping transitions: 1619523
+Non-looping transitions: 39631
+Deviations: 66
+Unmet preconditions: 34
+Unmet goals: 1
+
+[t=104.059s, 423196 KB] Start building abstraction.
+Maximum number of states: 178956210
+Maximum number of transitions: 39435
+Concrete solution found: 0
+[t=104.134s, 423196 KB] Done building abstraction.
+Time for building abstraction: 0.0758217s
+Total operator cost: 3380946
+States: 621
+Dead ends: 3
+Init h: 207
+Looping transitions: 1409937
+Non-looping transitions: 39854
+Deviations: 484
+Unmet preconditions: 113
+Unmet goals: 1
+
+[t=104.152s, 423912 KB] Start building abstraction.
+Maximum number of states: 195224900
+Maximum number of transitions: 39397
+Concrete solution found: 0
+[t=104.234s, 434200 KB] Done building abstraction.
+Time for building abstraction: 0.0817907s
+Total operator cost: 3380946
+States: 612
+Dead ends: 3
+Init h: 208
+Looping transitions: 1307068
+Non-looping transitions: 39825
+Deviations: 484
+Unmet preconditions: 114
+Unmet goals: 1
+
+[t=104.253s, 436704 KB] Start building abstraction.
+Maximum number of states: 214747329
+Maximum number of transitions: 39354
+Concrete solution found: 1
+[t=104.306s, 442356 KB] Done building abstraction.
+Time for building abstraction: 0.0528702s
+Total operator cost: 3380946
+States: 456
+Dead ends: 3
+Init h: 203
+Looping transitions: 1047099
+Non-looping transitions: 15898
+Deviations: 330
+Unmet preconditions: 98
+Unmet goals: 1
+
+[t=104.325s, 445096 KB] Start building abstraction.
+Maximum number of states: 238608093
+Maximum number of transitions: 41961
+Concrete solution found: 1
+[t=104.354s, 451352 KB] Done building abstraction.
+Time for building abstraction: 0.028948s
+Total operator cost: 3380946
+States: 237
+Dead ends: 2
+Init h: 193
+Looping transitions: 880592
+Non-looping transitions: 16887
+Deviations: 77
+Unmet preconditions: 109
+Unmet goals: 1
+
+[t=104.372s, 455600 KB] Start building abstraction.
+Maximum number of states: 268434075
+Maximum number of transitions: 45095
+Concrete solution found: 1
+[t=104.434s, 465428 KB] Done building abstraction.
+Time for building abstraction: 0.0628317s
+Total operator cost: 3380946
+States: 460
+Dead ends: 3
+Init h: 201
+Looping transitions: 1144010
+Non-looping transitions: 25910
+Deviations: 330
+Unmet preconditions: 96
+Unmet goals: 1
+
+[t=104.452s, 466992 KB] Start building abstraction.
+Maximum number of states: 306781734
+Maximum number of transitions: 47836
+Concrete solution found: 1
+[t=104.5s, 476148 KB] Done building abstraction.
+Time for building abstraction: 0.0488824s
+Total operator cost: 3380946
+States: 465
+Dead ends: 3
+Init h: 194
+Looping transitions: 1003268
+Non-looping transitions: 25116
+Deviations: 330
+Unmet preconditions: 89
+Unmet goals: 1
+
+[t=104.518s, 478296 KB] Start building abstraction.
+Maximum number of states: 357911946
+Maximum number of transitions: 51623
+Concrete solution found: 1
+[t=104.577s, 487804 KB] Done building abstraction.
+Time for building abstraction: 0.0588765s
+Total operator cost: 3380946
+States: 460
+Dead ends: 3
+Init h: 200
+Looping transitions: 1048245
+Non-looping transitions: 25143
+Deviations: 330
+Unmet preconditions: 95
+Unmet goals: 1
+
+[t=104.595s, 489600 KB] Start building abstraction.
+Maximum number of states: 429494243
+Maximum number of transitions: 56919
+Concrete solution found: 1
+[t=104.615s, 494484 KB] Done building abstraction.
+Time for building abstraction: 0.0199494s
+Total operator cost: 3380946
+States: 64
+Dead ends: 0
+Init h: 11
+Looping transitions: 873877
+Non-looping transitions: 1735
+Deviations: 0
+Unmet preconditions: 10
+Unmet goals: 1
+
+[t=104.633s, 499708 KB] Start building abstraction.
+Maximum number of states: 536867788
+Maximum number of transitions: 70715
+Concrete solution found: 1
+[t=104.652s, 505292 KB] Done building abstraction.
+Time for building abstraction: 0.018945s
+Total operator cost: 3380946
+States: 76
+Dead ends: 0
+Init h: 5
+Looping transitions: 1072826
+Non-looping transitions: 2375
+Deviations: 0
+Unmet preconditions: 4
+Unmet goals: 1
+
+[t=104.67s, 509784 KB] Start building abstraction.
+Maximum number of states: 715823692
+Maximum number of transitions: 93495
+Concrete solution found: 1
+[t=104.691s, 515532 KB] Done building abstraction.
+Time for building abstraction: 0.0209212s
+Total operator cost: 3380946
+States: 76
+Dead ends: 0
+Init h: 4
+Looping transitions: 1102495
+Non-looping transitions: 2612
+Deviations: 0
+Unmet preconditions: 3
+Unmet goals: 1
+
+[t=104.71s, 519908 KB] Start building abstraction.
+Maximum number of states: 1073735500
+Maximum number of transitions: 138936
+Concrete solution found: 1
+[t=104.727s, 525088 KB] Done building abstraction.
+Time for building abstraction: 0.0169559s
+Total operator cost: 3380946
+States: 77
+Dead ends: 0
+Init h: 3
+Looping transitions: 795882
+Non-looping transitions: 2636
+Deviations: 0
+Unmet preconditions: 2
+Unmet goals: 1
+
+[t=104.745s, 530080 KB] Start building abstraction.
+Maximum number of states: 2147470924
+Maximum number of transitions: 275237
+[t=104.901s, 555452 KB] 1000/2147470924 states, 118644/275237 transitions
+[t=105.075s, 569908 KB] 2000/2147470924 states, 201438/275237 transitions
+Concrete solution found: 0
+[t=105.28s, 582904 KB] Done building abstraction.
+Time for building abstraction: 0.534826s
+Total operator cost: 3380946
+States: 2988
+Dead ends: 9
+Init h: 577
+Looping transitions: 3992908
+Non-looping transitions: 275266
+Deviations: 2407
+Unmet preconditions: 571
+Unmet goals: 1
+
+[t=105.294s, 583044 KB] Done initializing additive Cartesian heuristic
+Cartesian abstractions built: 40
+Abstractions stored: 40
+Transition systems stored: 0
+Cartesian states: 15711
+Total number of non-looping transitions: 1000029
+
+Cartesian abstractions: 40
+[t=105.294s, 583044 KB] Convert to backward-graph abstractions
+[t=105.419s, 583044 KB] Done converting abstractions
+Time for building Cartesian abstractions: 4.54679s
+[t=105.42s, 583044 KB] Abstractions: 60
+[t=105.42s, 583044 KB] Abstractions per generator: [3, 17, 40]
+[t=107.352s, 583044 KB] Initialize greedy order generator
+[t=109.286s, 583044 KB] Time for computing h values and saturated costs: 1.93397s
+[t=109.288s, 583044 KB] Done computing surplus costs
+[t=109.288s, 583044 KB] Compute stolen costs
+[t=109.291s, 583044 KB] Time for initializing greedy order generator: 1.93895s
+[t=111.22s, 583044 KB] Start sampling
+[t=111.22s, 583044 KB] Initial h value for sampling: 394
+[t=111.671s, 583044 KB] Samples: 1000
+[t=111.671s, 583044 KB] Sampling time: 0.45123s
+[t=111.702s, 583044 KB] Covered abstract states: 1891/927607 = 0.00203858
+[t=111.718s, 583044 KB] Start computing cost partitionings
+[t=111.719s, 583044 KB] Time for computing greedy order: 0s
+[t=113.636s, 583044 KB] Incumbent h value: 394
+[t=117.494s, 583044 KB] Time for optimizing order: 3.85793s
+[t=117.494s, 583044 KB] Time for optimizing order has expired: 1
+[t=117.494s, 583044 KB] Portfolio sum h value: 165811
+[t=123.286s, 583044 KB] Portfolio sum h value: 178082
+[t=129.243s, 583044 KB] Portfolio sum h value: 178441
+[t=133.325s, 583044 KB] Portfolio sum h value: 239182
+[t=137.424s, 583044 KB] Portfolio sum h value: 252599
+[t=193.967s, 583044 KB] Portfolio sum h value: 252603
+[t=315.664s, 583044 KB] Orders: 6
+[t=315.664s, 583044 KB] Time for computing cost partitionings: 203.946s
+[t=315.664s, 583044 KB] Memory for cost partitionings: 0 KB
+[t=315.665s, 583044 KB] Stored lookup tables: 260/360 = 0.722222
+[t=315.665s, 583044 KB] Stored values: 5558650/5565642 = 0.998744
+[t=315.665s, 583044 KB] Stored heuristics: 51/60 = 0.85
+Conducting best first search with reopening closed nodes, (real) bound = 2147483647
+New best heuristic value for saturated_cost_partitioning(list(projections(systematic(2), max_time = 100, max_peak_memory = 2048), projections(hillclimbing(max_time = 100, random_seed = 0)), cartesian), max_time = 200, max_optimization_time = 2, diversify = true, random_seed = 0, orders = greedy(random_seed = 0)): 574
+[g=0, 1 evaluated, 0 expanded, t=315.67s, 583044 KB]
+f = 574 [1 evaluated, 0 expanded, t=315.67s, 583044 KB]
+Initial heuristic value for saturated_cost_partitioning(list(projections(systematic(2), max_time = 100, max_peak_memory = 2048), projections(hillclimbing(max_time = 100, random_seed = 0)), cartesian), max_time = 200, max_optimization_time = 2, diversify = true, random_seed = 0, orders = greedy(random_seed = 0)): 574
+pruning method: stubborn sets simple
+New best heuristic value for saturated_cost_partitioning(list(projections(systematic(2), max_time = 100, max_peak_memory = 2048), projections(hillclimbing(max_time = 100, random_seed = 0)), cartesian), max_time = 200, max_optimization_time = 2, diversify = true, random_seed = 0, orders = greedy(random_seed = 0)): 483
+[g=180, 3 evaluated, 1 expanded, t=315.696s, 583044 KB]
+New best heuristic value for saturated_cost_partitioning(list(projections(systematic(2), max_time = 100, max_peak_memory = 2048), projections(hillclimbing(max_time = 100, random_seed = 0)), cartesian), max_time = 200, max_optimization_time = 2, diversify = true, random_seed = 0, orders = greedy(random_seed = 0)): 395
+[g=180, 6 evaluated, 1 expanded, t=315.696s, 583044 KB]
+New best heuristic value for saturated_cost_partitioning(list(projections(systematic(2), max_time = 100, max_peak_memory = 2048), projections(hillclimbing(max_time = 100, random_seed = 0)), cartesian), max_time = 200, max_optimization_time = 2, diversify = true, random_seed = 0, orders = greedy(random_seed = 0)): 394
+[g=180, 8 evaluated, 1 expanded, t=315.696s, 583044 KB]
+New best heuristic value for saturated_cost_partitioning(list(projections(systematic(2), max_time = 100, max_peak_memory = 2048), projections(hillclimbing(max_time = 100, random_seed = 0)), cartesian), max_time = 200, max_optimization_time = 2, diversify = true, random_seed = 0, orders = greedy(random_seed = 0)): 215
+[g=360, 14 evaluated, 2 expanded, t=315.708s, 583044 KB]
+f = 575 [16 evaluated, 2 expanded, t=315.709s, 583044 KB]
+New best heuristic value for saturated_cost_partitioning(list(projections(systematic(2), max_time = 100, max_peak_memory = 2048), projections(hillclimbing(max_time = 100, random_seed = 0)), cartesian), max_time = 200, max_optimization_time = 2, diversify = true, random_seed = 0, orders = greedy(random_seed = 0)): 214
+[g=361, 17 evaluated, 3 expanded, t=315.711s, 583044 KB]
+New best heuristic value for saturated_cost_partitioning(list(projections(systematic(2), max_time = 100, max_peak_memory = 2048), projections(hillclimbing(max_time = 100, random_seed = 0)), cartesian), max_time = 200, max_optimization_time = 2, diversify = true, random_seed = 0, orders = greedy(random_seed = 0)): 213
+[g=362, 18 evaluated, 4 expanded, t=315.735s, 583044 KB]
+New best heuristic value for saturated_cost_partitioning(list(projections(systematic(2), max_time = 100, max_peak_memory = 2048), projections(hillclimbing(max_time = 100, random_seed = 0)), cartesian), max_time = 200, max_optimization_time = 2, diversify = true, random_seed = 0, orders = greedy(random_seed = 0)): 212
+[g=363, 19 evaluated, 5 expanded, t=315.736s, 583044 KB]
+New best heuristic value for saturated_cost_partitioning(list(projections(systematic(2), max_time = 100, max_peak_memory = 2048), projections(hillclimbing(max_time = 100, random_seed = 0)), cartesian), max_time = 200, max_optimization_time = 2, diversify = true, random_seed = 0, orders = greedy(random_seed = 0)): 211
+[g=543, 25 evaluated, 6 expanded, t=315.744s, 583044 KB]
+f = 590 [51 evaluated, 15 expanded, t=315.756s, 583044 KB]
+f = 663 [59 evaluated, 17 expanded, t=315.759s, 583044 KB]
+f = 754 [62 evaluated, 18 expanded, t=315.761s, 583044 KB]
+f = 755 [74 evaluated, 26 expanded, t=315.775s, 583044 KB]
+f = 770 [439 evaluated, 133 expanded, t=315.918s, 583044 KB]
+f = 843 [485 evaluated, 145 expanded, t=315.94s, 583044 KB]
+New best heuristic value for saturated_cost_partitioning(list(projections(systematic(2), max_time = 100, max_peak_memory = 2048), projections(hillclimbing(max_time = 100, random_seed = 0)), cartesian), max_time = 200, max_optimization_time = 2, diversify = true, random_seed = 0, orders = greedy(random_seed = 0)): 120
+[g=723, 534 evaluated, 158 expanded, t=315.967s, 583044 KB]
+f = 934 [606 evaluated, 173 expanded, t=316.018s, 583044 KB]
+New best heuristic value for saturated_cost_partitioning(list(projections(systematic(2), max_time = 100, max_peak_memory = 2048), projections(hillclimbing(max_time = 100, random_seed = 0)), cartesian), max_time = 200, max_optimization_time = 2, diversify = true, random_seed = 0, orders = greedy(random_seed = 0)): 29
+[g=906, 610 evaluated, 177 expanded, t=316.056s, 583044 KB]
+f = 935 [707 evaluated, 213 expanded, t=316.101s, 583044 KB]
+f = 950 [2202 evaluated, 915 expanded, t=316.98s, 583044 KB]
+pruning ratio after 1000 calls: 0
+-- pruning ratio is lower than min pruning ratio (0.2); switching off pruning
+f = 1023 [2436 evaluated, 1087 expanded, t=317.068s, 583044 KB]
+f = 1085 [3742 evaluated, 1598 expanded, t=317.104s, 583044 KB]
+f = 1114 [3806 evaluated, 1606 expanded, t=317.106s, 583044 KB]
+f = 1115 [4086 evaluated, 1703 expanded, t=317.114s, 583044 KB]
+New best heuristic value for saturated_cost_partitioning(list(projections(systematic(2), max_time = 100, max_peak_memory = 2048), projections(hillclimbing(max_time = 100, random_seed = 0)), cartesian), max_time = 200, max_optimization_time = 2, diversify = true, random_seed = 0, orders = greedy(random_seed = 0)): 28
+[g=1087, 4087 evaluated, 1704 expanded, t=317.115s, 583044 KB]
+New best heuristic value for saturated_cost_partitioning(list(projections(systematic(2), max_time = 100, max_peak_memory = 2048), projections(hillclimbing(max_time = 100, random_seed = 0)), cartesian), max_time = 200, max_optimization_time = 2, diversify = true, random_seed = 0, orders = greedy(random_seed = 0)): 27
+[g=1088, 4088 evaluated, 1705 expanded, t=317.115s, 583044 KB]
+New best heuristic value for saturated_cost_partitioning(list(projections(systematic(2), max_time = 100, max_peak_memory = 2048), projections(hillclimbing(max_time = 100, random_seed = 0)), cartesian), max_time = 200, max_optimization_time = 2, diversify = true, random_seed = 0, orders = greedy(random_seed = 0)): 26
+[g=1089, 4089 evaluated, 1706 expanded, t=317.115s, 583044 KB]
+New best heuristic value for saturated_cost_partitioning(list(projections(systematic(2), max_time = 100, max_peak_memory = 2048), projections(hillclimbing(max_time = 100, random_seed = 0)), cartesian), max_time = 200, max_optimization_time = 2, diversify = true, random_seed = 0, orders = greedy(random_seed = 0)): 25
+[g=1269, 6113 evaluated, 2541 expanded, t=317.155s, 583044 KB]
+f = 1130 [10305 evaluated, 4566 expanded, t=317.253s, 583044 KB]
+f = 1143 [11281 evaluated, 4782 expanded, t=317.274s, 583044 KB]
+f = 1146 [11361 evaluated, 4806 expanded, t=317.277s, 583044 KB]
+f = 1203 [11417 evaluated, 4814 expanded, t=317.278s, 583044 KB]
+f = 1233 [13540 evaluated, 5840 expanded, t=317.332s, 583044 KB]
+f = 1236 [13700 evaluated, 5896 expanded, t=317.336s, 583044 KB]
+f = 1265 [13860 evaluated, 5952 expanded, t=317.339s, 583044 KB]
+f = 1294 [14044 evaluated, 6136 expanded, t=317.343s, 583044 KB]
+f = 1295 [15264 evaluated, 6570 expanded, t=317.372s, 583044 KB]
+f = 1310 [35481 evaluated, 13951 expanded, t=317.787s, 583044 KB]
+f = 1323 [39424 evaluated, 16763 expanded, t=317.872s, 583044 KB]
+f = 1324 [39736 evaluated, 16923 expanded, t=317.88s, 583044 KB]
+f = 1326 [39752 evaluated, 16939 expanded, t=317.88s, 583044 KB]
+f = 1383 [39912 evaluated, 17099 expanded, t=317.884s, 583044 KB]
+f = 1413 [41546 evaluated, 18670 expanded, t=317.929s, 583044 KB]
+f = 1415 [41842 evaluated, 18966 expanded, t=317.936s, 583044 KB]
+f = 1416 [41946 evaluated, 18998 expanded, t=317.938s, 583044 KB]
+f = 1474 [42714 evaluated, 19294 expanded, t=317.953s, 583044 KB]
+New best heuristic value for saturated_cost_partitioning(list(projections(systematic(2), max_time = 100, max_peak_memory = 2048), projections(hillclimbing(max_time = 100, random_seed = 0)), cartesian), max_time = 200, max_optimization_time = 2, diversify = true, random_seed = 0, orders = greedy(random_seed = 0)): 24
+[g=1450, 42715 evaluated, 19295 expanded, t=317.953s, 583044 KB]
+New best heuristic value for saturated_cost_partitioning(list(projections(systematic(2), max_time = 100, max_peak_memory = 2048), projections(hillclimbing(max_time = 100, random_seed = 0)), cartesian), max_time = 200, max_optimization_time = 2, diversify = true, random_seed = 0, orders = greedy(random_seed = 0)): 23
+[g=1451, 42716 evaluated, 19296 expanded, t=317.953s, 583044 KB]
+New best heuristic value for saturated_cost_partitioning(list(projections(systematic(2), max_time = 100, max_peak_memory = 2048), projections(hillclimbing(max_time = 100, random_seed = 0)), cartesian), max_time = 200, max_optimization_time = 2, diversify = true, random_seed = 0, orders = greedy(random_seed = 0)): 22
+[g=1452, 42717 evaluated, 19297 expanded, t=317.953s, 583044 KB]
+f = 1475 [47518 evaluated, 21965 expanded, t=318.055s, 583044 KB]
+New best heuristic value for saturated_cost_partitioning(list(projections(systematic(2), max_time = 100, max_peak_memory = 2048), projections(hillclimbing(max_time = 100, random_seed = 0)), cartesian), max_time = 200, max_optimization_time = 2, diversify = true, random_seed = 0, orders = greedy(random_seed = 0)): 21
+[g=1454, 47519 evaluated, 21966 expanded, t=318.055s, 583044 KB]
+New best heuristic value for saturated_cost_partitioning(list(projections(systematic(2), max_time = 100, max_peak_memory = 2048), projections(hillclimbing(max_time = 100, random_seed = 0)), cartesian), max_time = 200, max_optimization_time = 2, diversify = true, random_seed = 0, orders = greedy(random_seed = 0)): 20
+[g=1455, 47520 evaluated, 21967 expanded, t=318.055s, 583044 KB]
+f = 1476 [132212 evaluated, 76705 expanded, t=319.654s, 583044 KB]
+f = 1477 [178970 evaluated, 90575 expanded, t=320.167s, 583044 KB]
+f = 1478 [229959 evaluated, 102542 expanded, t=320.682s, 583044 KB]
+f = 1489 [230367 evaluated, 102632 expanded, t=320.686s, 583044 KB]
+f = 1490 [232123 evaluated, 103288 expanded, t=320.734s, 583044 KB]
+f = 1503 [239824 evaluated, 105130 expanded, t=320.904s, 583044 KB]
+f = 1504 [242472 evaluated, 106106 expanded, t=320.961s, 583044 KB]
+f = 1505 [242904 evaluated, 106178 expanded, t=320.97s, 583044 KB]
+f = 1506 [243832 evaluated, 106322 expanded, t=320.986s, 583044 KB]
+f = 1563 [249968 evaluated, 107610 expanded, t=321.099s, 583044 KB]
+f = 1593 [249986 evaluated, 107628 expanded, t=321.1s, 583044 KB]
+f = 1594 [261506 evaluated, 110452 expanded, t=321.335s, 583044 KB]
+f = 1595 [265506 evaluated, 111084 expanded, t=321.409s, 583044 KB]
+f = 1596 [271570 evaluated, 112420 expanded, t=321.517s, 583044 KB]
+f = 1654 [292802 evaluated, 118132 expanded, t=321.896s, 583044 KB]
+f = 1655 [307171 evaluated, 123486 expanded, t=322.232s, 583044 KB]
+f = 1656 [447317 evaluated, 179725 expanded, t=323.985s, 583044 KB]
+f = 1657 [708643 evaluated, 233849 expanded, t=326.625s, 583044 KB]
+f = 1658 [929687 evaluated, 275248 expanded, t=328.867s, 599432 KB]
+f = 1669 [931673 evaluated, 275596 expanded, t=328.886s, 599432 KB]
+f = 1670 [933117 evaluated, 276228 expanded, t=328.921s, 599432 KB]
+f = 1671 [1020143 evaluated, 309934 expanded, t=329.92s, 599432 KB]
+f = 1683 [1025831 evaluated, 310670 expanded, t=329.977s, 599432 KB]
+f = 1684 [1060359 evaluated, 321062 expanded, t=330.722s, 599432 KB]
+f = 1685 [1069311 evaluated, 325142 expanded, t=330.906s, 599432 KB]
+f = 1686 [1081151 evaluated, 329902 expanded, t=331.135s, 599432 KB]
+f = 1715 [1105991 evaluated, 337214 expanded, t=331.624s, 599432 KB]
+f = 1773 [1121487 evaluated, 352710 expanded, t=331.939s, 599432 KB]
+f = 1774 [1180039 evaluated, 386886 expanded, t=333.199s, 599432 KB]
+f = 1775 [1186479 evaluated, 393430 expanded, t=333.329s, 599432 KB]
+f = 1776 [1193047 evaluated, 400030 expanded, t=333.459s, 599432 KB]
+f = 1777 [1194231 evaluated, 400318 expanded, t=333.473s, 599432 KB]
+f = 1805 [1196263 evaluated, 400846 expanded, t=333.495s, 599432 KB]
+f = 1834 [1224935 evaluated, 429518 expanded, t=334.055s, 599432 KB]
+f = 1835 [1234035 evaluated, 438558 expanded, t=334.261s, 599432 KB]
+New best heuristic value for saturated_cost_partitioning(list(projections(systematic(2), max_time = 100, max_peak_memory = 2048), projections(hillclimbing(max_time = 100, random_seed = 0)), cartesian), max_time = 200, max_optimization_time = 2, diversify = true, random_seed = 0, orders = greedy(random_seed = 0)): 19
+[g=1816, 1234036 evaluated, 438559 expanded, t=334.261s, 599432 KB]
+New best heuristic value for saturated_cost_partitioning(list(projections(systematic(2), max_time = 100, max_peak_memory = 2048), projections(hillclimbing(max_time = 100, random_seed = 0)), cartesian), max_time = 200, max_optimization_time = 2, diversify = true, random_seed = 0, orders = greedy(random_seed = 0)): 18
+[g=1817, 1234037 evaluated, 438560 expanded, t=334.261s, 599432 KB]
+New best heuristic value for saturated_cost_partitioning(list(projections(systematic(2), max_time = 100, max_peak_memory = 2048), projections(hillclimbing(max_time = 100, random_seed = 0)), cartesian), max_time = 200, max_optimization_time = 2, diversify = true, random_seed = 0, orders = greedy(random_seed = 0)): 17
+[g=1818, 1234038 evaluated, 438561 expanded, t=334.261s, 599432 KB]
+f = 1836 [1614849 evaluated, 668152 expanded, t=338.358s, 599432 KB]
+f = 1837 [2325382 evaluated, 1183138 expanded, t=345.725s, 632204 KB]
+f = 1838 [2923825 evaluated, 1669070 expanded, t=351.804s, 632204 KB]
+f = 1849 [2931832 evaluated, 1673930 expanded, t=351.881s, 632204 KB]
+f = 1850 [2933340 evaluated, 1675438 expanded, t=351.913s, 632204 KB]
+f = 1851 [3063156 evaluated, 1741498 expanded, t=353.29s, 632204 KB]
+f = 1863 [3069852 evaluated, 1748194 expanded, t=353.37s, 632204 KB]
+f = 1864 [3105308 evaluated, 1783650 expanded, t=354.204s, 632204 KB]
+f = 1865 [3108556 evaluated, 1788146 expanded, t=354.279s, 632204 KB]
+f = 1866 [3112020 evaluated, 1793866 expanded, t=354.354s, 632204 KB]
+f = 1867 [3122428 evaluated, 1796442 expanded, t=354.483s, 632204 KB]
+f = 1954 [3138924 evaluated, 1800378 expanded, t=354.69s, 632204 KB]
+f = 1955 [3145484 evaluated, 1810634 expanded, t=354.858s, 632204 KB]
+f = 1956 [3154692 evaluated, 1825106 expanded, t=355.083s, 632204 KB]
+f = 1957 [3206156 evaluated, 1843946 expanded, t=355.728s, 632204 KB]
+f = 2014 [3286652 evaluated, 1864898 expanded, t=356.686s, 632204 KB]
+f = 2015 [3286676 evaluated, 1864922 expanded, t=356.687s, 632204 KB]
+f = 2016 [4590053 evaluated, 2243307 expanded, t=368.762s, 681356 KB]
+f = 2017 [6940439 evaluated, 2828123 expanded, t=389.689s, 779660 KB]
+f = 2018 [8501899 evaluated, 3124035 expanded, t=403.752s, 779660 KB]
+f = 2030 [8531692 evaluated, 3129168 expanded, t=404.019s, 779660 KB]
+f = 2044 [9225636 evaluated, 3379822 expanded, t=410.828s, 779660 KB]
+f = 2045 [9227316 evaluated, 3384462 expanded, t=410.868s, 779660 KB]
+f = 2046 [9231460 evaluated, 3389078 expanded, t=410.922s, 779660 KB]
+f = 2047 [9370404 evaluated, 3450446 expanded, t=412.45s, 779660 KB]
+f = 2134 [9587948 evaluated, 3524574 expanded, t=414.805s, 779660 KB]
+f = 2135 [9591308 evaluated, 3532694 expanded, t=414.881s, 779660 KB]
+f = 2136 [9638152 evaluated, 3560470 expanded, t=415.361s, 779660 KB]
+f = 2137 [10151220 evaluated, 3815558 expanded, t=420.636s, 779660 KB]
+f = 2195 [10576396 evaluated, 4022206 expanded, t=425.306s, 779660 KB]
+New best heuristic value for saturated_cost_partitioning(list(projections(systematic(2), max_time = 100, max_peak_memory = 2048), projections(hillclimbing(max_time = 100, random_seed = 0)), cartesian), max_time = 200, max_optimization_time = 2, diversify = true, random_seed = 0, orders = greedy(random_seed = 0)): 16
+[g=2179, 10576397 evaluated, 4022207 expanded, t=425.306s, 779660 KB]
+New best heuristic value for saturated_cost_partitioning(list(projections(systematic(2), max_time = 100, max_peak_memory = 2048), projections(hillclimbing(max_time = 100, random_seed = 0)), cartesian), max_time = 200, max_optimization_time = 2, diversify = true, random_seed = 0, orders = greedy(random_seed = 0)): 15
+[g=2180, 10576398 evaluated, 4022208 expanded, t=425.306s, 779660 KB]
+New best heuristic value for saturated_cost_partitioning(list(projections(systematic(2), max_time = 100, max_peak_memory = 2048), projections(hillclimbing(max_time = 100, random_seed = 0)), cartesian), max_time = 200, max_optimization_time = 2, diversify = true, random_seed = 0, orders = greedy(random_seed = 0)): 14
+[g=2181, 10576399 evaluated, 4022209 expanded, t=425.306s, 779660 KB]
+f = 2196 [13746196 evaluated, 6405777 expanded, t=458.794s, 1088100 KB]
+f = 2197 [19089588 evaluated, 11018932 expanded, t=515.331s, 1193464 KB]
+f = 2198 [23121714 evaluated, 14348170 expanded, t=558.931s, 1351572 KB]
+f = 2210 [23226933 evaluated, 14419018 expanded, t=560.008s, 1355648 KB]
+f = 2225 [24265119 evaluated, 14949824 expanded, t=571.004s, 1396348 KB]
+f = 2226 [24531731 evaluated, 14994248 expanded, t=573.56s, 1406828 KB]
+f = 2227 [26010979 evaluated, 15380568 expanded, t=588.423s, 1464872 KB]
+f = 2315 [26432915 evaluated, 15757576 expanded, t=596.02s, 2000704 KB]
+f = 2316 [27609755 evaluated, 16038212 expanded, t=607.625s, 2000704 KB]
+f = 2317 [32718551 evaluated, 17500700 expanded, t=659.374s, 2002836 KB]
+f = 2375 [33281135 evaluated, 17718252 expanded, t=664.842s, 2026180 KB]
+f = 2376 [41957961 evaluated, 20514767 expanded, t=738.742s, 2391436 KB]
+f = 2377 [57197670 evaluated, 24067356 expanded, t=866.842s, 3853144 KB]
+f = 2378 [66864469 evaluated, 25993802 expanded, t=949.091s, 3971672 KB]
+f = 2390 [67221319 evaluated, 26057462 expanded, t=952.002s, 3987936 KB]
+f = 2405 [67893121 evaluated, 26729264 expanded, t=959.12s, 4014412 KB]
+f = 2406 [69178545 evaluated, 27943864 expanded, t=971.35s, 4064900 KB]
+f = 2407 [76286237 evaluated, 33488556 expanded, t=1043.53s, 4349908 KB]
+f = 2420 [78351357 evaluated, 34348692 expanded, t=1063.85s, 4435664 KB]
+f = 2421 [78388373 evaluated, 34382348 expanded, t=1064.2s, 4437020 KB]
+f = 2495 [78415645 evaluated, 34406596 expanded, t=1064.46s, 4438108 KB]
+f = 2496 [79520145 evaluated, 34759580 expanded, t=1073.64s, 4484328 KB]
+f = 2497 [89587137 evaluated, 37756056 expanded, t=1165.3s, 4907728 KB]
+f = 2498 [95320965 evaluated, 39503296 expanded, t=1222.91s, 5148564 KB]
+f = 2510 [95324757 evaluated, 39504328 expanded, t=1222.95s, 5148836 KB]
+f = 2511 [95689205 evaluated, 39826104 expanded, t=1226.87s, 5163260 KB]
+f = 2525 [95961813 evaluated, 40060408 expanded, t=1229.77s, 5174004 KB]
+f = 2526 [95961813 evaluated, 40061304 expanded, t=1229.77s, 5174004 KB]
+f = 2527 [96107245 evaluated, 40118816 expanded, t=1231.18s, 5180072 KB]
+f = 2555 [96354933 evaluated, 40182488 expanded, t=1233.5s, 5190556 KB]
+New best heuristic value for saturated_cost_partitioning(list(projections(systematic(2), max_time = 100, max_peak_memory = 2048), projections(hillclimbing(max_time = 100, random_seed = 0)), cartesian), max_time = 200, max_optimization_time = 2, diversify = true, random_seed = 0, orders = greedy(random_seed = 0)): 13
+[g=2542, 96354934 evaluated, 40182489 expanded, t=1233.5s, 5190556 KB]
+New best heuristic value for saturated_cost_partitioning(list(projections(systematic(2), max_time = 100, max_peak_memory = 2048), projections(hillclimbing(max_time = 100, random_seed = 0)), cartesian), max_time = 200, max_optimization_time = 2, diversify = true, random_seed = 0, orders = greedy(random_seed = 0)): 12
+[g=2543, 96354935 evaluated, 40182490 expanded, t=1233.5s, 5190556 KB]
+New best heuristic value for saturated_cost_partitioning(list(projections(systematic(2), max_time = 100, max_peak_memory = 2048), projections(hillclimbing(max_time = 100, random_seed = 0)), cartesian), max_time = 200, max_optimization_time = 2, diversify = true, random_seed = 0, orders = greedy(random_seed = 0)): 11
+[g=2544, 96354936 evaluated, 40182491 expanded, t=1233.5s, 5190556 KB]
+New best heuristic value for saturated_cost_partitioning(list(projections(systematic(2), max_time = 100, max_peak_memory = 2048), projections(hillclimbing(max_time = 100, random_seed = 0)), cartesian), max_time = 200, max_optimization_time = 2, diversify = true, random_seed = 0, orders = greedy(random_seed = 0)): 10
+[g=2545, 96354982 evaluated, 40182536 expanded, t=1233.5s, 5190556 KB]
+New best heuristic value for saturated_cost_partitioning(list(projections(systematic(2), max_time = 100, max_peak_memory = 2048), projections(hillclimbing(max_time = 100, random_seed = 0)), cartesian), max_time = 200, max_optimization_time = 2, diversify = true, random_seed = 0, orders = greedy(random_seed = 0)): 9
+[g=2546, 96354983 evaluated, 40182537 expanded, t=1233.5s, 5190556 KB]
+New best heuristic value for saturated_cost_partitioning(list(projections(systematic(2), max_time = 100, max_peak_memory = 2048), projections(hillclimbing(max_time = 100, random_seed = 0)), cartesian), max_time = 200, max_optimization_time = 2, diversify = true, random_seed = 0, orders = greedy(random_seed = 0)): 8
+[g=2547, 96354985 evaluated, 40182538 expanded, t=1233.5s, 5190556 KB]
+f = 2556 [112090325 evaluated, 56271091 expanded, t=1403.77s, 7541608 KB]
+f = 2557 [138693398 evaluated, 88155584 expanded, t=1681.2s, 7909400 KB]
+f = 2558 [161192081 evaluated, 110679003 expanded, t=1888.9s, 8790976 KB]
+f = 2559 [169070647 evaluated, 113347061 expanded, t=1947.29s, 9098616 KB]
+f = 2560 [171797174 evaluated, 114019016 expanded, t=1967.07s, 9205660 KB]
+f = 2561 [172326978 evaluated, 114147062 expanded, t=1970.92s, 9226512 KB]
+f = 2562 [172373990 evaluated, 114158720 expanded, t=1971.26s, 9228280 KB]
+f = 2585 [172375196 evaluated, 114159035 expanded, t=1971.26s, 9228416 KB]
+f = 2586 [178752564 evaluated, 116580139 expanded, t=2031.4s, 9493964 KB]
+Failed to allocate memory.
+Memory limit has been reached.
+Peak memory: 10706644 KB
+exitcode: 6
+
+Command '['run-portfolio', '/planner/driver/portfolios/seq_opt_scorpion.py']' returned non-zero exit status 6

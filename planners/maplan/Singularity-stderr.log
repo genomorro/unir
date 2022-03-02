@@ -1,0 +1,80 @@
+INFO:    Starting build...
+Getting image source signatures
+Copying blob sha256:68e7bb398b9ff421236990bfeaf5c1feab26c590eed93489e245375c23551e2a
+Copying config sha256:7d6c428109ecfb4dcc7d966e3d21bb7a949a0680ba89cbd0dab65d77fe47758a
+Writing manifest to image destination
+Storing signatures
+2022/03/01 20:53:34  info unpack layer: sha256:68e7bb398b9ff421236990bfeaf5c1feab26c590eed93489e245375c23551e2a
+INFO:    Copying cplex_studio12.7.1.linux-x86-64.bin to /third-party/
+INFO:    Running post scriptlet
++ apt-get update
++ apt-get -y install gcc make m4 flex unzip ca-certificates git
+debconf: delaying package configuration, since apt-utils is not installed
++ rm -rf /var/lib/apt/lists/archive.ubuntu.com_ubuntu_dists_bionic-backports_InRelease /var/lib/apt/lists/archive.ubuntu.com_ubuntu_dists_bionic-backports_main_binary-amd64_Packages.lz4 /var/lib/apt/lists/archive.ubuntu.com_ubuntu_dists_bionic-backports_universe_binary-amd64_Packages.lz4 /var/lib/apt/lists/archive.ubuntu.com_ubuntu_dists_bionic-updates_InRelease /var/lib/apt/lists/archive.ubuntu.com_ubuntu_dists_bionic-updates_main_binary-amd64_Packages.lz4 /var/lib/apt/lists/archive.ubuntu.com_ubuntu_dists_bionic-updates_multiverse_binary-amd64_Packages.lz4 /var/lib/apt/lists/archive.ubuntu.com_ubuntu_dists_bionic-updates_restricted_binary-amd64_Packages.lz4 /var/lib/apt/lists/archive.ubuntu.com_ubuntu_dists_bionic-updates_universe_binary-amd64_Packages.lz4 /var/lib/apt/lists/archive.ubuntu.com_ubuntu_dists_bionic_InRelease /var/lib/apt/lists/archive.ubuntu.com_ubuntu_dists_bionic_main_binary-amd64_Packages.lz4 /var/lib/apt/lists/archive.ubuntu.com_ubuntu_dists_bionic_multiverse_binary-amd64_Packages.lz4 /var/lib/apt/lists/archive.ubuntu.com_ubuntu_dists_bionic_restricted_binary-amd64_Packages.lz4 /var/lib/apt/lists/archive.ubuntu.com_ubuntu_dists_bionic_universe_binary-amd64_Packages.lz4 /var/lib/apt/lists/auxfiles /var/lib/apt/lists/lock /var/lib/apt/lists/partial /var/lib/apt/lists/security.ubuntu.com_ubuntu_dists_bionic-security_InRelease /var/lib/apt/lists/security.ubuntu.com_ubuntu_dists_bionic-security_main_binary-amd64_Packages.lz4 /var/lib/apt/lists/security.ubuntu.com_ubuntu_dists_bionic-security_multiverse_binary-amd64_Packages.lz4 /var/lib/apt/lists/security.ubuntu.com_ubuntu_dists_bionic-security_restricted_binary-amd64_Packages.lz4 /var/lib/apt/lists/security.ubuntu.com_ubuntu_dists_bionic-security_universe_binary-amd64_Packages.lz4
++ git clone -b ipc-2018-seq-opt https://bitbucket.org/ipc2018-classical/team17.git /planner
+Cloning into '/planner'...
++ /third-party/cplex_studio12.7.1.linux-x86-64.bin -DLICENSE_ACCEPTED=TRUE -i silent
++ export CPLEX=/opt/ibm/ILOG/CPLEX_Studio1271/cplex
++ cd /planner
++ make CPLEX_CFLAGS=-I/opt/ibm/ILOG/CPLEX_Studio1271/cplex/include -C boruvka libboruvka.a
+/bin/sh: 1: pkg-config: not found
+/bin/sh: 1: pkg-config: not found
+src/opts.c: In function 'printDesc':
+src/opts.c:467:5: warning: format not a string literal and no format arguments [-Wformat-security]
+     fprintf(out, opt->desc);
+     ^~~~~~~
+src/predicates.c: In function 'incircleadapt':
+src/predicates.c:1374:15: warning: 'bb[3]' may be used uninitialized in this function [-Wmaybe-uninitialized]
+   REAL aa[4], bb[4], cc[4];
+               ^~
+src/predicates.c:1374:8: warning: 'aa[3]' may be used uninitialized in this function [-Wmaybe-uninitialized]
+   REAL aa[4], bb[4], cc[4];
+        ^~
+src/predicates.c:1374:22: warning: 'cc[3]' may be used uninitialized in this function [-Wmaybe-uninitialized]
+   REAL aa[4], bb[4], cc[4];
+                      ^~
+src/predicates.c:250:5: warning: 'cytab' may be used uninitialized in this function [-Wmaybe-uninitialized]
+   x = (REAL) (a * b); \
+     ^
+src/predicates.c:1390:58: note: 'cytab' was declared here
+   REAL axtbc[8], aytbc[8], bxtca[8], bytca[8], cxtab[8], cytab[8];
+                                                          ^~~~~
+src/predicates.c:250:5: warning: 'cxtab' may be used uninitialized in this function [-Wmaybe-uninitialized]
+   x = (REAL) (a * b); \
+     ^
+src/predicates.c:1390:48: note: 'cxtab' was declared here
+   REAL axtbc[8], aytbc[8], bxtca[8], bytca[8], cxtab[8], cytab[8];
+                                                ^~~~~
+src/predicates.c:250:5: warning: 'bytca' may be used uninitialized in this function [-Wmaybe-uninitialized]
+   x = (REAL) (a * b); \
+     ^
+src/predicates.c:1390:38: note: 'bytca' was declared here
+   REAL axtbc[8], aytbc[8], bxtca[8], bytca[8], cxtab[8], cytab[8];
+                                      ^~~~~
+src/predicates.c:250:5: warning: 'aytbc' may be used uninitialized in this function [-Wmaybe-uninitialized]
+   x = (REAL) (a * b); \
+     ^
+src/predicates.c:1390:18: note: 'aytbc' was declared here
+   REAL axtbc[8], aytbc[8], bxtca[8], bytca[8], cxtab[8], cytab[8];
+                  ^~~~~
+src/predicates.c:250:5: warning: 'axtbc' may be used uninitialized in this function [-Wmaybe-uninitialized]
+   x = (REAL) (a * b); \
+     ^
+src/predicates.c:1390:8: note: 'axtbc' was declared here
+   REAL axtbc[8], aytbc[8], bxtca[8], bytca[8], cxtab[8], cytab[8];
+        ^~~~~
+src/sort.c: In function 'borRadixSort':
+cc1: warning: '__builtin_memset' writing 1024 bytes into a region of size 1020 overflows the destination [-Wstringop-overflow=]
+cc1: warning: '__builtin_memset' writing 1024 bytes into a region of size 1020 overflows the destination [-Wstringop-overflow=]
+src/sort.c: In function 'borRadixSortPtr':
+cc1: warning: '__builtin_memset' writing 1024 bytes into a region of size 1020 overflows the destination [-Wstringop-overflow=]
+cc1: warning: '__builtin_memset' writing 1024 bytes into a region of size 1020 overflows the destination [-Wstringop-overflow=]
+cc1: warning: '__builtin_memset' writing 1024 bytes into a region of size 1020 overflows the destination [-Wstringop-overflow=]
+cc1: warning: '__builtin_memset' writing 1024 bytes into a region of size 1020 overflows the destination [-Wstringop-overflow=]
+src/lp-cplex.c:25:11: fatal error: ilcplex/cplex.h: No such file or directory
+ # include <ilcplex/cplex.h>
+           ^~~~~~~~~~~~~~~~~
+compilation terminated.
+make: *** [.objs/lp-cplex.o] Error 1
+FATAL:   While performing build: while running engine: exit status 2
+FATAL:   could not open image /home/genomorro/School/UNIR/RazonamientoPlanificacion/planners/maplan/singularity.img: failed to retrieve path for /home/genomorro/School/UNIR/RazonamientoPlanificacion/planners/maplan/singularity.img: lstat /home/genomorro/School/UNIR/RazonamientoPlanificacion/planners/maplan/singularity.img: no such file or directory
