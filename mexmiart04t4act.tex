@@ -3,6 +3,7 @@
 \usepackage[spanish, mexico]{babel}
 %% \usepackage[utf8]{inputenc}
 %% \usepackage[T1]{fontenc}
+\usepackage[sfdefault,lf]{carlito}
 \usepackage[left=1.5cm,right=1.5cm,top=2cm,bottom=2cm]{geometry}
 \usepackage{hyperref}
 
@@ -75,21 +76,23 @@
 
 \abstract{Este artículo presenta brevemente la historia de los planificadores y reseña cuatro planificadores que participaron en la competencia IPC 2018. Además se realiza un ejercicio de ejecución de dichos planificadores y se brinda el resultado considerando que las versiones probadas tienen cuatro años de antigüedad.
 
+Las evidencias completas del trabajo están disponibles libremente en la carpeta \texttt{planners} del siguiente repositorio: \url{https://gitlab.com/genomorro/unir/-/tree/RPA-01/}.
+
 Palabras clave: planificadores, MAPlan, Scopion, Metis, IBaCoP}
 
 \section{Introducción}
 
-La planificación autónoma, también adjetivada \emph{automática}, trata de resolver un problema en el cual deben enunciarse una serie de acciones secuenciales que permitirán ir de un estado inicial a un estado objetivo al momento de realizarse\citep{Tapia_García_2017}. En el libro \emph{Automated Planning: Theory and Practice} de \citet[cap. 1]{Ghallab_Nau_Traverso_2004} como primera definición se escribe: <<La planificación es la parte racional de actuar. Es un proceso de deliberación abstracto y explícito que elige y organiza acciones anticipando sus resultados esperados. Esta deliberación tiene como propósito lograr lo mejor posible algunos objetivos prestablecidos. La planificación automatizada es un área de Inteligencia Artificial (AI) que estudia este proceso de deliberación computacionalmente>>\footnote{Traducción libre.}.
+La planificación autónoma, también adjetivada \emph{automática}, trata de resolver un problema en el cual deben enunciarse una serie de acciones secuenciales que permitirán ir de un estado inicial a un estado objetivo al momento de realizarse~\citep{Tapia_García_2017}. En el libro \emph{Automated Planning: Theory and Practice} de~\citet[cap. 1]{Ghallab_Nau_Traverso_2004} como primera definición se escribe: <<La planificación es la parte racional de actuar. Es un proceso de deliberación abstracto y explícito que elige y organiza acciones anticipando sus resultados esperados. Esta deliberación tiene como propósito lograr lo mejor posible algunos objetivos prestablecidos. La planificación automatizada es un área de Inteligencia Artificial (AI) que estudia este proceso de deliberación computacionalmente>>\footnote{Traducción libre.}.
 
-Los primeros planificadores se basaban en demostraciones de teoremas y lógica de predicados, eran conocidos como \emph{General Problem Solver}(\textsc{gps}). Estos planificadores consideraban entornos finitos, deterministas, estáticos para generar planes secuenciales que no tienen en cuenta el tiempo, con una fase deliberativa y otra de ejecución.\citep{Tapia_García_2017}
+Los primeros planificadores se basaban en demostraciones de teoremas y lógica de predicados, eran conocidos como \emph{General Problem Solver}~(GPS). Estos planificadores consideraban entornos finitos, deterministas, estáticos para generar planes secuenciales que no tienen en cuenta el tiempo, con una fase deliberativa y otra de ejecución.~\citep{Tapia_García_2017}
 
-En 1971, Richard Fikes y Nils Nilsson crean el planificador \textsc{strips}, basado en lógica de primer orden. Actualmente, \textsc{strips} es también el nombre del lenguaje que este planificador usa para definir un problema concreto a resolver. Este lenguaje es usado por programas como \emph{Graphplan}, el cual construye un grafo con acciones y predicados para obtener un plan.\citep{Tapia_García_2017}
+En 1971, Richard Fikes y Nils Nilsson crean el planificador STRIPS, basado en lógica de primer orden. Actualmente, STRIPS es también el nombre del lenguaje que este planificador usa para definir un problema concreto a resolver. Este lenguaje es usado por programas como \emph{Graphplan}, el cual construye un grafo con acciones y predicados para obtener un plan.~\citep{Tapia_García_2017}
 
-Posteriormente se crea la técnica \textsc{htn}, donde se descompone un sistema en distintas tareas jerarquizadas hasta llegar a primitivas que posteriormente se usarán para crear el plan. También se crean los llamados \emph{\textsc{sat} solvers}; en esta lógica, se asignan al problema valores de verdad en una expresión proposicional, el planificador asegura el resultado al crear un plan cuyo resultado tenga un valor verdadero.\citep{Tapia_García_2017}
+Posteriormente se crea la técnica HTN, donde se descompone un sistema en distintas tareas jerarquizadas hasta llegar a primitivas que posteriormente se usarán para crear el plan. También se crean los llamados \emph{SAT solvers}; en esta lógica, se asignan al problema valores de verdad en una expresión proposicional, el planificador asegura el resultado al crear un plan cuyo resultado tenga un valor verdadero.~\citep{Tapia_García_2017}
 
-Los planificadores heurísticos tomaron popularidad porque mejoraban notablemente el tiempo respecto a Graphplan. Estos se centran en una función heurística independiente del dominio por lo que pueden ser de propósito general y resolver problemas más complejos.\citep{Tapia_García_2017}
+Los planificadores heurísticos tomaron popularidad porque mejoraban notablemente el tiempo respecto a Graphplan. Estos se centran en una función heurística independiente del dominio por lo que pueden ser de propósito general y resolver problemas más complejos.~\citep{Tapia_García_2017}
 
-Actualmente, destacan planificadores basados en las técnicas antes mencionadas y otras como: \emph{Madagascar}, basada en \textsc{sat}, y \emph{Fast Downward}, un planificador heurístico con una fuerte conexión con \textsc{sat}. De hecho, es posible decir que se han creado portafolios de planificadores para resolver problemas, es decir, ejecutar varios planificadores en paralelo. En este sentido se toman en cuenta las características de cada planificador para conseguir un mejor rendimiento en distintos problemas.\citep{Tapia_García_2017}
+Actualmente, destacan planificadores basados en las técnicas antes mencionadas y otras como: \emph{Madagascar}, basada en SAT, y \emph{Fast Downward}, un planificador heurístico con una fuerte conexión con SAT. De hecho, es posible decir que se han creado portafolios de planificadores para resolver problemas, es decir, ejecutar varios planificadores en paralelo. En este sentido se toman en cuenta las características de cada planificador para conseguir un mejor rendimiento en distintos problemas.~\citep{Tapia_García_2017}
 
 En el presente texto se estudian algunos de los planificadores presentes en la competición \href{https://ipc2018-classical.bitbucket.io/}{IPC 2018}, se sintetiza su funcionamiento y se ejemplifica su ejecución, con el propósito de entenderlos \textit{grosso modo}.
 
@@ -97,11 +100,11 @@ En el presente texto se estudian algunos de los planificadores presentes en la c
 
 \subsection{Scopion}
 
-El planificador Scopion\citep{seipp2018scorpion} utiliza la técnica Fast Downward. Se complementa con un componente heurístico de abstracción de componentes que se combinan con una partición saturada de costos. El componente heurístico tendrá variaciones dependiendo si la tarea tiene efectos condicionales.
+El planificador Scopion~\citep{seipp2018scorpion} utiliza la técnica Fast Downward. Se complementa con un componente heurístico de abstracción de componentes que se combinan con una partición saturada de costos. El componente heurístico tendrá variaciones dependiendo si la tarea tiene efectos condicionales.
 
 Cuando se afrontan tareas con efectos condicionales se crea una base de datos sistemáticamente con patrones de distintos tamaños, esta generación está limitada en tiempo debido a que es una labor que puede tardar mucho tiempo para algunas tareas.
 
-En el caso de tareas sin efectos condicionales se usa una combinación de distintas técnicas: Abstracciones cartesianas (\textsc{cars}), base de datos con algoritmo de búsqueda escalada simple (\textsc{hc}) y  base de datos para patrones sistemáticos.
+En el caso de tareas sin efectos condicionales se usa una combinación de distintas técnicas: Abstracciones cartesianas (CARS), base de datos con algoritmo de búsqueda escalada simple (HC) y  base de datos para patrones sistemáticos.
 
 El resultado de estas componentes heurísticas es procesado por la partición saturada de costos. Esta asigna iterativamente a cada heurística los costos necesarios para justificar sus estimaciones y así ahorrar costos para las heurísticas posteriores, así se distribuyen los costos.
 
@@ -110,9 +113,9 @@ Finalmente, este planificador somete la información generada a un proceso de \e
 \subsection{MAPlan}
 \label{sec:maplan}
 
-El planificador multiagente MAPlan\citep{fiser2018maplan} usa una búsqueda heurística basada en estados con un traductor de \textsc{pddl} a \textsc{strips} y posteriormente a una representación de dominio finito. El traductor trata de reducir el problema usando algoritmos de exclusión mutua (mutex) en procesos heurísticos de regresión y progresión. Este planificador tiene dos configuraciones distintas, aunque solo difieren en la heurística: maplan-1 utiliza la heurística LM-Cut; maplan-2 utiliza una heurística de abstracción simplificada.
+El planificador multiagente MAPlan~\citep{fiser2018maplan} usa una búsqueda heurística basada en estados con un traductor de PDDL a STRIPS y posteriormente a una representación de dominio finito. El traductor trata de reducir el problema usando algoritmos de exclusión mutua (mutex) en procesos heurísticos de regresión y progresión. Este planificador tiene dos configuraciones distintas, aunque solo difieren en la heurística: maplan-1 utiliza la heurística LM-Cut; maplan-2 utiliza una heurística de abstracción simplificada.
 
-El algoritmo de grupos mutex se implementa en el planificador MAPlan utilizando el solucionador CPLEX, principalmente se usa en la traducción \textsc{strips}. Por otra parte, hay grupos mutex alternativos llamados fam-groups, que constituyen uno de los métodos usados para reducir los insumos del problema de planificación. Otra de las aplicaciones de estos grupos es su participación en el proceso de desambiguación que <<es un proceso simple que extiende un conjunto de hechos donde un  hecho  es la única posibilidad dada el conjunto, que fue formado exactamente con un hecho de cada estado posible>>\footnote{Traducción libre.}\citep{fiser2018maplan}.
+El algoritmo de grupos mutex se implementa en el planificador MAPlan utilizando el solucionador CPLEX, principalmente se usa en la traducción STRIPS. Por otra parte, hay grupos mutex alternativos llamados fam-groups, que constituyen uno de los métodos usados para reducir los insumos del problema de planificación. Otra de las aplicaciones de estos grupos es su participación en el proceso de desambiguación que <<es un proceso simple que extiende un conjunto de hechos donde un  hecho  es la única posibilidad dada el conjunto, que fue formado exactamente con un hecho de cada estado posible>>\footnote{Traducción libre.}~\citep{fiser2018maplan}.
 
 En la búsqueda heurística se calcula un grafo de accesibilidad con hechos individuales y hechos en pares. Es un método ampliamente conocido, sin embargo, el costo de operación aumenta exponencialmente, por lo que solo se utiliza en potencias 1 y 2. Dicho grafo se someterá a un proceso de poda que funciona a su vez en progresión y regresión, elimina elementos inalcanzables hasta llegar a la estabilidad. 
 
@@ -120,7 +123,7 @@ El planificador admite diversos espacios de mejora, tanto en procesamiento como 
 
 \subsection{Metis}
 
-Metis\citep{sievers2018metis} es una reimplementación de un planificador que participó en el IPC 2014. Sus componentes básicos son un proceso heurístico y dos procesos de poda.
+Metis~\citep{sievers2018metis} es una reimplementación de un planificador que participó en el IPC 2014. Sus componentes básicos son un proceso heurístico y dos procesos de poda.
 
 El artículo original trata sobre las diferencias en la implementación de ambas versiones de Metis, por lo que no ofrece gran detalle sobre su funcionamiento actual. Es posible mencionar que la versión actual usa la técnica Fast Downward que mejora su eficiencia respecto a la versión original. Al igual que MAPlan, este planificador usa algoritmos de exclusión mutua para un proceso de poda.
 
@@ -128,7 +131,7 @@ De forma más particular, Metis  usa un algoritmo de heurística admisible LM-cu
 
 \subsection{IBaCoP}
 
-El documento de IBaCoP\citep{cenamor2018ibacop} describe dos portafolios de planificadores. Los portafolios fueron integrados gracias a la técnica de preselección, la cual toma en cuenta varios criterios como por ejemplo: el tiempo de la primera solución y la calidad de la mejor solución. Se modela el rendimiento del planificador con el propósito de predecir el comportamiento del portafolio en función de las necesidades y funciones del problema.
+El documento de IBaCoP~\citep{cenamor2018ibacop} describe dos portafolios de planificadores. Los portafolios fueron integrados gracias a la técnica de preselección, la cual toma en cuenta varios criterios como por ejemplo: el tiempo de la primera solución y la calidad de la mejor solución. Se modela el rendimiento del planificador con el propósito de predecir el comportamiento del portafolio en función de las necesidades y funciones del problema.
 
 IBaCoP es producto de una configuración estática llamada preselección de Pareto, mientras que IBaCoP2 es el resultado de una configuración dinámica, los datos de la primera versión se utilizaron como parte de los datos de capacitación y se incluyeron nuevos planificadores. Los planificadores elegidos como parte de IBaCoP son: Jasper, mercurio, BFS(F), SIW, FDSS-2, sonda, yashp2-mt, lama-2011, lamar y arvand.
 
@@ -195,7 +198,7 @@ Help message
 -t  Set max execution time in seconds, default 7200 (2hr)
 \end{lstlisting}
 
-Para fines prácticos, el script, los archivos \emph{pddl} con el dominio y el problema se encontrarán en el mismo directorio junto con los cuatro archivos de definición de Singularity\citep[sec. Interact with images]{Sylabs_2021}. Dentro de este directorio se crearán, eventualmente, los archivos de trabajo de cada planificador.  El script volcará \texttt{stdout} y \texttt{stderr} a dos archivos para una consulta detallada. A continuación se presenta la estructura inicial de directorios:
+Para fines prácticos, el script, los archivos \emph{pddl} con el dominio y el problema se encontrarán en el mismo directorio junto con los cuatro archivos de definición de Singularity~\citep[sec. Interact with images]{Sylabs_2021}. Dentro de este directorio se crearán, eventualmente, los archivos de trabajo de cada planificador.  El script volcará \texttt{stdout} y \texttt{stderr} a dos archivos para una consulta detallada. A continuación se presenta la estructura inicial de directorios:
 
 \begin{lstlisting}[language=sh]
   ls -R                                                                                                
@@ -229,10 +232,14 @@ La ejecución más básica es:
   time ./frontend.bash
 \end{lstlisting}
 
+El comando \texttt{time} permitirá saber con exactitud cuanto tiempo estuvo en ejecución el script, incluyendo la creación de la imagen del contenedor.
+
 Finalmente, si los archivos argumentos del script están en una carpeta distinta, es necesario proporcionar rutas absolutas de los mismos.
 \section{Resultado}
 
 En esta sección se muestran algunos mensajes destacados al ejecutar los planificadores inspeccionados en este documento. Debido a la longitud de los archivos y mensajes producidos es imposible mostrar todo su contenido, así como mencionarlos exhaustivamente uno a uno, sin embargo, se hacen comentarios pertinentes que brindan un mejor contexto.
+
+Si se desea verificar los resultados completamente, cada uno de los \emph{logs} están resguardados en la carpeta \texttt{planners} del \href{https://gitlab.com/genomorro/unir/-/tree/RPA-01/}{repositorio del proyecto}.
 
 \subsection{Scorpion}
 
@@ -364,8 +371,11 @@ sys     0m23.746s
 
 En el caso de este portafolio se obtienen varios archivos temporales de gran tamaño. Podemos suponer que la creación de estos archivos corresponden a los diversos planificadores que IBaCoP ejecuta. Es de relevancia el archivo \texttt{outputModel} y \texttt{listPlanner}, en ellos se puede ver como el portafolio ha seleccionado cinco planificadores. El archivo \texttt{listPlanner} contiene la lista de los planificadores cuya columna ``predicted'' tiene valor ``True''. el contenido integro de \texttt{outputModel} es el siguiente:
 
-% outputModel
 \begin{lstlisting}
+  cat outputModel
+\end{lstlisting}
+% outputModel
+\begin{lstlisting}[style=consola]
 === Predictions on test data ===
 
  inst#     actual  predicted error prediction (planner)
@@ -442,9 +452,9 @@ En este artículo se hizo una breve reseña sobre el desarrollo de la planificac
 
 Los mismos planificadores fueron ejecutados bajo condiciones iguales y se reportan los resultados del ejercicio. Lamentablemente, ninguno de los planificadores seleccionados terminó exitosamente su ejecución. Esto puede deberse a los archivos de entrada seleccionados, los cuales pudieron ser escogidos de manera inadecuada (al azar). Este punto de vista es cuestionable porque ninguno de los planificadores contiene una documentación o archivo README adecuado que ilustre su ejecución, aunque sea idealizada. Si bien se ejecutaron usando un contenedor Singularity, lo cual garantiza un entorno de ejecución correcto, también se sabe debido a los artículos leídos que no son desarrollos terminados, por lo cual pueden contener errores.
 
-Un error grave en el planificador MAPlan es que tiene dependencias de compilación que el usuario debe proporcionar y a cuatro años de distancia, ya no están disponibles, pues se trata de software privativo. Este problema elimina la ventaja del uso de un contenedor Singularity que pretende replicar un entorno adecuado de ejecución.
+Un error grave en el planificador MAPlan es que tiene dependencias de compilación que el usuario debe proporcionar y, a cuatro años de distancia, ya no están disponibles pues se trata de software privativo. Este problema elimina la ventaja del uso de un contenedor Singularity que pretende replicar un entorno adecuado de ejecución. En este sentido se considera que el código fuente probado de este planificador es obsoleto.
 
-Será necesario, como trabajo a futuro, revisar el código fuente y los cambios que han tenido los planificadores, con el propósito de saber si versiones más actuales tienen ejecuciones exitosas.
+Será necesario, como trabajo a futuro, revisar el código fuente y los cambios que han tenido los planificadores, con el propósito de saber si versiones más actuales tienen ejecuciones exitosas. Asimismo, será necesario variar los parámetros de ejecución de los contenedores, tanto en tiempo como en asignación de memoria; es posible que con los parámetros adecuados el planificador logré terminar exitosamente su proceso de ejecución.
 
 \bibliographystyle{apalike}
 \bibliography{mexmiart04t4act}
