@@ -4,7 +4,7 @@ diff -ru a/writing/main.tex b/writing/main.tex
 +++ b/writing/main.tex	2022-02-20 02:03:04.756582946 -0600
 @@ -1,4 +1,4 @@
 -\documentclass[11pt]{article}
-+\documentclass[11pt,a4paper,table]{article}
++\documentclass[12pt,a4paper,table]{article}
  
      \usepackage[breakable]{tcolorbox}
      \usepackage{parskip} % Stop auto-indenting (to mimic markdown behaviour)
@@ -13,7 +13,7 @@ diff -ru a/writing/main.tex b/writing/main.tex
      % Document parameters
      % Document title
 -    \title{main}
-+    \title{Actividad: Evaluación de la segmentación}
++    \title{Actividad: Árboles y random forest para regresión y clasificación}
      
      
      
@@ -49,7 +49,7 @@ diff -ru a/writing/main.tex b/writing/main.tex
 +     \rowcolor{UnirLight}
 +     \textcolor{UnirDark}{Asignatura} & \textcolor{UnirDark}{Datos del alumno} & \textcolor{UnirDark}{Fecha} \\
 +     \hline
-+     \multirow{2}{12em}{\textbf{Percepción computacional}} & Apellidos: Domínguez Espinoza & \multirow{2}{6em}{\today} \\
++     \multirow{2}{12em}{\textbf{Aprendizaje automático}} & Apellidos: Domínguez Espinoza & \multirow{2}{6em}{\today} \\
 +     & Nombre: Edgar Uriel & \\
 +     \hline
 +    \end{tabular}}
@@ -64,9 +64,9 @@ diff -ru a/writing/main.tex b/writing/main.tex
 +    \SetWatermarkText{{\copyright} Universidad Internacional de La Rioja en México (UNIR)}
 +    \hypersetup{
 +      pdfauthor={Edgar Uriel Domínguez Espinoza},
-+      pdftitle={Actividad: Evaluación de la segmentación},
-+      pdfkeywords={segmentación, Percepción Computacional, imágenes, umbral, Canny, color},
-+      pdfsubject={Percepción computacional},
++      pdftitle={Actividad: Árboles y random forest para regresión y clasificación},
++      pdfkeywords={aprendizaje automático, random forest, árboles, clasificación, regresión},
++      pdfsubject={Aprendizaje automático},
 +      pdfcreator={Emacs 27.2}, 
 +      pdflang={Spanish}}
 +    \usepackage[round]{natbib}
