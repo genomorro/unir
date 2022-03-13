@@ -17,5 +17,5 @@ matplotlib
 # opencv-python
 # opencv-contrib-python
 scikit-learn
-# seaborn
+seaborn
 # tensorflow
