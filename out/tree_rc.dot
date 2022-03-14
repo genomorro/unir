@@ -1,0 +1,33 @@
+digraph Tree {
+node [shape=box, fontname="helvetica"] ;
+edge [fontname="helvetica"] ;
+0 [label="OverallQual <= 7.5\nsquared_error = 6523986256.013\nsamples = 1168\nvalue = 181896.074"] ;
+1 [label="OverallQual <= 6.5\nsquared_error = 2429113953.801\nsamples = 984\nvalue = 158173.54"] ;
+0 -> 1 [labeldistance=2.5, labelangle=45, headlabel="True"] ;
+2 [label="GrLivArea <= 1378.5\nsquared_error = 1436531182.875\nsamples = 722\nvalue = 140253.24"] ;
+1 -> 2 ;
+3 [label="squared_error = 871879590.608\nsamples = 441\nvalue = 124235.401"] ;
+2 -> 3 ;
+4 [label="squared_error = 1288096197.614\nsamples = 281\nvalue = 165391.555"] ;
+2 -> 4 ;
+5 [label="GrLivArea <= 2020.0\nsquared_error = 1840711169.762\nsamples = 262\nvalue = 207556.962"] ;
+1 -> 5 ;
+6 [label="squared_error = 1231651514.491\nsamples = 211\nvalue = 196515.232"] ;
+5 -> 6 ;
+7 [label="squared_error = 1769246722.438\nsamples = 51\nvalue = 253239.412"] ;
+5 -> 7 ;
+8 [label="OverallQual <= 8.5\nsquared_error = 9318644969.676\nsamples = 184\nvalue = 308760.06"] ;
+0 -> 8 [labeldistance=2.5, labelangle=-45, headlabel="False"] ;
+9 [label="GrLivArea <= 1925.5\nsquared_error = 4201300329.558\nsamples = 132\nvalue = 276392.182"] ;
+8 -> 9 ;
+10 [label="squared_error = 1849553413.814\nsamples = 69\nvalue = 242602.464"] ;
+9 -> 10 ;
+11 [label="squared_error = 4156964215.84\nsamples = 63\nvalue = 313399.968"] ;
+9 -> 11 ;
+12 [label="FullBath <= 2.5\nsquared_error = 12898309663.759\nsamples = 52\nvalue = 390924.673"] ;
+8 -> 12 ;
+13 [label="squared_error = 6080215819.731\nsamples = 45\nvalue = 363416.156"] ;
+12 -> 13 ;
+14 [label="squared_error = 20591742033.265\nsamples = 7\nvalue = 567765.143"] ;
+12 -> 14 ;
+}
