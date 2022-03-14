@@ -61,6 +61,10 @@ De otra forma:
 Después de eso hacer algo como:
 
     jupytext --update --to notebook test.py
+    
+Generar la imagen desde el archivo `.dot`:
+
+    dot -Tpng -o im/<nombre>.png out/<nombre>.dot
 
 ### unir.patch
 
