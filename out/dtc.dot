@@ -1,0 +1,33 @@
+digraph Tree {
+node [shape=box, fontname="helvetica"] ;
+edge [fontname="helvetica"] ;
+0 [label="TotalBsmtSF <= 682.0\nentropy = 0.497\nsamples = 1168\nvalue = [104, 1055, 9]"] ;
+1 [label="GrLivArea <= 1196.0\nentropy = 0.972\nsamples = 152\nvalue = [61, 91, 0]"] ;
+0 -> 1 [labeldistance=2.5, labelangle=45, headlabel="True"] ;
+2 [label="GarageArea <= 225.0\nentropy = 0.866\nsamples = 73\nvalue = [52, 21, 0]"] ;
+1 -> 2 ;
+3 [label="entropy = 0.0\nsamples = 24\nvalue = [24, 0, 0]"] ;
+2 -> 3 ;
+4 [label="entropy = 0.985\nsamples = 49\nvalue = [28, 21, 0]"] ;
+2 -> 4 ;
+5 [label="YearRemodAdd <= 1971.5\nentropy = 0.512\nsamples = 79\nvalue = [9, 70, 0]"] ;
+1 -> 5 ;
+6 [label="entropy = 0.959\nsamples = 21\nvalue = [8, 13, 0]"] ;
+5 -> 6 ;
+7 [label="entropy = 0.126\nsamples = 58\nvalue = [1, 57, 0]"] ;
+5 -> 7 ;
+8 [label="YearBuilt <= 1953.5\nentropy = 0.325\nsamples = 1016\nvalue = [43, 964, 9]"] ;
+0 -> 8 [labeldistance=2.5, labelangle=-45, headlabel="False"] ;
+9 [label="GrLivArea <= 1132.5\nentropy = 0.62\nsamples = 214\nvalue = [33, 181, 0]"] ;
+8 -> 9 ;
+10 [label="entropy = 0.957\nsamples = 66\nvalue = [25, 41, 0]"] ;
+9 -> 10 ;
+11 [label="entropy = 0.303\nsamples = 148\nvalue = [8, 140, 0]"] ;
+9 -> 11 ;
+12 [label="GrLivArea <= 2228.5\nentropy = 0.185\nsamples = 802\nvalue = [10, 783, 9]"] ;
+8 -> 12 ;
+13 [label="entropy = 0.105\nsamples = 722\nvalue = [10, 712, 0]"] ;
+12 -> 13 ;
+14 [label="entropy = 0.507\nsamples = 80\nvalue = [0, 71, 9]"] ;
+12 -> 14 ;
+}
