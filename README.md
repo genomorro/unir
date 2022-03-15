@@ -57,11 +57,15 @@ Si inicio con un `ipynb` lo convierto a `py`:
 De otra forma:
 
     jupytext --to notebook test.py
-	
+
 Después de eso hacer algo como:
 
     jupytext --update --to notebook test.py
 
+Además se pueden generar las imágenes desde el archivo `.dot`:
+
+    dot -Tpng -o im/<nombre>.png out/<nombre>.dot
+    
 ### unir.patch
 
 Este parche integra el formato UNIR en un archivo LaTeX:
