@@ -1,4 +1,4 @@
-\documentclass[11pt]{article}
+\documentclass[12pt,a4paper,table]{article}
 
     \usepackage[breakable]{tcolorbox}
     \usepackage{parskip} % Stop auto-indenting (to mimic markdown behaviour)
@@ -155,7 +155,7 @@
     \renewcommand{\LaTeX}{\textrm{\Oldlatex}}
     % Document parameters
     % Document title
-    \title{main}
+    \title{Árboles y random forest: House Sales Price Predictions}
     
     
     
@@ -370,21 +370,68 @@
     
     \geometry{verbose,tmargin=1in,bmargin=1in,lmargin=1in,rmargin=1in}
     
-    
+    %% BEGIN: UNIR
+    \usepackage[spanish,mexico]{babel}
+    \usepackage[sfdefault,lf]{carlito}
+    \makeatletter
+    \let\newtitle\@title
+    \makeatother
+    \usepackage{amsmath}
+    \usepackage{multirow}
+    \definecolor{UnirLight}{HTML}{E6F4F9}
+    \definecolor{UnirDark}{HTML}{0098CD}
+    \arrayrulecolor{UnirDark}
+    \usepackage{titlesec}
+    \titleformat*{\section}{\color{UnirDark}\normalsize\bfseries}
+    \titleformat*{\subsection}{\color{UnirDark}\normalsize\bfseries}
+    \titleformat*{\subsubsection}{\color{UnirDark}\normalsize\bfseries}
+    \usepackage{fancyhdr}
+    \pagestyle{fancy}
+    \renewcommand{\headrulewidth}{0pt}
+    \headheight=45pt
+    \setlength{\footskip}{64pt}
+    \lhead{}
+    \chead{
+      \begin{tabular}{|c|l|c|}
+        \hline
+        \rowcolor{UnirLight}
+        \textcolor{UnirDark}{Asignatura} & \textcolor{UnirDark}{Datos del alumno} & \textcolor{UnirDark}{Fecha} \\
+        \hline
+        \multirow{2}{12em}{\textbf{Aprendizaje automático}} & Apellidos: Domínguez Espinoza & \multirow{2}{6em}{\today} \\
+        & Nombre: Edgar Uriel & \\
+        \hline
+    \end{tabular}}
+    \rhead{}
+    \lfoot{}
+    \cfoot{}
+    \rfoot{\makebox(70,56)[t]{\textcolor{UnirDark}{Actividades}}
+      \colorbox{UnirDark}{
+        \makebox(10,56)[t]{
+          \textcolor{white}{\thepage}}}}
+    \usepackage[color={[gray]{0.5}}, angle=90,fontsize=9pt,anchor=lb,pos={0.03\paperwidth,0.95\paperheight}]{draftwatermark}
+    \SetWatermarkText{{\copyright} Universidad Internacional de La Rioja en México (UNIR)}
+    \hypersetup{
+      pdfauthor={Edgar Uriel Domínguez Espinoza},
+      pdftitle={Árboles y random forest: House Sales Price Predictions},
+      pdfkeywords={aprendizaje automático, random forest, árboles, clasificación, regresión},
+      pdfsubject={Aprendizaje automático},
+      pdfcreator={Emacs 27.2}, 
+      pdflang={Spanish}}
+    \usepackage[round]{natbib}
+    %% END: UNIR
+
 
 \begin{document}
     
-    \maketitle
     
     
 
     
     \hypertarget{uxe1rboles-de-regresiuxf3n-y-random-forest-para-regresiuxf3n-y-clasificaciuxf3n}{%
-\section{Árboles de regresión y random forest para regresión y
-clasificación}\label{uxe1rboles-de-regresiuxf3n-y-random-forest-para-regresiuxf3n-y-clasificaciuxf3n}}
+\textcolor{UnirDark}{\Large\bfseries\newtitle}\label{uxe1rboles-de-regresiuxf3n-y-random-forest-para-regresiuxf3n-y-clasificaciuxf3n}}
 
 \hypertarget{libreruxedas-a-utilizar}{%
-\subsection{Librerías a utilizar}\label{libreruxedas-a-utilizar}}
+\subsection*{Librerías a utilizar}\label{libreruxedas-a-utilizar}}
 
 Para el tratamiento se han agregado principalmente cinco bibliotecas. En
 el caso de \texttt{sklearn}, se tuvo la necesidad de hacer importaciones
@@ -409,9 +456,9 @@ correctamente.
 \end{tcolorbox}
 
     \hypertarget{carga-de-datasets}{%
-\subsection{Carga de datasets}\label{carga-de-datasets}}
+\subsection*{Carga de datasets}\label{carga-de-datasets}}
 
-Se usarán dos datasets\textasciitilde{}\citep{housing_2018} los cuales
+Se usarán dos datasets~\citep{housing_2018} los cuales
 serán cargados en dos dataframes. Aquel identificado como \texttt{test}
 solo será usado al final para completar el dataset con el modelo.
 
@@ -424,7 +471,7 @@ solo será usado al final para completar el dataset con el modelo.
 \end{tcolorbox}
 
     \hypertarget{resumen-de-datos}{%
-\subsection{Resumen de datos}\label{resumen-de-datos}}
+\subsection*{Resumen de datos}\label{resumen-de-datos}}
 
 Las dimensiones del dataframe, filas y columnas, se obtiene con la
 propiedad \texttt{shape}, los valores de las cabeceras se obtienen con
@@ -621,7 +668,6 @@ YrSold             int64
 SaleType          object
 SaleCondition     object
 SalePrice          int64
-Length: 81, dtype: object
 \end{Verbatim}
 \end{tcolorbox}
         
@@ -649,12 +695,11 @@ ConLw       5
 CWD         4
 Oth         3
 Con         2
-Name: SaleType, dtype: int64
 \end{Verbatim}
 \end{tcolorbox}
         
     \hypertarget{matriz-de-correlaciuxf3n}{%
-\subsubsection{Matriz de correlación}\label{matriz-de-correlaciuxf3n}}
+\subsubsection*{Matriz de correlación}\label{matriz-de-correlaciuxf3n}}
 
 La matriz de correlación indicará que tan fuerte o débil es la relación
 entre dos variables. Puede leerse por columnas o por filas. En la
@@ -674,9 +719,9 @@ proporcional a una mayor correlación.
 
             \begin{tcolorbox}[breakable, size=fbox, boxrule=.5pt, pad at break*=1mm, opacityfill=0]
 \prompt{Out}{outcolor}{8}{\boxspacing}
-\begin{Verbatim}[commandchars=\\\{\}]
-<AxesSubplot:>
-\end{Verbatim}
+%% \begin{Verbatim}[commandchars=\\\{\}]
+%% <AxesSubplot:>
+%% \end{Verbatim}
 \end{tcolorbox}
         
     \begin{center}
@@ -709,12 +754,11 @@ FullBath        0.560664
 TotRmsAbvGrd    0.533723
 YearBuilt       0.522897
 YearRemodAdd    0.507101
-Name: SalePrice, dtype: float64
 \end{Verbatim}
 \end{tcolorbox}
         
     \hypertarget{valores-perdidos}{%
-\subsection{Valores perdidos}\label{valores-perdidos}}
+\subsection*{Valores perdidos}\label{valores-perdidos}}
 
 Trabajar con los valores perdidos requiere primero su ubicación,
 posteriormente se seleccionará que debe ser borrado y luego que debe ser
@@ -722,7 +766,7 @@ sustituido con un nuevo valor, por supuesto habrá que decidir cual será
 dicho valor nuevo.
 
 \hypertarget{eliminar-campos}{%
-\subsubsection{Eliminar campos}\label{eliminar-campos}}
+\subsubsection*{Eliminar campos}\label{eliminar-campos}}
 
 Para ubicar si una celda tiene un valor vacío se usa la función
 \texttt{isnull()}, si se prefiere lógica inversa se usa
@@ -761,7 +805,6 @@ BsmtFinType1      37
 MasVnrArea         8
 MasVnrType         8
 Electrical         1
-dtype: int64
 \end{Verbatim}
 \end{tcolorbox}
         
@@ -770,27 +813,11 @@ usamos la función \texttt{notnull()} sería el número de valores no
 vacíos, la suma de ambos debe ser el número total de filas obtenido
 anteriormente.
 
-Hay dos razones para la falta de valores en los datasets:
-
-\begin{itemize}
-\tightlist
-\item
-  Recolección de datos: No se consiguieron los datos.
-\item
-  Extracción de datos: Los datos están en la DB original pero no se
+Hay dos razones para la falta de valores en los datasets: 1) Recolección de datos, no se consiguieron los datos y; 2) Extracción de datos, los datos están en la DB original pero no se
   extrajeron correctamente al dataset.
-\end{itemize}
 
 Se deben evitar datos vacíos para no tener problemas de manejo de
-información. Se tienen dos opciones:
-
-\begin{itemize}
-\tightlist
-\item
-  Borrar las filas donde falten valores en alguna de las columnas
-\item
-  Borrar las columnas donde no se tenga suficiente información
-\end{itemize}
+información. Se tienen dos opciones: 1) Borrar las filas donde falten valores en alguna de las columnas y; Borrar las columnas donde no se tenga suficiente información.
 
 En este ejercicio es posible observar que las columnas
 \texttt{MiscFeature,\ Fence,\ PoolQC,\ FirePlaceQu\ y\ Alley} tienen muy
@@ -814,16 +841,16 @@ Como el razonamiento es el correcto se procede al borrado de columnas.
 \end{Verbatim}
 \end{tcolorbox}
 
-    \begin{Verbatim}[commandchars=\\\{\}]
-Deleting: Alley
-Deleting: FireplaceQu
-Deleting: PoolQC
-Deleting: Fence
-Deleting: MiscFeature
-    \end{Verbatim}
+%%     \begin{Verbatim}[commandchars=\\\{\}]
+%% Deleting: Alley
+%% Deleting: FireplaceQu
+%% Deleting: PoolQC
+%% Deleting: Fence
+%% Deleting: MiscFeature
+%%     \end{Verbatim}
 
     \hypertarget{llenar-campos}{%
-\subsubsection{Llenar campos}\label{llenar-campos}}
+\subsubsection*{Llenar campos}\label{llenar-campos}}
 
 Es necesario detectar nuevamente que columnas tienen valores vacíos.
 Esta vez se reemplazarán esos valores. Hay valores númericos y
@@ -890,15 +917,14 @@ MasVnrType      0
 Exterior2nd     0
 Exterior1st     0
 SalePrice       0
-Length: 75, dtype: int64
 \end{Verbatim}
 \end{tcolorbox}
         
     \hypertarget{problema-de-regresiuxf3n}{%
-\subsection{Problema de regresión}\label{problema-de-regresiuxf3n}}
+\subsection*{Problema de regresión}\label{problema-de-regresiuxf3n}}
 
     \hypertarget{uxe1rboles-de-decisiuxf3n}{%
-\subsubsection{Árboles de decisión}\label{uxe1rboles-de-decisiuxf3n}}
+\subsubsection*{Árboles de decisión}\label{uxe1rboles-de-decisiuxf3n}}
 
 Primero serán creados los conjuntos de prueba y entrenamiento. Serán
 usados para el modelo solo aquellos campos que tengan un alto índice de
@@ -928,7 +954,7 @@ para probar la predicción del mismo.
     Ahora se muestran los resultados: una comparación entre los datos
 originales y las predicciones, además, el árbol obtenido, mismo que fue
 guardado en la carpeta \texttt{out} del proyecto en formato graphviz y
-como imagen.\textasciitilde{}\citep{Galarnyk_2021}
+como imagen.~\citep{Galarnyk_2021}
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
 \prompt{In}{incolor}{17}{\boxspacing}
@@ -953,8 +979,6 @@ como imagen.\textasciitilde{}\citep{Galarnyk_2021}
 1130     135000  145525.777778
 1016     203000  263613.333333
 12       144000  119778.571429
-
-[292 rows x 2 columns]
 \end{Verbatim}
 \end{tcolorbox}
         
@@ -971,12 +995,12 @@ recordarse que el árbol funciona decidiendo con valores preestablecidos.
 \end{Verbatim}
 \end{tcolorbox}
 
-    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{19}{\boxspacing}
-\begin{Verbatim}[commandchars=\\\{\}]
-\PY{n}{tree}\PY{o}{.}\PY{n}{plot\PYZus{}tree}\PY{p}{(}\PY{n}{dtr}\PY{p}{)}\PY{p}{;}
-\end{Verbatim}
-\end{tcolorbox}
+%%     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+%% \prompt{In}{incolor}{19}{\boxspacing}
+%% \begin{Verbatim}[commandchars=\\\{\}]
+%% \PY{n}{tree}\PY{o}{.}\PY{n}{plot\PYZus{}tree}\PY{p}{(}\PY{n}{dtr}\PY{p}{)}\PY{p}{;}
+%% \end{Verbatim}
+%% \end{tcolorbox}
 
     \begin{center}
     \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_33_0.png}
@@ -989,7 +1013,7 @@ dividiendo datos en dos segmentos: entrenamiento y prueba. Típicamente,
 ambos conjuntos deben cruzarse en rondas sucesivas de modo que cada
 punto de datos tenga la posibilidad de ser validado. La forma básica es
 la validación cruzada
-k-fold.\textasciitilde{}\citep{Refaeilzadeh_Tang_Liu_2018}
+k-fold.~\citep{Refaeilzadeh_Tang_Liu_2018}
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
 \prompt{In}{incolor}{20}{\boxspacing}
@@ -1029,15 +1053,7 @@ encontrar un mejor conjunto de parámetros, no sucede en este caso.
 \end{tcolorbox}
 
     \begin{Verbatim}[commandchars=\\\{\}]
-Score para i= 1 :  -3518061167.0543084
-Score para i= 2 :  -2579254167.548243
-Score para i= 3 :  -2153519070.3027043
-Score para i= 4 :  -1785517029.0882308
-Score para i= 5 :  -1658794897.3649328
-Score para i= 6 :  -1611813883.5452306
-Score para i= 7 :  -1551394173.9604716
-Score para i= 8 :  -1554754004.1369624
-Score para i= 9 :  -1547076489.8592367
+      {\ldots}                     {\ldots}
 Score para i= 10 :  -1551932650.1670842
 Score para i= 11 :  -1551095985.7058103
 Score para i= 12 :  -1551446872.7832217
@@ -1046,13 +1062,10 @@ Score para i= 14 :  -1549894543.9422781
 Score para i= 15 :  -1550710493.3735516
 Score para i= 16 :  -1552723780.9771752
 Score para i= 17 :  -1552723780.9771752
-Score para i= 18 :  -1552723780.9771752
-Score para i= 19 :  -1552723780.9771752
-Score para i= 20 :  -1552723780.9771752
     \end{Verbatim}
 
     \hypertarget{random-forest}{%
-\subsubsection{Random Forest}\label{random-forest}}
+\subsubsection*{Random Forest}\label{random-forest}}
 
 Al igual que en la sección anterior, se entrena el modelo con los mismos
 conjuntos definidos anteriormente y se hace una predicción.
@@ -1083,8 +1096,6 @@ conjuntos definidos anteriormente y se hace una predicción.
 1130     135000  140604.314200
 1016     203000  230900.547700
 12       144000  113294.444000
-
-[292 rows x 2 columns]
 \end{Verbatim}
 \end{tcolorbox}
         
@@ -1113,20 +1124,20 @@ anterior, el bosque no alcanza un 0.9 en la puntuación, condición que se
 le exigiría a un modelo lineal. Debido a que este es el mejor modelo
 obtenido, lo usaremos para \texttt{df\_test}.
 
-    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{24}{\boxspacing}
-\begin{Verbatim}[commandchars=\\\{\}]
-\PY{n}{df\PYZus{}test}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{SalePrice}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]} \PY{o}{=} \PY{n}{rfr}\PY{o}{.}\PY{n}{predict}\PY{p}{(}\PY{n}{df\PYZus{}test}\PY{p}{[}\PY{n}{predictors}\PY{p}{]}\PY{p}{)}
-\PY{n}{df\PYZus{}test}\PY{o}{.}\PY{n}{to\PYZus{}csv}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{out/housing\PYZus{}test\PYZus{}complete.csv}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
-\end{Verbatim}
-\end{tcolorbox}
+%%     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+%% \prompt{In}{incolor}{24}{\boxspacing}
+%% \begin{Verbatim}[commandchars=\\\{\}]
+%% \PY{n}{df\PYZus{}test}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{SalePrice}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]} \PY{o}{=} \PY{n}{rfr}\PY{o}{.}\PY{n}{predict}\PY{p}{(}\PY{n}{df\PYZus{}test}\PY{p}{[}\PY{n}{predictors}\PY{p}{]}\PY{p}{)}
+%% \PY{n}{df\PYZus{}test}\PY{o}{.}\PY{n}{to\PYZus{}csv}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{out/housing\PYZus{}test\PYZus{}complete.csv}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+%% \end{Verbatim}
+%% \end{tcolorbox}
 
     \hypertarget{problema-de-clasificaciuxf3n}{%
-\subsection{Problema de
+\subsection*{Problema de
 clasificación}\label{problema-de-clasificaciuxf3n}}
 
 \hypertarget{creaciuxf3n-de-categoruxedas-de-salesprice}{%
-\subsubsection{Creación de categorías de
+\subsubsection*{Creación de categorías de
 SalesPrice}\label{creaciuxf3n-de-categoruxedas-de-salesprice}}
 
 Ahora se procederá a crear categorías con la columna \texttt{SalePrice}.
@@ -1153,7 +1164,6 @@ dataframe.
 G2    1328
 G1     123
 G3       9
-Name: SalePriceGroup, dtype: int64
 \end{Verbatim}
 \end{tcolorbox}
         
@@ -1163,11 +1173,11 @@ seleccionada para llenar datos perdidos es buena debido a que binda una
 posibilidad de preservar datos las otras categorías.
 
     \hypertarget{uxe1rboles-de-decisiuxf3n}{%
-\subsubsection{Árboles de decisión}\label{uxe1rboles-de-decisiuxf3n}}
+\subsubsection*{Árboles de decisión}\label{uxe1rboles-de-decisiuxf3n}}
 
 Se repetirá el procedimiento visto anteriormente, la diferencia es que
 ahora usará
-\texttt{DecisionTreeClassifier}.\textasciitilde{}\citep{Navlani_2018}
+\texttt{DecisionTreeClassifier}.~\citep{Navlani_2018}
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
 \prompt{In}{incolor}{26}{\boxspacing}
@@ -1221,23 +1231,23 @@ G3            0    2
 Accuracy:  0.9143835616438356
     \end{Verbatim}
 
-    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{30}{\boxspacing}
-\begin{Verbatim}[commandchars=\\\{\}]
-\PY{k}{with} \PY{n+nb}{open}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{out/dtc.dot}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{w}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)} \PY{k}{as} \PY{n}{dotfile}\PY{p}{:}
-    \PY{n}{export\PYZus{}graphviz}\PY{p}{(}\PY{n}{dtc}\PY{p}{,} \PY{n}{out\PYZus{}file}\PY{o}{=}\PY{n}{dotfile}\PY{p}{,} \PY{n}{feature\PYZus{}names}\PY{o}{=}\PY{n}{predictors}\PY{p}{)}
-    \PY{n}{dotfile}\PY{o}{.}\PY{n}{close}\PY{p}{(}\PY{p}{)}
-\end{Verbatim}
-\end{tcolorbox}
-file = open('out/dtc.dot', 'r')
-text = file.read()
-Source(text)
-    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{31}{\boxspacing}
-\begin{Verbatim}[commandchars=\\\{\}]
-\PY{n}{tree}\PY{o}{.}\PY{n}{plot\PYZus{}tree}\PY{p}{(}\PY{n}{dtc}\PY{p}{)}\PY{p}{;}
-\end{Verbatim}
-\end{tcolorbox}
+%%     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+%% \prompt{In}{incolor}{30}{\boxspacing}
+%% \begin{Verbatim}[commandchars=\\\{\}]
+%% \PY{k}{with} \PY{n+nb}{open}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{out/dtc.dot}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{w}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)} \PY{k}{as} \PY{n}{dotfile}\PY{p}{:}
+%%     \PY{n}{export\PYZus{}graphviz}\PY{p}{(}\PY{n}{dtc}\PY{p}{,} \PY{n}{out\PYZus{}file}\PY{o}{=}\PY{n}{dotfile}\PY{p}{,} \PY{n}{feature\PYZus{}names}\PY{o}{=}\PY{n}{predictors}\PY{p}{)}
+%%     \PY{n}{dotfile}\PY{o}{.}\PY{n}{close}\PY{p}{(}\PY{p}{)}
+%% \end{Verbatim}
+%% \end{tcolorbox}
+%% file = open('out/dtc.dot', 'r')
+%% text = file.read()
+%% Source(text)
+%%     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+%% \prompt{In}{incolor}{31}{\boxspacing}
+%% \begin{Verbatim}[commandchars=\\\{\}]
+%% \PY{n}{tree}\PY{o}{.}\PY{n}{plot\PYZus{}tree}\PY{p}{(}\PY{n}{dtc}\PY{p}{)}\PY{p}{;}
+%% \end{Verbatim}
+%% \end{tcolorbox}
 
     \begin{center}
     \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_55_0.png}
@@ -1303,7 +1313,7 @@ Importancia de variables:
     \end{Verbatim}
 
     \hypertarget{random-forest}{%
-\subsubsection{Random Forest}\label{random-forest}}
+\subsubsection*{Random Forest}\label{random-forest}}
 
 En la implementación de este bosque se usa el mismo procedimiento visto
 anteriormente, es importante poner atención en los cambios de los
@@ -1335,8 +1345,6 @@ argumentos de cada árbol, cada implementación dependerá del problema.
 928              G2    G2
 1354             G2    G2
 362              G2    G2
-
-[292 rows x 2 columns]
 \end{Verbatim}
 \end{tcolorbox}
         
@@ -1358,16 +1366,16 @@ modelo obtenido, lo usaremos para \texttt{df\_test}.
 \end{Verbatim}
 \end{tcolorbox}
         
-    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{35}{\boxspacing}
-\begin{Verbatim}[commandchars=\\\{\}]
-\PY{n}{df\PYZus{}test}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{SalePriceGroup}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]} \PY{o}{=} \PY{n}{rfc}\PY{o}{.}\PY{n}{predict}\PY{p}{(}\PY{n}{df\PYZus{}test}\PY{p}{[}\PY{n}{predictors}\PY{p}{]}\PY{p}{)}
-\PY{n}{df\PYZus{}test}\PY{o}{.}\PY{n}{to\PYZus{}csv}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{out/housing\PYZus{}test\PYZus{}complete.csv}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
-\end{Verbatim}
-\end{tcolorbox}
+%%     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+%% \prompt{In}{incolor}{35}{\boxspacing}
+%% \begin{Verbatim}[commandchars=\\\{\}]
+%% \PY{n}{df\PYZus{}test}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{SalePriceGroup}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]} \PY{o}{=} \PY{n}{rfc}\PY{o}{.}\PY{n}{predict}\PY{p}{(}\PY{n}{df\PYZus{}test}\PY{p}{[}\PY{n}{predictors}\PY{p}{]}\PY{p}{)}
+%% \PY{n}{df\PYZus{}test}\PY{o}{.}\PY{n}{to\PYZus{}csv}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{out/housing\PYZus{}test\PYZus{}complete.csv}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+%% \end{Verbatim}
+%% \end{tcolorbox}
 
     \hypertarget{conclusiuxf3n}{%
-\subsection{Conclusión}\label{conclusiuxf3n}}
+\subsection*{Conclusión}\label{conclusiuxf3n}}
 
     En esta actividad se retomó el
 \href{https://www.kaggle.com/gpandi007/usa-housing-dataset}{USA Housing
@@ -1406,11 +1414,16 @@ Además el proceso de validación cruzada es de gran ayuda para evitar el
 crecimiento excesivo de los árboles.
 
 Finalmente, decir que algunos de los resultados pueden inspeccionarse a
-mayor detalle en la carpeta \texttt{out} anexa a este documento.
+mayor detalle en la carpeta \texttt{out} anexa a este documento, igualmente,
+pequeñas partes de código y sus respuestas someras han sido eliminadas de
+este reporte, son visibles en los archivos de código adjuntos a este documento
+o en línea, en el \href{https://gitlab.com/genomorro/unir/-/tree/AA-A1}{repositorio del proyecto}.
 
 
     % Add a bibliography block to the postdoc
     
+    \bibliographystyle{apalike}
+    \bibliography{main}    
     
     
 \end{document}
