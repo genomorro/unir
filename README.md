@@ -31,7 +31,7 @@ Extensión máxima de la actividad: 15 páginas. Formato: Calibri 12, interlinea
 
 - `apt.txt` configura dependencias a instalar sobre el contenedor, ubuntu por default para mybinder.org
 - `requirements.txt` configura las dependencias de python sobre el contenedor, se instalan vía pip.
-- La carpeta `writing` contiene el reporte escrito.
+- La carpeta `writing` contiene el reporte escrito en el documento [main.pdf](writing/main.pdf "Reporte PDF").
 - La carpeta `im` contiene imágenes de ejemplo, se pueden agregar las necesarias.
 - La carpeta `out` contendrá los archivos de salida.
 - La carpeta `ds` contendrá los archivos datasets de entrada.
@@ -64,7 +64,7 @@ Después de eso hacer algo como:
 
 Además se pueden generar las imágenes desde el archivo `.dot`:
 
-    dot -Tpng -o im/<nombre>.png out/<nombre>.dot
+    dot -Tpng -o out/<nombre>.png out/<nombre>.dot
     
 ### unir.patch
 
