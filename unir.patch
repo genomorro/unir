@@ -16,13 +16,14 @@ diff -u /home/genomorro/School/UNIR/AprendizajeAutomatico/unir/writing/main.tex.
      
      
      
-@@ -370,18 +370,64 @@
+@@ -370,21 +370,68 @@
      
      \geometry{verbose,tmargin=1in,bmargin=1in,lmargin=1in,rmargin=1in}
      
 -    
 +    %% BEGIN: UNIR
 +    \usepackage[spanish,mexico]{babel}
++    \usepackage[sfdefault,lf]{carlito}
 +    \makeatletter
 +    \let\newtitle\@title
 +    \makeatother
