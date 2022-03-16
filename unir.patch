@@ -1,7 +1,6 @@
-Los ficheros binarios a/.git/index y b/.git/index son distintos
-diff -ru a/writing/main.tex b/writing/main.tex
---- a/writing/main.tex	2022-02-20 07:40:16.000000000 -0600
-+++ b/writing/main.tex	2022-02-20 02:03:04.756582946 -0600
+diff -u /home/genomorro/School/UNIR/AprendizajeAutomatico/unir/writing/main.tex.orig /home/genomorro/School/UNIR/AprendizajeAutomatico/unir/writing/main.tex
+--- /home/genomorro/School/UNIR/AprendizajeAutomatico/unir/writing/main.tex.orig	2022-03-16 08:33:16.000000000 -0600
++++ /home/genomorro/School/UNIR/AprendizajeAutomatico/unir/writing/main.tex	2022-03-16 02:41:08.536382382 -0600
 @@ -1,4 +1,4 @@
 -\documentclass[11pt]{article}
 +\documentclass[12pt,a4paper,table]{article}
@@ -13,16 +12,15 @@ diff -ru a/writing/main.tex b/writing/main.tex
      % Document parameters
      % Document title
 -    \title{main}
-+    \title{Actividad: Árboles y random forest para regresión y clasificación}
++    \title{Árboles y random forest: House Sales Price Predictions}
      
      
      
-@@ -369,19 +369,64 @@
-     % Slightly bigger margins than the latex defaults
+@@ -370,18 +370,64 @@
      
      \geometry{verbose,tmargin=1in,bmargin=1in,lmargin=1in,rmargin=1in}
+     
 -    
-+
 +    %% BEGIN: UNIR
 +    \usepackage[spanish,mexico]{babel}
 +    \makeatletter
@@ -44,57 +42,57 @@ diff -ru a/writing/main.tex b/writing/main.tex
 +    \setlength{\footskip}{64pt}
 +    \lhead{}
 +    \chead{
-+    \begin{tabular}{|c|l|c|}
-+     \hline
-+     \rowcolor{UnirLight}
-+     \textcolor{UnirDark}{Asignatura} & \textcolor{UnirDark}{Datos del alumno} & \textcolor{UnirDark}{Fecha} \\
-+     \hline
-+     \multirow{2}{12em}{\textbf{Aprendizaje automático}} & Apellidos: Domínguez Espinoza & \multirow{2}{6em}{\today} \\
-+     & Nombre: Edgar Uriel & \\
-+     \hline
++      \begin{tabular}{|c|l|c|}
++        \hline
++        \rowcolor{UnirLight}
++        \textcolor{UnirDark}{Asignatura} & \textcolor{UnirDark}{Datos del alumno} & \textcolor{UnirDark}{Fecha} \\
++        \hline
++        \multirow{2}{12em}{\textbf{Aprendizaje automático}} & Apellidos: Domínguez Espinoza & \multirow{2}{6em}{\today} \\
++        & Nombre: Edgar Uriel & \\
++        \hline
 +    \end{tabular}}
 +    \rhead{}
 +    \lfoot{}
 +    \cfoot{}
 +    \rfoot{\makebox(70,56)[t]{\textcolor{UnirDark}{Actividades}}
-+        \colorbox{UnirDark}{
-+            \makebox(10,56)[t]{
-+                \textcolor{white}{\thepage}}}}
++      \colorbox{UnirDark}{
++        \makebox(10,56)[t]{
++          \textcolor{white}{\thepage}}}}
 +    \usepackage[color={[gray]{0.5}}, angle=90,fontsize=9pt,anchor=lb,pos={0.03\paperwidth,0.95\paperheight}]{draftwatermark}
 +    \SetWatermarkText{{\copyright} Universidad Internacional de La Rioja en México (UNIR)}
 +    \hypersetup{
 +      pdfauthor={Edgar Uriel Domínguez Espinoza},
-+      pdftitle={Actividad: Árboles y random forest para regresión y clasificación},
++      pdftitle={Árboles y random forest: House Sales Price Predictions},
 +      pdfkeywords={aprendizaje automático, random forest, árboles, clasificación, regresión},
 +      pdfsubject={Aprendizaje automático},
 +      pdfcreator={Emacs 27.2}, 
 +      pdflang={Spanish}}
 +    \usepackage[round]{natbib}
 +    %% END: UNIR
-     
++
  
  \begin{document}
--    
+     
 -    \maketitle
--    
-+        
+     
      
  
      
-     \hypertarget{evaluaciuxf3n-de-la-segmentaciuxf3n}{%
--\section{Evaluación de la
--segmentación}\label{evaluaciuxf3n-de-la-segmentaciuxf3n}}
-+\textcolor{UnirDark}{\Large\bfseries\newtitle}\label{evaluaciuxf3n-de-la-segmentaciuxf3n}}
+     \hypertarget{uxe1rboles-de-regresiuxf3n-y-random-forest-para-regresiuxf3n-y-clasificaciuxf3n}{%
+-\section{Árboles de regresión y random forest para regresión y
+-clasificación}\label{uxe1rboles-de-regresiuxf3n-y-random-forest-para-regresiuxf3n-y-clasificaciuxf3n}}
++\textcolor{UnirDark}{\Large\bfseries\newtitle}\label{uxe1rboles-de-regresiuxf3n-y-random-forest-para-regresiuxf3n-y-clasificaciuxf3n}}
  
-     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
- \prompt{In}{incolor}{1}{\boxspacing}
-@@ -756,7 +801,8 @@
- 
+ \hypertarget{libreruxedas-a-utilizar}{%
+ \subsection{Librerías a utilizar}\label{libreruxedas-a-utilizar}}
+@@ -1354,6 +1400,8 @@
  
      % Add a bibliography block to the postdoc
--    
+     
 +    \bibliographystyle{apalike}
 +    \bibliography{main}    
      
      
  \end{document}
+
+Diff finished.  Wed Mar 16 02:41:53 2022
