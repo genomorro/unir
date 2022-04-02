@@ -13,11 +13,16 @@ jupytext
 pandas
 
 ## Extra
-matplotlib
+# matplotlib
 # opencv-python
 # opencv-contrib-python
+<<<<<<< HEAD
 scikit-learn
 seaborn
+=======
+# scikit-learn
+# seaborn
+>>>>>>> parent of 4e3ef6f (First commit AA-A1)
 # tensorflow
 graphviz
 #pydotplus
