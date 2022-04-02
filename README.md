@@ -12,6 +12,7 @@ Cada rama se compone por las iniciales de una materia, sigue un guion y las inic
 
 - `apt.txt` configura dependencias a instalar sobre el contenedor, ubuntu por default para mybinder.org
 - `requirements.txt` configura las dependencias de python sobre el contenedor, se instalan vía pip.
+- La carpeta `writing` contiene el trabajo escrito en formato pdf en el archivo [main.pdf](writing/main.pdf).
 - La carpeta `im` contiene imágenes de ejemplo, se pueden agregar las necesarias.
 - La carpeta `out` contendrá los archivos de salida.
 - La carpeta `ds` contendrá los archivos datasets de entrada.
