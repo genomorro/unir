@@ -1,4 +1,5 @@
 # python3-opencv
+apt-utils
 bash-completion
 imagemagick
 graphviz
