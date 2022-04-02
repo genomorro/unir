@@ -13,11 +13,11 @@ jupytext
 pandas
 
 ## Extra
-# matplotlib
+matplotlib
 # opencv-python
 # opencv-contrib-python
-# scikit-learn
-# seaborn
+scikit-learn
+seaborn
 # tensorflow
 # graphviz
 # pydotplus

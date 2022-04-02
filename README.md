@@ -1,14 +1,25 @@
-# UNIR
+# Actividad: Detección de anomalías y técnicas de agrupamiento
 
-Esquema de trabajo para proyectos de la UNIR. En cada rama hay un trabajo nuevo, en `main` las plantillas para cada uno de ellos.
+## Objetivo
 
-## Nombre
-
-Cada rama se compone por las iniciales de una materia, sigue un guion y las iniciales de una actividad. Por ejemplo:
-
-    PC-R1 = Percepción Computacional, Reto 1
+Mediante este trabajo se pretende que pongas en práctica la aplicación de los algoritmos de detección de anomalías (outliers) y las técnicas de agrupamiento. El objetivo es que comprendas de forma práctica, con un problema determinado, los pasos que hay que realizar para la detección automática de valores inusuales y, por otro lado, para analizar los clúster o grupos resultado de aplicar un algoritmo de agrupamiento.
 
 ## Descripción
+
+- Análisis descriptivo de los datos:
+  + De las variables numéricas, halla datos estadísticos.
+  + De las variables categóricas, lista las diferentes categorías y halla la frecuencia de cada una de ellas. 
+  + Crea matriz de correlaciones existentes entre las variables numéricas del conjunto de datos y analiza los resultados. 
+- Aplica una técnica de detección de anomalías. 
+- Aplica una técnica de agrupamiento.
+- Comenta las ventajas y desventajas de cada modelo. De acuerdo con los resultados, ¿son realmente útiles los modelos creados para el conjunto de datos propuesto?
+- Otros comentarios que consideres adecuados.
+
+### Extensión y formato 
+
+Extensión máxima de la actividad: 20 páginas. Formato: Calibri 12, interlineado 1,5 puntos. 
+
+## FHS
 
 - `apt.txt` configura dependencias a instalar sobre el contenedor, ubuntu por default para mybinder.org
 - `requirements.txt` configura las dependencias de python sobre el contenedor, se instalan vía pip.
@@ -25,9 +36,10 @@ Para la instalación local solo corre:
 
 ## Uso
 
-En cada rama verás aquí un botón que lleva a [MyBinder](mybinder.org "My Binder"), así podrán ver cada ejemplo en acción.
+Ver en línea: [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gl/genomorro%2Funir/PC-A3)
+[Ver solo el código fuente en línea](https://gitlab.com/genomorro/unir/-/tree/PC-A3)
 
-Cada proyecto usa archivos `ipynb` y `py` de forma indistinta, gracias a jupytext se pueden sincronizar. Para saber como hacerlo de momento lo mejor es consultar [jupytext](https://jupytext.readthedocs.io/en/latest/index.html "la documentación de jupytext"), después pondré aquí los comandos que use más comúnmente. 
+Para el uso en una máquina local simplemente abre el archivo `main.ipynb` o `main.py`. Cada proyecto usa archivos `ipynb` y `py` de forma indistinta, gracias a jupytext se pueden sincronizar. Para saber como hacerlo de momento lo mejor es consultar [jupytext](https://jupytext.readthedocs.io/en/latest/index.html "la documentación de jupytext"), después pondré aquí los comandos que use más comúnmente. 
 
 Si inicio con un `ipynb` lo convierto a `py`:
 
