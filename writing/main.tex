@@ -388,7 +388,7 @@
     \usepackage{fancyhdr}
     \pagestyle{fancy}
     \renewcommand{\headrulewidth}{0pt}
-    \headheight=45pt
+    \headheight=60pt
     \setlength{\footskip}{64pt}
     \linespread{1.5}
     \lhead{}
@@ -432,17 +432,25 @@
     \hypertarget{anuxe1lisis-abstract-data-set-for-credit-card-fraud-detection}{%
 \textcolor{UnirDark}{\Large\bfseries\newtitle}\label{anuxe1lisis-abstract-data-set-for-credit-card-fraud-detection}}
 
+\hypertarget{carga-de-bibliotecas}{%
+\subsection*{Carga de bibliotecas}\label{carga-de-bibliotecas}}
+
+En este análisis se usará la biblioteca \texttt{SciPy} para realizar un
+agrupamiento jerárquico y \texttt{scikit-learn} para realizar un modelo
+de detección de anomalías. En ambos casos se persigue detectar de forma
+automática valores inusuales dentro de un conjunto de datos.
+
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
 \prompt{In}{incolor}{1}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
-\PY{k+kn}{import} \PY{n+nn}{matplotlib}\PY{n+nn}{.}\PY{n+nn}{pyplot} \PY{k}{as} \PY{n+nn}{plt}
-\PY{k+kn}{import} \PY{n+nn}{pandas} \PY{k}{as} \PY{n+nn}{pd}
-\PY{k+kn}{import} \PY{n+nn}{seaborn} \PY{k}{as} \PY{n+nn}{sns}
 \PY{k+kn}{from} \PY{n+nn}{scipy}\PY{n+nn}{.}\PY{n+nn}{cluster}\PY{n+nn}{.}\PY{n+nn}{hierarchy} \PY{k+kn}{import} \PY{n}{dendrogram}\PY{p}{,} \PY{n}{linkage}\PY{p}{,} \PY{n}{cophenet}\PY{p}{,} \PY{n}{fcluster}
 \PY{k+kn}{from} \PY{n+nn}{scipy}\PY{n+nn}{.}\PY{n+nn}{spatial}\PY{n+nn}{.}\PY{n+nn}{distance} \PY{k+kn}{import} \PY{n}{pdist}
 \PY{k+kn}{from} \PY{n+nn}{sklearn} \PY{k+kn}{import} \PY{n}{metrics}
 \PY{k+kn}{from} \PY{n+nn}{sklearn}\PY{n+nn}{.}\PY{n+nn}{ensemble} \PY{k+kn}{import} \PY{n}{IsolationForest}
 \PY{k+kn}{import} \PY{n+nn}{copy}
+\PY{k+kn}{import} \PY{n+nn}{matplotlib}\PY{n+nn}{.}\PY{n+nn}{pyplot} \PY{k}{as} \PY{n+nn}{plt}
+\PY{k+kn}{import} \PY{n+nn}{pandas} \PY{k}{as} \PY{n+nn}{pd}
+\PY{k+kn}{import} \PY{n+nn}{seaborn} \PY{k}{as} \PY{n+nn}{sns}
 \end{Verbatim}
 \end{tcolorbox}
 
@@ -450,8 +458,8 @@
 \subsection*{Carga de dataset y resumen de
 datos}\label{carga-de-dataset-y-resumen-de-datos}}
 
-Se usará un \emph{dataset}\textasciitilde{}\citep{Joshi_2018} el cual
-correspende al \emph{dataframe} que se usará durante el análisis.
+Se usará un \emph{dataset}~\citep{Joshi_2018} el cual
+corresponde al \emph{dataframe} que se usará durante el análisis.
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
 \prompt{In}{incolor}{2}{\boxspacing}
@@ -462,7 +470,7 @@ correspende al \emph{dataframe} que se usará durante el análisis.
 
     Este dataframe contiene once columnas. Las primeras dos de ellas serán
 borradas porque una corresponde a un índice de datos y la otra es una
-columna completamente vacía, por lo tante irrecuperable.
+columna completamente vacía, por lo tanto irrecuperable.
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
 \prompt{In}{incolor}{3}{\boxspacing}
@@ -547,11 +555,11 @@ memory usage: 216.3+ KB
     Este dataframe contiene nueve columnas, las cuales no son descritas en
 la fuente original, por lo que solo es posible intuir su significado,
 por supuesto, esto podría condicionar la discusión producto del
-análisis. Es importante hacer enfásis en proporcionar metadatos sobre
+análisis. Es importante hacer énfasis en proporcionar metadatos sobre
 cualquier conjunto de datos computables: texto, audio, video, dataset,
 etc.
 
-Seis de esas columnas son de tipo númerico y las tres restantes son
+Seis de esas columnas son de tipo numérico y las tres restantes son
 categóricas, enseguida se muestra su descripción general.
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
@@ -730,7 +738,7 @@ la clasificación.
 
 Está predicción solo se convertiría en una hipótesis si fuera confirmada
 con una matriz de distancias. En este análisis se procederá directamente
-a implementar un método de clutering.
+a implementar un método de clustering.
 
     \hypertarget{clustering-jeruxe1rquico}{%
 \subsection*{Clustering jerárquico}\label{clustering-jeruxe1rquico}}
@@ -750,7 +758,7 @@ sino que todos los datos serán utilizados para crear una clasificación.
     Es necesario tener una métrica de evaluación del método. Por lo tanto se
 obtendrá una distancia de correlación \emph{cophenetic} (c) y una matriz
 de distancias \emph{cophenetic} condensada. Esto nos da una idea de cuán
-similares son los objetos agrupados.\citep{The_SciPy_community_2022a}
+similares son los objetos agrupados.~\citep{The_SciPy_community_2022a}
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
 \prompt{In}{incolor}{14}{\boxspacing}
@@ -764,9 +772,19 @@ similares son los objetos agrupados.\citep{The_SciPy_community_2022a}
 0.8915315812910991
     \end{Verbatim}
 
-    La matriz \emph{Z} se compone de cuatro elementos: - Primer elemento a
-agrupar - Segundo elemento a agrupar - Distancia entre elementos -
-Número total de elementos operados
+    La matriz \emph{Z} se compone de cuatro elementos:
+
+\begin{itemize}
+\tightlist
+\item
+  Primer elemento a agrupar
+\item
+  Segundo elemento a agrupar
+\item
+  Distancia entre elementos
+\item
+  Número total de elementos operados
+\end{itemize}
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
 \prompt{In}{incolor}{15}{\boxspacing}
@@ -919,7 +937,7 @@ anomalías.
     Es destacable que se usó todo el dataframe para entrenar el modelo, esto
 ocurre así porque al analizar los valores de una característica, se
 pretende encontrar valores (o pequeños grupos de valores) que se apartan
-claramente del resto.\citep{Duboue_2020}
+claramente del resto.~\citep{Duboue_2020}
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
 \prompt{In}{incolor}{23}{\boxspacing}
@@ -933,21 +951,40 @@ claramente del resto.\citep{Duboue_2020}
     \begin{Verbatim}[commandchars=\\\{\}]
 Predicted   -1     1
 Real
-N          125  2502
-Y          424    24
-Accuracy:  0.9515447154471545
+N          124  2503
+Y          422    26
+Accuracy:  0.9512195121951219
     \end{Verbatim}
 
-    Es posible observar una buena presición en este método. Ha hecho un
+    Es posible observar una buena precisión en este método. Ha hecho un
 mejor trabajo al detectar los casos en los que efectivamente se espera
 un fraude.
+
+    \hypertarget{reconstrucciuxf3n-del-dataset}{%
+\subsection*{Reconstrucción del
+dataset}\label{reconstrucciuxf3n-del-dataset}}
+
+Ahora se procederá a guardar en un nuevo dataset toda la información
+resultante de la aplicación de los algoritmos anteriormente expuestos.
+Dicho dataset quedará almacenado en la carpeta \texttt{out} del
+proyecto.
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{24}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{df}\PY{p}{[}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{isFradulent}\PY{l+s+s2}{\PYZdq{}}\PY{p}{]} \PY{o}{=} \PY{n}{ideal\PYZus{}results}
+\PY{n}{df}\PY{p}{[}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Clustering prediction\PYZus{}Y=1}\PY{l+s+s2}{\PYZdq{}}\PY{p}{]} \PY{o}{=} \PY{n}{clusters2}
+\PY{n}{df}\PY{p}{[}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Isolation Forest prediction\PYZus{}N=1}\PY{l+s+s2}{\PYZdq{}}\PY{p}{]} \PY{o}{=} \PY{n}{anomaly}
+\PY{n}{df}\PY{o}{.}\PY{n}{to\PYZus{}csv}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{out/creditcardcsvpresent\PYZus{}test\PYZus{}complete.csv}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+\end{Verbatim}
+\end{tcolorbox}
 
     \hypertarget{conclusiuxf3n}{%
 \subsection*{Conclusión}\label{conclusiuxf3n}}
 
 En este análisis se examinó un dataset correspondiente a información
 financiera que en algunos casos corresponden a fraudes. Se realizó una
-descripción general de los datos, se hizo tratamiento en las varibles
+descripción general de los datos, se hizo tratamiento en las variables
 categóricas y se obtuvo una matriz general de correlaciones. Es dicha
 matriz se observaron relaciones entre datos que podrían ayudar a formar
 grupos de entrada para el entrenamiento de un cluster. Esta idea, sin
@@ -963,7 +1000,7 @@ También parece que el algoritmo usado funciona mejor con conjuntos de
 datos de entrada específicos más pequeños o focalizados.
 
 Posteriormente se implementó un algoritmo de detección de anomalías. El
-\emph{isolation forest} aisla aquellos datos que se alejan de una norma
+\emph{isolation forest} aísla aquellos datos que se alejan de una norma
 establecida por el mismo modelo. Su implementación es muy similar a la
 de otros bosques probados en
 \href{https://gitlab.com/genomorro/unir/-/blob/AA-A1}{otras prácticas} y
