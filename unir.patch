@@ -39,7 +39,7 @@ diff -u /tmp/main/main.tex /tmp/main.new/main.tex
 +    \usepackage{fancyhdr}
 +    \pagestyle{fancy}
 +    \renewcommand{\headrulewidth}{0pt}
-+    \headheight=45pt
++    \headheight=60pt
 +    \setlength{\footskip}{64pt}
 +    \linespread{1.5}
 +    \lhead{}
