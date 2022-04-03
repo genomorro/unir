@@ -1,7 +1,6 @@
-Los ficheros binarios a/.git/index y b/.git/index son distintos
-diff -ru a/writing/main.tex b/writing/main.tex
---- a/writing/main.tex	2022-02-20 07:40:16.000000000 -0600
-+++ b/writing/main.tex	2022-02-20 02:03:04.756582946 -0600
+diff -u /tmp/main/main.tex /tmp/main.new/main.tex
+--- /tmp/main/main.tex	2022-04-03 20:37:52.000000000 -0500
++++ /tmp/main.new/main.tex	2022-04-03 15:50:36.395233045 -0500
 @@ -1,4 +1,4 @@
 -\documentclass[11pt]{article}
 +\documentclass[12pt,a4paper,table]{article}
@@ -13,18 +12,18 @@ diff -ru a/writing/main.tex b/writing/main.tex
      % Document parameters
      % Document title
 -    \title{main}
-+    \title{Actividad: Árboles y random forest para regresión y clasificación}
++    \title{Análisis: Abstract data set for Credit card fraud detection}
      
      
      
-@@ -369,19 +369,64 @@
-     % Slightly bigger margins than the latex defaults
+@@ -370,18 +370,67 @@
      
      \geometry{verbose,tmargin=1in,bmargin=1in,lmargin=1in,rmargin=1in}
+     
 -    
-+
 +    %% BEGIN: UNIR
 +    \usepackage[spanish,mexico]{babel}
++    \usepackage[sfdefault,lf]{carlito}
 +    \makeatletter
 +    \let\newtitle\@title
 +    \makeatother
@@ -42,6 +41,7 @@ diff -ru a/writing/main.tex b/writing/main.tex
 +    \renewcommand{\headrulewidth}{0pt}
 +    \headheight=45pt
 +    \setlength{\footskip}{64pt}
++    \linespread{1.5}
 +    \lhead{}
 +    \chead{
 +    \begin{tabular}{|c|l|c|}
@@ -49,9 +49,10 @@ diff -ru a/writing/main.tex b/writing/main.tex
 +     \rowcolor{UnirLight}
 +     \textcolor{UnirDark}{Asignatura} & \textcolor{UnirDark}{Datos del alumno} & \textcolor{UnirDark}{Fecha} \\
 +     \hline
-+     \multirow{2}{12em}{\textbf{Aprendizaje automático}} & Apellidos: Domínguez Espinoza & \multirow{2}{6em}{\today} \\
-+     & Nombre: Edgar Uriel & \\
-+     \hline
++     & Bernal Castillo Aldo Alberto & \\
++     \textbf{Aprendizaje Automático} & Calderón Zetter María Inés & \today \\
++     & Domínguez Espinoza Edgar Uriel & \\
++     \hline      
 +    \end{tabular}}
 +    \rhead{}
 +    \lfoot{}
@@ -64,31 +65,30 @@ diff -ru a/writing/main.tex b/writing/main.tex
 +    \SetWatermarkText{{\copyright} Universidad Internacional de La Rioja en México (UNIR)}
 +    \hypersetup{
 +      pdfauthor={Edgar Uriel Domínguez Espinoza},
-+      pdftitle={Actividad: Árboles y random forest para regresión y clasificación},
-+      pdfkeywords={aprendizaje automático, random forest, árboles, clasificación, regresión},
++      pdftitle={Análisis: Abstract data set for Credit card fraud detection},
++      pdfkeywords={aprendizaje automático, isolation forest, árboles, clustering},
 +      pdfsubject={Aprendizaje automático},
 +      pdfcreator={Emacs 27.2}, 
 +      pdflang={Spanish}}
 +    \usepackage[round]{natbib}
 +    %% END: UNIR
-     
++
  
  \begin{document}
--    
+     
 -    \maketitle
--    
-+        
+     
      
  
      
-     \hypertarget{evaluaciuxf3n-de-la-segmentaciuxf3n}{%
--\section{Evaluación de la
--segmentación}\label{evaluaciuxf3n-de-la-segmentaciuxf3n}}
-+\textcolor{UnirDark}{\Large\bfseries\newtitle}\label{evaluaciuxf3n-de-la-segmentaciuxf3n}}
+     \hypertarget{anuxe1lisis-abstract-data-set-for-credit-card-fraud-detection}{%
+-\section{Análisis: Abstract data set for Credit card fraud
+-detection}\label{anuxe1lisis-abstract-data-set-for-credit-card-fraud-detection}}
++\textcolor{UnirDark}{\Large\bfseries\newtitle}\label{anuxe1lisis-abstract-data-set-for-credit-card-fraud-detection}}
  
      \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
  \prompt{In}{incolor}{1}{\boxspacing}
-@@ -756,7 +801,8 @@
+@@ -930,7 +979,8 @@
  
  
      % Add a bibliography block to the postdoc
@@ -98,3 +98,5 @@ diff -ru a/writing/main.tex b/writing/main.tex
      
      
  \end{document}
+
+Diff finished.  Sun Apr  3 15:54:27 2022
