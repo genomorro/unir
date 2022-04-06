@@ -432,8 +432,22 @@
     \hypertarget{anuxe1lisis-abstract-data-set-for-credit-card-fraud-detection}{%
 \textcolor{UnirDark}{\Large\bfseries\newtitle}\label{anuxe1lisis-abstract-data-set-for-credit-card-fraud-detection}}
 
+\hypertarget{introducciuxf3n}{%
+\section{Introducción}\label{introducciuxf3n}}
+
+Este documento corresponde a un análisis de datos que relacionan
+información de tarjetas de crédito con operaciones denominadas
+fraudulentas. Se usarán algoritmos de aprendizaje automático no
+supervisado para encontrar una posible identificación de estas
+operaciones fraudulentas.
+
+En caso de que el lector decida replicar por su cuenta el procedimiento
+detallado en este documento, se recomienda consultar los archivos fuente
+en el \href{https://github.com/genomorro/unir/tree/AA-A2}{repositorio
+del proyecto}.
+
 \hypertarget{carga-de-bibliotecas}{%
-\subsection*{Carga de bibliotecas}\label{carga-de-bibliotecas}}
+\subsection{Carga de bibliotecas}\label{carga-de-bibliotecas}}
 
 En este análisis se usará la biblioteca \texttt{SciPy} para realizar un
 agrupamiento jerárquico y \texttt{scikit-learn} para realizar un modelo
@@ -454,9 +468,9 @@ automática valores inusuales dentro de un conjunto de datos.
 \end{Verbatim}
 \end{tcolorbox}
 
-    \hypertarget{carga-de-dataset-y-resumen-de-datos}{%
-\subsection*{Carga de dataset y resumen de
-datos}\label{carga-de-dataset-y-resumen-de-datos}}
+    \hypertarget{carga-de-dataset-y-anuxe1lisis-descriptivo-de-datos}{%
+\section{Carga de dataset y análisis descriptivo de
+datos}\label{carga-de-dataset-y-anuxe1lisis-descriptivo-de-datos}}
 
 Se usará un \emph{dataset}~\citep{Joshi_2018} el cual
 corresponde al \emph{dataframe} que se usará durante el análisis.
@@ -502,7 +516,7 @@ memory usage: 288.4+ KB
     \end{Verbatim}
 
     \hypertarget{eliminaciuxf3n-de-columnas}{%
-\subsubsection*{Eliminación de
+\subsection{Eliminación de
 columnas}\label{eliminaciuxf3n-de-columnas}}
 
 Primero será necesario guardar la columna objetivo \texttt{isFraudulent}
@@ -552,7 +566,11 @@ dtypes: float64(3), int64(3), object(3)
 memory usage: 216.3+ KB
     \end{Verbatim}
 
-    Este dataframe contiene nueve columnas, las cuales no son descritas en
+    \hypertarget{datos-estaduxedsticos-de-variables-numuxe9ricas}{%
+\subsection{Datos estadísticos de variables
+numéricas}\label{datos-estaduxedsticos-de-variables-numuxe9ricas}}
+
+Este dataframe contiene nueve columnas, las cuales no son descritas en
 la fuente original, por lo que solo es posible intuir su significado,
 por supuesto, esto podría condicionar la discusión producto del
 análisis. Es importante hacer énfasis en proporcionar metadatos sobre
@@ -598,6 +616,13 @@ Daily\_chargeback\_avg\_amt           998.0
 \end{Verbatim}
 \end{tcolorbox}
         
+    \hypertarget{categoruxedas-y-frecuencias-de-variables-categuxf3ricas}{%
+\subsection{Categorías y frecuencias de variables
+categóricas}\label{categoruxedas-y-frecuencias-de-variables-categuxf3ricas}}
+
+Se inciará mostrando el estado original de las tres variables
+categóricas.
+
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
 \prompt{In}{incolor}{8}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
@@ -639,17 +664,13 @@ Y     205
 Name: isHighRiskCountry, dtype: int64
     \end{Verbatim}
 
-    \hypertarget{tratamiento-de-variables-categuxf3ricas}{%
-\subsubsection*{Tratamiento de variables
-categóricas}\label{tratamiento-de-variables-categuxf3ricas}}
-
-Se crean variables separadas, para no usar variables categóricas. La
+    Se crean variables separadas, para no usar variables categóricas. La
 variable categórica \texttt{Is\ declined} que toma valores \texttt{Y} o
 \texttt{N} en \texttt{df{[}"Is\ declined"{]}} se puede sustituir por dos
 variables \emph{dummy}, booleanas, que son \texttt{Is\ declined\_Y} e
 \texttt{Is\ declined\_N}. Es posible tomar ambas variables o solo una de
 ellas, tal y como se hará en este análisis. Posteriormente se borra la
-variable original y se adjuntas las nuevas variables al dataframe.
+variable original y se adjuntan las nuevas variables al dataframe.
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
 \prompt{In}{incolor}{10}{\boxspacing}
@@ -685,7 +706,7 @@ memory usage: 153.3 KB
     \end{Verbatim}
 
     \hypertarget{matriz-de-correlaciuxf3n}{%
-\subsection*{Matriz de correlación}\label{matriz-de-correlaciuxf3n}}
+\subsection{Matriz de correlación}\label{matriz-de-correlaciuxf3n}}
 
 Con la matriz de correlación es posible observar similitudes entre
 diferentes datos. Es posible observar que la matriz tiene zonas de
@@ -711,7 +732,7 @@ la clasificación.
 \end{tcolorbox}
         
     \begin{center}
-    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_19_1.png}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_20_1.png}
     \end{center}
     { \hspace*{\fill} \\}
     
@@ -737,11 +758,13 @@ la clasificación.
 \end{itemize}
 
 Está predicción solo se convertiría en una hipótesis si fuera confirmada
-con una matriz de distancias. En este análisis se procederá directamente
-a implementar un método de clustering.
+con un principio matemático, en este momento dicho proceder escapa de
+los propósitos de este documento. En este análisis se procederá
+directamente a implementar un método de agrupamiento.
 
-    \hypertarget{clustering-jeruxe1rquico}{%
-\subsection*{Clustering jerárquico}\label{clustering-jeruxe1rquico}}
+    \hypertarget{aplicaciuxf3n-de-una-tuxe9cnica-de-agrupamiento-jeruxe1rquico}{%
+\section{Aplicación de una técnica de agrupamiento
+jerárquico}\label{aplicaciuxf3n-de-una-tuxe9cnica-de-agrupamiento-jeruxe1rquico}}
 
 Un \emph{cluster} jerárquico categoriza las entradas en grupos. Es un
 método no supervisado, por lo tanto no se usarán datos de entrenamiento,
@@ -758,7 +781,8 @@ sino que todos los datos serán utilizados para crear una clasificación.
     Es necesario tener una métrica de evaluación del método. Por lo tanto se
 obtendrá una distancia de correlación \emph{cophenetic} (c) y una matriz
 de distancias \emph{cophenetic} condensada. Esto nos da una idea de cuán
-similares son los objetos agrupados.~\citep{The_SciPy_community_2022a}
+similares son los objetos
+agrupados.~\citep{The_SciPy_community_2022a}
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
 \prompt{In}{incolor}{14}{\boxspacing}
@@ -830,12 +854,12 @@ creados y visualizarlos mejor.
 \end{tcolorbox}
 
     \begin{center}
-    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_28_0.png}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_29_0.png}
     \end{center}
     { \hspace*{\fill} \\}
     
     \hypertarget{recuperar-clusters}{%
-\subsubsection*{Recuperar clusters}\label{recuperar-clusters}}
+\subsection{Recuperar clusters}\label{recuperar-clusters}}
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
 \prompt{In}{incolor}{17}{\boxspacing}
@@ -876,8 +900,8 @@ conjuntos de datos listados entonces.
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
 \prompt{In}{incolor}{19}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
-\PY{n}{Z1} \PY{o}{=} \PY{n}{linkage}\PY{p}{(}\PY{n}{df}\PY{p}{[}\PY{p}{[}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{isHighRiskCountry\PYZus{}Y}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Transaction\PYZus{}amount}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Total Number of declines/day}\PY{l+s+s2}{\PYZdq{}}\PY{p}{]}\PY{p}{]}\PY{p}{,} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{centroid}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
-\PY{n}{Z2} \PY{o}{=} \PY{n}{linkage}\PY{p}{(}\PY{n}{df}\PY{p}{[}\PY{p}{[}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Daily\PYZus{}chargeback\PYZus{}avg\PYZus{}amt}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{6\PYZus{}month\PYZus{}avg\PYZus{}chbk\PYZus{}amt}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{6\PYZhy{}month\PYZus{}chbk\PYZus{}freq}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Is declined\PYZus{}Y}\PY{l+s+s2}{\PYZdq{}}\PY{p}{]}\PY{p}{]}\PY{p}{,} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{centroid}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+\PY{n}{Z1} \PY{o}{=} \PY{n}{linkage}\PY{p}{(}\PY{n}{df}\PY{p}{[}\PY{p}{[}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{isForeignTransaction\PYZus{}Y}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{isHighRiskCountry\PYZus{}Y}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Transaction\PYZus{}amount}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Total Number of declines/day}\PY{l+s+s2}{\PYZdq{}}\PY{p}{]}\PY{p}{]}\PY{p}{,} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{centroid}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+\PY{n}{Z2} \PY{o}{=} \PY{n}{linkage}\PY{p}{(}\PY{n}{df}\PY{p}{[}\PY{p}{[}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Daily\PYZus{}chargeback\PYZus{}avg\PYZus{}amt}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{6\PYZus{}month\PYZus{}avg\PYZus{}chbk\PYZus{}amt}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{6\PYZhy{}month\PYZus{}chbk\PYZus{}freq}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Is declined\PYZus{}Y}\PY{l+s+s2}{\PYZdq{}}\PY{p}{]}\PY{p}{]}\PY{p}{,} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{centroid}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
 \end{Verbatim}
 \end{tcolorbox}
 
@@ -890,14 +914,14 @@ posible considerar al modelo obtenido de \texttt{Z2} como favorable.
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
 \prompt{In}{incolor}{20}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
-\PY{n}{c1}\PY{p}{,} \PY{n}{d1} \PY{o}{=} \PY{n}{cophenet}\PY{p}{(}\PY{n}{Z1}\PY{p}{,} \PY{n}{pdist}\PY{p}{(}\PY{n}{df}\PY{p}{[}\PY{p}{[}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{isHighRiskCountry\PYZus{}Y}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Transaction\PYZus{}amount}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Total Number of declines/day}\PY{l+s+s2}{\PYZdq{}}\PY{p}{]}\PY{p}{]}\PY{p}{)}\PY{p}{)}
-\PY{n}{c2}\PY{p}{,} \PY{n}{d2} \PY{o}{=} \PY{n}{cophenet}\PY{p}{(}\PY{n}{Z2}\PY{p}{,} \PY{n}{pdist}\PY{p}{(}\PY{n}{df}\PY{p}{[}\PY{p}{[}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Daily\PYZus{}chargeback\PYZus{}avg\PYZus{}amt}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{6\PYZus{}month\PYZus{}avg\PYZus{}chbk\PYZus{}amt}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{6\PYZhy{}month\PYZus{}chbk\PYZus{}freq}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Is declined\PYZus{}Y}\PY{l+s+s2}{\PYZdq{}}\PY{p}{]}\PY{p}{]}\PY{p}{)}\PY{p}{)}
+\PY{n}{c1}\PY{p}{,} \PY{n}{d1} \PY{o}{=} \PY{n}{cophenet}\PY{p}{(}\PY{n}{Z1}\PY{p}{,} \PY{n}{pdist}\PY{p}{(}\PY{n}{df}\PY{p}{[}\PY{p}{[}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{isForeignTransaction\PYZus{}Y}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{isHighRiskCountry\PYZus{}Y}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Transaction\PYZus{}amount}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Total Number of declines/day}\PY{l+s+s2}{\PYZdq{}}\PY{p}{]}\PY{p}{]}\PY{p}{)}\PY{p}{)}
+\PY{n}{c2}\PY{p}{,} \PY{n}{d2} \PY{o}{=} \PY{n}{cophenet}\PY{p}{(}\PY{n}{Z2}\PY{p}{,} \PY{n}{pdist}\PY{p}{(}\PY{n}{df}\PY{p}{[}\PY{p}{[}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Daily\PYZus{}chargeback\PYZus{}avg\PYZus{}amt}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{6\PYZus{}month\PYZus{}avg\PYZus{}chbk\PYZus{}amt}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{6\PYZhy{}month\PYZus{}chbk\PYZus{}freq}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Is declined\PYZus{}Y}\PY{l+s+s2}{\PYZdq{}}\PY{p}{]}\PY{p}{]}\PY{p}{)}\PY{p}{)}
 \PY{n+nb}{print}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Distancia de correlación cophenetic Z1: }\PY{l+s+s2}{\PYZdq{}}\PY{p}{,}\PY{n}{c1}\PY{p}{,}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+se}{\PYZbs{}n}\PY{l+s+s2}{Distancia de correlación cophenetic Z2: }\PY{l+s+s2}{\PYZdq{}}\PY{p}{,}\PY{n}{c2}\PY{p}{)}
 \end{Verbatim}
 \end{tcolorbox}
 
     \begin{Verbatim}[commandchars=\\\{\}]
-Distancia de correlación cophenetic Z1:  0.8930191106120398
+Distancia de correlación cophenetic Z1:  0.8930191088848004
 Distancia de correlación cophenetic Z2:  0.9799097738300101
     \end{Verbatim}
 
@@ -918,12 +942,13 @@ Y          134   314
 Accuracy:  0.8747967479674796
     \end{Verbatim}
 
-    \hypertarget{isolation-forest}{%
-\subsection*{Isolation forest}\label{isolation-forest}}
+    \hypertarget{aplicaciuxf3n-de-una-tuxe9cnica-de-detecciuxf3n-de-anomaluxedas}{%
+\section{Aplicación de una técnica de detección de
+anomalías}\label{aplicaciuxf3n-de-una-tuxe9cnica-de-detecciuxf3n-de-anomaluxedas}}
 
 Es turno de implementar un algoritmo que crea un prototipo de aquello
 considerable como ``normal'' en un dataset para luego identificar
-anomalías.
+anomalías: el \emph{isolation forest}.
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
 \prompt{In}{incolor}{22}{\boxspacing}
@@ -951,41 +976,89 @@ claramente del resto.~\citep{Duboue_2020}
     \begin{Verbatim}[commandchars=\\\{\}]
 Predicted   -1     1
 Real
-N          124  2503
-Y          422    26
-Accuracy:  0.9512195121951219
+N          125  2502
+Y          424    24
+Accuracy:  0.9515447154471545
     \end{Verbatim}
 
     Es posible observar una buena precisión en este método. Ha hecho un
 mejor trabajo al detectar los casos en los que efectivamente se espera
-un fraude.
+un fraude. También es posible inspeccionar el bosque, seleccionar un
+árbol creado en alguna iteración y ver la relevancia de la información
+para dicho árbol. Esta relevancia será variable en cada árbol, aquí solo
+se muestra un ejemplo.
 
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{24}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{pd}\PY{o}{.}\PY{n}{DataFrame}\PY{p}{(}\PY{p}{\PYZob{}}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Feature}\PY{l+s+s2}{\PYZdq{}}\PY{p}{:} \PY{n}{ifc}\PY{o}{.}\PY{n}{feature\PYZus{}names\PYZus{}in\PYZus{}}\PY{p}{,}
+ \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Importance}\PY{l+s+s2}{\PYZdq{}}\PY{p}{:} \PY{n}{ifc}\PY{o}{.}\PY{n}{estimators\PYZus{}}\PY{p}{[}\PY{l+m+mi}{9950}\PY{p}{]}\PY{o}{.}\PY{n}{feature\PYZus{}importances\PYZus{}}\PY{p}{\PYZcb{}}\PY{p}{)}\PY{o}{.}\PY{n}{sort\PYZus{}values}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Importance}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+\end{Verbatim}
+\end{tcolorbox}
+
+            \begin{tcolorbox}[breakable, size=fbox, boxrule=.5pt, pad at break*=1mm, opacityfill=0]
+\prompt{Out}{outcolor}{24}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+                          Feature  Importance
+6                   Is declined\_Y    0.013997
+3        Daily\_chargeback\_avg\_amt    0.038070
+8             isHighRiskCountry\_Y    0.043411
+5               6-month\_chbk\_freq    0.050278
+0  Average Amount/transaction/day    0.091543
+2    Total Number of declines/day    0.159528
+1              Transaction\_amount    0.165508
+4            6\_month\_avg\_chbk\_amt    0.172281
+7          isForeignTransaction\_Y    0.265384
+\end{Verbatim}
+\end{tcolorbox}
+        
     \hypertarget{reconstrucciuxf3n-del-dataset}{%
-\subsection*{Reconstrucción del
+\subsection{Reconstrucción del
 dataset}\label{reconstrucciuxf3n-del-dataset}}
 
 Ahora se procederá a guardar en un nuevo dataset toda la información
 resultante de la aplicación de los algoritmos anteriormente expuestos.
 Dicho dataset quedará almacenado en la carpeta \texttt{out} del
-proyecto.
+proyecto, visible desde el enlace provisto en la introducción.
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{24}{\boxspacing}
+\prompt{In}{incolor}{25}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n}{df}\PY{p}{[}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{isFradulent}\PY{l+s+s2}{\PYZdq{}}\PY{p}{]} \PY{o}{=} \PY{n}{ideal\PYZus{}results}
 \PY{n}{df}\PY{p}{[}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Clustering prediction\PYZus{}Y=1}\PY{l+s+s2}{\PYZdq{}}\PY{p}{]} \PY{o}{=} \PY{n}{clusters2}
 \PY{n}{df}\PY{p}{[}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Isolation Forest prediction\PYZus{}N=1}\PY{l+s+s2}{\PYZdq{}}\PY{p}{]} \PY{o}{=} \PY{n}{anomaly}
 \PY{n}{df}\PY{o}{.}\PY{n}{to\PYZus{}csv}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{out/creditcardcsvpresent\PYZus{}test\PYZus{}complete.csv}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+\PY{n}{df}\PY{p}{[}\PY{p}{[}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{isFradulent}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Clustering prediction\PYZus{}Y=1}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Isolation Forest prediction\PYZus{}N=1}\PY{l+s+s2}{\PYZdq{}}\PY{p}{]}\PY{p}{]}
 \end{Verbatim}
 \end{tcolorbox}
 
+            \begin{tcolorbox}[breakable, size=fbox, boxrule=.5pt, pad at break*=1mm, opacityfill=0]
+\prompt{Out}{outcolor}{25}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+     isFradulent  Clustering prediction\_Y=1  Isolation Forest prediction\_N=1
+0              Y                          2                               -1
+1              Y                          2                               -1
+2              Y                          2                               -1
+3              Y                          2                               -1
+4              Y                          1                               -1
+{\ldots}          {\ldots}                        {\ldots}                              {\ldots}
+3070           N                          1                               -1
+3071           N                          1                               -1
+3072           N                          1                               -1
+3073           N                          1                               -1
+3074           N                          1                               -1
+
+[3075 rows x 3 columns]
+\end{Verbatim}
+\end{tcolorbox}
+        
     \hypertarget{conclusiuxf3n}{%
-\subsection*{Conclusión}\label{conclusiuxf3n}}
+\section{Conclusión}\label{conclusiuxf3n}}
 
 En este análisis se examinó un dataset correspondiente a información
 financiera que en algunos casos corresponden a fraudes. Se realizó una
 descripción general de los datos, se hizo tratamiento en las variables
-categóricas y se obtuvo una matriz general de correlaciones. Es dicha
+categóricas y se obtuvo una matriz general de correlaciones. En dicha
 matriz se observaron relaciones entre datos que podrían ayudar a formar
 grupos de entrada para el entrenamiento de un cluster. Esta idea, sin
 embargo, puede deberse solo a una coincidencia más que a una regla.
@@ -997,7 +1070,9 @@ distingue \emph{a priori} aquellas cosas que el analista pudiera estar
 buscando. El modelo obtenido puede tener numerosas ramas y es
 responsabilidad del analista saber en que nivel o altura cortarlo.
 También parece que el algoritmo usado funciona mejor con conjuntos de
-datos de entrada específicos más pequeños o focalizados.
+datos de entrada específicos más pequeños o focalizados ya que al hacer
+pruebas con conjuntos de datos más pequeños se obtuvieron resultados
+notablemente más precisos.
 
 Posteriormente se implementó un algoritmo de detección de anomalías. El
 \emph{isolation forest} aísla aquellos datos que se alejan de una norma
@@ -1005,14 +1080,15 @@ establecida por el mismo modelo. Su implementación es muy similar a la
 de otros bosques probados en
 \href{https://gitlab.com/genomorro/unir/-/blob/AA-A1}{otras prácticas} y
 se pudo probar que siempre que los parámetros de iteración sean
-adecuados puede ofrecer resultados bastante confiables.
+adecuados puede ofrecer resultados bastante confiables. En este caso se
+siguió el principio general que dicta que un bosque más denso tendrá
+mejores resultados.
 
-El algoritmo de \emph{clustering} es mejor detectando grupos de mayor
-tamaño mientras que el isolation forest tiene mejor precisión cuando se
-trata preservar los grupos más pequeños, mejor dicho, puede descartar
-valores atípicos siempre que exista un conjunto histórico que pueda
-asegurarle cuales observaciones no son válidas dentro de un dominio
-determinado.
+El algoritmo de agrupamiento es mejor detectando grupos de mayor tamaño
+mientras que el isolation forest tiene mejor precisión cuando se trata
+preservar los grupos más pequeños, mejor dicho, puede descartar valores
+atípicos siempre que exista un conjunto histórico que pueda asegurarle
+cuales observaciones no son válidas dentro de un dominio determinado.
 
 
     % Add a bibliography block to the postdoc
