@@ -54,7 +54,7 @@ Se recomienda ver un [video tutorial](https://www.youtube.com/watch?v=Egg0IkWDpw
 ## Licencia
 This repo is part of Actividades escolares UNIR
 
-Copyright (C) 2021, Edgar Uriel Domínguez Espinoza
+Copyright (C) 2022, Aldo Alberto Bernal Castillo, María Inés Calderón Zetter, Edgar Uriel Domínguez Espinoza
 
 Actividades escolares UNIR is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation; either version 2 of the License, or (at your option) any later version.
 
