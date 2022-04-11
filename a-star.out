@@ -1,0 +1,319 @@
+  i i i i i i i       ooooo    o        ooooooo   ooooo   ooooo
+  I I I I I I I      8     8   8           8     8     o  8    8
+  I  \ `+' /  I      8         8           8     8        8    8
+   \  `-+-'  /       8         8           8      ooooo   8oooo
+    `-__|__-'        8         8           8           8  8
+        |            8     o   8           8     o     8  8
+  ------+------       ooooo    8oooooo  ooo8ooo   ooooo   8
+
+Welcome to GNU CLISP 2.49.92 (2018-02-18) <http://clisp.org/>
+
+Copyright (c) Bruno Haible, Michael Stoll 1992-1993
+Copyright (c) Bruno Haible, Marcus Daniels 1994-1997
+Copyright (c) Bruno Haible, Pierpaolo Bernardi, Sam Steingold 1998
+Copyright (c) Bruno Haible, Sam Steingold 1999-2000
+Copyright (c) Sam Steingold, Bruno Haible 2001-2018
+
+Type :h and hit Enter for context help.
+
+;; Loading file /home/genomorro/.clisprc.lisp ...
+;;  Loading file /home/genomorro/quicklisp/setup.lisp ...
+;;   Loading file /home/genomorro/quicklisp/asdf.lisp ...
+;;   Loaded file /home/genomorro/quicklisp/asdf.lisp
+;;  Loaded file /home/genomorro/quicklisp/setup.lisp
+;; Loaded file /home/genomorro/.clisprc.lisp
+[1]> To load "pileup":
+  Load 1 ASDF system:
+    pileup
+; Loading "pileup"
+
+To load "iterate":
+  Load 1 ASDF system:
+    iterate
+; Loading "iterate"
+
+("pileup" "iterate")
+[2]> #<PACKAGE A*-SEARCH>
+[3]> #<PACKAGE A*-SEARCH>
+A*-SEARCH[4]> *SIZE*
+A*-SEARCH[5]> *BARRIERS*
+A*-SEARCH[6]> *BARRIER-COST*
+A*-SEARCH[7]> *DIRECTIONS*
+A*-SEARCH[8]> *LOAD*
+A*-SEARCH[9]> NODE
+A*-SEARCH[10]> PRINT-PATH
+A*-SEARCH[11]> VALID-POSITION-P
+A*-SEARCH[12]> MOVE
+A*-SEARCH[13]> NEXT-POSITIONS
+A*-SEARCH[14]> DISTANCE
+A*-SEARCH[15]> A*
+A*-SEARCH[16]> ROBOT
+A*-SEARCH[17]> Nodo 1, tamaño de la lista abierta: 0, coste actual: 0
+Posición posible: (2 . 1)
+Posición posible: (2 . 3)
+Posición posible: (3 . 2)
+Posición posible: (1 . 2)
+Nodo 2, tamaño de la lista abierta: 3, coste actual: 1
+Posición posible: (2 . 0)
+Posición posible: (2 . 2)
+Posición posible: (3 . 1)
+Posición posible: (1 . 1)
+Nodo 3, tamaño de la lista abierta: 6, coste actual: 1
+Posición posible: (1 . 1)
+Posición posible: (1 . 3)
+Posición posible: (2 . 2)
+Posición posible: (0 . 2)
+Nodo 4, tamaño de la lista abierta: 9, coste actual: 2
+Posición posible: (2 . -1)
+Posición posible: (2 . 1)
+Posición posible: (3 . 0)
+Posición posible: (1 . 0)
+Nodo 5, tamaño de la lista abierta: 11, coste actual: 2
+Posición posible: (0 . 1)
+Posición posible: (0 . 3)
+Posición posible: (1 . 2)
+Posición posible: (-1 . 2)
+Nodo 6, tamaño de la lista abierta: 13, coste actual: 3
+Posición posible: (1 . -1)
+Posición posible: (1 . 1)
+Posición posible: (2 . 0)
+Posición posible: (0 . 0)
+Nodo 7, tamaño de la lista abierta: 15, coste actual: 4
+La ruta entre el punto inicial (r) al punto final (m) en 7 pasos con coste: 4
+------
+|    |
+|..r |
+|.X  |
+|mX  |
+------
+(2,2)(2,1)(2,0)(1,0)(0,0)
+Carga del robot: 1
+Nodo 1, tamaño de la lista abierta: 0, coste actual: 0
+Posición posible: (0 . -1)
+Posición posible: (0 . 1)
+Posición posible: (1 . 0)
+Posición posible: (-1 . 0)
+Nodo 2, tamaño de la lista abierta: 1, coste actual: 1
+Posición posible: (1 . -1)
+Posición posible: (1 . 1)
+Posición posible: (2 . 0)
+Posición posible: (0 . 0)
+Nodo 3, tamaño de la lista abierta: 3, coste actual: 2
+Posición posible: (2 . -1)
+Posición posible: (2 . 1)
+Posición posible: (3 . 0)
+Posición posible: (1 . 0)
+Nodo 4, tamaño de la lista abierta: 5, coste actual: 3
+Posición posible: (2 . 0)
+Posición posible: (2 . 2)
+Posición posible: (3 . 1)
+Posición posible: (1 . 1)
+Nodo 5, tamaño de la lista abierta: 8, coste actual: 3
+Posición posible: (3 . -1)
+Posición posible: (3 . 1)
+Posición posible: (4 . 0)
+Posición posible: (2 . 0)
+Nodo 6, tamaño de la lista abierta: 9, coste actual: 4
+Posición posible: (3 . 0)
+Posición posible: (3 . 2)
+Posición posible: (4 . 1)
+Posición posible: (2 . 1)
+Nodo 7, tamaño de la lista abierta: 11, coste actual: 4
+Posición posible: (3 . 0)
+Posición posible: (3 . 2)
+Posición posible: (4 . 1)
+Posición posible: (2 . 1)
+Nodo 8, tamaño de la lista abierta: 13, coste actual: 5
+Posición posible: (3 . 1)
+Posición posible: (3 . 3)
+Posición posible: (4 . 2)
+Posición posible: (2 . 2)
+Nodo 9, tamaño de la lista abierta: 15, coste actual: 4
+Posición posible: (2 . 1)
+Posición posible: (2 . 3)
+Posición posible: (3 . 2)
+Posición posible: (1 . 2)
+Nodo 10, tamaño de la lista abierta: 18, coste actual: 5
+Posición posible: (3 . 1)
+Posición posible: (3 . 3)
+Posición posible: (4 . 2)
+Posición posible: (2 . 2)
+Nodo 11, tamaño de la lista abierta: 20, coste actual: 5
+Posición posible: (2 . 2)
+Posición posible: (2 . 4)
+Posición posible: (3 . 3)
+Posición posible: (1 . 3)
+Nodo 12, tamaño de la lista abierta: 22, coste actual: 5
+Posición posible: (3 . 1)
+Posición posible: (3 . 3)
+Posición posible: (4 . 2)
+Posición posible: (2 . 2)
+Nodo 13, tamaño de la lista abierta: 24, coste actual: 6
+La ruta entre el punto inicial (r) al punto final (m) en 13 pasos con coste: 6
+------
+|...m|
+|.   |
+|.X  |
+|rX  |
+------
+(0,0)(1,0)(2,0)(3,0)(3,1)(3,2)(3,3)
+Carga del robot: 0
+NIL
+A*-SEARCH[18]> Nodo 1, tamaño de la lista abierta: 0, coste actual: 0
+Posición posible: (2 . 1)
+Posición posible: (2 . 3)
+Posición posible: (3 . 2)
+Posición posible: (1 . 2)
+Nodo 2, tamaño de la lista abierta: 3, coste actual: 1
+Posición posible: (2 . 0)
+Posición posible: (2 . 2)
+Posición posible: (3 . 1)
+Posición posible: (1 . 1)
+Nodo 3, tamaño de la lista abierta: 6, coste actual: 2
+La ruta entre el punto inicial (r) al punto final (m) en 3 pasos con coste: 2
+------
+|    |
+|m.r |
+| X  |
+| X  |
+------
+(2,2)(2,1)(2,0)
+Carga del robot: 1
+Nodo 1, tamaño de la lista abierta: 0, coste actual: 0
+Posición posible: (2 . -1)
+Posición posible: (2 . 1)
+Posición posible: (3 . 0)
+Posición posible: (1 . 0)
+Nodo 2, tamaño de la lista abierta: 2, coste actual: 1
+Posición posible: (2 . 0)
+Posición posible: (2 . 2)
+Posición posible: (3 . 1)
+Posición posible: (1 . 1)
+Nodo 3, tamaño de la lista abierta: 5, coste actual: 1
+Posición posible: (3 . -1)
+Posición posible: (3 . 1)
+Posición posible: (4 . 0)
+Posición posible: (2 . 0)
+Nodo 4, tamaño de la lista abierta: 6, coste actual: 2
+Posición posible: (2 . 1)
+Posición posible: (2 . 3)
+Posición posible: (3 . 2)
+Posición posible: (1 . 2)
+Nodo 5, tamaño de la lista abierta: 9, coste actual: 2
+Posición posible: (3 . 0)
+Posición posible: (3 . 2)
+Posición posible: (4 . 1)
+Posición posible: (2 . 1)
+Nodo 6, tamaño de la lista abierta: 11, coste actual: 3
+La ruta entre el punto inicial (r) al punto final (m) en 6 pasos con coste: 3
+------
+|  m |
+|r.. |
+| X  |
+| X  |
+------
+(2,0)(2,1)(2,2)(3,2)
+Carga del robot: 0
+NIL
+A*-SEARCH[19]> Nodo 1, tamaño de la lista abierta: 0, coste actual: 0
+Posición posible: (2 . 1)
+Posición posible: (2 . 3)
+Posición posible: (3 . 2)
+Posición posible: (1 . 2)
+Nodo 2, tamaño de la lista abierta: 3, coste actual: 1
+Posición posible: (2 . 2)
+Posición posible: (2 . 4)
+Posición posible: (3 . 3)
+Posición posible: (1 . 3)
+Nodo 3, tamaño de la lista abierta: 5, coste actual: 1
+Posición posible: (1 . 1)
+Posición posible: (1 . 3)
+Posición posible: (2 . 2)
+Posición posible: (0 . 2)
+Nodo 4, tamaño de la lista abierta: 8, coste actual: 2
+Posición posible: (1 . 2)
+Posición posible: (1 . 4)
+Posición posible: (2 . 3)
+Posición posible: (0 . 3)
+Nodo 5, tamaño de la lista abierta: 10, coste actual: 2
+Posición posible: (0 . 1)
+Posición posible: (0 . 3)
+Posición posible: (1 . 2)
+Posición posible: (-1 . 2)
+Nodo 6, tamaño de la lista abierta: 12, coste actual: 3
+La ruta entre el punto inicial (r) al punto final (m) en 6 pasos con coste: 3
+------
+|    |
+|  r.|
+| X .|
+| X m|
+------
+(2,2)(2,3)(1,3)(0,3)
+Carga del robot: 1
+Nodo 1, tamaño de la lista abierta: 0, coste actual: 0
+Posición posible: (0 . 2)
+Posición posible: (0 . 4)
+Posición posible: (1 . 3)
+Posición posible: (-1 . 3)
+Nodo 2, tamaño de la lista abierta: 1, coste actual: 1
+Posición posible: (0 . 1)
+Posición posible: (0 . 3)
+Posición posible: (1 . 2)
+Posición posible: (-1 . 2)
+Nodo 3, tamaño de la lista abierta: 3, coste actual: 1
+Posición posible: (1 . 2)
+Posición posible: (1 . 4)
+Posición posible: (2 . 3)
+Posición posible: (0 . 3)
+Nodo 4, tamaño de la lista abierta: 5, coste actual: 2
+Posición posible: (1 . 1)
+Posición posible: (1 . 3)
+Posición posible: (2 . 2)
+Posición posible: (0 . 2)
+Nodo 5, tamaño de la lista abierta: 8, coste actual: 2
+Posición posible: (1 . 1)
+Posición posible: (1 . 3)
+Posición posible: (2 . 2)
+Posición posible: (0 . 2)
+Nodo 6, tamaño de la lista abierta: 11, coste actual: 2
+Posición posible: (2 . 2)
+Posición posible: (2 . 4)
+Posición posible: (3 . 3)
+Posición posible: (1 . 3)
+Nodo 7, tamaño de la lista abierta: 13, coste actual: 3
+Posición posible: (2 . 1)
+Posición posible: (2 . 3)
+Posición posible: (3 . 2)
+Posición posible: (1 . 2)
+Nodo 8, tamaño de la lista abierta: 16, coste actual: 3
+Posición posible: (2 . 1)
+Posición posible: (2 . 3)
+Posición posible: (3 . 2)
+Posición posible: (1 . 2)
+Nodo 9, tamaño de la lista abierta: 19, coste actual: 4
+Posición posible: (3 . 1)
+Posición posible: (3 . 3)
+Posición posible: (4 . 2)
+Posición posible: (2 . 2)
+Nodo 10, tamaño de la lista abierta: 21, coste actual: 4
+Posición posible: (2 . 0)
+Posición posible: (2 . 2)
+Posición posible: (3 . 1)
+Posición posible: (1 . 1)
+Nodo 11, tamaño de la lista abierta: 24, coste actual: 4
+Posición posible: (3 . 1)
+Posición posible: (3 . 3)
+Posición posible: (4 . 2)
+Posición posible: (2 . 2)
+Nodo 12, tamaño de la lista abierta: 26, coste actual: 5
+La ruta entre el punto inicial (r) al punto final (m) en 12 pasos con coste: 5
+------
+| m. |
+|  . |
+| X. |
+| X.r|
+------
+(0,3)(0,2)(1,2)(2,2)(3,2)(3,1)
+Carga del robot: 0
+NIL
+A*-SEARCH[20]> 

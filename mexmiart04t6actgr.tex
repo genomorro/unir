@@ -1,0 +1,471 @@
+% Created 2022-04-11 lun 13:39
+% Intended LaTeX compiler: pdflatex
+\documentclass[a4paper,12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{longtable}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{capt-of}
+\usepackage{hyperref}
+\usepackage[spanish, mexico]{babel}
+\usepackage[left=2cm,right=2cm,top=2.5cm,bottom=2.5cm]{geometry}
+\usepackage{listings}
+\usepackage{multirow}
+\usepackage[table]{xcolor}
+\usepackage{fancyhdr}
+\usepackage[color={[gray]{0.5}},angle=90,fontsize=9pt,anchor=lb,pos={0.03\paperwidth,0.95\paperheight}]{draftwatermark}
+\usepackage{titlesec}
+\usepackage{gb4e}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\noautomath
+\linespread{1.3}
+\usepackage[sfdefault,lf]{carlito}
+\title{Actividad grupal: Resolución de un problema mediante búsqueda heurística}
+\makeatletter
+\let\newtitle\@title
+\makeatother
+\definecolor{UnirLight}{HTML}{E6F4F9}
+\definecolor{UnirDark}{HTML}{0098CD}
+\arrayrulecolor{UnirDark}
+\pagestyle{fancy}
+\renewcommand{\headrulewidth}{0pt}
+\headheight=45pt
+\setlength{\footskip}{64pt}
+\lhead{}
+\chead{
+\begin{tabular}{|c|l|c|}
+\hline
+\rowcolor{UnirLight}
+\textcolor{UnirDark}{Asignatura} & \textcolor{UnirDark}{Datos del alumno} & \textcolor{UnirDark}{Fecha} \\
+\hline
+\textbf{Razonamiento y planificación} & Bernal Castillo Aldo Alberto & \\
+\textbf{automática} & Calderón Zetter María Inés & 11 de abril de 2022 \\
+& Domínguez Espinoza Edgar Uriel & \\
+\hline
+\end{tabular}}
+\rhead{}
+\lfoot{}
+\cfoot{}
+\rfoot{\makebox(70,56)[t]{\textcolor{UnirDark}{Actividades}}\colorbox{UnirDark}{\makebox(10,56)[t]{\textcolor{white}{\thepage}}}}
+\SetWatermarkText{{\copyright} Universidad Internacional de La Rioja en México (UNIR)}
+\titleformat*{\section}{\color{UnirDark}\normalsize\bfseries}
+\titleformat*{\subsection}{\color{UnirDark}\normalsize\bfseries}
+\definecolor{gray97}{gray}{.97}
+\definecolor{gray75}{gray}{.75}
+\definecolor{gray45}{gray}{.45}
+\lstset{ frame=Ltb,
+framerule=0pt,
+aboveskip=0.5cm,
+framextopmargin=3pt,
+framexbottommargin=3pt,
+framexleftmargin=0.4cm,
+xleftmargin=6mm,
+framesep=0pt,
+rulesep=.4pt,
+columns=fixed,
+backgroundcolor=\color{gray97},
+rulesepcolor=\color{black},
+stringstyle=\ttfamily,
+showstringspaces = false,
+basicstyle=\small\ttfamily,
+commentstyle=\color{gray45},
+keywordstyle=\bfseries,
+numbers=left,
+numbersep=15pt,
+numberstyle=\tiny,
+numberfirstline = false,
+breaklines=true,}
+\lstnewenvironment{listing}[1][]
+{\lstset{#1}\pagebreak[0]}{\pagebreak[0]}
+\lstdefinestyle{consola}
+{basicstyle=\scriptsize\bf\ttfamily,
+backgroundcolor=\color{gray75},}
+\lstdefinestyle{Lisp}
+{language=Lisp,}
+\author{Edgar Uriel Domínguez Espinoza}
+\hypersetup{
+ pdfauthor={Edgar Uriel Domínguez Espinoza},
+ pdftitle={Actividad grupal: Resolución de un problema mediante búsqueda heurística},
+ pdfkeywords={AI, planificación, A*, heurística},
+ pdfsubject={},
+ pdfcreator={Emacs 27.2 (Org mode 9.5.2)}, 
+ pdflang={Spanish}}
+\makeatletter
+\newcommand{\citeprocitem}[2]{\hyper@linkstart{cite}{citeproc_bib_item_#1}#2\hyper@linkend}
+\makeatother
+
+\usepackage[notquote]{hanging}
+\begin{document}
+
+\textcolor{UnirDark}{\LARGE\bfseries\newtitle}
+
+\section*{Introducción}
+\label{sec:org1381100}
+
+Una observación común sobre los problemas de búsqueda en un grafo es que coinciden con la localización de la ruta más corta. Los algoritmos que buscan en grafos representan al mismo como una matriz o una estructura (arbórea) implícita de nodos generada de forma iterativa y expandida según el algoritmo implementado.
+
+Los problemas más prominentes sobre la ruta más corta son: \emph{Single-source shortest path} en el cual se busca un camino que minimiza la suma de los pesos de los bordes constituyentes; y \emph{All pairs shortest paths} que busca caminos para cada dos vértices. Los algoritmos más importantes para estos problemas son: 1) Bellman-Ford, que soluciona Single-source shortest path incluso hay costes negativos; 2) Floyd-Warshall, soluciona All pairs shortest paths; 3) Dijkstra, soluciona Single-source shortest path siempre que los costes sean mayores a cero; y 4) A\textsuperscript{*}, soluciona Single-source shortest path con costes no negativos. (\citeprocitem{3}{Edelkamp \& Schroedl, 2011, p. 47})
+
+Particularmente, A\textsuperscript{*} realiza una búsqueda heurística, característica de la cual carecen otros algoritmos. La heurística se usa para estimar la distancia restante aún sin haber explorado una ruta hasta el objetivo. En este sentido es posible diferenciar entre dos tipos de algoritmos: aquellos informados, como el A\textsuperscript{*} y aquellos no informados como los otros listados en el párrafo anterior. (\citeprocitem{3}{Edelkamp \& Schroedl, 2011, p. 47})
+
+En este documento se muestra una implementación del algoritmo A\textsuperscript{*} para solucionar el problema de un robot que puede moverse en un mapa cuadricular en cuatro direcciones, dos verticales y dos horizontales y debe mover tres cargamentos a lugares específicos.
+
+\section*{Sobre el algoritmo A\textsuperscript{*}}
+\label{sec:org1e9cad1}
+
+El algoritmo A\textsuperscript{*} es considerado comúnmente como una mejora de Dijkstra (cap. \citeprocitem{2}{Domkin, 2021, p. 7}). La estimación heurística más común del algoritmo es la mostrada en la ecuación \ref{orgb061ee5}.
+
+\label{orgb061ee5}
+\begin{equation}
+f(u) = g(u) + h(u)
+\end{equation}
+
+Dentro de \ref{orgb061ee5} la función \(g(u)\)  calcula el coste del actual camino, mientras que \(h(u)\) es la estimación heurística del coste restante hasta el objetivo, por lo tanto \(f(u)\) es la aproximación total del coste de la ruta. (\citeprocitem{3}{Edelkamp \& Schroedl, 2011, p. 69})
+
+Existen variantes sobre A\textsuperscript{*}, constantemente se busca la optimización del algoritmo para un mejor desempeño computacional. La implementación más básica se muestra en el algoritmo \ref{alg:a-star} (\citeprocitem{3}{Edelkamp \& Schroedl, 2011, p. 70}).
+
+\begin{algorithm}
+\begin{algorithmic}
+\caption{Algoritmo A*}\label{alg:a-star}
+\State $Cerrado \gets \emptyset$ \Comment{Inicialización}
+\State $Abierto \gets {s}$ \Comment{Inserta s en la búsqueda}
+\State $f(s) \gets h(s)$ \Comment{Inicializa estimado}
+\While{$Abierto \neq \emptyset$} \Comment{Mientras haya nodos donde buscar}
+
+\State Elimina $u$ con $f(u)$ mínimo de $Abierto$ \Comment{Selección de nodo a expandir} 
+\State Inserta $u$ en $Cerrado$ \Comment{Actualiza lista de nodos expandidos}
+\If{$Meta(u)$} \Comment{Si llego a la meta}
+
+    \Return $Camino(u)$ \Comment{Muestra la solución}
+\ElsIf{$Sucesor(u) \gets \Expansión(u)$} \Comment{La expansión produce un conjunto sucesor}
+    \For{$v \ni Sucesor(u)$} \Comment{Para todo sucesor $v$ de $u$}
+        \State $Mejor(u,v) \Comment{Llamada de subrutina}
+\EndFor
+\EndIf
+\EndWhile
+
+\Return $\emptyset$ \Comment{Sin solución}
+\end{algorithmic}
+\end{algorithm}
+
+\section*{Implementación}
+\label{sec:orgcb84182}
+
+Para implementar el algoritmo A\textsuperscript{*} se usará la familia de lenguajes Lisp (\citeprocitem{1}{Code, 2022}), por lo que se solicitarán los siguientes requisitos:
+
+\begin{itemize}
+\item Un intérprete de Lisp compatible con Quicklisp, por ejemplo: SBCL o CLisp.
+\item Quicklisp.
+\item Un editor de texto que facilite la interacción con el REPL de Lisp, por ejemplo: GNU Emacs.
+\end{itemize}
+
+En este documento se harán anotaciones mínimas debido a que Lisp es un lenguaje autodocumentado y al leer el código fuente, adjunto a este documento, se podrá leer de forma directa la documentación del mismo.
+
+El código inicia con la preparación del entorno: se instalan las dependencias necesarias y se crea un paquete para el correcto procesamiento del programa.
+
+\lstset{language=Lisp,label= ,caption= ,captionpos=b,numbers=none,numbers=left}
+\begin{lstlisting}
+(eval-when (:load-toplevel :compile-toplevel :execute)
+  (ql:quickload '("pileup" "iterate")))
+(defpackage :a*-search (:use :common-lisp :pileup :iterate))
+(in-package :a*-search)
+\end{lstlisting}
+
+Continúa el código con la definición de variables a utilizar. Se puede señalar que cada una de las variables son modificables y permitirían adaptar el programa a cualquier problema similar, es decir, que tenga los mismos elementos a considerar.
+
+\lstset{language=Lisp,label= ,caption= ,captionpos=b,numbers=none,numbers=left}
+\begin{lstlisting}
+(defvar *size* 4 "Esta será el tamaño del área, el valor es el lado de un cuadrado.")
+(defvar *barriers* '((0 . 1) (1 . 1)) "Esta variable es una lista de cons (X . Y). La posición 0 es la esquina inferior izquierda.")
+(defvar *barrier-cost* 100 "No es posible evitar que  se inspeccione una pared, pero se eleva el coste, así se impide su elección.")
+(defvar *directions* '((0 . -1) (0 . 1) (1 . 0) (-1 . 0)) "Agregar aquí los posibles movimientos posibles, de 1 a 8 elementos.")
+(defvar *load* 0 "Si *LOAD* es 0 no hay carga sobre el robot")
+\end{lstlisting}
+
+Ahora se define la estructura del nodo, misma que al tener un conjunto de nodos formará un grafo. Note que el coste por nodo es cero, por tanto, solo los movimientos suman al modelo matemático.
+
+\lstset{language=Lisp,label= ,caption= ,captionpos=b,numbers=none,numbers=left}
+\begin{lstlisting}
+(defstruct (node (:constructor node))
+  "Estructura de datos para un nodo de un grafo."
+  (pos (cons 0 0) :type cons)
+  (path nil)
+  (cost 0 :type fixnum)
+  (f-value 0 :type fixnum))
+\end{lstlisting}
+
+Poder imprimir el grafo en forma de mapa ayudará a comprender mejor el resultado del programa, incluso si es un mapa sencillo creado solo por elementos de texto. Es importante destacar que para esta implementación, los nodos se numeran igual que en un plano cartesiano, es decir, el nodo \((0 . 0)\) está en la esquina inferior izquierda. Por lo tanto se considera que el mapa se imprimirá en espejo horizontal respecto al documento de requerimientos, esto es así porque se usaron expresiones S para representar coordenadas, no un sistema matricial común.
+
+\lstset{language=Lisp,label= ,caption= ,captionpos=b,numbers=none,numbers=left}
+\begin{lstlisting}
+(defun print-path (path start end &optional (barriers *barriers*)
+		   &aux (size (+ 2 *size*)))
+  "Imprime el área de trabajo.  Identifica PATH por medio de un punto (.),  START con una r, END
+con una m y las paredes con una X. Cualquier otro elemento quedará en blanco."
+  (format t "~v@{~A~:*~}~%" size "-") ; Borde superior
+  ; Área disponible, imprime línea a línea
+  (iter (for y from (1- *size*) downto 0)
+	(format t "|") ; Margen izquierdo
+	; Columnas
+	(iter (for x from 0 below *size*)
+	      (format t "~A"
+		      (cond ((member (cons y x) barriers :test #'equal) "X")
+			    ((equal (cons y x) start) "r")
+			    ((equal (cons y x) end) "m")
+			    ((Member (cons y x) path :test #'equal) ".")
+			    (t " "))))
+	(format t "|~%")) ; Margen derecho
+  (format t "~v@{~A~:*~}~%" size "-") ; Borde inferior
+  (iter
+    (for position in path)
+    (format t "(~D,~D)" (car position) (cdr position))
+    (finally (terpri))))
+\end{lstlisting}
+
+También es necesario crear una serie de funciones secundarias para realizar tareas comunes. Si se imprimiera el resultado de cada una de ellas se obtendría la información más detallada del proceso realizado por el algoritmo, sin embargo, se ha decidido para esta implementación solo imprimir la lista abierta, es decir, las posibilidades de movimiento desde un nodo actual hacia la meta.
+
+\lstset{language=Lisp,label= ,caption= ,captionpos=b,numbers=none,numbers=left}
+\begin{lstlisting}
+(defun valid-position-p (position)
+  "Regresa T si POSITION es un punto válido en el mapa."
+  (let ((x (car position))
+	(y (cdr position))
+	(max (1- *size*)))
+    (and (<= 0 x max)
+	 (<= 0 y max))))
+(defun move (position direction)
+  "Regresa un nuevo punto cuando se mueve POSITION en una DIRECTION. Asume posiciones válidas."
+  (let ((x (car position))
+	(y (cdr position))
+	(dx (car direction))
+	(dy (cdr direction)))
+    (format t "Posición posible: (~D . ~D)~%" (+ x dx) (+ y dy))
+    (cons (+ x dx) (+ y dy))))
+(defun next-positions (current-position)
+  "Regresa una lista con los posibles posiciones siguientes."
+  (remove-if-not #'valid-position-p
+		 (mapcar (lambda (d) (move current-position d)) *directions*)))
+\end{lstlisting}
+
+Se procede a la implementación de la heurística con la distancia de Manhattan. Esta heurística puede ser reemplazada con otras similares, como la distancia euclidiana.
+
+\lstset{language=Lisp,label= ,caption= ,captionpos=b,numbers=none,numbers=left}
+\begin{lstlisting}
+(defun distance (current-position goal)
+  "Calcula la distancia Manhattan existente desde CURRENT-POSITION hasta GOAL."
+  (+ (abs (- (car goal) (car current-position)))
+     (abs (- (cdr goal) (cdr current-position)))))
+\end{lstlisting}
+
+Ahora es posible escribir el código del algoritmo principal. Es importante notar que esta función recibe como parte de sus argumentos otras dos funciones: la heurística y las posiciones siguientes. Al hacer esto, se facilita la modificación del programa para su adaptación a otros problemas.
+
+\lstset{language=Lisp,label= ,caption= ,captionpos=b,numbers=none,numbers=left}
+\begin{lstlisting}
+(defun a* (start goal heuristics next &optional (information 0))
+  "Calcula la ruta más corta de START a GOAL usando HEURISTICS. Genera la lista de caminos usando NEXT. Si INFORMATION es 1 se imprimirán detalles de cada iteración."
+  (let ((visited (make-hash-table :test #'equalp))) ; Crea la lista cerrada. Nodos visitados
+    (flet ((pick-next-node (queue)
+	     ; Obtiene el primer elemento que forma la cola
+	     (heap-pop queue))
+	   (expand-node (node queue)
+	     ; Expande los nodos de posible avance y los agrega a la cola si no han
+	     ; sido visitados.
+	     (iter
+	       (with costs = (node-cost node))
+	       (for position in (funcall next (node-pos node)))
+	       (for cost = (1+ costs))
+	       (for f-value = (+ cost (funcall heuristics position goal)
+				 (if (member position *barriers* :test #'equal)
+				     100
+				     0)))
+	       ; Revisa si el nodo ha sido visitado
+	       (unless (gethash position visited)
+	       ; Agrega el nodo a la cola
+	       (heap-insert
+		(node :pos position :path (cons position (node-path node))
+		      :cost cost :f-value f-value)
+		queue)))))
+      ; La búsqueda algoritmica
+      (iter
+	;; Crea la cola
+	(with queue = (make-heap #'<= :name "queue" :size 1000 :key #'node-f-value))
+	(with initial-cost = (funcall heuristics start goal))
+	(initially (heap-insert (node :pos start :path (list start) :cost 0
+				      :f-value initial-cost)
+				queue))
+	(for counter from 1)
+	(for current-node = (pick-next-node queue))
+	(for current-position = (node-pos current-node))
+	; Imprime información sobre la iteración
+	(when (and (not (zerop information))
+		   (zerop (mod counter information)))
+	  (format t "Nodo ~D, tamaño de la lista abierta: ~D, coste actual: ~D~%"
+		  counter (heap-count queue)
+		  (node-cost current-node)))
+	; Si la posición actual no es GOAL continua
+	(until (equalp current-position goal))
+	; Agrega el nodo actual a la lista de visitados
+	(setf (gethash current-node visited) t)
+	; Expande el nodo actual
+	(expand-node current-node queue)
+	(finally (return (values (nreverse (node-path current-node))
+				 (node-cost current-node)
+				 counter)))))))
+\end{lstlisting}
+
+Hasta este punto ya sería posible utilizar el código escrito para resolver problemas Single-source shortest path. Mas allá de lo anterior, el problema que se desea resolver requiere que un robot viaje de un punto inicial a recoger una carga para después llevarla a otro punto dentro del mapa, es decir, cada trayecto del robot consiste en dos viajes y debe distinguir cuando lleva carga y cuando viaja solo, este comportamiento corresponde a esta última función.
+
+\lstset{language=Lisp,label= ,caption= ,captionpos=b,numbers=none,numbers=left}
+\begin{lstlisting}
+(defun robot (start package goal &key (heuristics #'distance))
+  "Define el movimiento de un robot el cual se ubica en START, se mueve y recoge un inventario en PACKAGE y lo lleva hasta GOAL."
+  (multiple-value-bind (path cost steps)
+      (a* start package heuristics #'next-positions 1)
+    (format t "La ruta entre el punto inicial (r) al punto final (m) en ~D pasos con coste: ~D~%" steps cost)
+    (print-path path start package))
+  (setq *load* 1)
+  (format t "Carga del robot: ~D~%" *load*)
+  (multiple-value-bind (path cost steps)
+      (a* package goal heuristics #'next-positions 1)
+    (format t "La ruta entre el punto inicial (r) al punto final (m) en ~D pasos con coste: ~D~%" steps cost)
+    (print-path path package goal))
+  (setq *load* 0)
+  (format t "Carga del robot: ~D~%" *load*))
+\end{lstlisting}
+
+\section*{Resultado}
+\label{sec:org1b87ad5}
+
+Se dividió el problema general en tres problemas menores:
+
+\begin{description}
+\item[{Problema 1}] El robot inicia en \((2 . 2)\), recoge un inventario en \((0 . 0)\) y lo lleva a \((3 .3)\).
+\item[{Problema 2}] El robot inicia en \((2 . 2)\), recoge un inventario en \((2 . 0)\) y lo lleva a \((3 .2)\).
+\item[{Problema 3}] El robot inicia en \((2 . 2)\), recoge un inventario en \((0 . 3)\) y lo lleva a \((3 .1)\).
+\end{description}
+
+Los códigos para ejecutar estas trayectorias se muestran a continuación.
+
+\lstset{language=Lisp,label= ,caption= ,captionpos=b,numbers=none,numbers=left}
+\begin{lstlisting}
+(robot '(2 . 2) '(0 . 0) '(3 . 3))
+(robot '(2 . 2) '(2 . 0) '(3 . 2))
+(robot '(2 . 2) '(0 . 3) '(3 . 1))
+\end{lstlisting}
+
+El resultado es amplio y descriptivo, incluye el número de nodos que se han examinado, el número de nodos en la lista, el coste actual y los posibles movimientos que pueden seguir. Posteriormente, junto con el mapa que marca la ruta total, se mostrará el número de pasos realizados y el coste total de la operación. Finalmente, se muestran los nodos que componen la ruta y si el resultado de la operación de carga que lleva a cabo el robot\footnote{Adjunto a este documento se encuentra el archivo \texttt{a-star.out}, un documento de texto plano que tiene la bitácora de ejecución completa de la consola de Common Lisp.}. Un ejemplo de esta información se muestra enseguida con el resultado del Problema 2.
+
+\lstset{language=sh,label= ,caption= ,captionpos=b,numbers=none,style=consola}
+\begin{lstlisting}
+A*-SEARCH[18]> Nodo 1, tamaño de la lista abierta: 0, coste actual: 0
+Posición posible: (2 . 1)
+Posición posible: (2 . 3)
+Posición posible: (3 . 2)
+Posición posible: (1 . 2)
+Nodo 2, tamaño de la lista abierta: 3, coste actual: 1
+Posición posible: (2 . 0)
+Posición posible: (2 . 2)
+Posición posible: (3 . 1)
+Posición posible: (1 . 1)
+Nodo 3, tamaño de la lista abierta: 6, coste actual: 2
+La ruta entre el punto inicial (r) al punto final (m) en 3 pasos con coste: 2
+------
+|    |
+|m.r |
+| X  |
+| X  |
+------
+(2,2)(2,1)(2,0)
+Carga del robot: 1
+Nodo 1, tamaño de la lista abierta: 0, coste actual: 0
+Posición posible: (2 . -1)
+Posición posible: (2 . 1)
+Posición posible: (3 . 0)
+Posición posible: (1 . 0)
+Nodo 2, tamaño de la lista abierta: 2, coste actual: 1
+Posición posible: (2 . 0)
+Posición posible: (2 . 2)
+Posición posible: (3 . 1)
+Posición posible: (1 . 1)
+Nodo 3, tamaño de la lista abierta: 5, coste actual: 1
+Posición posible: (3 . -1)
+Posición posible: (3 . 1)
+Posición posible: (4 . 0)
+Posición posible: (2 . 0)
+Nodo 4, tamaño de la lista abierta: 6, coste actual: 2
+Posición posible: (2 . 1)
+Posición posible: (2 . 3)
+Posición posible: (3 . 2)
+Posición posible: (1 . 2)
+Nodo 5, tamaño de la lista abierta: 9, coste actual: 2
+Posición posible: (3 . 0)
+Posición posible: (3 . 2)
+Posición posible: (4 . 1)
+Posición posible: (2 . 1)
+Nodo 6, tamaño de la lista abierta: 11, coste actual: 3
+La ruta entre el punto inicial (r) al punto final (m) en 6 pasos con coste: 3
+------
+|  m |
+|r.. |
+| X  |
+| X  |
+------
+(2,0)(2,1)(2,2)(3,2)
+Carga del robot: 0
+NIL
+\end{lstlisting}
+
+Como es posible observar, cada problema a su vez es dividido en dos subproblemas donde primero se encuentra una ruta para llegar al inventario (subproblema a) y posteriormente se encuentra otra ruta para llevar dicho inventario a su destino final (subproblema b). En general la solución genera los siguientes resultados:
+
+\begin{table}[htbp]
+\caption{Resultados generales}
+\centering
+\begin{tabular}{lrl}
+\hline
+Problema & Coste & Ruta\\
+\hline
+1a & 4 & (2,2)(2,1)(2,0)(1,0)(0,0)\\
+1b & 6 & (0,0)(1,0)(2,0)(3,0)(3,1)(3,2)(3,3)\\
+2a & 2 & (2,2)(2,1)(2,0)\\
+2b & 3 & (2,0)(2,1)(2,2)(3,2)\\
+3a & 3 & (2,2)(2,3)(1,3)(0,3)\\
+3b & 5 & (0,3)(0,2)(1,2)(2,2)(3,2)(3,1)\\
+\hline
+\end{tabular}
+\end{table}
+
+Respecto a tomar los problemas como uno solo, se puede decir que el robot siempre debe estar en la posición \((2 . 2)\) para recibir una nueva tarea. De ser así, la única consideración adicional a estos resultados es el orden de solución, el problema 2 debería solucionarse antes que el problema 1, pues el segundo inventario corta el paso al primer inventario.
+
+Si los problemas son totalmente secuenciales, entonces el primer problema a resolver es el número dos. posteriormente no importará porque problema se opte porque el coste total de la solución será 24 para ambos casos posibles.
+
+\section*{Conclusión}
+\label{sec:org5b925bd}
+
+En este documento se implementó una solución al problema de la ruta más corta, mismo que ha sido de gran utilidad en la automatización de tareas. Particularmente se ha solicitado emular el comportamiento de un robot que mueve inventarios a través de un mapa cuadricular en el cual se tienen algunas barreras.
+
+Para solucionar esta situación se investigó que el algoritmo A\textsuperscript{*} se considera una mejora al clásico algoritmo de Dijkstra, mejorándolo por medio de una heurística, es decir, estimar cual puede ser el coste total del camino en caso de ser elegido.
+
+Si bien el modelo general de la heurística es sencillo pues consiste tan solo de la suma de funciones, el algoritmo cuenta con un número importante de mejoras y hay numerosos pseudocódigos, algunos más complicados que otros. Tan solo en el material consultado pueden recogerse cuatro pseudocódigos y hasta treinta implementaciones que obedecen a problemas diferentes.
+
+Otro punto negativo esta en cómo implementar las posibles barreras que puede contener un mapa. El pseudocódigo no suele contemplar esos casos. La mayoría de las implementaciones simplemente manejan los mapas como un árbol, de esta manera las barreras simplemente son nodos no conectados. En este documento particular, se asumió que cada nodo agregaba un coste de cero, es decir, lo único que cuesta es el movimiento del robot, y solo los nodos que se identifican como una barrera tendrán un coste adicional de cien. La consecuencia es que cada ruta que contiene un nodo con barrera será muy costosa.
+
+A pesar de lo anteriormente dicho, el algoritmo tiende a ser manejable incluso para seguirlo en papel siempre que el mapa sea pequeño debido a que, diferenciándose de Dijkstra, no tiene que recorrer cada nodo del mapa antes de tomar una decisión final. Gracias al uso de la heurística, el algoritmo reconoce que nodos son más prometedores y los inspecciona, omitiendo aquellos nodos menos probables. Además, ofrece la ventaja de estar incluido en muchas bibliotecas escritas en muchos lenguajes de programación.
+
+Un trabajo prometedor sería mejorar el programa para que detectara barreras de forma dinámica, es decir, localizar en tiempo real inventarios u otros robots que estorben al movimiento.
+
+\section*{Referencias}
+\label{sec:org9dbe9c2}
+\begin{hangparas}{1.5em}{1}
+\hypertarget{citeproc_bib_item_1}{Code, R. (2022). A* search algorithm. En \textit{Rosetta code}. \url{https://rosettacode.org/wiki/A*_search_algorithm}}
+
+\hypertarget{citeproc_bib_item_2}{Domkin, V. (2021). \textit{Programming algorithms in lisp: Writing efficient programs with examples in ansi common lisp}. Apress.}
+
+\hypertarget{citeproc_bib_item_3}{Edelkamp, S., \& Schroedl, S. (2011). \textit{Heuristic search: Theory and applications} (p. 47). Elsevier.}
+\end{hangparas}
+\end{document}
