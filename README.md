@@ -1,57 +1,28 @@
-# UNIR
+# Actividad grupal: Resolución de un problema mediante búsqueda heurística
 
-Esquema de trabajo para proyectos de la UNIR. En cada rama hay un trabajo nuevo, en `main` las plantillas para cada uno de ellos.
+- Objetivos de la actividad.
+  - Implementar la estrategia de búsqueda heurística A* para la resolución de un problema real.
+  
+## Descripción de la actividad y pautas de elaboración.
 
-## Nombre
+La empresa Amazon desea utilizar un robot para ordenar el inventario de su almacén. Amazon cuenta con tres inventarios (mesa con suministros para vender) localizados en unas posiciones específicas del almacén. El robot se debe encargar de mover los tres inventarios a una posición objetivo.
 
-Cada rama se compone por las iniciales de una materia, sigue un guion y las iniciales de una actividad. Por ejemplo:
+El robot puede moverse horizontal y verticalmente, y cargar o descargar un inventario. Un ejemplo del robot, moviendo el inventario, se puede observar [en vídeo](https://youtu.be/UtBa9yVZBJM).
 
-    PC-R1 = Percepción Computacional, Reto 1
+## Replicar el ejercicio
 
-## Descripción
+### Instalación
 
-- `apt.txt` configura dependencias a instalar sobre el contenedor, ubuntu por default para mybinder.org
-- `requirements.txt` configura las dependencias de python sobre el contenedor, se instalan vía pip.
-- La carpeta `writing` contiene el trabajo escrito en formato pdf en el archivo [main.pdf](writing/main.pdf).
-- La carpeta `im` contiene imágenes de ejemplo, se pueden agregar las necesarias.
-- La carpeta `out` contendrá los archivos de salida.
-- La carpeta `ds` contendrá los archivos datasets de entrada.
 
-## Instalación
 
-Para la instalación local solo corre:
 
-    pip install -r requirements.txt
+## FHS
 
-## Uso
+- La carpeta `writing` contiene el algoritmo seguido a mano.
+- Los archivos con nombre `mexmiart04t6actgr` contiene el reporte de la actividad en distintos formatos. El archivo fuente es `mexmiart04t6actgr.org`, desde él se puede incluso ejecutar el código fuente si la configuración de Org-babel es correcta. Se recomienda `mexmiart04t6actgr.pdf` para la lectura.
+- `a-star.lisp` contiene el programa hecho en Common Lisp.
+- `a-star.out` contiene un log de la ejecución completa del programa.
 
-En cada rama verás aquí un botón que lleva a [MyBinder](mybinder.org "My Binder"), así podrán ver cada ejemplo en acción.
-
-Cada proyecto usa archivos `ipynb` y `py` de forma indistinta, gracias a jupytext se pueden sincronizar. Para saber como hacerlo de momento lo mejor es consultar [jupytext](https://jupytext.readthedocs.io/en/latest/index.html "la documentación de jupytext"), después pondré aquí los comandos que use más comúnmente. 
-
-Si inicio con un `ipynb` lo convierto a `py`:
-
-    jupytext --to py:percent test.ipynb
-
-De otra forma:
-
-    jupytext --to notebook test.py
-	
-Después de eso hacer algo como:
-
-    jupytext --update --to notebook test.py
-    
-Generar la imagen desde el archivo `.dot`:
-
-    dot -Tpng -o im/<nombre>.png out/<nombre>.dot
-
-### unir.patch
-
-Este parche integra el formato UNIR en un archivo LaTeX:
-
-    patch writing/main.tex unir.patch
-
-Hay que tener cuidado con cambiar el nombre de la actividad dentro o posterior al parche.
 ## Licencia
 This repo is part of Actividades escolares UNIR
 
