@@ -1,4 +1,4 @@
-% Created 2022-04-11 lun 13:39
+% Created 2022-04-11 lun 18:34
 % Intended LaTeX compiler: pdflatex
 \documentclass[a4paper,12pt]{article}
 \usepackage[utf8]{inputenc}
@@ -106,7 +106,7 @@ backgroundcolor=\color{gray75},}
 \textcolor{UnirDark}{\LARGE\bfseries\newtitle}
 
 \section*{Introducción}
-\label{sec:org1381100}
+\label{sec:org09c2b7b}
 
 Una observación común sobre los problemas de búsqueda en un grafo es que coinciden con la localización de la ruta más corta. Los algoritmos que buscan en grafos representan al mismo como una matriz o una estructura (arbórea) implícita de nodos generada de forma iterativa y expandida según el algoritmo implementado.
 
@@ -117,16 +117,16 @@ Particularmente, A\textsuperscript{*} realiza una búsqueda heurística, caracte
 En este documento se muestra una implementación del algoritmo A\textsuperscript{*} para solucionar el problema de un robot que puede moverse en un mapa cuadricular en cuatro direcciones, dos verticales y dos horizontales y debe mover tres cargamentos a lugares específicos.
 
 \section*{Sobre el algoritmo A\textsuperscript{*}}
-\label{sec:org1e9cad1}
+\label{sec:org983a4eb}
 
-El algoritmo A\textsuperscript{*} es considerado comúnmente como una mejora de Dijkstra (cap. \citeprocitem{2}{Domkin, 2021, p. 7}). La estimación heurística más común del algoritmo es la mostrada en la ecuación \ref{orgb061ee5}.
+El algoritmo A\textsuperscript{*} es considerado comúnmente como una mejora de Dijkstra (cap. \citeprocitem{2}{Domkin, 2021, p. 7}). La estimación heurística más común del algoritmo es la mostrada en la ecuación \ref{org05b0ec0}.
 
-\label{orgb061ee5}
+\label{org05b0ec0}
 \begin{equation}
 f(u) = g(u) + h(u)
 \end{equation}
 
-Dentro de \ref{orgb061ee5} la función \(g(u)\)  calcula el coste del actual camino, mientras que \(h(u)\) es la estimación heurística del coste restante hasta el objetivo, por lo tanto \(f(u)\) es la aproximación total del coste de la ruta. (\citeprocitem{3}{Edelkamp \& Schroedl, 2011, p. 69})
+Dentro de \ref{org05b0ec0} la función \(g(u)\)  calcula el coste del actual camino, mientras que \(h(u)\) es la estimación heurística del coste restante hasta el objetivo, por lo tanto \(f(u)\) es la aproximación total del coste de la ruta. (\citeprocitem{3}{Edelkamp \& Schroedl, 2011, p. 69})
 
 Existen variantes sobre A\textsuperscript{*}, constantemente se busca la optimización del algoritmo para un mejor desempeño computacional. La implementación más básica se muestra en el algoritmo \ref{alg:a-star} (\citeprocitem{3}{Edelkamp \& Schroedl, 2011, p. 70}).
 
@@ -155,7 +155,7 @@ Existen variantes sobre A\textsuperscript{*}, constantemente se busca la optimiz
 \end{algorithm}
 
 \section*{Implementación}
-\label{sec:orgcb84182}
+\label{sec:orgeca5c40}
 
 Para implementar el algoritmo A\textsuperscript{*} se usará la familia de lenguajes Lisp (\citeprocitem{1}{Code, 2022}), por lo que se solicitarán los siguientes requisitos:
 
@@ -319,7 +319,7 @@ Ahora es posible escribir el código del algoritmo principal. Es importante nota
 				 counter)))))))
 \end{lstlisting}
 
-Hasta este punto ya sería posible utilizar el código escrito para resolver problemas Single-source shortest path. Mas allá de lo anterior, el problema que se desea resolver requiere que un robot viaje de un punto inicial a recoger una carga para después llevarla a otro punto dentro del mapa, es decir, cada trayecto del robot consiste en dos viajes y debe distinguir cuando lleva carga y cuando viaja solo, este comportamiento corresponde a esta última función.
+Hasta este punto ya sería posible utilizar el código escrito para resolver problemas Single-source shortest path. Más allá de lo anterior, el problema que se desea resolver requiere que un robot viaje de un punto inicial a recoger una carga para después llevarla a otro punto dentro del mapa. Es decir, cada trayecto del robot consiste en dos viajes y debe distinguir cuando lleva carga y cuando viaja solo, este comportamiento corresponde a esta última función.
 
 \lstset{language=Lisp,label= ,caption= ,captionpos=b,numbers=none,numbers=left}
 \begin{lstlisting}
@@ -340,7 +340,7 @@ Hasta este punto ya sería posible utilizar el código escrito para resolver pro
 \end{lstlisting}
 
 \section*{Resultado}
-\label{sec:org1b87ad5}
+\label{sec:orgbc0d202}
 
 Se dividió el problema general en tres problemas menores:
 
@@ -445,22 +445,22 @@ Respecto a tomar los problemas como uno solo, se puede decir que el robot siempr
 Si los problemas son totalmente secuenciales, entonces el primer problema a resolver es el número dos. posteriormente no importará porque problema se opte porque el coste total de la solución será 24 para ambos casos posibles.
 
 \section*{Conclusión}
-\label{sec:org5b925bd}
+\label{sec:org5934c98}
 
 En este documento se implementó una solución al problema de la ruta más corta, mismo que ha sido de gran utilidad en la automatización de tareas. Particularmente se ha solicitado emular el comportamiento de un robot que mueve inventarios a través de un mapa cuadricular en el cual se tienen algunas barreras.
 
-Para solucionar esta situación se investigó que el algoritmo A\textsuperscript{*} se considera una mejora al clásico algoritmo de Dijkstra, mejorándolo por medio de una heurística, es decir, estimar cual puede ser el coste total del camino en caso de ser elegido.
+Para solucionar esta situación se investigó que el algoritmo A\textsuperscript{*} se considera una mejora al clásico algoritmo de Dijkstra, mejorándolo por medio de una heurística, es decir, estimar cuál puede ser el coste total del camino en caso de ser elegido.
 
 Si bien el modelo general de la heurística es sencillo pues consiste tan solo de la suma de funciones, el algoritmo cuenta con un número importante de mejoras y hay numerosos pseudocódigos, algunos más complicados que otros. Tan solo en el material consultado pueden recogerse cuatro pseudocódigos y hasta treinta implementaciones que obedecen a problemas diferentes.
 
-Otro punto negativo esta en cómo implementar las posibles barreras que puede contener un mapa. El pseudocódigo no suele contemplar esos casos. La mayoría de las implementaciones simplemente manejan los mapas como un árbol, de esta manera las barreras simplemente son nodos no conectados. En este documento particular, se asumió que cada nodo agregaba un coste de cero, es decir, lo único que cuesta es el movimiento del robot, y solo los nodos que se identifican como una barrera tendrán un coste adicional de cien. La consecuencia es que cada ruta que contiene un nodo con barrera será muy costosa.
+Otro punto negativo está en cómo implementar las posibles barreras que puede contener un mapa. El pseudocódigo no suele contemplar esos casos. La mayoría de las implementaciones simplemente manejan los mapas como un árbol, de esta manera las barreras simplemente son nodos no conectados. En este documento particular, se asumió que cada nodo agregaba un coste de cero, es decir, lo único que cuesta es el movimiento del robot, y solo los nodos que se identifican como una barrera tendrán un coste adicional de cien. La consecuencia es que cada ruta que contiene un nodo con barrera será muy costosa.
 
 A pesar de lo anteriormente dicho, el algoritmo tiende a ser manejable incluso para seguirlo en papel siempre que el mapa sea pequeño debido a que, diferenciándose de Dijkstra, no tiene que recorrer cada nodo del mapa antes de tomar una decisión final. Gracias al uso de la heurística, el algoritmo reconoce que nodos son más prometedores y los inspecciona, omitiendo aquellos nodos menos probables. Además, ofrece la ventaja de estar incluido en muchas bibliotecas escritas en muchos lenguajes de programación.
 
 Un trabajo prometedor sería mejorar el programa para que detectara barreras de forma dinámica, es decir, localizar en tiempo real inventarios u otros robots que estorben al movimiento.
 
 \section*{Referencias}
-\label{sec:org9dbe9c2}
+\label{sec:orgc36c513}
 \begin{hangparas}{1.5em}{1}
 \hypertarget{citeproc_bib_item_1}{Code, R. (2022). A* search algorithm. En \textit{Rosetta code}. \url{https://rosettacode.org/wiki/A*_search_algorithm}}
 

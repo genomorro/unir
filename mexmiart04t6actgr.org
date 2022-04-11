@@ -298,7 +298,7 @@ Ahora es posible escribir el código del algoritmo principal. Es importante nota
                                    counter)))))))
 #+end_src
 
-Hasta este punto ya sería posible utilizar el código escrito para resolver problemas Single-source shortest path. Mas allá de lo anterior, el problema que se desea resolver requiere que un robot viaje de un punto inicial a recoger una carga para después llevarla a otro punto dentro del mapa, es decir, cada trayecto del robot consiste en dos viajes y debe distinguir cuando lleva carga y cuando viaja solo, este comportamiento corresponde a esta última función.
+Hasta este punto ya sería posible utilizar el código escrito para resolver problemas Single-source shortest path. Más allá de lo anterior, el problema que se desea resolver requiere que un robot viaje de un punto inicial a recoger una carga para después llevarla a otro punto dentro del mapa. Es decir, cada trayecto del robot consiste en dos viajes y debe distinguir cuando lleva carga y cuando viaja solo, este comportamiento corresponde a esta última función.
 
 #+attr_latex: :options numbers=left
 #+begin_src lisp
@@ -419,11 +419,11 @@ Si los problemas son totalmente secuenciales, entonces el primer problema a reso
 
 En este documento se implementó una solución al problema de la ruta más corta, mismo que ha sido de gran utilidad en la automatización de tareas. Particularmente se ha solicitado emular el comportamiento de un robot que mueve inventarios a través de un mapa cuadricular en el cual se tienen algunas barreras.
 
-Para solucionar esta situación se investigó que el algoritmo A^{*} se considera una mejora al clásico algoritmo de Dijkstra, mejorándolo por medio de una heurística, es decir, estimar cual puede ser el coste total del camino en caso de ser elegido.
+Para solucionar esta situación se investigó que el algoritmo A^{*} se considera una mejora al clásico algoritmo de Dijkstra, mejorándolo por medio de una heurística, es decir, estimar cuál puede ser el coste total del camino en caso de ser elegido.
 
 Si bien el modelo general de la heurística es sencillo pues consiste tan solo de la suma de funciones, el algoritmo cuenta con un número importante de mejoras y hay numerosos pseudocódigos, algunos más complicados que otros. Tan solo en el material consultado pueden recogerse cuatro pseudocódigos y hasta treinta implementaciones que obedecen a problemas diferentes.
 
-Otro punto negativo esta en cómo implementar las posibles barreras que puede contener un mapa. El pseudocódigo no suele contemplar esos casos. La mayoría de las implementaciones simplemente manejan los mapas como un árbol, de esta manera las barreras simplemente son nodos no conectados. En este documento particular, se asumió que cada nodo agregaba un coste de cero, es decir, lo único que cuesta es el movimiento del robot, y solo los nodos que se identifican como una barrera tendrán un coste adicional de cien. La consecuencia es que cada ruta que contiene un nodo con barrera será muy costosa.
+Otro punto negativo está en cómo implementar las posibles barreras que puede contener un mapa. El pseudocódigo no suele contemplar esos casos. La mayoría de las implementaciones simplemente manejan los mapas como un árbol, de esta manera las barreras simplemente son nodos no conectados. En este documento particular, se asumió que cada nodo agregaba un coste de cero, es decir, lo único que cuesta es el movimiento del robot, y solo los nodos que se identifican como una barrera tendrán un coste adicional de cien. La consecuencia es que cada ruta que contiene un nodo con barrera será muy costosa.
 
 A pesar de lo anteriormente dicho, el algoritmo tiende a ser manejable incluso para seguirlo en papel siempre que el mapa sea pequeño debido a que, diferenciándose de Dijkstra, no tiene que recorrer cada nodo del mapa antes de tomar una decisión final. Gracias al uso de la heurística, el algoritmo reconoce que nodos son más prometedores y los inspecciona, omitiendo aquellos nodos menos probables. Además, ofrece la ventaja de estar incluido en muchas bibliotecas escritas en muchos lenguajes de programación.
 
