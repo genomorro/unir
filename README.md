@@ -45,6 +45,12 @@ Y dentro de sbcl:
 		
 	- Coloque el cursor sobre el nombre de cada instrucción del archivo de Lisp y presione **Ctrl - c** seguido de **Ctrl - e** para ejecutarlo. Verá el nombre de la instrucción reflejada en el intérprete, lo cual indicará que se ha ejecutado correctamente. Un ejemplo de ejecución puede ser visto en `a-star.out`.
 
+4. (Opcional) Copie y pegue dentro del intérprete de Lisp cada bloque de código. Si se ejecuta correctamente debería ver el nombre del bloque en mayúsculas.
+
+### En un sistema Windows
+
+Se recomienda ver un [video tutorial](https://www.youtube.com/watch?v=Egg0IkWDpwY) para seguir el proceso de instalación.
+
 ## Licencia
 This repo is part of Actividades escolares UNIR
 
