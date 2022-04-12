@@ -37,9 +37,9 @@ Y dentro de sbcl:
 ```
 3. (Opcional) Instalar Emacs, configurar la variable `inferior-lisp-program`. Presione las teclas **Alt - :**, verá en la parte inferior de la pantalla el texto **Eval:** y presione:
 
-```
-(setq inferior-lisp-program "sbcl")
-```	
+
+    (setq inferior-lisp-program "sbcl")
+
 
 	- Abrir el archivo `a-star.lisp`. Presione las teclas **Ctrl - x** seguido de  **Ctrl - f**, al seleccionar el archivo presione **Enter** y verá su contenido.
 	
