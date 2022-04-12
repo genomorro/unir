@@ -20,21 +20,21 @@ El robot puede moverse horizontal y verticalmente, y cargar o descargar un inven
 
 ### Instalación
 
-#### En un sisitema *nix like (GNU/Linux, FreeBSD, MacOS, etc)
+#### En un sistema *nix like (GNU/Linux, FreeBSD, MacOS, etc)
 
 1. Instalar desde el gestor de paquetes de su preferencia una implementación de Lisp, por ejemplo SBCL o CLisp. Ejemplo:
-
+	```
 	apt install sbcl
-
+	```
 2. Instalar Quicklisp tal cual indica su [página de instalación](https://www.quicklisp.org/beta/)
-
+	```
 	curl -O https://beta.quicklisp.org/quicklisp.lisp
 	sbcl --load quicklisp.lisp
-	
+	```
 Y dentro de sbcl:
-
-	(quicklisp-quickstart:install)
-
+```
+(quicklisp-quickstart:install)
+```
 3. (Opcional) Instalar Emacs, configurar la variable `inferior-lisp-program`. Presione las teclas **Alt - :**, verá en la parte inferior de la pantalla el texto **Eval:** y presione:
 
 	(setq inferior-lisp-program "sbcl")
