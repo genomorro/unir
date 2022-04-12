@@ -20,6 +20,8 @@ El robot puede moverse horizontal y verticalmente, y cargar o descargar un inven
 
 ### Instalación
 
+Se recomienda ver un [video tutorial](https://www.youtube.com/watch?v=Egg0IkWDpwY) para seguir el proceso de instalación.
+
 #### En un sistema *nix like (GNU/Linux, FreeBSD, MacOS, etc)
 
 1. Instalar desde el gestor de paquetes de su preferencia una implementación de Lisp, por ejemplo SBCL o CLisp. Ejemplo:
@@ -51,7 +53,114 @@ Y dentro de sbcl:
 
 ### En un sistema Windows
 
-Se recomienda ver un [video tutorial](https://www.youtube.com/watch?v=Egg0IkWDpwY) para seguir el proceso de instalación.
+1. Instalar desde la pagina de http://www.sbcl.org/ el instalador de windows (32 y 64), hay algunas veces que la pagina no esta disponible así que se cuenta con un repositorio de respaldo en https://github.com/sbcl/sbcl
+
+2. Ejecutar el archivo descargado e instalar como cualquier aplicación de windows. Cuando termine la instalación, se tiene que agregar en las variables de entorno (variables del sistema - Variables de entorno - seleccionar Path y editar - Nuevo - agregamos las iniciales sbcl. Agregada la variable de entorno, en la ventana de Editar variable de Entorno, le ponemos en examinar y buscamos donde quedo instalado Steel Bank Common Lisp. Por último damos click en Aceptar en todas las ventanas.
+
+3. Cerrar la Terminal y volverla a abrir para que los cambios en el Path tengan efecto.
+
+4. Abrimos la terminal de Windows Power Shell y escribimos sbcl, para confirmar que fue instalado de forma correcta.
+
+5. Instalamos QuickLisp para poder abrir archivos de Lisp. QuickLisp se instala de https://www.quicklisp.org/beta/ donde vienen todas las instrucciones paso a paso para instalarlo en la terminal.
+
+6.     $ **curl -O [https://beta.quicklisp.org/quicklisp.lisp]
+       % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+       100 49843  100 49843    0     0  33639      0  0:00:01  0:00:01 --:--:-- 50397
+       
+       $ **curl -O [https://beta.quicklisp.org/quicklisp.lisp.asc]
+
+       $ **gpg --verify quicklisp.lisp.asc quicklisp.lisp**
+       gpg: Signature made Sat Feb  1 09:25:28 2014 EST using RSA key ID 028B5FF7
+       gpg: Good signature from "Quicklisp Release Signing Key
+       
+       $ sbcl --load quicklisp.lisp
+       
+	   This is SBCL 1.0.42.52, an implementation of ANSI Common Lisp.
+       More information about SBCL is available at <http://www.sbcl.org/>.
+       SBCL is free software, provided as is, with absolutely no warranty.
+       It is mostly in the public domain; some portions are provided under
+       BSD-style licenses.  See the CREDITS and COPYING files in the
+       distribution for more information.
+       
+       ==== quicklisp quickstart loaded ====
+
+       To continue, evaluate: (quicklisp-quickstart:install)
+       
+       * (quicklisp-quickstart:install)
+
+		
+	   Fetching #<URL "http://beta.quicklisp.org/dist/quicklisp/2010-10-07/systems.txt">
+	   45.30KB
+       ==================================================
+       46,386 bytes in 0.50 seconds (89.70KB/sec)
+       Fetching #<URL "http://beta.quicklisp.org/dist/quicklisp/2010-10-07/releases.txt">
+       83.49KB
+       ==================================================
+       85,490 bytes in 0.53 seconds (157.22KB/sec)
+       #<SYSTEM cl-vectors / cl-vectors-20101006-git / quicklisp 2010-10-07>
+       #<SYSTEM lispbuilder-sdl-cl-vectors / lispbuilder-20101006-svn / quicklisp 2010-10-       
+       #<SYSTEM lispbuilder-sdl-cl-vectors-examples / lispbuilder-20101006-svn / quicklisp   
+       #<SYSTEM lispbuilder-sdl-vecto / lispbuilder-20101006-svn / quicklisp 2010-10-07>
+       #<SYSTEM lispbuilder-sdl-vecto-examples / lispbuilder-20101006-svn / quicklisp  
+       #<SYSTEM static-vectors / static-vectors-20101006-git / quicklisp 2010-10-07>
+       #<SYSTEM vecto / vecto-1.4.3 / quicklisp 2010-10-07>
+       NIL
+
+
+       * (ql:quickload "vecto")
+       To load "vecto":
+       Install 5 Quicklisp releases:
+       cl-vectors salza2 vecto zpb-ttf zpng
+       Fetching #<URL "http://beta.quicklisp.org/archive/salza2/2010-10-06/salza2- 2.0.7.tgz">
+       14.84KB
+       ==================================================
+       15,197 bytes in 0.12 seconds (125.77KB/sec)
+       Fetching #<URL "http://beta.quicklisp.org/archive/zpng/2010-10-06/zpng-1.2.tgz">
+       38.59KB
+       ==================================================
+       39,521 bytes in 0.37 seconds (103.47KB/sec)
+       Fetching #<URL "http://beta.quicklisp.org/archive/zpb-ttf/2010-10-06/zpb-ttf-1.0.tgz">
+       42.59KB
+       ==================================================
+       43,611 bytes in 0.39 seconds (110.33KB/sec)
+       Fetching #<URL "http://beta.quicklisp.org/archive/cl-vectors/2010-10-06/cl-vectors-20101006-git.tgz">
+       40.40KB
+       ==================================================
+       41,374 bytes in 0.37 seconds (109.20KB/sec)
+       Fetching #<URL "http://beta.quicklisp.org/archive/vecto/2010-10-06/vecto-1.4.3.tgz">
+       75.71KB
+       ==================================================
+       77,526 bytes in 0.49 seconds (153.57KB/sec)
+       Loading "vecto"
+       ..................................................
+       [package zpb-ttf].................................
+       [package salza2]..................................
+       [package zpng]....................................
+       [package net.tuxee.paths].........................
+       [package net.tuxee.aa]............................
+       [package net.tuxee.aa-bin]........................
+       [package net.tuxee.vectors].......................
+       [package vecto]........
+       ("vecto")
+       * (ql:add-to-init-file)
+       I will append the following lines to #P"/Users/quicklisp/.sbclrc":
+
+       ;;; The following lines added by ql:add-to-init-file:
+        #-quicklisp
+        (let ((quicklisp-init (merge-pathnames "quicklisp/setup.lisp"
+                                         (user-homedir-pathname))))
+       (when (probe-file quicklisp-init)
+         (load quicklisp-init)))
+
+        Press Enter to continue.
+
+       #P"/Users/quicklisp/.sbclrc"
+       (quit)
+       $ 
+7. Se tiene ya QuickLisp instalado.
+
+8. Los archivos Lisp pueden ejecutarse directamente desde la terminal, usando AutoCad o LispWorks.
 
 ## Licencia
 This repo is part of Actividades escolares UNIR
