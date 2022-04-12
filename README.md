@@ -15,6 +15,7 @@ El robot puede moverse horizontal y verticalmente, y cargar o descargar un inven
 - Los archivos con nombre `mexmiart04t6actgr` contiene el reporte de la actividad en distintos formatos. El archivo fuente es `mexmiart04t6actgr.org`, desde él se puede incluso ejecutar el código fuente si la configuración de Org-babel es correcta. Se recomienda `mexmiart04t6actgr.pdf` para la lectura.
 - `a-star.lisp` contiene el programa hecho en Common Lisp.
 - `a-star.out` contiene un log de la ejecución completa del programa.
+- En el video `ejemplo-de-ejecucion.mp4` se muestra el programa mientras se ejecuta.
 
 ## Replicar el ejercicio
 
