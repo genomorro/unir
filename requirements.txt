@@ -17,7 +17,7 @@ openpyxl
 matplotlib
 # opencv-python
 # opencv-contrib-python
-# scikit-learn
+scikit-learn
 seaborn
 # tensorflow
 # graphviz
