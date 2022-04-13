@@ -39,7 +39,9 @@ Para la instalación local solo corre:
 
 ## Uso
 
-Ver en línea: [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/genomorro/unir/AA-A3)
+Ver en línea: [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gl/genomorro%2Funir/AA-A3) o bien [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/genomorro/unir/AA-A3)
+
+Ver código fuente: [gitlab](https://gitlab.com/genomorro/unir/-/tree/AA-A3)
 
 Cada proyecto usa archivos `ipynb` y `py` de forma indistinta, gracias a jupytext se pueden sincronizar. Para saber como hacerlo de momento lo mejor es consultar [jupytext](https://jupytext.readthedocs.io/en/latest/index.html "la documentación de jupytext"), después pondré aquí los comandos que use más comúnmente. 
 
