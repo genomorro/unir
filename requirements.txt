@@ -19,6 +19,6 @@ matplotlib
 # opencv-contrib-python
 scikit-learn
 seaborn
-# tensorflow
+tensorflow == 1.15
 # graphviz
 # pydotplus
