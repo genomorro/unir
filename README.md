@@ -8,7 +8,7 @@
 ## Desarrollo
 Soluciona en STRIPS/PDDL el siguiente problema. Expresa el siguiente escenario en PDDL: en una ciudad existen cuatro localizaciones, un hospital, una ambulancia, y dos enfermos. Tal como indica la siguiente figura (situación inicial):
 
-![problema](./im/problem.png [No match] [No match] "problema")
+![problema](./im/problem.png "problema")
 
 La localización L1 está conectada con L2, L2 está conectada con L4, y L4 está conectada con L3. Todas en ambas direcciones. La ambulancia y el hospital se encuentran en la localización L1. Y hay un paciente en la localización L3 y otro en la localización L4.
 
