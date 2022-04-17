@@ -1,58 +1,51 @@
-# UNIR
+# Planificación en STRIPS/PDDL
 
-Esquema de trabajo para proyectos de la UNIR. En cada rama hay un trabajo nuevo, en `main` las plantillas para cada uno de ellos.
+## Objetivos de la actividad
 
-## Nombre
+- Incentivar el proceso investigativo y utilizar los planificadores del estado de arte para solucionar un problema en STRIPS/PDDL.
+- Descripción de la actividad y pautas de elaboración.
 
-Cada rama se compone por las iniciales de una materia, sigue un guion y las iniciales de una actividad. Por ejemplo:
+## Desarrollo
+Soluciona en STRIPS/PDDL el siguiente problema. Expresa el siguiente escenario en PDDL: en una ciudad existen cuatro localizaciones, un hospital, una ambulancia, y dos enfermos. Tal como indica la siguiente figura (situación inicial):
 
-    PC-R1 = Percepción Computacional, Reto 1
+![problema](./im/problem.png [No match] [No match] "problema")
 
-## Descripción
+La localización L1 está conectada con L2, L2 está conectada con L4, y L4 está conectada con L3. Todas en ambas direcciones. La ambulancia y el hospital se encuentran en la localización L1. Y hay un paciente en la localización L3 y otro en la localización L4.
 
-- `apt.txt` configura dependencias a instalar sobre el contenedor, ubuntu por default para mybinder.org
-- `requirements.txt` configura las dependencias de python sobre el contenedor, se instalan vía pip.
-- La carpeta `writing` contiene el trabajo escrito en formato pdf en el archivo [main.pdf](writing/main.pdf).
-- La carpeta `im` contiene imágenes de ejemplo, se pueden agregar las necesarias.
-- La carpeta `out` contendrá los archivos de salida.
-- La carpeta `ds` contendrá los archivos datasets de entrada.
+El objetivo es trasladar los pacientes al hospital. Las acciones que se pueden realizar son:
 
-## Instalación
+- Conducir la ambulancia de una posición a otra.
+- Subir un paciente a la ambulancia.
+- Bajar a un paciente en una localización.
 
-Para la instalación local solo corre:
+Se deberá modelar en PDDL (dominio.pddl y problema.pddl) el escenario que se plantea en la situación inicial y resolver el problema con cuatro planificadores del estado del arte. El estudiante debe buscar y configurar por su cuenta los planificadores.
 
-    pip install -r requirements.txt
+En esta actividad dejamos dos planificadores que pueden usar: 
 
-## Uso
+- LPG-TD (Windows, Linux): https://lpg.unibs.it/lpg/download-lpg-td.html 
+- FF (Linux): https://fai.cs.uni-saarland.de/hoffmann/ff/FF-v2.3.tgz 
 
-En cada rama verás aquí un botón que lleva a [MyBinder](mybinder.org "My Binder"), así podrán ver cada ejemplo en acción.
+Las soluciones ofrecidas por los planificadores se deben comparar, indicando cuáles han dado soluciones óptimas y en un menor tiempo de ejecución.
 
-Cada proyecto usa archivos `ipynb` y `py` de forma indistinta, gracias a jupytext se pueden sincronizar. Para saber como hacerlo de momento lo mejor es consultar [jupytext](https://jupytext.readthedocs.io/en/latest/index.html "la documentación de jupytext"), después pondré aquí los comandos que use más comúnmente. 
+Adicionalmente, se deben modelar dos situaciones (dos problemas) diferentes a la planteada en esta actividad (por ejemplo, cambiar las conexiones entre las localizaciones, agregar o eliminar pacientes, colocar otra ambulancia, etc.). Y se deben resolver los dos problemas con el mejor planificador de los cuatro seleccionados.
 
-Si inicio con un `ipynb` lo convierto a `py`:
+## Documentos pedidos
 
-    jupytext --to py:percent test.ipynb
+- Códigos fuente de los ficheros (dominio.pddl y problema.pddl).
+- Memoria explicativa en Word o PDF de no más de 20 páginas en la que se incluya:
+  + Informe detallado de lo presentado y de su funcionamiento.
+  + Plan o planes que resuelven el escenario.
+  + Capturas de pantalla de la salida de la ejecución de los planificadores.
+  + Comparación de los planificadores utilizados.
+  + Resultados de las dos situaciones adicionales.
+  + Incluir las dificultades encontradas.
+  + Referencias con normas APA (se penaliza si no tienen normas APA).
+- Extensión máxima de la actividad: 10 páginas, fuente Calibri 12 e interlineado 1,5.
 
-De otra forma:
+## FHS
 
-    jupytext --to notebook test.py
-	
-Después de eso hacer algo como:
-
-    jupytext --update --to notebook test.py
-    
-Generar la imagen desde el archivo `.dot`:
-
-    dot -Tpng -o im/<nombre>.png out/<nombre>.dot
-
-### unir.patch
-
-Este parche integra el formato UNIR en un archivo LaTeX:
-
-    patch writing/main.tex unir.patch
-
-Hay que tener cuidado con cambiar el nombre de la actividad dentro o posterior al parche.
 ## Licencia
+
 This repo is part of Actividades escolares UNIR
 
 Copyright (C) 2021, Edgar Uriel Domínguez Espinoza
