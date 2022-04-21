@@ -1,0 +1,67 @@
+Bootstrap: docker
+From: ubuntu:bionic
+
+%files
+    cplex_studio12.7.1.linux-x86-64.bin /third-party/
+
+%post
+    ## Install all necessary dependencies.
+    apt-get update
+    apt-get -y install gcc make m4 flex unzip ca-certificates git
+    rm -rf /var/lib/apt/lists/*
+
+    git clone -b ipc-2018-seq-opt https://bitbucket.org/ipc2018-classical/team17.git /planner
+
+    ## Build CPLEX.
+    /third-party/cplex_studio12.7.1.linux-x86-64.bin -DLICENSE_ACCEPTED=TRUE -i silent
+    export CPLEX=/opt/ibm/ILOG/CPLEX_Studio1271/cplex
+
+    cd /planner
+    make CPLEX_CFLAGS=-I${CPLEX}/include -C boruvka libboruvka.a
+
+    make BORUVKA_CFLAGS=-I../boruvka \
+         BORUVKA_LDFLAGS="-L../boruvka -lboruvka" \
+            -C cpddl
+
+    make -C opts
+
+    make CPLEX_CFLAGS=-I${CPLEX}/include \
+         BORUVKA_CFLAGS="-Iboruvka -Icpddl" \
+         OPTS_CFLAGS=-Iopts
+
+    make CPLEX_CFLAGS=-I${CPLEX}/include \
+         CPLEX_LDFLAGS="-L${CPLEX}/lib/x86-64_linux/static_pic -lcplex" \
+         BORUVKA_CFLAGS=-I../boruvka \
+         BORUVKA_LDFLAGS="-L../boruvka -lboruvka -L../cpddl -lpddl" \
+         OPTS_CFLAGS=-I../opts \
+         OPTS_LDFLAGS="-L../opts -lopts" \
+            -C bin
+
+    rm -rf /third-party
+    rm -rf /opt/ibm
+    rm -rf /planner/.git
+
+
+%runscript
+    ## The runscript is called whenever the container is used to solve
+    ## an instance.
+
+    DOMAIN=$1
+    PROB=$2
+    PLAN=$3
+    COST_BOUND=$4
+
+    ## Call your planner.
+    /planner/bin/search-1 \
+            --max-time 1800 --max-mem 8192 \
+            -o $PLAN $DOMAIN $PROB -H mgroup-merge:max
+
+## Update the following fields with meta data about your submission.
+## Please use the same field names and use only one line for each value.
+%labels
+Name        maplan-2
+Description Forward and backward pruning using h^2, h^3 and fam-groups with A* and a heuristic based on merging fam-groups.
+Authors     Daniel FiÅ¡er <danfis@danfis.cz>, AntonÃ­n Komenda <antonin.komenda@fel.cvut.cz>
+SupportsDerivedPredicates no
+SupportsQuantifiedPreconditions yes
+SupportsQuantifiedEffects yes

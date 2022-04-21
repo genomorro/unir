@@ -1,0 +1,43 @@
+Bootstrap: docker
+From: ubuntu:xenial
+
+%post
+    ## Install all necessary dependencies.
+    apt update
+    apt -y install cmake g++ g++-multilib make python ca-certificates git
+    rm -rf /var/lib/apt/lists/*
+
+    git clone -b ipc-2018-seq-opt https://bitbucket.org/ipc2018-classical/team22.git /planner
+
+    ## Build your planner
+    cd /planner
+    ./build.py release64 -j4
+
+%runscript
+    ## The runscript is called whenever the container is used to solve
+    ## an instance.
+
+    DOMAINFILE=$1
+    PROBLEMFILE=$2
+    PLANFILE=$3
+
+    ## Call your planner.
+    /planner/fast-downward.py \
+        --transform-task "/planner/builds/release64/bin/preprocess" \
+        --build 'release64' \
+        --search-memory-limit '7744M' \
+        --plan-file $PLANFILE \
+        $DOMAINFILE \
+        $PROBLEMFILE \
+        --symmetries 'sym=structural_symmetries(search_symmetries=dks)' \
+        --search 'astar(max([celmcut,lmcount(lm_factory=lm_merged([lm_rhw,lm_hm(m=1)]),admissible=true,transform=multiply_out_conditional_effects)]),symmetries=sym,pruning=stubborn_sets_simple(minimum_pruning_ratio=0.01),num_por_probes=1000)'
+
+## Update the following fields with meta data about your submission.
+## Please use the same field names and use only one line for each value.
+%labels
+Name        Metis2
+Description A variant of Metis1 with the following differences: it uses DKS for symmetry-based pruning rather than OSS, and the maximum over two heuristics, namely the lmcut heuristic with support for conditional effects like Metis1, but also the landmark heuristic using landmarks generated as described by Richter, Helmert, and Westphal (AAAI 2008) and h^m landmarks with m=1. Since the latter does not support conditional effects natively, we compile them away by multiplying out all operators with conditional effects.
+Authors     Silvan Sievers <silvan.sievers@unibas.ch> and Michael Katz <michael.katz1@ibm.com>
+SupportsDerivedPredicates no
+SupportsQuantifiedPreconditions no
+SupportsQuantifiedEffects no
