@@ -1,0 +1,62 @@
+\documentclass[a4paper,12pt]{article}
+
+\usepackage[spanish,mexico]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[top=2.5cm,bottom=2.5cm,left=3.25cm,right=3.25cm]{geometry}
+\usepackage{hyperref}
+\title{Planificación en STRIPS/PDDL}
+\makeatletter
+\let\newtitle\@title
+\makeatother
+\usepackage[round]{natbib}
+\usepackage{multirow}
+\usepackage[table]{xcolor}
+\definecolor{UnirLight}{HTML}{E6F4F9}
+\definecolor{UnirDark}{HTML}{0098CD}
+\arrayrulecolor{UnirDark}
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\renewcommand{\headrulewidth}{0pt}
+\headheight=45pt
+\setlength{\footskip}{64pt}
+\linespread{1.5}
+\lhead{}
+\chead{
+  \begin{tabular}{|c|l|c|}
+    \hline
+    \rowcolor{UnirLight}
+    \textcolor{UnirDark}{Asignatura} & \textcolor{UnirDark}{Datos del alumno} & \textcolor{UnirDark}{Fecha} \\
+    \hline
+    \multirow{2}{12em}{\textbf{Razonamiento y planificación automática}} & Apellidos: Domínguez Espinoza & \multirow{2}{5em}{\today} \\
+    & Nombre: Edgar Uriel & \\
+    \hline
+    \end{tabular}}
+\rhead{}
+\lfoot{}
+\cfoot{}
+\rfoot{\makebox(70,56)[t]{\textcolor{UnirDark}{Actividades}}
+  \colorbox{UnirDark}{
+    \makebox(10,56)[t]{
+      \textcolor{white}{\thepage}}}}
+\usepackage[color={[gray]{0.5}}, angle=90,fontsize=9pt,anchor=lb,pos={0.03\paperwidth,0.95\paperheight}]{draftwatermark}
+\SetWatermarkText{{\copyright} Universidad Internacional de La Rioja (UNIR)}
+\titleformat*{\section}{\color{UnirDark}\normalsize\bfseries}
+\titleformat*{\subsection}{\color{UnirDark}\normalsize\bfseries}
+\hypersetup{
+  pdfauthor={Edgar Uriel Domínguez Espinoza},
+  pdftitle={Planificación en STRIPS/PDDL},
+  pdfkeywords={strips, pddl, planificación, ff, downward, lpg-td},
+  pdfsubject={Razonamiento y planificación automática},
+  pdfcreator={GNU Emacs 27.2},
+  pdflang={"Spanish"}}
+
+\begin{document}
+
+\textcolor{UnirDark}{\LARGE\bfseries\newtitle}
+
+
+
+% \bibliographystyle{apalike}
+% \bibliography{mexmiart04t9lab}
+\end{document}
