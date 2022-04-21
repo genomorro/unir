@@ -44,6 +44,13 @@ Adicionalmente, se deben modelar dos situaciones (dos problemas) diferentes a la
 
 ## FHS
 
+
+# Uso
+
+En línea, solo lectura:	[link](http://editor.planning.domains/#read_session=NSYlfo6EYh)   [offline](vscode://jan-dolejsi.pddl/planning.domains/session/NSYlfo6EYh)   NSYlfo6EYh
+En línea, lectura/escritura:	[link](http://editor.planning.domains/#edit_session=jSp07o2cHBpmxik)   [offline](vscode://jan-dolejsi.pddl/planning.domains/session/edit/jSp07o2cHBpmxik)   jSp07o2cHBpmxik
+
+
 ## Licencia
 
 This repo is part of Actividades escolares UNIR
