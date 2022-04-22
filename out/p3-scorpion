@@ -1,0 +1,497 @@
+INFO     Running translator.
+INFO     translator input: ['/home/genomorro/School/UNIR/RazonamientoPlanificacion/RPA-03/planners/scorpion/domain.pddl', '/home/genomorro/School/UNIR/RazonamientoPlanificacion/RPA-03/planners/scorpion/problem.pddl']
+INFO     translator arguments: []
+INFO     translator time limit: 7199.94s
+INFO     translator memory limit: 12288 MB
+INFO     callstring: /usr/bin/python /planner/builds/release64/bin/translate/translate.py /home/genomorro/School/UNIR/RazonamientoPlanificacion/RPA-03/planners/scorpion/domain.pddl /home/genomorro/School/UNIR/RazonamientoPlanificacion/RPA-03/planners/scorpion/problem.pddl
+time limit 7199.94 -> (7200, 7200)
+Parsing...
+Parsing: [0.000s CPU, 0.001s wall-clock]
+Normalizing task... [0.000s CPU, 0.000s wall-clock]
+Instantiating...
+Generating Datalog program... [0.000s CPU, 0.000s wall-clock]
+Normalizing Datalog program...
+Normalizing Datalog program: [0.000s CPU, 0.002s wall-clock]
+Preparing model... [0.000s CPU, 0.000s wall-clock]
+Generated 25 rules.
+Computing model... [0.000s CPU, 0.001s wall-clock]
+103 relevant atoms
+98 auxiliary atoms
+201 final queue length
+233 total queue pushes
+Completing instantiation... [0.000s CPU, 0.001s wall-clock]
+Instantiating: [0.000s CPU, 0.004s wall-clock]
+Computing fact groups...
+Finding invariants...
+10 initial candidates
+Finding invariants: [0.000s CPU, 0.001s wall-clock]
+Checking invariant weight... [0.000s CPU, 0.000s wall-clock]
+Instantiating groups... [0.000s CPU, 0.000s wall-clock]
+Collecting mutex groups... [0.000s CPU, 0.000s wall-clock]
+Choosing groups...
+1 uncovered facts
+Choosing groups: [0.000s CPU, 0.000s wall-clock]
+Building translation key... [0.000s CPU, 0.000s wall-clock]
+Computing fact groups: [0.000s CPU, 0.001s wall-clock]
+Building STRIPS to SAS dictionary... [0.000s CPU, 0.000s wall-clock]
+Building dictionary for full mutex groups... [0.000s CPU, 0.000s wall-clock]
+Building mutex information...
+Building mutex information: [0.000s CPU, 0.000s wall-clock]
+Translating task...
+Processing axioms...
+Simplifying axioms... [0.000s CPU, 0.000s wall-clock]
+Processing axioms: [0.000s CPU, 0.000s wall-clock]
+Translating task: [0.000s CPU, 0.001s wall-clock]
+14 effect conditions simplified
+0 implied preconditions added
+Detecting unreachable propositions...
+0 operators removed
+0 axioms removed
+3 propositions removed
+Detecting unreachable propositions: [0.000s CPU, 0.000s wall-clock]
+Reordering and filtering variables...
+4 of 4 variables necessary.
+1 of 4 mutex groups necessary.
+38 of 38 operators necessary.
+0 of 0 axiom rules necessary.
+Reordering and filtering variables: [0.000s CPU, 0.000s wall-clock]
+Translator variables: 4
+Translator derived variables: 0
+Translator facts: 25
+Translator goal facts: 2
+Translator mutex groups: 1
+Translator total mutex groups size: 3
+Translator operators: 38
+Translator axioms: 0
+Translator task size: 218
+Translator peak memory: 26328 KB
+Writing output... [0.000s CPU, 0.000s wall-clock]
+Done! [0.000s CPU, 0.009s wall-clock]
+INFO     Run task transformation (/planner/preprocess).
+INFO     callstring: /planner/preprocess < output.sas
+Building causal graph...
+The causal graph is not acyclic.
+4 variables of 4 necessary
+1 of 1 mutex groups necessary.
+38 of 38 operators necessary.
+0 of 0 axiom rules necessary.
+Initializing mutex computation...
+Mutex computation initialized with 25 fluents.
+iteration for mutex detection and operator pruning
+Initialize m_index fw
+Initialized mvalues forward: reached=16, notReached=447, spurious=162
+Initialize m_ops fw
+Computing mutexes...
+Mutex computation finished with reached=463, notReached=0, spurious=162
+0 operators are spurious because were not triggered
+H^2 mutexes added fw: 0, unreachable: 0
+0 of 38 operators detected as spurious
+iteration for mutex detection and operator pruning
+Initialize m_index bw
+Init values regression
+Initialized mvalues backward: reached=77, notReached=386, spurious=162
+Initialize m_ops bw
+Computing mutexes...
+Mutex computation finished with reached=463, notReached=0, spurious=162
+0 operators are spurious because were not triggered
+H^2 mutexes added bw: 0, unreachable: 0
+0 of 38 operators detected as spurious
+Total mutex and disambiguation time: 0.000652 iterations: 2
+1 of 1 mutex groups necessary.
+38 of 38 operators necessary.
+0 of 0 axiom rules necessary.
+Change id of operators: 38
+Change id of mutexes
+Change id of goals
+Change id of initial state
+Remove unreachable facts from variables: 4
+1 of 1 mutex groups necessary.
+38 of 38 operators necessary.
+0 of 0 axiom rules necessary.
+Updating causal graph and pruning unnecessary facts
+4 variables of 4 of 4 necessary
+The causal graph is not acyclic.
+4 variables of 4 necessary
+1 of 1 mutex groups necessary.
+38 of 38 operators necessary.
+0 of 0 axiom rules necessary.
+Building domain transition graphs...
+solveable in poly time 0
+Building successor generator...
+Preprocessor variables: 4
+Preprocessor facts: 25
+Preprocessor derived variables: 0
+Preprocessor operators: 38
+Preprocessor mutex groups: 1
+Preprocessor task size: 218
+Writing output...
+done
+INFO     Running search (release64).
+INFO     search input: output.sas
+INFO     search arguments: []
+INFO     search time limit: 7199.9s
+INFO     search memory limit: 12288 MB
+INFO     search executable: /planner/builds/release64/bin/downward
+INFO     search portfolio: /planner/driver/portfolios/seq_opt_scorpion.py
+Task has no conditional effects
+Exit codes: <generator object run_opt at 0x7f0a4c2203c0>
+remaining time: 7199.9
+config 0: relative time 1, remaining 1
+args: ['/planner/builds/release64/bin/downward', '--search', 'astar(saturated_cost_partitioning([projections(systematic(2), max_time=100, max_peak_memory=2048), projections(hillclimbing(max_time=100, random_seed=0)), cartesian()], max_time=200, max_optimization_time=2, diversify=true, random_seed=0, orders=greedy(random_seed=0)), pruning=stubborn_sets_simple(min_pruning_ratio=0.2))', '--internal-plan-file', '/home/genomorro/School/UNIR/RazonamientoPlanificacion/RPA-03/planners/scorpion/sas_plan']
+time limit 7199.90 -> (7200, 7200)
+reading input... [t=0s]
+done reading input! [t=0s]
+packing state variables...done! [t=0s]
+Variables: 4
+FactPairs: 25
+Bytes per state: 4
+Building successor generator...done! [t=0s]
+peak memory difference for root successor generator creation: 0 KB
+time for root successor generation creation: 0s
+done initializing global data [t=0s]
+[t=0s, 5248 KB] Compute patterns
+building causal graph...done! [t=0s]
+Found 6 SGA patterns.
+Found 6 interesting patterns.
+[t=0s, 5248 KB] Number of patterns: 6
+[t=0s, 5248 KB] Time for computing patterns: 0s
+[t=0s, 5248 KB] Build projections
+[t=0.000998623s, 5248 KB] Time for building projections: 0.000998623s
+[t=0.000998623s, 5248 KB] Number of projections: 6
+[t=0.000998623s, 5248 KB] Compute patterns
+PDB collection construction time: 0s
+Done calculating initial PDB collection
+Average operator cost: 1
+Done calculating initial candidate PDBs
+current collection size is 16
+current initial h value: 4
+pattern: [0, 2] - improvement: 996
+pattern: [0, 3] - improvement: 995
+found a better pattern with improvement 996
+pattern: [0, 2]
+Hill climbing time so far: 0.00099579s
+current collection size is 72
+current initial h value: 10
+pattern: [0, 3] - improvement: 249
+pattern: [0, 2, 3] - improvement: 561
+found a better pattern with improvement 561
+pattern: [0, 2, 3]
+Hill climbing time so far: 0.00299312s
+current collection size is 520
+current initial h value: 14
+pattern: [0, 1, 2, 3] - improvement: 934
+found a better pattern with improvement 934
+pattern: [0, 1, 2, 3]
+Hill climbing time so far: 0.00499108s
+current collection size is 1416
+current initial h value: 16
+Improvement below threshold. Stop hill climbing.
+iPDB: iterations = 4
+iPDB: number of patterns = 5
+iPDB: size = 1416
+iPDB: generated = 7
+iPDB: rejected = 0
+iPDB: maximum pdb size = 896
+iPDB: hill climbing time: 0.00798936s
+Pattern generation (hill climbing) time: 0.00798936s
+[t=0.00898798s, 5396 KB] Number of patterns: 5
+[t=0.00898798s, 5396 KB] Time for computing patterns: 0.00798936s
+[t=0.00898798s, 5396 KB] Build projections
+[t=0.00898798s, 5396 KB] Time for building projections: 0s
+[t=0.00898798s, 5396 KB] Number of projections: 5
+[t=0.00898798s, 5396 KB] Generate CEGAR abstractions
+Initializing Exploration...
+h^m landmarks m=1
+Using 25 P^m fluents.
+Level 1 completed.
+Level 2 completed.
+Level 3 completed.
+Level 4 completed.
+Level 5 completed.
+Level 6 completed.
+h^m landmarks computed.
+Removed 0 reasonable or obedient reasonable orders
+Calculating achievers.
+Landmarks generation time: 0s
+Discovered 12 landmarks, of which 0 are disjunctive and 0 are conjunctive 
+19 edges
+Sort 8 facts
+[t=0.00898798s, 5396 KB] Start building abstraction.
+Maximum number of states: 268435455
+Maximum number of transitions: 125000
+Concrete solution found: 1
+[t=0.00998796s, 5396 KB] Done building abstraction.
+Time for building abstraction: 0.000999978s
+Total operator cost: 38
+States: 6
+Dead ends: 0
+Init h: 1
+Looping transitions: 36
+Non-looping transitions: 30
+Deviations: 0
+Unmet preconditions: 0
+Unmet goals: 1
+
+[t=0.00998796s, 5396 KB] Start building abstraction.
+Maximum number of states: 306783377
+Maximum number of transitions: 142852
+Concrete solution found: 1
+[t=0.00998796s, 5396 KB] Done building abstraction.
+Time for building abstraction: 0s
+Total operator cost: 38
+States: 5
+Dead ends: 0
+Init h: 1
+Looping transitions: 59
+Non-looping transitions: 13
+Deviations: 0
+Unmet preconditions: 0
+Unmet goals: 1
+
+[t=0.00998796s, 5396 KB] Start building abstraction.
+Maximum number of states: 357913939
+Maximum number of transitions: 166659
+Concrete solution found: 1
+[t=0.00998796s, 5396 KB] Done building abstraction.
+Time for building abstraction: 0s
+Total operator cost: 38
+States: 5
+Dead ends: 0
+Init h: 1
+Looping transitions: 71
+Non-looping transitions: 11
+Deviations: 0
+Unmet preconditions: 0
+Unmet goals: 1
+
+[t=0.00998796s, 5396 KB] Start building abstraction.
+Maximum number of states: 429496726
+Maximum number of transitions: 199989
+Concrete solution found: 1
+[t=0.00998796s, 5396 KB] Done building abstraction.
+Time for building abstraction: 0s
+Total operator cost: 38
+States: 3
+Dead ends: 0
+Init h: 1
+Looping transitions: 72
+Non-looping transitions: 14
+Deviations: 0
+Unmet preconditions: 0
+Unmet goals: 1
+
+[t=0.00998796s, 5396 KB] Start building abstraction.
+Maximum number of states: 536870907
+Maximum number of transitions: 249983
+Concrete solution found: 1
+[t=0.00998796s, 5396 KB] Done building abstraction.
+Time for building abstraction: 0s
+Total operator cost: 38
+States: 4
+Dead ends: 0
+Init h: 1
+Looping transitions: 78
+Non-looping transitions: 8
+Deviations: 0
+Unmet preconditions: 0
+Unmet goals: 1
+
+[t=0.00998796s, 5396 KB] Start building abstraction.
+Maximum number of states: 715827874
+Maximum number of transitions: 333308
+Concrete solution found: 1
+[t=0.00998796s, 5396 KB] Done building abstraction.
+Time for building abstraction: 0s
+Total operator cost: 38
+States: 2
+Dead ends: 0
+Init h: 1
+Looping transitions: 60
+Non-looping transitions: 2
+Deviations: 0
+Unmet preconditions: 0
+Unmet goals: 1
+
+[t=0.00998796s, 5396 KB] Start building abstraction.
+Maximum number of states: 1073741811
+Maximum number of transitions: 499961
+Concrete solution found: 1
+[t=0.00998796s, 5396 KB] Done building abstraction.
+Time for building abstraction: 0s
+Total operator cost: 38
+States: 2
+Dead ends: 0
+Init h: 1
+Looping transitions: 60
+Non-looping transitions: 2
+Deviations: 0
+Unmet preconditions: 0
+Unmet goals: 1
+
+[t=0.00998796s, 5396 KB] Start building abstraction.
+Maximum number of states: 2147483620
+Maximum number of transitions: 999920
+Concrete solution found: 1
+[t=0.00998796s, 5396 KB] Done building abstraction.
+Time for building abstraction: 0s
+Total operator cost: 38
+States: 3
+Dead ends: 0
+Init h: 1
+Looping transitions: 72
+Non-looping transitions: 14
+Deviations: 0
+Unmet preconditions: 0
+Unmet goals: 1
+
+Sort 2 facts
+[t=0.00998796s, 5396 KB] Start building abstraction.
+Maximum number of states: 1073741808
+Maximum number of transitions: 499953
+Concrete solution found: 1
+[t=0.00998796s, 5396 KB] Done building abstraction.
+Time for building abstraction: 0s
+Total operator cost: 38
+States: 18
+Dead ends: 0
+Init h: 8
+Looping transitions: 171
+Non-looping transitions: 35
+Deviations: 2
+Unmet preconditions: 14
+Unmet goals: 1
+
+[t=0.00998796s, 5396 KB] Start building abstraction.
+Maximum number of states: 2147483599
+Maximum number of transitions: 999871
+Concrete solution found: 1
+[t=0.00998796s, 5532 KB] Done building abstraction.
+Time for building abstraction: 0s
+Total operator cost: 38
+States: 14
+Dead ends: 0
+Init h: 8
+Looping transitions: 172
+Non-looping transitions: 32
+Deviations: 0
+Unmet preconditions: 12
+Unmet goals: 1
+
+[t=0.00998796s, 5532 KB] Done initializing additive Cartesian heuristic
+Cartesian abstractions built: 10
+Abstractions stored: 10
+Transition systems stored: 0
+Cartesian states: 62
+Total number of non-looping transitions: 161
+
+Cartesian abstractions: 10
+[t=0.00998796s, 5532 KB] Convert to backward-graph abstractions
+[t=0.00998796s, 5532 KB] Done converting abstractions
+Time for building Cartesian abstractions: 0.000999978s
+[t=0.00998796s, 5532 KB] Abstractions: 21
+[t=0.00998796s, 5532 KB] Abstractions per generator: [6, 5, 10]
+[t=0.00998796s, 5532 KB] Initialize greedy order generator
+[t=0.00998796s, 5532 KB] Time for computing h values and saturated costs: 0s
+[t=0.00998796s, 5532 KB] Done computing surplus costs
+[t=0.00998796s, 5532 KB] Compute stolen costs
+[t=0.00998796s, 5532 KB] Time for initializing greedy order generator: 0s
+[t=0.00998796s, 5532 KB] Start sampling
+[t=0.00998796s, 5532 KB] Initial h value for sampling: 15
+[t=0.0189771s, 5532 KB] Samples: 1000
+[t=0.0189771s, 5532 KB] Sampling time: 0.00898909s
+[t=0.0189771s, 5656 KB] Covered abstract states: 647/1638 = 0.394994
+[t=0.0189771s, 5656 KB] Start computing cost partitionings
+[t=0.0189771s, 5656 KB] Time for computing greedy order: 0s
+[t=0.0199768s, 5656 KB] Incumbent h value: 15
+[t=0.0199768s, 5656 KB] Switch positions 0 and 8 (abstractions 18, 10): h=16
+[t=0.0199768s, 5656 KB] Found improving order with h=16: [10, 17, 16, 15, 14, 13, 12, 11, 18, 9, 20, 19, 8, 5, 3, 7, 6, 1, 0, 4, 2]
+[t=0.0379643s, 5656 KB] Time for optimizing order: 0.0179876s
+[t=0.0379643s, 5656 KB] Time for optimizing order has expired: 0
+[t=0.0379643s, 5656 KB] Portfolio sum h value: 12556
+[t=200.025s, 5656 KB] Orders: 1
+[t=200.026s, 5656 KB] Time for computing cost partitionings: 200.008s
+[t=200.026s, 5656 KB] Memory for cost partitionings: 0 KB
+[t=200.026s, 5656 KB] Stored lookup tables: 1/21 = 0.047619
+[t=200.026s, 5656 KB] Stored values: 896/1638 = 0.547009
+[t=200.026s, 5656 KB] Stored heuristics: 1/21 = 0.047619
+Conducting best first search with reopening closed nodes, (real) bound = 2147483647
+New best heuristic value for saturated_cost_partitioning(list(projections(systematic(2), max_time = 100, max_peak_memory = 2048), projections(hillclimbing(max_time = 100, random_seed = 0)), cartesian), max_time = 200, max_optimization_time = 2, diversify = true, random_seed = 0, orders = greedy(random_seed = 0)): 16
+[g=0, 1 evaluated, 0 expanded, t=200.026s, 5656 KB]
+f = 16 [1 evaluated, 0 expanded, t=200.026s, 5656 KB]
+Initial heuristic value for saturated_cost_partitioning(list(projections(systematic(2), max_time = 100, max_peak_memory = 2048), projections(hillclimbing(max_time = 100, random_seed = 0)), cartesian), max_time = 200, max_optimization_time = 2, diversify = true, random_seed = 0, orders = greedy(random_seed = 0)): 16
+pruning method: stubborn sets simple
+New best heuristic value for saturated_cost_partitioning(list(projections(systematic(2), max_time = 100, max_peak_memory = 2048), projections(hillclimbing(max_time = 100, random_seed = 0)), cartesian), max_time = 200, max_optimization_time = 2, diversify = true, random_seed = 0, orders = greedy(random_seed = 0)): 15
+[g=1, 2 evaluated, 1 expanded, t=200.026s, 5656 KB]
+New best heuristic value for saturated_cost_partitioning(list(projections(systematic(2), max_time = 100, max_peak_memory = 2048), projections(hillclimbing(max_time = 100, random_seed = 0)), cartesian), max_time = 200, max_optimization_time = 2, diversify = true, random_seed = 0, orders = greedy(random_seed = 0)): 14
+[g=2, 4 evaluated, 2 expanded, t=200.026s, 5656 KB]
+New best heuristic value for saturated_cost_partitioning(list(projections(systematic(2), max_time = 100, max_peak_memory = 2048), projections(hillclimbing(max_time = 100, random_seed = 0)), cartesian), max_time = 200, max_optimization_time = 2, diversify = true, random_seed = 0, orders = greedy(random_seed = 0)): 13
+[g=3, 6 evaluated, 3 expanded, t=200.026s, 5656 KB]
+New best heuristic value for saturated_cost_partitioning(list(projections(systematic(2), max_time = 100, max_peak_memory = 2048), projections(hillclimbing(max_time = 100, random_seed = 0)), cartesian), max_time = 200, max_optimization_time = 2, diversify = true, random_seed = 0, orders = greedy(random_seed = 0)): 12
+[g=4, 7 evaluated, 4 expanded, t=200.026s, 5656 KB]
+New best heuristic value for saturated_cost_partitioning(list(projections(systematic(2), max_time = 100, max_peak_memory = 2048), projections(hillclimbing(max_time = 100, random_seed = 0)), cartesian), max_time = 200, max_optimization_time = 2, diversify = true, random_seed = 0, orders = greedy(random_seed = 0)): 11
+[g=5, 8 evaluated, 5 expanded, t=200.026s, 5656 KB]
+New best heuristic value for saturated_cost_partitioning(list(projections(systematic(2), max_time = 100, max_peak_memory = 2048), projections(hillclimbing(max_time = 100, random_seed = 0)), cartesian), max_time = 200, max_optimization_time = 2, diversify = true, random_seed = 0, orders = greedy(random_seed = 0)): 10
+[g=6, 9 evaluated, 6 expanded, t=200.026s, 5656 KB]
+New best heuristic value for saturated_cost_partitioning(list(projections(systematic(2), max_time = 100, max_peak_memory = 2048), projections(hillclimbing(max_time = 100, random_seed = 0)), cartesian), max_time = 200, max_optimization_time = 2, diversify = true, random_seed = 0, orders = greedy(random_seed = 0)): 9
+[g=7, 11 evaluated, 7 expanded, t=200.026s, 5656 KB]
+New best heuristic value for saturated_cost_partitioning(list(projections(systematic(2), max_time = 100, max_peak_memory = 2048), projections(hillclimbing(max_time = 100, random_seed = 0)), cartesian), max_time = 200, max_optimization_time = 2, diversify = true, random_seed = 0, orders = greedy(random_seed = 0)): 8
+[g=8, 15 evaluated, 8 expanded, t=200.026s, 5656 KB]
+New best heuristic value for saturated_cost_partitioning(list(projections(systematic(2), max_time = 100, max_peak_memory = 2048), projections(hillclimbing(max_time = 100, random_seed = 0)), cartesian), max_time = 200, max_optimization_time = 2, diversify = true, random_seed = 0, orders = greedy(random_seed = 0)): 7
+[g=9, 16 evaluated, 9 expanded, t=200.026s, 5656 KB]
+New best heuristic value for saturated_cost_partitioning(list(projections(systematic(2), max_time = 100, max_peak_memory = 2048), projections(hillclimbing(max_time = 100, random_seed = 0)), cartesian), max_time = 200, max_optimization_time = 2, diversify = true, random_seed = 0, orders = greedy(random_seed = 0)): 6
+[g=10, 19 evaluated, 10 expanded, t=200.026s, 5656 KB]
+New best heuristic value for saturated_cost_partitioning(list(projections(systematic(2), max_time = 100, max_peak_memory = 2048), projections(hillclimbing(max_time = 100, random_seed = 0)), cartesian), max_time = 200, max_optimization_time = 2, diversify = true, random_seed = 0, orders = greedy(random_seed = 0)): 5
+[g=11, 21 evaluated, 11 expanded, t=200.026s, 5656 KB]
+New best heuristic value for saturated_cost_partitioning(list(projections(systematic(2), max_time = 100, max_peak_memory = 2048), projections(hillclimbing(max_time = 100, random_seed = 0)), cartesian), max_time = 200, max_optimization_time = 2, diversify = true, random_seed = 0, orders = greedy(random_seed = 0)): 4
+[g=12, 22 evaluated, 12 expanded, t=200.026s, 5656 KB]
+New best heuristic value for saturated_cost_partitioning(list(projections(systematic(2), max_time = 100, max_peak_memory = 2048), projections(hillclimbing(max_time = 100, random_seed = 0)), cartesian), max_time = 200, max_optimization_time = 2, diversify = true, random_seed = 0, orders = greedy(random_seed = 0)): 3
+[g=13, 23 evaluated, 13 expanded, t=200.026s, 5656 KB]
+New best heuristic value for saturated_cost_partitioning(list(projections(systematic(2), max_time = 100, max_peak_memory = 2048), projections(hillclimbing(max_time = 100, random_seed = 0)), cartesian), max_time = 200, max_optimization_time = 2, diversify = true, random_seed = 0, orders = greedy(random_seed = 0)): 2
+[g=14, 25 evaluated, 14 expanded, t=200.026s, 5656 KB]
+New best heuristic value for saturated_cost_partitioning(list(projections(systematic(2), max_time = 100, max_peak_memory = 2048), projections(hillclimbing(max_time = 100, random_seed = 0)), cartesian), max_time = 200, max_optimization_time = 2, diversify = true, random_seed = 0, orders = greedy(random_seed = 0)): 1
+[g=15, 27 evaluated, 15 expanded, t=200.026s, 5656 KB]
+New best heuristic value for saturated_cost_partitioning(list(projections(systematic(2), max_time = 100, max_peak_memory = 2048), projections(hillclimbing(max_time = 100, random_seed = 0)), cartesian), max_time = 200, max_optimization_time = 2, diversify = true, random_seed = 0, orders = greedy(random_seed = 0)): 0
+[g=16, 30 evaluated, 16 expanded, t=200.026s, 5656 KB]
+Solution found!
+Actual search time: 0s [t=200.026s]
+move hospital l2 (1)
+move l2 l4 (1)
+move l4 l6 (1)
+getinto patient2 l6 ambulance (1)
+move l6 l3 (1)
+move l3 l2 (1)
+move l2 hospital (1)
+getout patient2 hospital ambulance (1)
+move hospital l2 (1)
+move l2 l5 (1)
+getinto patient1 l5 ambulance (1)
+move l5 l7 (1)
+move l7 l3 (1)
+move l3 l2 (1)
+move l2 hospital (1)
+getout patient1 hospital ambulance (1)
+Plan length: 16 step(s).
+Plan cost: 16
+Expanded 17 state(s).
+Reopened 0 state(s).
+Evaluated 30 state(s).
+Evaluations: 30
+Generated 40 state(s).
+Dead ends: 0 state(s).
+Expanded until last jump: 0 state(s).
+Reopened until last jump: 0 state(s).
+Evaluated until last jump: 1 state(s).
+Generated until last jump: 0 state(s).
+Number of registered states: 30
+Int hash set load factor: 30/32 = 0.9375
+Int hash set resizes: 5
+total successors before partial-order reduction: 40
+total successors after partial-order reduction: 40
+Number of times each order was the best order: [29]
+Probably useful orders: 1/1 = 100%
+Search time: 0s
+Total time: 200.026s
+Solution found.
+Peak memory: 5656 KB
+exitcode: 0
+

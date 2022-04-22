@@ -1,0 +1,265 @@
+INFO     Running translator.
+INFO     translator input: ['/home/genomorro/School/UNIR/RazonamientoPlanificacion/RPA-03/planners/metis/domain.pddl', '/home/genomorro/School/UNIR/RazonamientoPlanificacion/RPA-03/planners/metis/problem.pddl']
+INFO     translator arguments: []
+INFO     translator time limit: 7199.95s
+INFO     translator memory limit: 12288 MB
+INFO     callstring: /usr/bin/python /planner/builds/release64/bin/translate/translate.py /home/genomorro/School/UNIR/RazonamientoPlanificacion/RPA-03/planners/metis/domain.pddl /home/genomorro/School/UNIR/RazonamientoPlanificacion/RPA-03/planners/metis/problem.pddl
+time limit 7199.95 -> (7200, 7200)
+Parsing...
+Parsing: [0.000s CPU, 0.001s wall-clock]
+Normalizing task... [0.000s CPU, 0.000s wall-clock]
+Instantiating...
+Generating Datalog program... [0.000s CPU, 0.000s wall-clock]
+Normalizing Datalog program...
+Normalizing Datalog program: [0.000s CPU, 0.002s wall-clock]
+Preparing model... [0.000s CPU, 0.000s wall-clock]
+Generated 25 rules.
+Computing model... [0.000s CPU, 0.001s wall-clock]
+103 relevant atoms
+98 auxiliary atoms
+201 final queue length
+233 total queue pushes
+Completing instantiation... [0.000s CPU, 0.001s wall-clock]
+Instantiating: [0.000s CPU, 0.004s wall-clock]
+Computing fact groups...
+Finding invariants...
+10 initial candidates
+Finding invariants: [0.000s CPU, 0.001s wall-clock]
+Checking invariant weight... [0.000s CPU, 0.000s wall-clock]
+Instantiating groups... [0.000s CPU, 0.000s wall-clock]
+Collecting mutex groups... [0.000s CPU, 0.000s wall-clock]
+Choosing groups...
+1 uncovered facts
+Choosing groups: [0.000s CPU, 0.000s wall-clock]
+Building translation key... [0.000s CPU, 0.000s wall-clock]
+Computing fact groups: [0.000s CPU, 0.001s wall-clock]
+Building STRIPS to SAS dictionary... [0.000s CPU, 0.000s wall-clock]
+Building dictionary for full mutex groups... [0.000s CPU, 0.000s wall-clock]
+Building mutex information...
+Building mutex information: [0.000s CPU, 0.000s wall-clock]
+Translating task...
+Processing axioms...
+Simplifying axioms... [0.000s CPU, 0.000s wall-clock]
+Processing axioms: [0.000s CPU, 0.000s wall-clock]
+Translating task: [0.010s CPU, 0.001s wall-clock]
+14 effect conditions simplified
+0 implied preconditions added
+Detecting unreachable propositions...
+0 operators removed
+0 axioms removed
+3 propositions removed
+Detecting unreachable propositions: [0.000s CPU, 0.000s wall-clock]
+Reordering and filtering variables...
+4 of 4 variables necessary.
+1 of 4 mutex groups necessary.
+38 of 38 operators necessary.
+0 of 0 axiom rules necessary.
+Reordering and filtering variables: [0.000s CPU, 0.000s wall-clock]
+Translator variables: 4
+Translator derived variables: 0
+Translator facts: 25
+Translator goal facts: 2
+Translator mutex groups: 1
+Translator total mutex groups size: 3
+Translator operators: 38
+Translator axioms: 0
+Translator task size: 218
+Translator peak memory: 25056 KB
+Writing output... [0.000s CPU, 0.000s wall-clock]
+Done! [0.010s CPU, 0.009s wall-clock]
+INFO     Run task transformation (/planner/builds/release64/bin/preprocess).
+INFO     callstring: /planner/builds/release64/bin/preprocess < output.sas
+Building causal graph...
+The causal graph is not acyclic.
+4 variables of 4 necessary
+1 of 1 mutex groups necessary.
+38 of 38 operators necessary.
+0 of 0 axiom rules necessary.
+Initializing mutex computation...
+Mutex computation initialized with 25 fluents.
+iteration for mutex detection and operator pruning
+Initialize m_index fw
+Initialized mvalues forward: reached=16, notReached=447, spurious=162
+Initialize m_ops fw
+Computing mutexes...
+Mutex computation finished with reached=463, notReached=0, spurious=162
+0 operators are spurious because were not triggered
+H^2 mutexes added fw: 0, unreachable: 0
+0 of 38 operators detected as spurious
+iteration for mutex detection and operator pruning
+Initialize m_index bw
+Init values regression
+Initialized mvalues backward: reached=77, notReached=386, spurious=162
+Initialize m_ops bw
+Computing mutexes...
+Mutex computation finished with reached=463, notReached=0, spurious=162
+0 operators are spurious because were not triggered
+H^2 mutexes added bw: 0, unreachable: 0
+0 of 38 operators detected as spurious
+Total mutex and disambiguation time: 0 iterations: 2
+1 of 1 mutex groups necessary.
+38 of 38 operators necessary.
+0 of 0 axiom rules necessary.
+Change id of operators: 38
+Change id of mutexes
+Change id of goals
+Change id of initial state
+Remove unreachable facts from variables: 4
+1 of 1 mutex groups necessary.
+38 of 38 operators necessary.
+0 of 0 axiom rules necessary.
+Updating causal graph and pruning unnecessary facts
+4 variables of 4 of 4 necessary
+The causal graph is not acyclic.
+4 variables of 4 necessary
+1 of 1 mutex groups necessary.
+38 of 38 operators necessary.
+0 of 0 axiom rules necessary.
+Building domain transition graphs...
+solveable in poly time 0
+Building successor generator...
+Preprocessor variables: 4
+Preprocessor facts: 25
+Preprocessor derived variables: 0
+Preprocessor operators: 38
+Preprocessor mutex groups: 1
+Preprocessor task size: 218
+Writing output...
+done
+INFO     Running search (release64).
+INFO     search input: output.sas
+INFO     search arguments: ['--symmetries', 'sym=structural_symmetries(search_symmetries=dks)', '--search', 'astar(max([celmcut,lmcount(lm_factory=lm_merged([lm_rhw,lm_hm(m=1)]),admissible=true,transform=multiply_out_conditional_effects)]),symmetries=sym,pruning=stubborn_sets_simple(minimum_pruning_ratio=0.01),num_por_probes=1000)']
+INFO     search time limit: 7199.91s
+INFO     search memory limit: 7744 MB
+INFO     search executable: /planner/builds/release64/bin/downward
+INFO     callstring: /planner/builds/release64/bin/downward --symmetries 'sym=structural_symmetries(search_symmetries=dks)' --search 'astar(max([celmcut,lmcount(lm_factory=lm_merged([lm_rhw,lm_hm(m=1)]),admissible=true,transform=multiply_out_conditional_effects)]),symmetries=sym,pruning=stubborn_sets_simple(minimum_pruning_ratio=0.01),num_por_probes=1000)' --internal-plan-file /home/genomorro/School/UNIR/RazonamientoPlanificacion/RPA-03/planners/metis/sas_plan < output.sas
+time limit 7199.91 -> (7200, 7200)
+reading input... [t=0s]
+done reading input! [t=0s]
+packing state variables...done! [t=0s]
+Variables: 4
+FactPairs: 25
+Bytes per state: 4
+Building successor generator...done! [t=0s]
+peak memory difference for root successor generator creation: 0 KB
+time for root successor generation creation: 0s
+done initializing global data [t=0s]
+Initializing landmark cut heuristic...
+Initializing Exploration...
+Initializing landmarks count heuristic...
+Merging 2 landmark graphs
+Generating landmarks using the RPG/SAS+ approach
+Removed 0 reasonable or obedient reasonable orders
+Landmarks generation time: 0s
+Discovered 12 landmarks, of which 0 are disjunctive and 0 are conjunctive 
+28 edges
+h^m landmarks m=1
+Using 25 P^m fluents.
+Level 1 completed.
+Level 2 completed.
+Level 3 completed.
+Level 4 completed.
+Level 5 completed.
+Level 6 completed.
+h^m landmarks computed.
+Removed 0 reasonable or obedient reasonable orders
+Calculating achievers.
+Landmarks generation time: 0s
+Discovered 12 landmarks, of which 0 are disjunctive and 0 are conjunctive 
+19 edges
+Adding simple landmarks
+Adding disjunctive landmarks
+Adding orderings
+Removed 0 reasonable or obedient reasonable orders
+Landmarks generation time: 0s
+Discovered 12 landmarks, of which 0 are disjunctive and 0 are conjunctive 
+28 edges
+Initializing symmetries (eager search)
+Initializing symmetries
+Using Bliss to find group generators
+Done initializing symmetries: 0.000430042s
+Number of generators: 2
+Number of identity generators (on states, not on operators): 0
+Order of generators: [2, 2]
+Setting group in registry for DKS search
+Conducting best first search with reopening closed nodes, (real) bound = 2147483647
+4 initial landmarks, 2 goal landmarks
+New best heuristic value for lmcount(lm_factory = lm_merged(list(lm_rhw, lm_hm(m = 1))), admissible = true, transform = multiply_out_conditional_effects): 8
+New best heuristic value for celmcut: 8
+[g=0, 1 evaluated, 0 expanded, t=0.00139815s, 4956 KB]
+f = 8 [1 evaluated, 0 expanded, t=0.00139815s, 4956 KB]
+Initial heuristic value for lmcount(lm_factory = lm_merged(list(lm_rhw, lm_hm(m = 1))), admissible = true, transform = multiply_out_conditional_effects): 8
+Initial heuristic value for celmcut: 8
+pruning method: stubborn sets simple
+f = 9 [2 evaluated, 1 expanded, t=0.00139815s, 4956 KB]
+f = 11 [5 evaluated, 2 expanded, t=0.00139815s, 4956 KB]
+New best heuristic value for lmcount(lm_factory = lm_merged(list(lm_rhw, lm_hm(m = 1))), admissible = true, transform = multiply_out_conditional_effects): 7
+[g=3, 6 evaluated, 4 expanded, t=0.00139815s, 4956 KB]
+New best heuristic value for lmcount(lm_factory = lm_merged(list(lm_rhw, lm_hm(m = 1))), admissible = true, transform = multiply_out_conditional_effects): 6
+New best heuristic value for celmcut: 7
+[g=4, 7 evaluated, 5 expanded, t=0.00139815s, 4956 KB]
+New best heuristic value for celmcut: 6
+[g=5, 8 evaluated, 6 expanded, t=0.00139815s, 4956 KB]
+New best heuristic value for lmcount(lm_factory = lm_merged(list(lm_rhw, lm_hm(m = 1))), admissible = true, transform = multiply_out_conditional_effects): 5
+New best heuristic value for celmcut: 5
+[g=6, 9 evaluated, 7 expanded, t=0.00139815s, 4956 KB]
+New best heuristic value for lmcount(lm_factory = lm_merged(list(lm_rhw, lm_hm(m = 1))), admissible = true, transform = multiply_out_conditional_effects): 4
+[g=7, 13 evaluated, 8 expanded, t=0.00139815s, 4956 KB]
+f = 12 [14 evaluated, 8 expanded, t=0.00139815s, 4956 KB]
+New best heuristic value for celmcut: 4
+[g=8, 15 evaluated, 9 expanded, t=0.00139815s, 4956 KB]
+f = 13 [26 evaluated, 15 expanded, t=0.00139815s, 4956 KB]
+New best heuristic value for lmcount(lm_factory = lm_merged(list(lm_rhw, lm_hm(m = 1))), admissible = true, transform = multiply_out_conditional_effects): 3
+[g=10, 29 evaluated, 16 expanded, t=0.00139815s, 4956 KB]
+f = 14 [36 evaluated, 21 expanded, t=0.00139815s, 4956 KB]
+f = 15 [53 evaluated, 30 expanded, t=0.00196075s, 4956 KB]
+f = 16 [58 evaluated, 37 expanded, t=0.00196075s, 4956 KB]
+New best heuristic value for lmcount(lm_factory = lm_merged(list(lm_rhw, lm_hm(m = 1))), admissible = true, transform = multiply_out_conditional_effects): 2
+[g=11, 60 evaluated, 38 expanded, t=0.00196075s, 4956 KB]
+New best heuristic value for celmcut: 3
+[g=13, 62 evaluated, 40 expanded, t=0.00196075s, 4956 KB]
+New best heuristic value for celmcut: 2
+[g=14, 64 evaluated, 41 expanded, t=0.00196075s, 4956 KB]
+New best heuristic value for lmcount(lm_factory = lm_merged(list(lm_rhw, lm_hm(m = 1))), admissible = true, transform = multiply_out_conditional_effects): 1
+New best heuristic value for celmcut: 1
+[g=15, 66 evaluated, 42 expanded, t=0.00196075s, 4956 KB]
+New best heuristic value for lmcount(lm_factory = lm_merged(list(lm_rhw, lm_hm(m = 1))), admissible = true, transform = multiply_out_conditional_effects): 0
+New best heuristic value for celmcut: 0
+[g=16, 68 evaluated, 43 expanded, t=0.00196075s, 4956 KB]
+Solution found!
+Actual search time: 0.000562599s [t=0.00196075s]
+move hospital l2 (1)
+move l2 l4 (1)
+move l4 l6 (1)
+getinto patient2 l6 ambulance (1)
+move l6 l3 (1)
+move l3 l2 (1)
+move l2 hospital (1)
+getout patient2 hospital ambulance (1)
+move hospital l2 (1)
+move l2 l5 (1)
+getinto patient1 l5 ambulance (1)
+move l5 l7 (1)
+move l7 l3 (1)
+move l3 l2 (1)
+move l2 hospital (1)
+getout patient1 hospital ambulance (1)
+Plan length: 16 step(s).
+Plan cost: 16
+Expanded 44 state(s).
+Reopened 0 state(s).
+Evaluated 68 state(s).
+Evaluations: 136
+Generated 102 state(s).
+Dead ends: 0 state(s).
+Expanded until last jump: 37 state(s).
+Reopened until last jump: 0 state(s).
+Evaluated until last jump: 58 state(s).
+Generated until last jump: 87 state(s).
+Number of registered states: 68
+total successors before partial-order reduction: 102
+total successors after partial-order reduction: 102
+Search time: 0.000562599s
+Total time: 0.00196075s
+Solution found.
+Peak memory: 4956 KB

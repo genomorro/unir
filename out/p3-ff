@@ -1,0 +1,47 @@
+
+ff: parsing domain file
+domain 'EMERGENCY' defined
+ ... done.
+ff: parsing problem file
+problem 'ORIGINAL' defined
+ ... done.
+
+
+
+Cueing down from goal distance:    8 into depth [1][2][3][4]
+                                   7            [1]
+                                   6            [1]
+                                   5            [1][2]
+                                   4            [1][2][3][4][5]
+                                   3            [1]
+                                   2            [1]
+                                   1            [1]
+                                   0            
+
+ff: found legal plan as follows
+
+step    0: MOVE HOSPITAL L2
+        1: MOVE L2 L4
+        2: MOVE L4 L6
+        3: GETINTO PATIENT2 L6 AMBULANCE
+        4: MOVE L6 L3
+        5: MOVE L3 L2
+        6: MOVE L2 HOSPITAL
+        7: GETOUT PATIENT2 HOSPITAL AMBULANCE
+        8: MOVE HOSPITAL L2
+        9: MOVE L2 L5
+       10: GETINTO PATIENT1 L5 AMBULANCE
+       11: MOVE L5 L7
+       12: MOVE L7 L3
+       13: MOVE L3 L2
+       14: MOVE L2 HOSPITAL
+       15: GETOUT PATIENT1 HOSPITAL AMBULANCE
+     
+
+time spent:    0.00 seconds instantiating 38 easy, 0 hard action templates
+               0.00 seconds reachability analysis, yielding 24 facts and 38 actions
+               0.00 seconds creating final representation with 24 relevant facts
+               0.00 seconds building connectivity graph
+               0.00 seconds searching, evaluating 26 states, to a max depth of 5
+               0.00 seconds total time
+

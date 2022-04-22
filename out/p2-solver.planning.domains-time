@@ -1,0 +1,26 @@
+--- OK.
+ Match tree built with 58 nodes.
+
+PDDL problem description loaded: 
+	Domain: EMERGENCY
+	Problem: ORIGINAL
+	#Actions: 58
+	#Fluents: 32
+Landmarks found: 3
+Starting search with IW (time budget is 60 secs)...
+rel_plan size: 10
+#RP_fluents 11
+Caption
+{#goals, #UNnachieved,  #Achieved} -> IW(max_w)
+
+{3/3/0}:IW(1) -> [2][3][4][5][6][7]rel_plan size: 8
+#RP_fluents 9
+{3/2/1}:IW(1) -> [2][3][4][5][6][7][8][9]rel_plan size: 5
+#RP_fluents 6
+{3/1/2}:IW(1) -> [2][3][4][5][6][7][8][9]rel_plan size: 0
+#RP_fluents 0Plan found with cost: 22
+Total time: -1.8999e-10
+Nodes generated during search: 175
+Nodes expanded during search: 153
+IW search completed
+Close
