@@ -1,9 +1,8 @@
-
 ff: parsing domain file
 domain 'EMERGENCY' defined
  ... done.
 ff: parsing problem file
-problem 'ORIGINAL' defined
+problem 'VARIANTE01' defined
  ... done.
 
 

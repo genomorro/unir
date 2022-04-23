@@ -1,4 +1,4 @@
-(define (problem original)
+(define (problem variante01)
   (:domain emergency)
   (:objects ambulance hospital L2 L3 L4 L5 L6 L7 patient1 patient2 patient3)
   (:init
