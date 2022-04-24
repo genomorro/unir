@@ -419,7 +419,7 @@
       pdflang={Spanish}}
     \usepackage[round]{natbib}
     %% END: UNIR
- 
+
 
 \begin{document}
     
@@ -427,7 +427,7 @@
     
 
     
-    \hypertarget{actividad-clasificaciuxf3n-con-muxe1quina-de-vectores-de-soporte-y-redes-de-neuronas-mobile-price-classification}{%
+\hypertarget{actividad-clasificaciuxf3n-con-muxe1quina-de-vectores-de-soporte-y-redes-de-neuronas-mobile-price-classification}{%
 \textcolor{UnirDark}{\Large\bfseries\newtitle}\label{actividad-clasificaciuxf3n-con-muxe1quina-de-vectores-de-soporte-y-redes-de-neuronas-mobile-price-classification}}
 
 \hypertarget{introducciuxf3n}{%
@@ -477,6 +477,8 @@ bibliotecas.
 \PY{k+kn}{import} \PY{n+nn}{numpy} \PY{k}{as} \PY{n+nn}{np}
 \PY{k+kn}{import} \PY{n+nn}{pandas} \PY{k}{as} \PY{n+nn}{pd}
 \PY{k+kn}{import} \PY{n+nn}{seaborn} \PY{k}{as} \PY{n+nn}{sns}
+\PY{n}{plt}\PY{o}{.}\PY{n}{rcParams}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{figure.dpi}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]} \PY{o}{=} \PY{l+m+mi}{300}
+\PY{n}{plt}\PY{o}{.}\PY{n}{rcParams}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{savefig.dpi}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]} \PY{o}{=} \PY{l+m+mi}{300}
 \end{Verbatim}
 \end{tcolorbox}
 
@@ -532,15 +534,57 @@ dtypes: float64(2), int64(19)
 memory usage: 328.2 KB
     \end{Verbatim}
 
+    Los metadatos del dataframe corresponden al siguiente diccionario. De
+esta forma, es posible saber que significa un dato en particular. Esto
+puede no ser indispensable para el código pero si resulta de gran
+importancia en la interpretación y análisis de resultados.
+
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
 \prompt{In}{incolor}{4}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{metadata} \PY{o}{=} \PY{p}{\PYZob{}}
+    \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{battery\PYZus{}power}\PY{l+s+s1}{\PYZsq{}}\PY{p}{:} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Capacidad de la batería mAh}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}
+    \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{blue}\PY{l+s+s1}{\PYZsq{}}\PY{p}{:} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Tiene bluetooth}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}
+    \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{clock\PYZus{}speed}\PY{l+s+s1}{\PYZsq{}}\PY{p}{:} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Velocidad de reloj del microprocesador}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}
+    \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{dual\PYZus{}sim}\PY{l+s+s1}{\PYZsq{}}\PY{p}{:} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Tiene soporte dual sim}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}
+    \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{fc}\PY{l+s+s1}{\PYZsq{}}\PY{p}{:} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Resolución de cámara frontal en megapíxeles}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}
+    \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{four\PYZus{}g}\PY{l+s+s1}{\PYZsq{}}\PY{p}{:} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Tiene 4G}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}
+    \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{int\PYZus{}memory}\PY{l+s+s1}{\PYZsq{}}\PY{p}{:} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Memoria interna en Gigabytes}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}
+    \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{m\PYZus{}dep}\PY{l+s+s1}{\PYZsq{}}\PY{p}{:} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Profundidad móvil en cm}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}
+    \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{mobile\PYZus{}wt}\PY{l+s+s1}{\PYZsq{}}\PY{p}{:} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Peso del teléfono móvil}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}
+    \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{n\PYZus{}cores}\PY{l+s+s1}{\PYZsq{}}\PY{p}{:} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Número de núcleos del procesador}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}
+    \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{pc}\PY{l+s+s1}{\PYZsq{}}\PY{p}{:} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Megapíxeles de la cámara principal}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}
+    \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{px\PYZus{}height}\PY{l+s+s1}{\PYZsq{}}\PY{p}{:} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Altura de resolución de píxeles}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}
+    \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{px\PYZus{}width}\PY{l+s+s1}{\PYZsq{}}\PY{p}{:} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Ancho de resolución de píxeles}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}
+    \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{ram}\PY{l+s+s1}{\PYZsq{}}\PY{p}{:} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Memoria RAM en megabytes}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}
+    \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{sc\PYZus{}h}\PY{l+s+s1}{\PYZsq{}}\PY{p}{:} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Altura de la pantalla del móvil en cm}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}
+    \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{sc\PYZus{}w}\PY{l+s+s1}{\PYZsq{}}\PY{p}{:} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Ancho de pantalla del móvil en cm}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}
+    \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{talk\PYZus{}time}\PY{l+s+s1}{\PYZsq{}}\PY{p}{:} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Máximo tiempo que durará una sola carga de batería cuando se habla por teléfono}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}
+    \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{tres\PYZus{}g}\PY{l+s+s1}{\PYZsq{}}\PY{p}{:} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Tiene 3G}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}
+    \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{touch\PYZus{}screen}\PY{l+s+s1}{\PYZsq{}}\PY{p}{:} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Tiene pantalla táctil}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}
+    \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{wifi}\PY{l+s+s1}{\PYZsq{}}\PY{p}{:} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Tiene wifi}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}
+    \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{price\PYZus{}range}\PY{l+s+s1}{\PYZsq{}}\PY{p}{:} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Rango de precios de 0 (costo bajo), 1 (costo medio), 2 (costo alto), 3 (costo muy alto)}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}
+\PY{p}{\PYZcb{}}
+\PY{n}{metadata}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{n\PYZus{}cores}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}
+\end{Verbatim}
+\end{tcolorbox}
+
+            \begin{tcolorbox}[breakable, size=fbox, boxrule=.5pt, pad at break*=1mm, opacityfill=0]
+\prompt{Out}{outcolor}{4}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+'Número de núcleos del procesador'
+\end{Verbatim}
+\end{tcolorbox}
+        
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{5}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n}{df\PYZus{}train}\PY{o}{.}\PY{n}{describe}\PY{p}{(}\PY{p}{)}\PY{o}{.}\PY{n}{transpose}\PY{p}{(}\PY{p}{)} 
 \end{Verbatim}
 \end{tcolorbox}
 
             \begin{tcolorbox}[breakable, size=fbox, boxrule=.5pt, pad at break*=1mm, opacityfill=0]
-\prompt{Out}{outcolor}{4}{\boxspacing}
+\prompt{Out}{outcolor}{5}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
                 count        mean          std    min      25\%     50\%  \textbackslash{}
 battery\_power  2000.0  1238.51850   439.418206  501.0   851.75  1226.0
@@ -593,28 +637,26 @@ price\_range       2.25     3.0
     Aún así parece que no todas las variables son realmente numéricas, pues
 no caen en valores continuos. Como ejemplo es posible observar la
 columna objetivo, la cual por medio de números distingue cuatro
-categorías. Debido a la falta de metadatos en el dataset no es posible
-saber con certeza a que corresponde cada una, sin embargo, una
-clasificación tradicional es: el segmento de entra (0), la gama media
-(1), la gama alta (2) y la gama premium (3).
+categorías, mismas que se detallan en los metadatos.
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{5}{\boxspacing}
+\prompt{In}{incolor}{6}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n}{sns}\PY{o}{.}\PY{n}{countplot}\PY{p}{(}\PY{n}{x}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{price\PYZus{}range}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{data}\PY{o}{=}\PY{n}{df\PYZus{}train}\PY{p}{)}
-\PY{n}{plt}\PY{o}{.}\PY{n}{title}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Frecuencias de price\PYZus{}range}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{fontsize}\PY{o}{=}\PY{l+m+mi}{12}\PY{p}{)}
+\PY{n}{plt}\PY{o}{.}\PY{n}{title}\PY{p}{(}\PY{n}{metadata}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{price\PYZus{}range}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{,} \PY{n}{fontsize}\PY{o}{=}\PY{l+m+mi}{12}\PY{p}{)}
 \end{Verbatim}
 \end{tcolorbox}
 
             \begin{tcolorbox}[breakable, size=fbox, boxrule=.5pt, pad at break*=1mm, opacityfill=0]
-\prompt{Out}{outcolor}{5}{\boxspacing}
+\prompt{Out}{outcolor}{6}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
-Text(0.5, 1.0, 'Frecuencias de price\_range')
+Text(0.5, 1.0, 'Rango de precios de 0 (costo bajo), 1 (costo medio), 2 (costo
+alto), 3 (costo muy alto)')
 \end{Verbatim}
 \end{tcolorbox}
         
     \begin{center}
-    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_8_1.png}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_10_1.png}
     \end{center}
     { \hspace*{\fill} \\}
     
@@ -625,7 +667,7 @@ Es importante observar entonces que datos son categóricos y examinarlos
 como tal.
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{6}{\boxspacing}
+\prompt{In}{incolor}{7}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n}{df\PYZus{}train}\PY{o}{.}\PY{n}{columns}\PY{p}{:}
     \PY{n+nb}{print}\PY{p}{(}\PY{l+s+sa}{f}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Valores posibles de }\PY{l+s+si}{\PYZob{}}\PY{n}{i}\PY{o}{.}\PY{n}{title}\PY{p}{(}\PY{p}{)}\PY{l+s+si}{\PYZcb{}}\PY{l+s+s1}{: }\PY{l+s+si}{\PYZob{}}\PY{n}{df\PYZus{}train}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{o}{.}\PY{n}{unique}\PY{p}{(}\PY{p}{)}\PY{l+s+si}{\PYZcb{}}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
@@ -680,22 +722,22 @@ grafican las frecuencias de las otras variables categóricas tomando en
 cuenta el rango de precios.
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{7}{\boxspacing}
+\prompt{In}{incolor}{8}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n}{cv}\PY{o}{=}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{blue}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{dual\PYZus{}sim}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{four\PYZus{}g}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{three\PYZus{}g}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{touch\PYZus{}screen}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{wifi}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}
-\PY{n}{fig}\PY{o}{=}\PY{n}{plt}\PY{o}{.}\PY{n}{figure}\PY{p}{(}\PY{n}{figsize}\PY{o}{=}\PY{p}{(}\PY{l+m+mi}{24}\PY{p}{,}\PY{l+m+mi}{12}\PY{p}{)}\PY{p}{)}
+\PY{n}{fig}\PY{o}{=}\PY{n}{plt}\PY{o}{.}\PY{n}{figure}\PY{p}{(}\PY{n}{figsize}\PY{o}{=}\PY{p}{(}\PY{l+m+mi}{21}\PY{p}{,}\PY{l+m+mi}{10}\PY{p}{)}\PY{p}{)}
 \PY{n}{plt}\PY{o}{.}\PY{n}{title}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Frecuencias de variables categóricas tomando en cuenta el rango de precios}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{n}{fontdict}\PY{o}{=}\PY{p}{\PYZob{}}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{fontsize}\PY{l+s+s1}{\PYZsq{}}\PY{p}{:}\PY{l+m+mi}{20}\PY{p}{\PYZcb{}}\PY{p}{)}
 \PY{n}{plt}\PY{o}{.}\PY{n}{axis}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{off}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
 
 \PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{n+nb}{len}\PY{p}{(}\PY{n}{cv}\PY{p}{)}\PY{p}{)}\PY{p}{:}
-    \PY{n}{fig}\PY{o}{.}\PY{n}{add\PYZus{}subplot}\PY{p}{(}\PY{l+m+mi}{2}\PY{p}{,}\PY{l+m+mi}{3}\PY{p}{,}\PY{n}{i}\PY{o}{+}\PY{l+m+mi}{1}\PY{p}{)}
+    \PY{n}{fig}\PY{o}{.}\PY{n}{add\PYZus{}subplot}\PY{p}{(}\PY{l+m+mi}{3}\PY{p}{,}\PY{l+m+mi}{2}\PY{p}{,}\PY{n}{i}\PY{o}{+}\PY{l+m+mi}{1}\PY{p}{)}
     \PY{n}{sns}\PY{o}{.}\PY{n}{countplot}\PY{p}{(}\PY{n}{data}\PY{o}{=}\PY{n}{df\PYZus{}train}\PY{p}{,}\PY{n}{x}\PY{o}{=}\PY{n}{cv}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{p}{,} \PY{n}{hue}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{price\PYZus{}range}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
     \PY{n}{plt}\PY{o}{.}\PY{n}{legend}\PY{p}{(}\PY{n}{bbox\PYZus{}to\PYZus{}anchor}\PY{o}{=}\PY{p}{(}\PY{l+m+mf}{1.02}\PY{p}{,} \PY{l+m+mi}{1}\PY{p}{)}\PY{p}{,} \PY{n}{borderaxespad}\PY{o}{=}\PY{l+m+mi}{0}\PY{p}{)}
 \end{Verbatim}
 \end{tcolorbox}
 
     \begin{center}
-    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_12_0.png}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_14_0.png}
     \end{center}
     { \hspace*{\fill} \\}
     
@@ -714,21 +756,60 @@ que son efectivamente numéricas pues servirá para observar el contraste
 entre los tipos de variables.
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{8}{\boxspacing}
+\prompt{In}{incolor}{9}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n}{nv}\PY{o}{=}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{battery\PYZus{}power}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{clock\PYZus{}speed}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{fc}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{int\PYZus{}memory}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{m\PYZus{}dep}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{mobile\PYZus{}wt}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{n\PYZus{}cores}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{pc}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{px\PYZus{}height}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{px\PYZus{}width}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{ram}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{sc\PYZus{}h}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{sc\PYZus{}w}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{talk\PYZus{}time}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}
-\PY{n}{fig}\PY{o}{=}\PY{n}{plt}\PY{o}{.}\PY{n}{figure}\PY{p}{(}\PY{n}{figsize}\PY{o}{=}\PY{p}{(}\PY{l+m+mi}{24}\PY{p}{,}\PY{l+m+mi}{30}\PY{p}{)}\PY{p}{)}
+\PY{n}{fig}\PY{o}{=}\PY{n}{plt}\PY{o}{.}\PY{n}{figure}\PY{p}{(}\PY{n}{figsize}\PY{o}{=}\PY{p}{(}\PY{l+m+mi}{8}\PY{p}{,}\PY{l+m+mi}{64}\PY{p}{)}\PY{p}{)}
 \PY{n}{plt}\PY{o}{.}\PY{n}{title}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Frecuencia de variables numéricas tomando en cuenta el rango de precios}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
 \PY{n}{plt}\PY{o}{.}\PY{n}{axis}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{off}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
 
 \PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{n+nb}{len}\PY{p}{(}\PY{n}{nv}\PY{p}{)}\PY{p}{)}\PY{p}{:}
-    \PY{n}{fig}\PY{o}{.}\PY{n}{add\PYZus{}subplot}\PY{p}{(}\PY{l+m+mi}{7}\PY{p}{,}\PY{l+m+mi}{2}\PY{p}{,}\PY{n}{i}\PY{o}{+}\PY{l+m+mi}{1}\PY{p}{)}
+    \PY{n}{fig}\PY{o}{.}\PY{n}{add\PYZus{}subplot}\PY{p}{(}\PY{l+m+mi}{14}\PY{p}{,}\PY{l+m+mi}{1}\PY{p}{,}\PY{n}{i}\PY{o}{+}\PY{l+m+mi}{1}\PY{p}{)}
     \PY{n}{sns}\PY{o}{.}\PY{n}{kdeplot}\PY{p}{(}\PY{n}{data}\PY{o}{=}\PY{n}{df\PYZus{}train}\PY{p}{,} \PY{n}{x}\PY{o}{=}\PY{n}{nv}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{p}{,} \PY{n}{hue}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{price\PYZus{}range}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
 \end{Verbatim}
 \end{tcolorbox}
 
     \begin{center}
-    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_14_0.png}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{image0.png}
+    \end{center}
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{image1.png}
+    \end{center}
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{image2.png}
+    \end{center}
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{image3.png}
+    \end{center}
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{image4.png}
+    \end{center}
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{image5.png}
+    \end{center}
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{image6.png}
+    \end{center}
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{image7.png}
+    \end{center}
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{image8.png}
+    \end{center}
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{image9.png}
+    \end{center}
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{image10.png}
+    \end{center}
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{image11.png}
+    \end{center}
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{image12.png}
+    \end{center}
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{image13.png}
     \end{center}
     { \hspace*{\fill} \\}
     
@@ -737,7 +818,9 @@ representa la variable \texttt{ram}. En dicha representación se
 distinguen muy claramente los segmentos de precio, es posible pensar que
 que la variable \texttt{ram}, tenga una correlación alta respecto a
 \texttt{price\_range}, mientras otras como \texttt{clock\_speed} sean de
-muy poca relevancia.
+muy poca relevancia. No hay que perder de vista que la correlación es
+distinto a la causa: la correlación indica que el valor de ambas
+variables depende de la misma causa.
 
 \hypertarget{matriz-de-correlaciuxf3n}{%
 \section{Matriz de correlación}\label{matriz-de-correlaciuxf3n}}
@@ -746,35 +829,35 @@ La matriz es indispensable para distinguir la importancia de las
 variables y así pensar en un mejor modelo.
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{9}{\boxspacing}
+\prompt{In}{incolor}{10}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
-\PY{n}{plt}\PY{o}{.}\PY{n}{figure}\PY{p}{(}\PY{n}{figsize}\PY{o}{=}\PY{p}{(}\PY{l+m+mi}{20}\PY{p}{,}\PY{l+m+mi}{8}\PY{p}{)}\PY{p}{,}\PY{n}{dpi}\PY{o}{=}\PY{l+m+mi}{80}\PY{p}{)}
+\PY{n}{plt}\PY{o}{.}\PY{n}{figure}\PY{p}{(}\PY{n}{figsize}\PY{o}{=}\PY{p}{(}\PY{l+m+mi}{16}\PY{p}{,}\PY{l+m+mi}{9}\PY{p}{)}\PY{p}{)}
 \PY{n}{corrmat} \PY{o}{=} \PY{n}{df\PYZus{}train}\PY{o}{.}\PY{n}{corr}\PY{p}{(}\PY{p}{)}
 \PY{n}{sns}\PY{o}{.}\PY{n}{heatmap}\PY{p}{(}\PY{n}{corrmat}\PY{p}{,} \PY{n}{cmap}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{coolwarm}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{vmax}\PY{o}{=}\PY{l+m+mf}{.8}\PY{p}{,} \PY{n}{fmt}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{.1f}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{annot}\PY{o}{=}\PY{k+kc}{True}\PY{p}{)}
 \end{Verbatim}
 \end{tcolorbox}
 
             \begin{tcolorbox}[breakable, size=fbox, boxrule=.5pt, pad at break*=1mm, opacityfill=0]
-\prompt{Out}{outcolor}{9}{\boxspacing}
+\prompt{Out}{outcolor}{10}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 <AxesSubplot:>
 \end{Verbatim}
 \end{tcolorbox}
         
     \begin{center}
-    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_16_1.png}
+    \adjustimage{max size={1.2\linewidth}{1.2\paperheight}}{output_18_1.png}
     \end{center}
     { \hspace*{\fill} \\}
     
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{10}{\boxspacing}
+\prompt{In}{incolor}{11}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n}{df\PYZus{}train}\PY{o}{.}\PY{n}{corr}\PY{p}{(}\PY{p}{)}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{price\PYZus{}range}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{o}{.}\PY{n}{sort\PYZus{}values}\PY{p}{(}\PY{n}{ascending}\PY{o}{=}\PY{k+kc}{False}\PY{p}{)}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{:}\PY{l+m+mi}{21}\PY{p}{]}
 \end{Verbatim}
 \end{tcolorbox}
 
             \begin{tcolorbox}[breakable, size=fbox, boxrule=.5pt, pad at break*=1mm, opacityfill=0]
-\prompt{Out}{outcolor}{10}{\boxspacing}
+\prompt{Out}{outcolor}{11}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 ram              0.917046
 battery\_power    0.200723
@@ -810,7 +893,7 @@ Se implementará una SVM. Al trabajar con métodos supervisados es
 necesario dividir el dataframe en dos partes.
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{11}{\boxspacing}
+\prompt{In}{incolor}{12}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n}{train}\PY{p}{,} \PY{n}{test} \PY{o}{=} \PY{n}{train\PYZus{}test\PYZus{}split}\PY{p}{(}\PY{n}{df\PYZus{}train}\PY{p}{,} \PY{n}{test\PYZus{}size}\PY{o}{=}\PY{l+m+mf}{0.2}\PY{p}{)}
 \PY{n}{predictors} \PY{o}{=} \PY{n}{cv} \PY{o}{+} \PY{n}{nv}
@@ -826,7 +909,7 @@ otros fueron descartados pues en una ejecución individual dieron
 resultados deficientes.
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{12}{\boxspacing}
+\prompt{In}{incolor}{13}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n}{parameters} \PY{o}{=} \PY{p}{[}\PY{p}{\PYZob{}}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{kernel}\PY{l+s+s1}{\PYZsq{}}\PY{p}{:} \PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{rbf}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{linear}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{gamma}\PY{l+s+s1}{\PYZsq{}}\PY{p}{:} \PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{scale}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{auto}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{C}\PY{l+s+s1}{\PYZsq{}}\PY{p}{:} \PY{p}{[}\PY{l+m+mf}{0.5}\PY{p}{,} \PY{l+m+mf}{1.0}\PY{p}{,} \PY{l+m+mf}{1.5}\PY{p}{,} \PY{l+m+mf}{2.0}\PY{p}{,} \PY{l+m+mf}{2.5}\PY{p}{]}\PY{p}{\PYZcb{}}\PY{p}{]}
 \PY{n}{svmc} \PY{o}{=} \PY{n}{RandomizedSearchCV}\PY{p}{(}\PY{n}{svm}\PY{o}{.}\PY{n}{SVC}\PY{p}{(}\PY{n}{decision\PYZus{}function\PYZus{}shape}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{ovr}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{p}{,} \PY{n}{param\PYZus{}distributions}\PY{o}{=}\PY{n}{parameters}\PY{p}{,} \PY{n}{cv}\PY{o}{=}\PY{l+m+mi}{5}\PY{p}{,} \PY{n}{scoring}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{accuracy}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
@@ -836,14 +919,14 @@ resultados deficientes.
 \end{tcolorbox}
 
             \begin{tcolorbox}[breakable, size=fbox, boxrule=.5pt, pad at break*=1mm, opacityfill=0]
-\prompt{Out}{outcolor}{12}{\boxspacing}
+\prompt{Out}{outcolor}{13}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
-\{'kernel': 'linear', 'gamma': 'auto', 'C': 0.5\}
+\{'kernel': 'linear', 'gamma': 'scale', 'C': 1.0\}
 \end{Verbatim}
 \end{tcolorbox}
         
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{13}{\boxspacing}
+\prompt{In}{incolor}{14}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n}{svm\PYZus{}predicted} \PY{o}{=} \PY{n}{svmc}\PY{o}{.}\PY{n}{predict}\PY{p}{(}\PY{n}{test}\PY{p}{[}\PY{n}{predictors}\PY{p}{]}\PY{p}{)}
 \PY{n}{crosstab} \PY{o}{=} \PY{n}{sns}\PY{o}{.}\PY{n}{heatmap}\PY{p}{(}\PY{n}{pd}\PY{o}{.}\PY{n}{crosstab}\PY{p}{(}\PY{n}{test}\PY{p}{[}\PY{n}{target}\PY{p}{]}\PY{o}{.}\PY{n}{values}\PY{o}{.}\PY{n}{ravel}\PY{p}{(}\PY{p}{)}\PY{p}{,} \PY{n}{svm\PYZus{}predicted}\PY{p}{)}\PY{p}{,}
@@ -855,11 +938,11 @@ resultados deficientes.
 \end{tcolorbox}
 
     \begin{Verbatim}[commandchars=\\\{\}]
-Accuracy:  0.975
+Accuracy:  0.98
     \end{Verbatim}
 
     \begin{center}
-    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_23_1.png}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_25_1.png}
     \end{center}
     { \hspace*{\fill} \\}
     
@@ -872,10 +955,12 @@ embargo, se consigue en pocos casos.
 
 La red neuronal ha resultado ser más complicada de implementar debido a
 que requiere el diseño de la las capaz de la red. Aquí se presenta una
-estructura básica. \citep{rickytb2021, Keras2022}
+estructura básica donde hay tres capas con 16, 12 y 4 neuronas; las
+primeras dos tienen función de activación \texttt{relu} y la última
+\texttt{softmax}. \citep{rickytb2021, Keras2022}
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{14}{\boxspacing}
+\prompt{In}{incolor}{15}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n}{nn} \PY{o}{=} \PY{n}{Sequential}\PY{p}{(}\PY{p}{)}
 \PY{n}{nn}\PY{o}{.}\PY{n}{add}\PY{p}{(}\PY{n}{Dense}\PY{p}{(}\PY{n}{units}\PY{o}{=}\PY{l+m+mi}{16}\PY{p}{,} \PY{n}{input\PYZus{}dim}\PY{o}{=}\PY{l+m+mi}{20}\PY{p}{,} \PY{n}{activation}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{relu}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{p}{)}
@@ -894,64 +979,68 @@ If using Keras pass *\_constraint arguments to layers.
     \end{Verbatim}
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{15}{\boxspacing}
+\prompt{In}{incolor}{16}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n}{nn}\PY{o}{.}\PY{n}{compile}\PY{p}{(}\PY{n}{loss}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{sparse\PYZus{}categorical\PYZus{}crossentropy}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{optimizer}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{adam}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{metrics}\PY{o}{=}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{accuracy}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{)}
 \end{Verbatim}
 \end{tcolorbox}
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{16}{\boxspacing}
+\prompt{In}{incolor}{17}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
-\PY{n}{nn}\PY{o}{.}\PY{n}{fit}\PY{p}{(}\PY{n}{train}\PY{p}{[}\PY{n}{predictors}\PY{p}{]}\PY{p}{,} \PY{n}{np}\PY{o}{.}\PY{n}{ravel}\PY{p}{(}\PY{n}{train}\PY{p}{[}\PY{n}{target}\PY{p}{]}\PY{p}{)}\PY{p}{,} \PY{n}{epochs}\PY{o}{=}\PY{l+m+mi}{550}\PY{p}{,} \PY{n}{batch\PYZus{}size}\PY{o}{=}\PY{l+m+mi}{4}\PY{p}{,} \PY{n}{verbose}\PY{o}{=}\PY{l+m+mi}{0}\PY{p}{)}
+\PY{n}{historial} \PY{o}{=} \PY{n}{nn}\PY{o}{.}\PY{n}{fit}\PY{p}{(}\PY{n}{train}\PY{p}{[}\PY{n}{predictors}\PY{p}{]}\PY{p}{,} \PY{n}{np}\PY{o}{.}\PY{n}{ravel}\PY{p}{(}\PY{n}{train}\PY{p}{[}\PY{n}{target}\PY{p}{]}\PY{p}{)}\PY{p}{,} \PY{n}{epochs}\PY{o}{=}\PY{l+m+mi}{600}\PY{p}{,} \PY{n}{batch\PYZus{}size}\PY{o}{=}\PY{l+m+mi}{4}\PY{p}{,} \PY{n}{verbose}\PY{o}{=}\PY{l+m+mi}{0}\PY{p}{)}
 \end{Verbatim}
 \end{tcolorbox}
 
     \begin{Verbatim}[commandchars=\\\{\}]
-2022-04-15 06:14:12.733464: W
-tensorflow/stream\_executor/platform/default/dso\_loader.cc:55] Could not load
-dynamic library 'libcuda.so.1'; dlerror: libcuda.so.1: cannot open shared object
-file: No such file or directory
-2022-04-15 06:14:12.733513: E
-tensorflow/stream\_executor/cuda/cuda\_driver.cc:318] failed call to cuInit:
-UNKNOWN ERROR (303)
-2022-04-15 06:14:12.733549: I
-tensorflow/stream\_executor/cuda/cuda\_diagnostics.cc:156] kernel driver does not
-appear to be running on this host (jupyter-genomorro-2dunir-2duy5jhwqu):
-/proc/driver/nvidia/version does not exist
-2022-04-15 06:14:12.734649: I tensorflow/core/platform/cpu\_feature\_guard.cc:142]
-Your CPU supports instructions that this TensorFlow binary was not compiled to
-use: AVX2 AVX512F FMA
-2022-04-15 06:14:12.765753: I
-tensorflow/core/platform/profile\_utils/cpu\_utils.cc:94] CPU Frequency:
-2300000000 Hz
-2022-04-15 06:14:12.771347: I tensorflow/compiler/xla/service/service.cc:168]
-XLA service 0x55b1568017f0 initialized for platform Host (this does not
-guarantee that XLA will be used). Devices:
-2022-04-15 06:14:12.771403: I tensorflow/compiler/xla/service/service.cc:176]
-StreamExecutor device (0): Host, Default Version
+2022-04-24 19:02:24.795969: W tensorflow/stream\_executor/platform/default/dso\_loader.cc:55] Could not load dynamic library 'libcuda.so.1'; dlerror: libcuda.so.1: cannot open shared object file: No such file or directory
+2022-04-24 19:02:24.796021: E tensorflow/stream\_executor/cuda/cuda\_driver.cc:318] failed call to cuInit: UNKNOWN ERROR (303)
+2022-04-24 19:02:24.796055: I tensorflow/stream\_executor/cuda/cuda\_diagnostics.cc:156] kernel driver does not appear to be running on this host (jupyter-genomorro-2dunir-2djkvlkign): /proc/driver/nvidia/version does not exist
+2022-04-24 19:02:24.796895: I tensorflow/core/platform/cpu\_feature\_guard.cc:142] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 FMA
+2022-04-24 19:02:24.803463: I tensorflow/core/platform/profile\_utils/cpu\_utils.cc:94] CPU Frequency: 2299995000 Hz
+2022-04-24 19:02:24.804009: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x55ab9e131980 initialized for platform Host (this does not guarantee that XLA will be used). Devices:
+2022-04-24 19:02:24.804053: I tensorflow/compiler/xla/service/service.cc:176] StreamExecutor device (0): Host, Default Version
     \end{Verbatim}
 
-            \begin{tcolorbox}[breakable, size=fbox, boxrule=.5pt, pad at break*=1mm, opacityfill=0]
-\prompt{Out}{outcolor}{16}{\boxspacing}
+    En la siguiente gráfica se observa que incluso con 600 epoch el modelo continúa disminuyendo
+    la  pérdida, aunque  la rapidez  disminuye  al acercarse  a los  500  epoch, por  lo que  se
+    considera un buen valor para el entrenamiento.
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{18}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
-<tensorflow.python.keras.callbacks.History at 0x7f07f6a1c210>
+\PY{n}{plt}\PY{o}{.}\PY{n}{xlabel}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{\PYZsh{} Epoch}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+\PY{n}{plt}\PY{o}{.}\PY{n}{ylabel}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Magnitud de pérdida}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+\PY{n}{plt}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{n}{historial}\PY{o}{.}\PY{n}{history}\PY{p}{[}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{loss}\PY{l+s+s2}{\PYZdq{}}\PY{p}{]}\PY{p}{)}
 \end{Verbatim}
 \end{tcolorbox}
+
+%%             \begin{tcolorbox}[breakable, size=fbox, boxrule=.5pt, pad at break*=1mm, opacityfill=0]
+%% \prompt{Out}{outcolor}{18}{\boxspacing}
+%% \begin{Verbatim}[commandchars=\\\{\}]
+%% [<matplotlib.lines.Line2D at 0x7f12384a8110>]
+%% \end{Verbatim}
+%% \end{tcolorbox}
         
+    \begin{center}
+    \adjustimage{max size={0.65\linewidth}{0.65\paperheight}}{output_32_1.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{17}{\boxspacing}
+\prompt{In}{incolor}{19}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n}{nn\PYZus{}pred} \PY{o}{=} \PY{n}{nn}\PY{o}{.}\PY{n}{predict}\PY{p}{(}\PY{n}{test}\PY{p}{[}\PY{n}{predictors}\PY{p}{]}\PY{p}{)}
 \end{Verbatim}
 \end{tcolorbox}
 
     El resultado de la red neuronal no es legible inmediatamente, se
-requiere convertir las predicciones a sus respectivas etiquetas.
-\citep{rickytb2021}
+requiere convertir las predicciones a sus respectivas etiquetas
+\citep{rickytb2021}. Para ello se crea una función que realice esta
+conversión.
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{18}{\boxspacing}
+\prompt{In}{incolor}{20}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{c+c1}{\PYZsh{} Convertir las predicciones a sus respectivas etiquetas}
 \PY{k}{def} \PY{n+nf}{pred\PYZus{}to\PYZus{}label}\PY{p}{(}\PY{n}{predictions}\PY{p}{)}\PY{p}{:}
@@ -963,7 +1052,7 @@ requiere convertir las predicciones a sus respectivas etiquetas.
 \end{tcolorbox}
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{19}{\boxspacing}
+\prompt{In}{incolor}{21}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n}{nn\PYZus{}predicted} \PY{o}{=} \PY{n}{pred\PYZus{}to\PYZus{}label}\PY{p}{(}\PY{n}{nn\PYZus{}pred}\PY{p}{)}
 \PY{n}{crosstab} \PY{o}{=} \PY{n}{sns}\PY{o}{.}\PY{n}{heatmap}\PY{p}{(}\PY{n}{pd}\PY{o}{.}\PY{n}{crosstab}\PY{p}{(}\PY{n}{test}\PY{p}{[}\PY{n}{target}\PY{p}{]}\PY{o}{.}\PY{n}{values}\PY{o}{.}\PY{n}{ravel}\PY{p}{(}\PY{p}{)}\PY{p}{,} \PY{n}{np}\PY{o}{.}\PY{n}{array}\PY{p}{(}\PY{n}{nn\PYZus{}predicted}\PY{p}{)}\PY{p}{)}\PY{p}{,}
@@ -975,11 +1064,11 @@ requiere convertir las predicciones a sus respectivas etiquetas.
 \end{tcolorbox}
 
     \begin{Verbatim}[commandchars=\\\{\}]
-Accuracy:  0.9525
+Accuracy:  0.9625
     \end{Verbatim}
 
     \begin{center}
-    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_32_1.png}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_36_1.png}
     \end{center}
     { \hspace*{\fill} \\}
     
@@ -1001,7 +1090,7 @@ los algoritmos se usarán las métricas proporcionadas por
 \texttt{sklearn}.
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{20}{\boxspacing}
+\prompt{In}{incolor}{22}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n+nb}{print}\PY{p}{(}\PY{n}{metrics}\PY{o}{.}\PY{n}{classification\PYZus{}report}\PY{p}{(}\PY{n}{test}\PY{p}{[}\PY{n}{target}\PY{p}{]}\PY{o}{.}\PY{n}{values}\PY{o}{.}\PY{n}{ravel}\PY{p}{(}\PY{p}{)}\PY{p}{,} \PY{n}{svm\PYZus{}predicted}\PY{p}{)}\PY{p}{)}
 \end{Verbatim}
@@ -1010,19 +1099,19 @@ los algoritmos se usarán las métricas proporcionadas por
     \begin{Verbatim}[commandchars=\\\{\}]
               precision    recall  f1-score   support
 
-           0       0.99      0.98      0.99       105
-           1       0.96      0.99      0.97        98
-           2       0.96      0.97      0.96        97
-           3       0.99      0.96      0.97       100
+           0       1.00      0.98      0.99       101
+           1       0.98      0.98      0.98       101
+           2       0.97      0.97      0.97        96
+           3       0.97      0.99      0.98       102
 
-    accuracy                           0.97       400
-   macro avg       0.97      0.97      0.97       400
-weighted avg       0.98      0.97      0.98       400
+    accuracy                           0.98       400
+   macro avg       0.98      0.98      0.98       400
+weighted avg       0.98      0.98      0.98       400
 
     \end{Verbatim}
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{21}{\boxspacing}
+\prompt{In}{incolor}{23}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n+nb}{print}\PY{p}{(}\PY{n}{metrics}\PY{o}{.}\PY{n}{classification\PYZus{}report}\PY{p}{(}\PY{n}{test}\PY{p}{[}\PY{n}{target}\PY{p}{]}\PY{o}{.}\PY{n}{values}\PY{o}{.}\PY{n}{ravel}\PY{p}{(}\PY{p}{)}\PY{p}{,} \PY{n}{nn\PYZus{}predicted}\PY{p}{)}\PY{p}{)}
 \end{Verbatim}
@@ -1031,18 +1120,18 @@ weighted avg       0.98      0.97      0.98       400
     \begin{Verbatim}[commandchars=\\\{\}]
               precision    recall  f1-score   support
 
-           0       0.99      0.96      0.98       105
-           1       0.95      0.96      0.95        98
-           2       0.97      0.89      0.92        97
-           3       0.91      1.00      0.95       100
+           0       0.93      0.99      0.96       101
+           1       0.97      0.92      0.94       101
+           2       0.97      0.97      0.97        96
+           3       0.99      0.97      0.98       102
 
-    accuracy                           0.95       400
-   macro avg       0.95      0.95      0.95       400
-weighted avg       0.95      0.95      0.95       400
+    accuracy                           0.96       400
+   macro avg       0.96      0.96      0.96       400
+weighted avg       0.96      0.96      0.96       400
 
     \end{Verbatim}
 
-    Los resultados son realmente parejos. Los mejores números presentados
+    Los resultados son realmente igualados. Los mejores números presentados
 por la SVM no hacen gran diferencia. El \emph{recall}, la capacidad del
 clasificador para encontrar todas las muestras positivas pueden tener
 números iguales según sea la ejecución del \emph{notebook} de Python. El
