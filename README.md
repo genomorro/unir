@@ -44,6 +44,11 @@ Adicionalmente, se deben modelar dos situaciones (dos problemas) diferentes a la
 
 ## FHS
 
+- Documento final en formato PDF: [mexmiart04t9lab.pdf](mexmiart04t9lab.pdf).
+- Los programas se encuentran en los archivos PDDL en la carpeta raíz de este repositorio.
+- La carpeta `im` contiene ilustraciones necesarias para el documento.
+- La carpeta `out` contiene archivos con los resultados de la ejecución de los planificadores.
+- La carpeta `planners` contiene los planificadores usados en la actividad, útiles para replicar los resultados.
 
 # Uso
 
