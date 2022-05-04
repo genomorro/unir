@@ -453,7 +453,7 @@ In this problem you do not have to predict actual price but a price
 range indicating how high the price is. \citep{Sharma2018}
 \end{quote}
 
-La variable objetivo es la variable ``price\_range''. En este análisis
+La variable objetivo es ``price\_range''. En este análisis
 no se usarán los dos datasets, solo
 \href{https://www.kaggle.com/iabhishekofficial/mobile-price-classification\#train.csv}{train.csv}
 que corresponde a los datos de entrenamiento.
@@ -461,9 +461,9 @@ que corresponde a los datos de entrenamiento.
 \hypertarget{bibliotecas-a-utilizar}{%
 \subsection{Bibliotecas a utilizar}\label{bibliotecas-a-utilizar}}
 
-En el presente análisis se comparará el funcionamiento de una SVM y una
-red neuronal básica por lo tanto se requieren las siguientes
-bibliotecas.
+En el presente análisis se comparará el funcionamiento  de una SVM y una red neuronal básica, por
+lo tanto, se requieren  las bibliotecas  de `sklearn`  y `tensorflow`.  Además, se  han ajustado
+parámetros para visualizar correctamente las imágenes generadas en este reporte.
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
 \prompt{In}{incolor}{1}{\boxspacing}
@@ -536,7 +536,7 @@ memory usage: 328.2 KB
 
     Los metadatos del dataframe corresponden al siguiente diccionario. De
 esta forma, es posible saber que significa un dato en particular. Esto
-puede no ser indispensable para el código pero si resulta de gran
+puede no ser indispensable para el código, pero si resulta de gran
 importancia en la interpretación y análisis de resultados.
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
@@ -634,7 +634,7 @@ price\_range       2.25     3.0
 \end{Verbatim}
 \end{tcolorbox}
         
-    Aún así parece que no todas las variables son realmente numéricas, pues
+    Aun así parece que no todas las variables son realmente numéricas, pues
 no caen en valores continuos. Como ejemplo es posible observar la
 columna objetivo, la cual por medio de números distingue cuatro
 categorías, mismas que se detallan en los metadatos.
@@ -816,7 +816,7 @@ entre los tipos de variables.
     La dentro de las gráficas anteriores lo más destacado es aquella que
 representa la variable \texttt{ram}. En dicha representación se
 distinguen muy claramente los segmentos de precio, es posible pensar que
-que la variable \texttt{ram}, tenga una correlación alta respecto a
+la variable \texttt{ram}, tenga una correlación alta respecto a
 \texttt{price\_range}, mientras otras como \texttt{clock\_speed} sean de
 muy poca relevancia. No hay que perder de vista que la correlación es
 distinto a la causa: la correlación indica que el valor de ambas
@@ -946,10 +946,8 @@ Accuracy:  0.98
     \end{center}
     { \hspace*{\fill} \\}
     
-    Los resultados de la SVM resultan bastante prometedores, la precisión
-alcanzada es muy alta, en alguna ejecución llegó a ser del 99\%, sin
-embargo, se consigue en pocos casos.
-
+    Los resultados de la SVM resultan bastante prometedores, la precisión alcanzada es muy alta, en alguna ejecución llegó a ser del 99\%, sin embargo, se consigue en pocos casos. Se observa que el modelo únicamente clasificó incorrectamente ocho elementos: en la clase 0 y 1 hay dos elementos mal clasificados para cada uno; en la clase 2 hubo 3 clasificaciones incorrectas; en la clase 3 hay una clasificación incorrecta. Además, los elementos erróneos caen en la clase próxima superior en todos los casos, por ejemplo, los elementos de la clase 0 mal calificados fueron clasificados en la clase 1; por lo tanto, todos son falsos positivos.
+    
     \hypertarget{red-neuronal}{%
 \section{Red Neuronal}\label{red-neuronal}}
 
@@ -969,14 +967,14 @@ primeras dos tienen función de activación \texttt{relu} y la última
 \end{Verbatim}
 \end{tcolorbox}
 
-    \begin{Verbatim}[commandchars=\\\{\}]
-WARNING:tensorflow:From /srv/conda/envs/notebook/lib/python3.7/site-
-packages/tensorflow\_core/python/ops/resource\_variable\_ops.py:1630: calling
-BaseResourceVariable.\_\_init\_\_ (from tensorflow.python.ops.resource\_variable\_ops)
-with constraint is deprecated and will be removed in a future version.
-Instructions for updating:
-If using Keras pass *\_constraint arguments to layers.
-    \end{Verbatim}
+%%     \begin{Verbatim}[commandchars=\\\{\}]
+%% WARNING:tensorflow:From /srv/conda/envs/notebook/lib/python3.7/site-
+%% packages/tensorflow\_core/python/ops/resource\_variable\_ops.py:1630: calling
+%% BaseResourceVariable.\_\_init\_\_ (from tensorflow.python.ops.resource\_variable\_ops)
+%% with constraint is deprecated and will be removed in a future version.
+%% Instructions for updating:
+%% If using Keras pass *\_constraint arguments to layers.
+%%     \end{Verbatim}
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
 \prompt{In}{incolor}{16}{\boxspacing}
@@ -1072,12 +1070,12 @@ Accuracy:  0.9625
     \end{center}
     { \hspace*{\fill} \\}
     
-    La red neuronal no ha alcanzado la gran precisión que logró la SVM pero
-el resultado no se ha alejado realmente. Si se considera que este modelo
-fue creado a partir de la documentación básica de la biblioteca que lo
-implementa y no ha sido totalmente personalizado, es posible pensar que
-el resultado es positivo y podría alcanzar mejores predicciones con
-mayor tiempo.
+La red neuronal  no ha alcanzado la gran precisión  que logró la SVM pero el  resultado no se ha
+alejado realmente.  Si se  considera que  este modelo fue  creado a  partir de  la documentación
+básica de  la biblioteca que  lo implementa  y no ha  sido totalmente personalizado,  es posible
+pensar que el resultado es positivo y podría alcanzar mejores predicciones con mayor tiempo.
+
+Algo que si se puede destacar es la distribución del error, como es posible observar, en la clase 2 se presentan tres errores, dos de ellos cayeron en la clase 1 y otro en la clase 3, en otras palabras, existen falsos positivos y falsos negativos. Esto no se dio en la SVM, donde el error solo se observó entre dos categorías y en sentido de los falsos positivos.
 
     \hypertarget{comparaciuxf3n-entre-muxe9todos}{%
 \section{Comparación entre
@@ -1132,11 +1130,11 @@ weighted avg       0.96      0.96      0.96       400
     \end{Verbatim}
 
     Los resultados son realmente igualados. Los mejores números presentados
-por la SVM no hacen gran diferencia. El \emph{recall}, la capacidad del
-clasificador para encontrar todas las muestras positivas pueden tener
+por la SVM no hacen gran diferencia. En el \emph{recall}, la capacidad del
+clasificador para encontrar todas las muestras positivas, ambos modelos pueden tener
 números iguales según sea la ejecución del \emph{notebook} de Python. El
 \emph{f1-score} que se interpreta como una media armónica de precisión y
-recall, llega en alguna categoría, de cualquiera de los modelos, a su
+recall, llega en alguna categoría de cualquiera de los modelos a su
 mejor valor (1), según sea la ejecución del notebook.
 
 Parece que con la implementación aquí elaborada de ambos modelos,
