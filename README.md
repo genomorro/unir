@@ -23,7 +23,7 @@ Se deberá modelar en PDDL (dominio.pddl y problema.pddl) el escenario que se pl
 En esta actividad dejamos dos planificadores que pueden usar: 
 
 - [LPG-TD (Windows, Linux)](https://lpg.unibs.it/lpg/download-lpg-td.html)
-- [FF (Linux)](https://fai.cs.uni-saarland.de/hoffmann/ff/FF-v2.3.tgz )
+- [FF (Linux)](https://fai.cs.uni-saarland.de/hoffmann/ff/FF-v2.3.tgz)
 
 Las soluciones ofrecidas por los planificadores se deben comparar, indicando cuáles han dado soluciones óptimas y en un menor tiempo de ejecución.
 
@@ -54,8 +54,8 @@ Adicionalmente, se deben modelar dos situaciones (dos problemas) diferentes a la
 
 El proyecto completo disponible en [gitlab](https://gitlab.com/genomorro/unir/-/tree/RPA-03).
 
-- En línea, solo lectura:	[link](http://editor.planning.domains/#read_session=NSYlfo6EYh)   [offline](vscode://jan-dolejsi.pddl/planning.domains/session/NSYlfo6EYh)   NSYlfo6EYh
-- En línea, lectura/escritura:	[link](http://editor.planning.domains/#edit_session=jSp07o2cHBpmxik)   [offline](vscode://jan-dolejsi.pddl/planning.domains/session/edit/jSp07o2cHBpmxik)   jSp07o2cHBpmxik
+- En línea, solo lectura:	[link](http://editor.planning.domains/#read_session=NSYlfo6EYh) NSYlfo6EYh
+- En línea, lectura/escritura:	[link](http://editor.planning.domains/#edit_session=jSp07o2cHBpmxik) jSp07o2cHBpmxik
 
 
 ## Licencia

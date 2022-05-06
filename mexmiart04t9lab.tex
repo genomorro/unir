@@ -1,8 +1,8 @@
-\documentclass[a4paper,12pt]{article}
+\documentclass[a4paper,12pt,twocolumn]{article}
 
 \usepackage[spanish,mexico]{babel}
 \usepackage[T1]{fontenc}
-\usepackage[top=2.5cm,bottom=2.5cm,left=3.25cm,right=3.25cm]{geometry}
+\usepackage[top=2.5cm,bottom=2.5cm,left=2.25cm,right=2.25cm]{geometry}
 \usepackage{hyperref}
 \title{Planificación en STRIPS/PDDL}
 \makeatletter
@@ -93,7 +93,7 @@
 
 \section{Introducción}
 
-En trabajos anteriores se ha explorado el estado del arte en el área de planificadores automáticos para la Inteligencia Articial (IA). En este texto se retoma el uso de los planificadores para resolver problemas expresados en STRIPS/PDDL. PDDL es una familia de lenguajes que permiten definir un problema de planificación. Esta familia ha evolucionado junto con el desarrollo de la planificación, por lo que hay numerosas versiones disponibles con diferentes niveles de expresividad.~\citep{Green_2021a}
+En trabajos anteriores se ha explorado el estado del arte en el área de planificadores automáticos para la Inteligencia Artificial (IA). En este texto se retoma el uso de los planificadores para resolver problemas expresados en STRIPS/PDDL. PDDL es una familia de lenguajes que permiten definir un problema de planificación. Esta familia ha evolucionado junto con el desarrollo de la planificación, por lo que hay numerosas versiones disponibles con diferentes niveles de expresividad.~\citep{Green_2021a}
 
 Es importante señalar que los lenguajes PDDL comparten elementos entre sí, hay otros que son ampliamente utilizados pero no universales y algunos más son exclusivos de alguna versión de PDDL. En este texto se exploran \textit{grosso modo} los fundamentos de PDDL a través de tres problemas de planificación automática.
 
@@ -103,11 +103,11 @@ En IA la planificación explora por medio de métodos lógicos y de programació
 
 En PDDL, se deben elaborar dos programas: dominio y problema. El dominio describe las determinaciones que forman el contexto, mientras que el problema detalla el estado inicial, final así como los participantes particulares de la situación.
 
-Ambas descripciones, dominio y problema, serán los datos de entrada para que un planificador automático busque cual es la ruta de acción a seguir para pasar del estado inicial al estado final. Generalmente los planificadores reducen el problema a un contexto de búsqueda dentro de un grafo, de esta forma se expresa la solución como una ruta a seguir.
+Ambas descripciones, dominio y problema, serán los datos de entrada para que un planificador automático busque cual es la ruta de acción a seguir para pasar del estado inicial al estado final. Generalmente, los planificadores reducen el problema a un contexto de búsqueda dentro de un grafo, de esta forma se expresa la solución como una ruta a seguir.
 
 \section{Marco referencial}
 
-En este texto se utilizarán los siguientes planificadores: FF, Metis~\citep{sievers2018metis}, LPG-td y el Solver Planning Domains (SPD). También se consideraron otros planificadores como IBaCoP~\citep{cenamor2018ibacop} y Scorpion~\citep{seipp2018scorpion}, sin embargo, fueron descartados por su bajo desempeño en tiempo de ejecución.
+En este texto se utilizarán los siguientes planificadores: FF, Metis~\citep{sievers2018metis}, LPG-td y el Solver Planning Domains (SPD). También se consideraron otros como IBaCoP~\citep{cenamor2018ibacop}, un conjunto de planificadores, pero fueron descartados por su bajo desempeño en tiempo de ejecución. El resultado de otro planificador, Scorpion~\citep{seipp2018scorpion},  se menciona durante el texto.
 
 En el dominio del problema a resolver se presenta un mapa con una serie de localizaciones, algunas de ellas son hospitales, otras tienen pacientes. Se asume que un robot conduce una ambulancia, originalmente localizada en un hospital, y debe llegar a la ubicación de los pacientes, subirlos a la ambulancia y llevarlos al hospital. La ambulancia solo puede atender un paciente a la vez.
 
@@ -141,31 +141,28 @@ Los problemas variarán según el número de ubicaciones, pacientes y caminos di
 
 \section{Dominio y problemas}
 
-Tanto STRIPS como PDDL son lenguajes declarativos~\citep{Dominguez2017}. En el dominio (Ver listing~\ref{sc:domain.pddl}) se distinguirá primero el nombre del mismo: \emph{emergency} en este caso. Posteriormente, habrá listas de propiedades: el primer elemento de la lista es un parámetro (\emph{:nombre del parámetro}) que indica el tipo de predicados que tiene la lista, Estos parámetros pueden repetirse según el nombre del parámetro, si la lista corresponde a acciones (\emph{:action}), habrá tres parámetros adicionales: \emph{:parameters}, \emph{:precondition} y \emph{:effect}. La primera de estas listas serán las variables que intervienen en la acción; la segunda serán los predicados que deben cumplirse para ejecutar la acción; la última los cambios consecuentes a realizar la acción.
+Tanto STRIPS como PDDL son lenguajes declarativos~\citep{Dominguez2017}. En el dominio (ver listing~\ref{sc:domain.pddl}) se distinguirá primero el nombre del mismo: \emph{emergency} en este caso. Posteriormente, habrá listas de propiedades: el primer elemento de la lista es un parámetro (\emph{:nombre del parámetro}) que indica el tipo de predicados que tiene la lista, Estos parámetros pueden repetirse según el nombre del parámetro, si la lista corresponde a acciones (\emph{:action}), habrá tres parámetros adicionales: \emph{:parameters}, \emph{:precondition} y \emph{:effect}. La primera de estas listas serán las variables que intervienen en la acción; la segunda serán los predicados que deben cumplirse para ejecutar la acción; la última los cambios consecuentes a realizar la acción.
 
-\lstinputlisting[language=Lisp, numbers=left, caption=domain.pddl \label{sc:domain.pddl}]{domain.pddl}
+\lstinputlisting[language=Lisp, numbers=left, columns=fullflexible, caption=domain.pddl \label{sc:domain.pddl}]{domain.pddl}
 
-En el problema (Ver listing~\ref{sc:problem01.pddl}) se encuentra el nombre del mismo. Después se leen cuatro listas de propiedades: \emph{:domain}, \emph{:objects}, \emph{:init} y \emph{:goal}. La lista \emph{:objects} consiste en un conjunto de átomos que nombran los participantes del problema, mientras \emph{:init} y \emph{:goal} listan predicados que describen la situación inicial y final del problema.
+En el problema se encuentra el nombre del mismo. Después se leen cuatro listas de propiedades: \emph{:domain}, \emph{:objects}, \emph{:init} y \emph{:goal}. La lista \emph{:objects} consiste en un conjunto de átomos que nombran los participantes del problema, mientras \emph{:init} y \emph{:goal} listan predicados que describen la situación inicial y final del problema. El listing~\ref{sc:problem01.pddl} corresponde a la escritura en STRIPS del problema original.
 
 \lstinputlisting[language=Lisp, numbers=left, caption=problem01.pddl \label{sc:problem01.pddl}]{problem01.pddl}
-%% \lstinputlisting[language=Lisp, numbers=left]{problem02.pddl}
-%% \lstinputlisting[language=Lisp, numbers=left]{problem03.pddl}
 
-En general se ha descrito un programa y un ejemplo del mismo. Adicionalmente, hay dos dificultades principales al crear estos programas: 1) La documentación sobre el lenguaje; 2) La verificación del programa escrito.
+Basado en el problema original se establecieron dos problemas adicionales: primero se cambió el mapa, a uno simétrico donde ahora se encuentran disponibles siete ubicaciones con caminos en dos direcciones y una sola ruta final al hospital. Se colocaron tres pacientes (ver figura~\ref{fig:var1} y listing~\ref{sc:problem02.pddl}). En realidad sería igual el resultado sin importar el orden en que se recoja a los pacientes, lo interesante es saber si todos los planificadores tendrán la misma elección. En el segundo mapa solamente se limitaron los sentidos de los caminos (ver figura~\ref{fig:var2} y listing~\ref{sc:problem03.pddl}), y se colocaron dos pacientes, con el propósito de saber si algún planificador sugiere una ruta más larga.
 
-Sobre la documentación del lenguaje, no fue posible encontrar un estándar o documentación oficial sobre cualquiera de las versiones de PDDL. Cada versión tiene diferentes opciones de parámetros posibles, aún así tan solo con el uso del parámetro \emph{:typing}, el más común entre versiones, se presentaron problemas. También se dice que la sintaxis es la misma de Lisp, mas al usar una expresión S del conector lógico OR, fue igualmente imposible hacer funcionar el programa. Los programas presentados tienen la sintaxis más básica de STRIPS, el antecesor de PDDL y con mayor correspondencia a Lisp, una familia de lenguajes conocida y bien documentada.
-
-Agregado a lo anterior se encuentra la falta de un verificador léxico/semántico para el programa. La única forma de verificación se encuentra en la ejecución sobre el planificador, el cual no da detalles adecuados para la depuración del programa ya que no es su propósito.  Afortunadamente, existe \href{http://editor.planning.domains/}{el editor en línea de planning.domains}, que tiene las mismas carencias que el modo PDDL de GNU/Emacs, no corrige la sintaxis y no permite escoger con antelación la versión de PDDL que se desea usar, por lo que no es posible saber si los errores son ocasionados por el programador o por limitaciones del planificador que se usa para probar el programa.
+\lstinputlisting[language=Lisp, numbers=left, caption=problem02.pddl \label{sc:problem02.pddl}]{problem02.pddl}
+\lstinputlisting[language=Lisp, numbers=left, caption=problem03.pddl \label{sc:problem03.pddl}]{problem03.pddl}
 
 \section{Resultados y comparación}
 
-A continuación se encontrarán los resultados del problema original (Ver figura~\ref{fig:original}) de cada uno de los planificadores probados. Los planificadores hacen el mismo número de pasos, catorce, salvo LPG-td que registró 16 pasos. Si se observa con atención entre los pasos 1 y 3 el planificador regresa innecesariamente entre los lugares L2 y L4 (Ver líneas 13 a 15 en listing~\ref{sc:p1-lpg-td.SOL}), por lo que en realidad también ofrece 14 pasos efectivos, quizá exista un error en el planificador.
+A continuación se encontrarán los resultados del problema original (ver figura~\ref{fig:original}) de cada uno de los planificadores probados. Los planificadores hacen el mismo número de pasos, catorce, salvo LPG-td que registró 16 pasos. Si se observa con atención entre los pasos 1 y 3 el planificador regresa innecesariamente entre los lugares L2 y L4 (ver líneas 13 a 15 en listing~\ref{sc:p1-lpg-td.SOL}), por lo que en realidad también ofrece 14 pasos efectivos, quizá exista un error en el planificador.
 
-Dentro del plan entregado, los planificadores FF y Metis coinciden en el resultado final, en ambos se recoge primero al paciente de la ubicación L3 (Ver listing~\ref{sc:p1-ff.pddl} y~\ref{sc:Metis}); los planificadores LPG-td y SPD por su parte decidieron recoger primero al paciente de la ubicación L4, dicha ubicación es la más cercana al hospital, mismo que define el estado inicial del robot (Ver listing~\ref{sc:p1-solver.planning.domains} y~\ref{sc:p1-lpg-td.SOL}). Sin embargo, esta diferencia no hace más costoso ninguno de los dos planes posibles.
+Dentro del plan entregado, los planificadores FF y Metis coinciden en el resultado final, en ambos se recoge primero al paciente de la ubicación L3 (ver listing~\ref{sc:p1-ff.pddl} y~\ref{sc:Metis}); los planificadores LPG-td y SPD por su parte decidieron recoger primero al paciente de la ubicación L4, dicha ubicación es la más cercana al hospital, mismo que define el estado inicial del robot (ver listing~\ref{sc:p1-solver.planning.domains} y~\ref{sc:p1-lpg-td.SOL}). Sin embargo, esta diferencia no hace más costoso ninguno de los dos planes posibles.
 
-Respecto al tiempo de ejecución, FF y LPG-td marcaron en cero el contador de dos decimales. Si se recurre al comando \texttt{time}, se puede ver que FF tarda $0.008 s$ y LPG-td en promedio tarda $0.040 s$. Metis es el segundo más rápido, incluso cuando requiere un contenedor Singularity, con un tiempo de $0.001 s$, aunque el más rápido fue SPD, que se corrió desde un servidor externo mediante un API, requirió tan solo $1.8999 x 10^{-10} s$ (Ver listing~\ref{sc:p1-solver.planning.domains-time}).
+Respecto al tiempo de ejecución, FF y LPG-td marcaron en cero el contador de dos decimales. Si se recurre al comando \texttt{time}, se puede ver que FF tarda $0.008 s$ y LPG-td en promedio tarda $0.040 s$. Metis es el segundo más rápido, incluso cuando requiere un contenedor Singularity, con un tiempo de $0.001 s$, aunque el más rápido fue SPD, que se corrió desde un servidor externo mediante una API~\citep{Muise2015}, requirió tan solo $1.8999 x 10^{-10} s$ (ver listing~\ref{sc:p1-solver.planning.domains-time}). Al probar en otros planificadores, Scorpion tardó $200.014 s$ (ver listing~\ref{sc:Scorpion}).
 
-\lstinputlisting[style=consola, numbers=left, caption=Resultado de FF \label{sc:p1-ff.pddl}]{out/p1-ff}
+\lstinputlisting[style=consola, numbers=left, columns=fullflexible, caption=Resultado de FF \label{sc:p1-ff.pddl}]{out/p1-ff}
 \lstinputlisting[style=consola, numbers=left, caption=Resultado de LPG-td \label{sc:p1-lpg-td.SOL}]{out/p1-lpg-td_1.SOL}
 \lstinputlisting[style=consola, numbers=left, caption=Plan de Solver Planning Domain \label{sc:p1-solver.planning.domains}]{out/p1-solver.planning.domains}
 \lstinputlisting[style=consola, numbers=left, caption=Resultado de Solver Planning Domain \label{sc:p1-solver.planning.domains-time}]{out/p1-solver.planning.domains-time}
@@ -206,14 +203,108 @@ Respecto al tiempo de ejecución, FF y LPG-td marcaron en cero el contador de do
   Solution found.
   Peak memory: 4960 KB
 \end{lstlisting}
+\begin{lstlisting}[style=consola, numbers=left, caption=Resultado de Scorpion \label{sc:Scorpion}]
+  Solution found!
+  Actual search time: 0s [t=200.014s]
+  move hospital l2 (1)
+  move l2 l4 (1)
+  move l4 l3 (1)
+  getinto patient1 l3 ambulance (1)
+  move l3 l4 (1)
+  move l4 l2 (1)
+  move l2 hospital (1)
+  getout patient1 hospital ambulance (1)
+  move hospital l2 (1)
+  move l2 l4 (1)
+  getinto patient2 l4 ambulance (1)
+  move l4 l2 (1)
+  move l2 hospital (1)
+  getout patient2 hospital ambulance (1)
+  Plan length: 14 step(s).
+  Plan cost: 14
+  Expanded 24 state(s).
+  Reopened 0 state(s).
+  Evaluated 37 state(s).
+  Evaluations: 37
+  Generated 58 state(s).
+  Dead ends: 0 state(s).
+  Expanded until last jump: 14 state(s).
+  Reopened until last jump: 0 state(s).
+  Evaluated until last jump: 24 state(s).
+  Generated until last jump: 36 state(s).
+  Number of registered states: 37
+  Int hash set load factor: 37/64 = 0.578125
+  Int hash set resizes: 6
+  total successors before partial-order reduction: 58
+  total successors after partial-order reduction: 58
+  Number of times each order was the best order: [16, 11, 0, 6, 3]
+  Probably useful orders: 4/5 = 80%
+  Search time: 0.000681004s
+  Total time: 200.014s
+  Solution found.
+  Peak memory: 5512 KB
+  exitcode: 0
+\end{lstlisting}
 
-Al describir los problemas variantes se observó que para Metis los tiempos de ejecución aumentaron a $0.0046 s$ en la primera variante del problema, mientras que para los otros tres planificadores los tiempos se mantuvieron sin cambios, incluso SPD mantuvo el tiempo de ejecución completamente igual. La diferencia negativa la marcó LPG-td que en la primera variante del problema volvió a registrar un número mayor de pasos: 26 pasos; mientras que los otros planificadores necesitaron solo 22 pasos en la solución. En la segunda variante, al tener caminos en una sola dirección, LPG-td por fin logró obtener 16 pasos, mismos que los otros planificadores.
+Al describir los problemas variantes se observó que para Metis los tiempos de ejecución aumentaron a $0.0046 s$ en la primera variante del problema (ver listing~\ref{sc:p2-metis}), mientras que para los otros tres planificadores los tiempos se mantuvieron sin cambios, incluso SPD mantuvo el tiempo de ejecución completamente igual. La diferencia negativa la marcó LPG-td que en la primera variante del problema volvió a registrar un número mayor de pasos: 26 pasos; mientras que los otros planificadores necesitaron solamente 22 pasos en la solución. En la segunda variante, al tener caminos en una sola dirección, LPG-td por fin logró obtener 16 pasos, mismos que los otros planificadores.
 
 Los listings \ref{sc:p2-solver.planning.domains} y \ref{sc:p3-solver.planning.domains} muestran los planes obtenidos para resolver los dos problemas adicionales planteados.
 
 \lstinputlisting[style=consola, numbers=left, caption=Plan de la primera variante con Solver Planning Domain \label{sc:p2-solver.planning.domains}]{out/p2-solver.planning.domains}
+\begin{lstlisting}[style=consola, numbers=left, caption=Plan de la primera variante con Metis \label{sc:p2-metis}]
+Solution found!
+Actual search time: 0.00299427s [t=0.00460844s]
+move hospital l2 (1)
+move l2 l3 (1)
+move l3 l6 (1)
+getinto patient2 l6 ambulance (1)
+move l6 l3 (1)
+move l3 l2 (1)
+move l2 hospital (1)
+getout patient2 hospital ambulance (1)
+move hospital l2 (1)
+move l2 l3 (1)
+move l3 l7 (1)
+getinto patient3 l7 ambulance (1)
+move l7 l3 (1)
+move l3 l2 (1)
+move l2 hospital (1)
+getout patient3 hospital ambulance (1)
+move hospital l2 (1)
+move l2 l3 (1)
+getinto patient1 l3 ambulance (1)
+move l3 l2 (1)
+move l2 hospital (1)
+getout patient1 hospital ambulance (1)
+Plan length: 22 step(s).
+Plan cost: 22
+Expanded 226 state(s).
+Reopened 0 state(s).
+Evaluated 286 state(s).
+Evaluations: 572
+Generated 689 state(s).
+Dead ends: 0 state(s).
+Expanded until last jump: 221 state(s).
+Reopened until last jump: 0 state(s).
+Evaluated until last jump: 278 state(s).
+Generated until last jump: 674 state(s).
+Number of registered states: 286
+total successors before partial-order reduction: 689
+total successors after partial-order reduction: 689
+Search time: 0.00314171s
+Total time: 0.00460844s
+Solution found.
+Peak memory: 5088 KB
+\end{lstlisting}
 \lstinputlisting[style=consola, numbers=left, caption=Plan de la segunda variante con Solver Planning Domain \label{sc:p3-solver.planning.domains}]{out/p3-solver.planning.domains}
 
+En general se ha descrito un programa dominio, el cual es invariable. También se escribieron varios problemas que corresponden a dicho dominio, una vez comprendidas las determinaciones del dominio resulta sencillo describir los problemas a resolver. Pese a ello, hay dos dificultades principales al crear estos programas: 1) La documentación sobre el lenguaje; 2) La verificación del programa escrito.
+
+Sobre la documentación del lenguaje, no fue posible encontrar un estándar o documentación oficial sobre cualquiera de las versiones de PDDL. Cada versión tiene diferentes opciones de parámetros posibles, aun así tan solo con el uso del parámetro \emph{:typing}, el más común entre versiones, se presentaron problemas. También se dice que la sintaxis es la misma de Lisp, mas al usar una expresión S del conector lógico OR, fue igualmente complicado hacer funcionar el programa. Los programas presentados tienen la sintaxis más básica de STRIPS, el antecesor de PDDL y con mayor correspondencia a Lisp, una familia de lenguajes conocida y bien documentada. El listing~\ref{sc:problem04.pddl} contiene un problema en el cual hay dos hospitales, y los pacientes deben ser llevados a cualquiera de los hospitales. Dicho código es funcional, hay planificadores que encuentran solución, sin embargo, algunos de aquellos incorporados en IBacop tienen problemas con la sintaxis aquí presentada. Sumado a ello, SPD resuelve el problema, pero no detalla el plan como lo hace en otros casos. Si bien el planificador no tiene un mensaje concreto, es presumible que el elemento sintáctico nuevo, el conector lógico OR (líneas 30 a 35), es el causante del problema, por esa razón este código no fue incluido en las pruebas metodológicas.
+
+\lstinputlisting[language=Lisp, numbers=left, caption=problem04.pddl \label{sc:problem04.pddl}]{problem04.pddl}
+
+Agregado a lo anterior se encuentra la falta de un verificador léxico/semántico para el programa. La única forma de comprobación es la ejecución sobre el planificador, el cual no da detalles adecuados para la depuración del programa, ya que no es su propósito.  Para esta labor existe \href{http://editor.planning.domains/}{el editor en línea de planning.domains}; tiene las mismas carencias que el modo PDDL de GNU/Emacs: no corrige la sintaxis y no permite escoger con antelación la versión de PDDL que se desea emplear, por lo que no es posible saber si los errores son ocasionados por el programador o por limitaciones del planificador que se usa para probar el programa. Aunque existe documentación sobre otros programas escritos en Java, no se han podido probar por la dificultad al encontrar el código fuente correspondiente.
 
 \section{Conclusión}
 

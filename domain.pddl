@@ -9,37 +9,37 @@
    (path ?f ?t)   ; Camino entre dos lugares
    (patient ?p))  ; Paciente
   (:action move
-           :parameters (?from ?to)
-           :precondition (and
-                          (current ?from)
-                          (location ?from)
-                          (location ?to)
-                          (path ?from ?to))
-           :effect (and
-                    (current ?to)
-                    (not (current ?from))))                    
+	   :parameters (?from ?to)
+	   :precondition (and
+			  (current ?from)
+			  (location ?from)
+			  (location ?to)
+			  (path ?from ?to))
+	   :effect (and
+		    (current ?to)
+		    (not (current ?from))))
   (:action getinto
-           :parameters (?p ?l ?a)
-           :precondition (and
-                          (ambulance ?a)
-                          (at ?p ?l)
-                          (current ?l)
-                          (free ?a)
-                          (location ?l)
-                          (patient ?p))
-           :effect (and
-                    (carry ?p ?a)
-                    (not (at ?p ?l))
-                    (not (free ?a))))        
+	   :parameters (?p ?l ?a)
+	   :precondition (and
+			  (ambulance ?a)
+			  (at ?p ?l)
+			  (current ?l)
+			  (free ?a)
+			  (location ?l)
+			  (patient ?p))
+	   :effect (and
+		    (carry ?p ?a)
+		    (not (at ?p ?l))
+		    (not (free ?a))))
   (:action getout
-           :parameters (?p ?l ?a)
-           :precondition (and
-                          (ambulance ?a)
-                          (carry ?p ?a)
-                          (current ?l)
-                          (location ?l)
-                          (patient ?p))
-           :effect (and
-                    (at ?p ?l)
-                    (free ?a)
-                    (not (carry ?p ?a)))))
+	   :parameters (?p ?l ?a)
+	   :precondition (and
+			  (ambulance ?a)
+			  (carry ?p ?a)
+			  (current ?l)
+			  (location ?l)
+			  (patient ?p))
+	   :effect (and
+		    (at ?p ?l)
+		    (free ?a)
+		    (not (carry ?p ?a)))))
