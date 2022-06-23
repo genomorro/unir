@@ -1,19 +1,23 @@
-# UNIR
+# Etiquetado morfosintáctico
 
-Esquema de trabajo para proyectos de la UNIR. En cada rama hay un trabajo nuevo, en `main` las plantillas para cada uno de ellos.
+- Objetivos
 
-## Nombre
+Con esta actividad se tratará de que el alumno consiga aplicar un método basado en modelos ocultos de Markov (HMM) para realizar el etiquetado morfosintáctico de una oración.
 
-Cada rama se compone por las iniciales de una materia, sigue un guion y las iniciales de una actividad. Por ejemplo:
+- Descripción
 
-    PC-R1 = Percepción Computacional, Reto 1
+En esta actividad debes implementar en Python un etiquetador morfosintáctico basado en modelos ocultos de Markov (HMM) y realizar el etiquetado morfosintáctico de la oración:
 
-## Descripción
+    Habla con el enfermo grave de trasplantes.
 
+Implementando también en Python el algoritmo de Viterbi.
+
+## FHS
+
+- `Actividad1.ipynb` Contiene el notebook con la actividad.
 - `apt.txt` configura dependencias a instalar sobre el contenedor, ubuntu por default para mybinder.org
 - `requirements.txt` configura las dependencias de python sobre el contenedor, se instalan vía pip.
 - La carpeta `writing` contiene el trabajo escrito en formato pdf en el archivo [main.pdf](writing/main.pdf).
-- La carpeta `im` contiene imágenes de ejemplo, se pueden agregar las necesarias.
 - La carpeta `out` contendrá los archivos de salida.
 - La carpeta `ds` contendrá los archivos datasets de entrada.
 
@@ -25,9 +29,9 @@ Para la instalación local solo corre:
 
 ## Uso
 
-En cada rama verás aquí un botón que lleva a [MyBinder](mybinder.org "My Binder"), así podrán ver cada ejemplo en acción.
+Ver en línea: [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gl/genomorro%2Funir/NLP-A1?labpath=Actividad1.ipynb)
 
-Cada proyecto usa archivos `ipynb` y `py` de forma indistinta, gracias a jupytext se pueden sincronizar. Para saber como hacerlo de momento lo mejor es consultar [jupytext](https://jupytext.readthedocs.io/en/latest/index.html "la documentación de jupytext"), después pondré aquí los comandos que use más comúnmente. 
+Cada proyecto usa archivos `ipynb` y `py` de forma indistinta, gracias a jupytext se pueden sincronizar. Para saber como hacerlo de momento lo mejor es consultar [jupytext](https://jupytext.readthedocs.io/en/latest/index.html "la documentación de jupytext"), después pondré aquí los comandos que use más comúnmente.
 
 Si inicio con un `ipynb` lo convierto a `py`:
 
@@ -52,10 +56,12 @@ Este parche integra el formato UNIR en un archivo LaTeX:
     patch writing/main.tex unir.patch
 
 Hay que tener cuidado con cambiar el nombre de la actividad dentro o posterior al parche.
+
 ## Licencia
+
 This repo is part of Actividades escolares UNIR
 
-Copyright (C) 2021, Edgar Uriel Domínguez Espinoza
+Copyright (C) 2022, Edgar Uriel Domínguez Espinoza
 
 Actividades escolares UNIR is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation; either version 2 of the License, or (at your option) any later version.
 
