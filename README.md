@@ -1,14 +1,14 @@
-# UNIR
+# Actividad 1: Conceptos generales de redes neuronales
 
-Esquema de trabajo para proyectos de la UNIR. En cada rama hay un trabajo nuevo, en `main` las plantillas para cada uno de ellos.
+- Objetivos
 
-## Nombre
+En esta actividad aprenderemos cómo programar redes neuronales con Keras y TensorFlow y pondremos en práctica varios de los conceptos avanzados de entrenamiento de redes neuronales profundas vistos en clase. Para ello, utilizaremos el dataset de Fashion MNIST, un problema sencillo con imágenes pequeñas de prendas de ropa. 
 
-Cada rama se compone por las iniciales de una materia, sigue un guion y las iniciales de una actividad. Por ejemplo:
+- Descripción
 
-    PC-R1 = Percepción Computacional, Reto 1
+La práctica consta de nueve preguntas con sus subapartados (en caso de que los tengan). En cada una de ellas se repasarán uno o varios conceptos importantes de las redes neuronales que servirán para mejorar el entendimiento del alumno de la asignatura y de las propias redes neuronales, su funcionamiento y los posibles errores que puedan aparecer.
 
-## Descripción
+## FHS
 
 - `apt.txt` configura dependencias a instalar sobre el contenedor, ubuntu por default para mybinder.org
 - `requirements.txt` configura las dependencias de python sobre el contenedor, se instalan vía pip.
@@ -25,7 +25,7 @@ Para la instalación local solo corre:
 
 ## Uso
 
-En cada rama verás aquí un botón que lleva a [MyBinder](mybinder.org "My Binder"), así podrán ver cada ejemplo en acción.
+Ver en línea: [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gl/genomorro%2Funir/SCA-A1?labpath=Actividad_1_master_IA_SCA.ipynb)
 
 Cada proyecto usa archivos `ipynb` y `py` de forma indistinta, gracias a jupytext se pueden sincronizar. Para saber como hacerlo de momento lo mejor es consultar [jupytext](https://jupytext.readthedocs.io/en/latest/index.html "la documentación de jupytext"), después pondré aquí los comandos que use más comúnmente. 
 
@@ -55,7 +55,7 @@ Hay que tener cuidado con cambiar el nombre de la actividad dentro o posterior a
 ## Licencia
 This repo is part of Actividades escolares UNIR
 
-Copyright (C) 2021, Edgar Uriel Domínguez Espinoza
+Copyright (C) 2022, Edgar Uriel Domínguez Espinoza
 
 Actividades escolares UNIR is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation; either version 2 of the License, or (at your option) any later version.
 
