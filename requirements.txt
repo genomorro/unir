@@ -14,11 +14,11 @@ pandas
 openpyxl
 
 ## Extra
-# matplotlib
+matplotlib
 # opencv-python
 # opencv-contrib-python
 # scikit-learn
 # seaborn
-# tensorflow
+tensorflow
 # graphviz
 # pydotplus
