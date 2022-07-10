@@ -1,14 +1,14 @@
-# UNIR
+# Análisis sintáctico
 
-Esquema de trabajo para proyectos de la UNIR. En cada rama hay un trabajo nuevo, en `main` las plantillas para cada uno de ellos.
+- Objetivos
 
-## Nombre
+Con esta actividad se pretende implementar el algoritmo CKY probabilístico y aplicarlo para realizar el análisis sintáctico automático de una oración.
 
-Cada rama se compone por las iniciales de una materia, sigue un guion y las iniciales de una actividad. Por ejemplo:
+- Pautas de elaboración
 
-    PC-R1 = Percepción Computacional, Reto 1
+El algoritmo CKY probabilístico usa una gramática libre de contexto probabilístico. La gramática que se va a usar en esta actividad se encuentra en formato CNF (Chomsky Normal Form) y está compuesta de reglas que tienen asociada la correspondiente probabilidad de que se use la regla durante el análisis de una oración.
 
-## Descripción
+## FHS
 
 - `apt.txt` configura dependencias a instalar sobre el contenedor, ubuntu por default para mybinder.org
 - `requirements.txt` configura las dependencias de python sobre el contenedor, se instalan vía pip.
@@ -55,7 +55,7 @@ Hay que tener cuidado con cambiar el nombre de la actividad dentro o posterior a
 ## Licencia
 This repo is part of Actividades escolares UNIR
 
-Copyright (C) 2021, Edgar Uriel Domínguez Espinoza
+Copyright (C) 2022, Edgar Uriel Domínguez Espinoza
 
 Actividades escolares UNIR is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation; either version 2 of the License, or (at your option) any later version.
 
