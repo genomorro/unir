@@ -1,12 +1,10 @@
-# Análisis sintáctico
+# UNIR
 
-- Objetivos
+Esquema de trabajo para proyectos de la UNIR. En cada rama hay un trabajo nuevo, en `main` las plantillas para cada uno de ellos.
 
-Con esta actividad se pretende implementar el algoritmo CKY probabilístico y aplicarlo para realizar el análisis sintáctico automático de una oración.
+Cada rama se compone por las iniciales de una materia, sigue un guion y las iniciales de una actividad. Por ejemplo:
 
-- Pautas de elaboración
-
-El algoritmo CKY probabilístico usa una gramática libre de contexto probabilístico. La gramática que se va a usar en esta actividad se encuentra en formato CNF (Chomsky Normal Form) y está compuesta de reglas que tienen asociada la correspondiente probabilidad de que se use la regla durante el análisis de una oración.
+    PC-R1 = Percepción Computacional, Reto 1
 
 ## FHS
 
