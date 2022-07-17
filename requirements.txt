@@ -10,6 +10,7 @@
 IPython
 NumPy
 jupytext
+jupyter-book
 pandas
 openpyxl
 
