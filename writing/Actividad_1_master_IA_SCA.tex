@@ -1,0 +1,1530 @@
+\documentclass[12pt,a4paper,table]{article}
+
+    \usepackage[breakable]{tcolorbox}
+    \usepackage{parskip} % Stop auto-indenting (to mimic markdown behaviour)
+    
+
+    % Basic figure setup, for now with no caption control since it's done
+    % automatically by Pandoc (which extracts ![](path) syntax from Markdown).
+    \usepackage{graphicx}
+    % Maintain compatibility with old templates. Remove in nbconvert 6.0
+    \let\Oldincludegraphics\includegraphics
+    % Ensure that by default, figures have no caption (until we provide a
+    % proper Figure object with a Caption API and a way to capture that
+    % in the conversion process - todo).
+    \usepackage{caption}
+    \DeclareCaptionFormat{nocaption}{}
+    \captionsetup{format=nocaption,aboveskip=0pt,belowskip=0pt}
+
+    \usepackage{float}
+    \floatplacement{figure}{H} % forces figures to be placed at the correct location
+    \usepackage{xcolor} % Allow colors to be defined
+    \usepackage{enumerate} % Needed for markdown enumerations to work
+    \usepackage{geometry} % Used to adjust the document margins
+    \usepackage{amsmath} % Equations
+    \usepackage{amssymb} % Equations
+    \usepackage{textcomp} % defines textquotesingle
+    % Hack from http://tex.stackexchange.com/a/47451/13684:
+    \AtBeginDocument{%
+        \def\PYZsq{\textquotesingle}% Upright quotes in Pygmentized code
+    }
+    \usepackage{upquote} % Upright quotes for verbatim code
+    \usepackage{eurosym} % defines \euro
+
+    \usepackage{iftex}
+    \ifPDFTeX
+        \usepackage[T1]{fontenc}
+        \IfFileExists{alphabeta.sty}{
+              \usepackage{alphabeta}
+          }{
+              \usepackage[mathletters]{ucs}
+              \usepackage[utf8x]{inputenc}
+          }
+    \else
+        \usepackage{fontspec}
+        \usepackage{unicode-math}
+    \fi
+
+    \usepackage{fancyvrb} % verbatim replacement that allows latex
+    \usepackage{grffile} % extends the file name processing of package graphics 
+                         % to support a larger range
+    \makeatletter % fix for old versions of grffile with XeLaTeX
+    \@ifpackagelater{grffile}{2019/11/01}
+    {
+      % Do nothing on new versions
+    }
+    {
+      \def\Gread@@xetex#1{%
+        \IfFileExists{"\Gin@base".bb}%
+        {\Gread@eps{\Gin@base.bb}}%
+        {\Gread@@xetex@aux#1}%
+      }
+    }
+    \makeatother
+    \usepackage[Export]{adjustbox} % Used to constrain images to a maximum size
+    \adjustboxset{max size={0.9\linewidth}{0.9\paperheight}}
+
+    % The hyperref package gives us a pdf with properly built
+    % internal navigation ('pdf bookmarks' for the table of contents,
+    % internal cross-reference links, web links for URLs, etc.)
+    \usepackage{hyperref}
+    % The default LaTeX title has an obnoxious amount of whitespace. By default,
+    % titling removes some of it. It also provides customization options.
+    \usepackage{titling}
+    \usepackage{longtable} % longtable support required by pandoc >1.10
+    \usepackage{booktabs}  % table support for pandoc > 1.12.2
+    \usepackage{array}     % table support for pandoc >= 2.11.3
+    \usepackage{calc}      % table minipage width calculation for pandoc >= 2.11.1
+    \usepackage[inline]{enumitem} % IRkernel/repr support (it uses the enumerate* environment)
+    \usepackage[normalem]{ulem} % ulem is needed to support strikethroughs (\sout)
+                                % normalem makes italics be italics, not underlines
+    \usepackage{mathrsfs}
+    
+
+    
+    % Colors for the hyperref package
+    \definecolor{urlcolor}{rgb}{0,.145,.698}
+    \definecolor{linkcolor}{rgb}{.71,0.21,0.01}
+    \definecolor{citecolor}{rgb}{.12,.54,.11}
+
+    % ANSI colors
+    \definecolor{ansi-black}{HTML}{3E424D}
+    \definecolor{ansi-black-intense}{HTML}{282C36}
+    \definecolor{ansi-red}{HTML}{E75C58}
+    \definecolor{ansi-red-intense}{HTML}{B22B31}
+    \definecolor{ansi-green}{HTML}{00A250}
+    \definecolor{ansi-green-intense}{HTML}{007427}
+    \definecolor{ansi-yellow}{HTML}{DDB62B}
+    \definecolor{ansi-yellow-intense}{HTML}{B27D12}
+    \definecolor{ansi-blue}{HTML}{208FFB}
+    \definecolor{ansi-blue-intense}{HTML}{0065CA}
+    \definecolor{ansi-magenta}{HTML}{D160C4}
+    \definecolor{ansi-magenta-intense}{HTML}{A03196}
+    \definecolor{ansi-cyan}{HTML}{60C6C8}
+    \definecolor{ansi-cyan-intense}{HTML}{258F8F}
+    \definecolor{ansi-white}{HTML}{C5C1B4}
+    \definecolor{ansi-white-intense}{HTML}{A1A6B2}
+    \definecolor{ansi-default-inverse-fg}{HTML}{FFFFFF}
+    \definecolor{ansi-default-inverse-bg}{HTML}{000000}
+
+    % common color for the border for error outputs.
+    \definecolor{outerrorbackground}{HTML}{FFDFDF}
+
+    % commands and environments needed by pandoc snippets
+    % extracted from the output of `pandoc -s`
+    \providecommand{\tightlist}{%
+      \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+    \DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+    % Add ',fontsize=\small' for more characters per line
+    \newenvironment{Shaded}{}{}
+    \newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{{#1}}}}
+    \newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.56,0.13,0.00}{{#1}}}
+    \newcommand{\DecValTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
+    \newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
+    \newcommand{\FloatTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
+    \newcommand{\CharTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+    \newcommand{\StringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+    \newcommand{\CommentTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textit{{#1}}}}
+    \newcommand{\OtherTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{{#1}}}
+    \newcommand{\AlertTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{{#1}}}}
+    \newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.02,0.16,0.49}{{#1}}}
+    \newcommand{\RegionMarkerTok}[1]{{#1}}
+    \newcommand{\ErrorTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{{#1}}}}
+    \newcommand{\NormalTok}[1]{{#1}}
+    
+    % Additional commands for more recent versions of Pandoc
+    \newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.53,0.00,0.00}{{#1}}}
+    \newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+    \newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+    \newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.73,0.40,0.53}{{#1}}}
+    \newcommand{\ImportTok}[1]{{#1}}
+    \newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.73,0.13,0.13}{\textit{{#1}}}}
+    \newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{{#1}}}}}
+    \newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{{#1}}}}}
+    \newcommand{\VariableTok}[1]{\textcolor[rgb]{0.10,0.09,0.49}{{#1}}}
+    \newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{{#1}}}}
+    \newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.40,0.40,0.40}{{#1}}}
+    \newcommand{\BuiltInTok}[1]{{#1}}
+    \newcommand{\ExtensionTok}[1]{{#1}}
+    \newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.74,0.48,0.00}{{#1}}}
+    \newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.49,0.56,0.16}{{#1}}}
+    \newcommand{\InformationTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{{#1}}}}}
+    \newcommand{\WarningTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{{#1}}}}}
+    
+    
+    % Define a nice break command that doesn't care if a line doesn't already
+    % exist.
+    \def\br{\hspace*{\fill} \\* }
+    % Math Jax compatibility definitions
+    \def\gt{>}
+    \def\lt{<}
+    \let\Oldtex\TeX
+    \let\Oldlatex\LaTeX
+    \renewcommand{\TeX}{\textrm{\Oldtex}}
+    \renewcommand{\LaTeX}{\textrm{\Oldlatex}}
+    % Document parameters
+    % Document title
+    \title{Actividad 1: Conceptos generales de redes neuronales}
+    
+    
+    
+    
+    
+% Pygments definitions
+\makeatletter
+\def\PY@reset{\let\PY@it=\relax \let\PY@bf=\relax%
+    \let\PY@ul=\relax \let\PY@tc=\relax%
+    \let\PY@bc=\relax \let\PY@ff=\relax}
+\def\PY@tok#1{\csname PY@tok@#1\endcsname}
+\def\PY@toks#1+{\ifx\relax#1\empty\else%
+    \PY@tok{#1}\expandafter\PY@toks\fi}
+\def\PY@do#1{\PY@bc{\PY@tc{\PY@ul{%
+    \PY@it{\PY@bf{\PY@ff{#1}}}}}}}
+\def\PY#1#2{\PY@reset\PY@toks#1+\relax+\PY@do{#2}}
+
+\@namedef{PY@tok@w}{\def\PY@tc##1{\textcolor[rgb]{0.73,0.73,0.73}{##1}}}
+\@namedef{PY@tok@c}{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.24,0.48,0.48}{##1}}}
+\@namedef{PY@tok@cp}{\def\PY@tc##1{\textcolor[rgb]{0.61,0.40,0.00}{##1}}}
+\@namedef{PY@tok@k}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\@namedef{PY@tok@kp}{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\@namedef{PY@tok@kt}{\def\PY@tc##1{\textcolor[rgb]{0.69,0.00,0.25}{##1}}}
+\@namedef{PY@tok@o}{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\@namedef{PY@tok@ow}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.67,0.13,1.00}{##1}}}
+\@namedef{PY@tok@nb}{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\@namedef{PY@tok@nf}{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\@namedef{PY@tok@nc}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\@namedef{PY@tok@nn}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\@namedef{PY@tok@ne}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.80,0.25,0.22}{##1}}}
+\@namedef{PY@tok@nv}{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\@namedef{PY@tok@no}{\def\PY@tc##1{\textcolor[rgb]{0.53,0.00,0.00}{##1}}}
+\@namedef{PY@tok@nl}{\def\PY@tc##1{\textcolor[rgb]{0.46,0.46,0.00}{##1}}}
+\@namedef{PY@tok@ni}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.44,0.44,0.44}{##1}}}
+\@namedef{PY@tok@na}{\def\PY@tc##1{\textcolor[rgb]{0.41,0.47,0.13}{##1}}}
+\@namedef{PY@tok@nt}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\@namedef{PY@tok@nd}{\def\PY@tc##1{\textcolor[rgb]{0.67,0.13,1.00}{##1}}}
+\@namedef{PY@tok@s}{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\@namedef{PY@tok@sd}{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\@namedef{PY@tok@si}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.64,0.35,0.47}{##1}}}
+\@namedef{PY@tok@se}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.67,0.36,0.12}{##1}}}
+\@namedef{PY@tok@sr}{\def\PY@tc##1{\textcolor[rgb]{0.64,0.35,0.47}{##1}}}
+\@namedef{PY@tok@ss}{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\@namedef{PY@tok@sx}{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\@namedef{PY@tok@m}{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\@namedef{PY@tok@gh}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.50}{##1}}}
+\@namedef{PY@tok@gu}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.50,0.00,0.50}{##1}}}
+\@namedef{PY@tok@gd}{\def\PY@tc##1{\textcolor[rgb]{0.63,0.00,0.00}{##1}}}
+\@namedef{PY@tok@gi}{\def\PY@tc##1{\textcolor[rgb]{0.00,0.52,0.00}{##1}}}
+\@namedef{PY@tok@gr}{\def\PY@tc##1{\textcolor[rgb]{0.89,0.00,0.00}{##1}}}
+\@namedef{PY@tok@ge}{\let\PY@it=\textit}
+\@namedef{PY@tok@gs}{\let\PY@bf=\textbf}
+\@namedef{PY@tok@gp}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.50}{##1}}}
+\@namedef{PY@tok@go}{\def\PY@tc##1{\textcolor[rgb]{0.44,0.44,0.44}{##1}}}
+\@namedef{PY@tok@gt}{\def\PY@tc##1{\textcolor[rgb]{0.00,0.27,0.87}{##1}}}
+\@namedef{PY@tok@err}{\def\PY@bc##1{{\setlength{\fboxsep}{\string -\fboxrule}\fcolorbox[rgb]{1.00,0.00,0.00}{1,1,1}{\strut ##1}}}}
+\@namedef{PY@tok@kc}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\@namedef{PY@tok@kd}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\@namedef{PY@tok@kn}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\@namedef{PY@tok@kr}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\@namedef{PY@tok@bp}{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\@namedef{PY@tok@fm}{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\@namedef{PY@tok@vc}{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\@namedef{PY@tok@vg}{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\@namedef{PY@tok@vi}{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\@namedef{PY@tok@vm}{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\@namedef{PY@tok@sa}{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\@namedef{PY@tok@sb}{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\@namedef{PY@tok@sc}{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\@namedef{PY@tok@dl}{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\@namedef{PY@tok@s2}{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\@namedef{PY@tok@sh}{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\@namedef{PY@tok@s1}{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\@namedef{PY@tok@mb}{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\@namedef{PY@tok@mf}{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\@namedef{PY@tok@mh}{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\@namedef{PY@tok@mi}{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\@namedef{PY@tok@il}{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\@namedef{PY@tok@mo}{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\@namedef{PY@tok@ch}{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.24,0.48,0.48}{##1}}}
+\@namedef{PY@tok@cm}{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.24,0.48,0.48}{##1}}}
+\@namedef{PY@tok@cpf}{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.24,0.48,0.48}{##1}}}
+\@namedef{PY@tok@c1}{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.24,0.48,0.48}{##1}}}
+\@namedef{PY@tok@cs}{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.24,0.48,0.48}{##1}}}
+
+\def\PYZbs{\char`\\}
+\def\PYZus{\char`\_}
+\def\PYZob{\char`\{}
+\def\PYZcb{\char`\}}
+\def\PYZca{\char`\^}
+\def\PYZam{\char`\&}
+\def\PYZlt{\char`\<}
+\def\PYZgt{\char`\>}
+\def\PYZsh{\char`\#}
+\def\PYZpc{\char`\%}
+\def\PYZdl{\char`\$}
+\def\PYZhy{\char`\-}
+\def\PYZsq{\char`\'}
+\def\PYZdq{\char`\"}
+\def\PYZti{\char`\~}
+% for compatibility with earlier versions
+\def\PYZat{@}
+\def\PYZlb{[}
+\def\PYZrb{]}
+\makeatother
+
+
+    % For linebreaks inside Verbatim environment from package fancyvrb. 
+    \makeatletter
+        \newbox\Wrappedcontinuationbox 
+        \newbox\Wrappedvisiblespacebox 
+        \newcommand*\Wrappedvisiblespace {\textcolor{red}{\textvisiblespace}} 
+        \newcommand*\Wrappedcontinuationsymbol {\textcolor{red}{\llap{\tiny$\m@th\hookrightarrow$}}} 
+        \newcommand*\Wrappedcontinuationindent {3ex } 
+        \newcommand*\Wrappedafterbreak {\kern\Wrappedcontinuationindent\copy\Wrappedcontinuationbox} 
+        % Take advantage of the already applied Pygments mark-up to insert 
+        % potential linebreaks for TeX processing. 
+        %        {, <, #, %, $, ' and ": go to next line. 
+        %        _, }, ^, &, >, - and ~: stay at end of broken line. 
+        % Use of \textquotesingle for straight quote. 
+        \newcommand*\Wrappedbreaksatspecials {% 
+            \def\PYGZus{\discretionary{\char`\_}{\Wrappedafterbreak}{\char`\_}}% 
+            \def\PYGZob{\discretionary{}{\Wrappedafterbreak\char`\{}{\char`\{}}% 
+            \def\PYGZcb{\discretionary{\char`\}}{\Wrappedafterbreak}{\char`\}}}% 
+            \def\PYGZca{\discretionary{\char`\^}{\Wrappedafterbreak}{\char`\^}}% 
+            \def\PYGZam{\discretionary{\char`\&}{\Wrappedafterbreak}{\char`\&}}% 
+            \def\PYGZlt{\discretionary{}{\Wrappedafterbreak\char`\<}{\char`\<}}% 
+            \def\PYGZgt{\discretionary{\char`\>}{\Wrappedafterbreak}{\char`\>}}% 
+            \def\PYGZsh{\discretionary{}{\Wrappedafterbreak\char`\#}{\char`\#}}% 
+            \def\PYGZpc{\discretionary{}{\Wrappedafterbreak\char`\%}{\char`\%}}% 
+            \def\PYGZdl{\discretionary{}{\Wrappedafterbreak\char`\$}{\char`\$}}% 
+            \def\PYGZhy{\discretionary{\char`\-}{\Wrappedafterbreak}{\char`\-}}% 
+            \def\PYGZsq{\discretionary{}{\Wrappedafterbreak\textquotesingle}{\textquotesingle}}% 
+            \def\PYGZdq{\discretionary{}{\Wrappedafterbreak\char`\"}{\char`\"}}% 
+            \def\PYGZti{\discretionary{\char`\~}{\Wrappedafterbreak}{\char`\~}}% 
+        } 
+        % Some characters . , ; ? ! / are not pygmentized. 
+        % This macro makes them "active" and they will insert potential linebreaks 
+        \newcommand*\Wrappedbreaksatpunct {% 
+            \lccode`\~`\.\lowercase{\def~}{\discretionary{\hbox{\char`\.}}{\Wrappedafterbreak}{\hbox{\char`\.}}}% 
+            \lccode`\~`\,\lowercase{\def~}{\discretionary{\hbox{\char`\,}}{\Wrappedafterbreak}{\hbox{\char`\,}}}% 
+            \lccode`\~`\;\lowercase{\def~}{\discretionary{\hbox{\char`\;}}{\Wrappedafterbreak}{\hbox{\char`\;}}}% 
+            \lccode`\~`\:\lowercase{\def~}{\discretionary{\hbox{\char`\:}}{\Wrappedafterbreak}{\hbox{\char`\:}}}% 
+            \lccode`\~`\?\lowercase{\def~}{\discretionary{\hbox{\char`\?}}{\Wrappedafterbreak}{\hbox{\char`\?}}}% 
+            \lccode`\~`\!\lowercase{\def~}{\discretionary{\hbox{\char`\!}}{\Wrappedafterbreak}{\hbox{\char`\!}}}% 
+            \lccode`\~`\/\lowercase{\def~}{\discretionary{\hbox{\char`\/}}{\Wrappedafterbreak}{\hbox{\char`\/}}}% 
+            \catcode`\.\active
+            \catcode`\,\active 
+            \catcode`\;\active
+            \catcode`\:\active
+            \catcode`\?\active
+            \catcode`\!\active
+            \catcode`\/\active 
+            \lccode`\~`\~ 	
+        }
+    \makeatother
+
+    \let\OriginalVerbatim=\Verbatim
+    \makeatletter
+    \renewcommand{\Verbatim}[1][1]{%
+        %\parskip\z@skip
+        \sbox\Wrappedcontinuationbox {\Wrappedcontinuationsymbol}%
+        \sbox\Wrappedvisiblespacebox {\FV@SetupFont\Wrappedvisiblespace}%
+        \def\FancyVerbFormatLine ##1{\hsize\linewidth
+            \vtop{\raggedright\hyphenpenalty\z@\exhyphenpenalty\z@
+                \doublehyphendemerits\z@\finalhyphendemerits\z@
+                \strut ##1\strut}%
+        }%
+        % If the linebreak is at a space, the latter will be displayed as visible
+        % space at end of first line, and a continuation symbol starts next line.
+        % Stretch/shrink are however usually zero for typewriter font.
+        \def\FV@Space {%
+            \nobreak\hskip\z@ plus\fontdimen3\font minus\fontdimen4\font
+            \discretionary{\copy\Wrappedvisiblespacebox}{\Wrappedafterbreak}
+            {\kern\fontdimen2\font}%
+        }%
+        
+        % Allow breaks at special characters using \PYG... macros.
+        \Wrappedbreaksatspecials
+        % Breaks at punctuation characters . , ; ? ! and / need catcode=\active 	
+        \OriginalVerbatim[#1,codes*=\Wrappedbreaksatpunct]%
+    }
+    \makeatother
+
+    % Exact colors from NB
+    \definecolor{incolor}{HTML}{303F9F}
+    \definecolor{outcolor}{HTML}{D84315}
+    \definecolor{cellborder}{HTML}{CFCFCF}
+    \definecolor{cellbackground}{HTML}{F7F7F7}
+    
+    % prompt
+    \makeatletter
+    \newcommand{\boxspacing}{\kern\kvtcb@left@rule\kern\kvtcb@boxsep}
+    \makeatother
+    \newcommand{\prompt}[4]{
+        {\ttfamily\llap{{\color{#2}[#3]:\hspace{3pt}#4}}\vspace{-\baselineskip}}
+    }
+    
+
+    
+    % Prevent overflowing lines due to hard-to-break entities
+    \sloppy 
+    % Setup hyperref package
+    \hypersetup{
+      breaklinks=true,  % so long urls are correctly broken across lines
+      colorlinks=true,
+      urlcolor=urlcolor,
+      linkcolor=linkcolor,
+      citecolor=citecolor,
+      }
+    % Slightly bigger margins than the latex defaults
+    
+    \geometry{verbose,tmargin=1in,bmargin=1in,lmargin=1in,rmargin=1in}
+    
+    %% BEGIN: UNIR
+    \usepackage[spanish,mexico]{babel}
+    \usepackage[sfdefault,lf]{carlito}
+    \makeatletter
+    \let\newtitle\@title
+    \makeatother
+    \usepackage{amsmath}
+    \usepackage{multirow}
+    \definecolor{UnirLight}{HTML}{E6F4F9}
+    \definecolor{UnirDark}{HTML}{0098CD}
+    \arrayrulecolor{UnirDark}
+    \usepackage{titlesec}
+    \titleformat*{\section}{\color{UnirDark}\normalsize\bfseries}
+    \titleformat*{\subsection}{\color{UnirDark}\normalsize\bfseries}
+    \titleformat*{\subsubsection}{\color{UnirDark}\normalsize\bfseries}
+    \usepackage{fancyhdr}
+    \pagestyle{fancy}
+    \renewcommand{\headrulewidth}{0pt}
+    \headheight=45pt
+    \setlength{\footskip}{64pt}
+    \lhead{}
+    \chead{
+      \begin{tabular}{|c|l|c|}
+        \hline
+        \rowcolor{UnirLight}
+        \textcolor{UnirDark}{Asignatura} & \textcolor{UnirDark}{Datos del alumno} & \textcolor{UnirDark}{Fecha} \\
+        \hline
+        \multirow{2}{12em}{\textbf{Sistemas cognitivos artificiales}} & Apellidos: Domínguez Espinoza & \multirow{2}{6em}{\today} \\
+        & Nombre: Edgar Uriel & \\
+        \hline
+    \end{tabular}}
+    \rhead{}
+    \lfoot{}
+    \cfoot{}
+    \rfoot{\makebox(70,56)[t]{\textcolor{UnirDark}{Actividades}}
+      \colorbox{UnirDark}{
+        \makebox(10,56)[t]{
+          \textcolor{white}{\thepage}}}}
+    \usepackage[color={[gray]{0.5}}, angle=90,fontsize=9pt,anchor=lb,pos={0.03\paperwidth,0.95\paperheight}]{draftwatermark}
+    \SetWatermarkText{{\copyright} Universidad Internacional de La Rioja en México (UNIR)}
+    \hypersetup{
+      pdfauthor={Edgar Uriel Domínguez Espinoza},
+      pdftitle={Conceptos generales de redes neuronales},
+      pdfkeywords={red neuronal, sistemas cognitivos},
+      pdfsubject={Sistemas cognitivos artificiales},
+      pdfcreator={Emacs 28.1}, 
+      pdflang={Spanish}}
+    %% END: UNIR    
+
+\begin{document}
+    
+    
+    
+
+    
+    \hypertarget{actividad-1-conceptos-generales-de-redes-neuronales}{%
+\textcolor{UnirDark}{\Large\bfseries\newtitle}\label{actividad-1-conceptos-generales-de-redes-neuronales}}
+
+En esta actividad vamos a revisar algunos de los conceptos basicos de
+las redes neuronales, pero no por ello menos importantes.
+
+El dataset a utilizar es Fashion MNIST, un problema sencillo con
+imágenes pequeñas de ropa, pero más interesante que el dataset de MNIST.
+Puedes consultar más información sobre el dataset en este enlace.
+
+El código utilizado para contestar tiene que quedar claramente reflejado
+en el Notebook. Puedes crear nuevas cells si así lo deseas para
+estructurar tu código y sus salidas. A la hora de entregar el notebook,
+asegúrate de que los resultados de ejecutar tu código han quedado
+guardados (por ejemplo, a la hora de entrenar una red neuronal tiene que
+verse claramente un log de los resultados de cada epoch).
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{1}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{k+kn}{import} \PY{n+nn}{tensorflow} \PY{k}{as} \PY{n+nn}{tf}
+\PY{n+nb}{print}\PY{p}{(}\PY{n}{tf}\PY{o}{.}\PY{n}{\PYZus{}\PYZus{}version\PYZus{}\PYZus{}}\PY{p}{)}
+\end{Verbatim}
+\end{tcolorbox}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+2.9.1
+    \end{Verbatim}
+
+    En primer lugar vamos a importar el dataset Fashion MNIST (recordad que
+este es uno de los dataset de entranamiento que estan guardados en
+keras) que es el que vamos a utilizar en esta actividad:
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{2}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{mnist} \PY{o}{=} \PY{n}{tf}\PY{o}{.}\PY{n}{keras}\PY{o}{.}\PY{n}{datasets}\PY{o}{.}\PY{n}{fashion\PYZus{}mnist}
+\end{Verbatim}
+\end{tcolorbox}
+
+    Llamar a \textbf{load\_data} en este dataset nos dará dos conjuntos de
+dos listas, estos serán los valores de entrenamiento y prueba para los
+gráficos que contienen las prendas de vestir y sus etiquetas.
+
+Nota: Aunque en esta actividad lo veis de esta forma, también lo vais a
+poder encontrar como 4 variables de esta forma: training\_images,
+training\_labels, test\_images, test\_labels = mnist.load\_data()
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{3}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{p}{(}\PY{n}{training\PYZus{}images}\PY{p}{,} \PY{n}{training\PYZus{}labels}\PY{p}{)}\PY{p}{,} \PY{p}{(}\PY{n}{test\PYZus{}images}\PY{p}{,} \PY{n}{test\PYZus{}labels}\PY{p}{)} \PY{o}{=} \PY{n}{mnist}\PY{o}{.}\PY{n}{load\PYZus{}data}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+\end{tcolorbox}
+
+    Antes de continuar vamos a dar un vistazo a nuestro dataset, para ello
+vamos a ver una imagen de entrenamiento y su etiqueta o clase.
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{4}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{k+kn}{import} \PY{n+nn}{numpy} \PY{k}{as} \PY{n+nn}{np}
+\PY{n}{np}\PY{o}{.}\PY{n}{set\PYZus{}printoptions}\PY{p}{(}\PY{n}{linewidth}\PY{o}{=}\PY{l+m+mi}{200}\PY{p}{)}
+\PY{k+kn}{import} \PY{n+nn}{matplotlib}\PY{n+nn}{.}\PY{n+nn}{pyplot} \PY{k}{as} \PY{n+nn}{plt}
+\PY{n}{plt}\PY{o}{.}\PY{n}{imshow}\PY{p}{(}\PY{n}{training\PYZus{}images}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{,} \PY{n}{cmap}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{gray}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)} \PY{c+c1}{\PYZsh{} recordad que siempre es preferible trabajar en blanco y negro}
+\PY{c+c1}{\PYZsh{}}
+\PY{n+nb}{print}\PY{p}{(}\PY{n}{training\PYZus{}labels}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{)}
+\PY{n+nb}{print}\PY{p}{(}\PY{n}{training\PYZus{}images}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{)}
+\end{Verbatim}
+\end{tcolorbox}
+
+%%     \begin{Verbatim}[commandchars=\\\{\}]
+%% 9
+%% [[  0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0
+%% 0   0   0   0   0   0   0   0   0]
+%%  [  0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0
+%% 0   0   0   0   0   0   0   0   0]
+%%  [  0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0
+%% 0   0   0   0   0   0   0   0   0]
+%%  [  0   0   0   0   0   0   0   0   0   0   0   0   1   0   0  13  73   0   0
+%% 1   4   0   0   0   0   1   1   0]
+%%  [  0   0   0   0   0   0   0   0   0   0   0   0   3   0  36 136 127  62  54
+%% 0   0   0   1   3   4   0   0   3]
+%%  [  0   0   0   0   0   0   0   0   0   0   0   0   6   0 102 204 176 134 144
+%% 123  23   0   0   0   0  12  10   0]
+%%  [  0   0   0   0   0   0   0   0   0   0   0   0   0   0 155 236 207 178 107
+%% 156 161 109  64  23  77 130  72  15]
+%%  [  0   0   0   0   0   0   0   0   0   0   0   1   0  69 207 223 218 216 216
+%% 163 127 121 122 146 141  88 172  66]
+%%  [  0   0   0   0   0   0   0   0   0   1   1   1   0 200 232 232 233 229 223
+%% 223 215 213 164 127 123 196 229   0]
+%%  [  0   0   0   0   0   0   0   0   0   0   0   0   0 183 225 216 223 228 235
+%% 227 224 222 224 221 223 245 173   0]
+%%  [  0   0   0   0   0   0   0   0   0   0   0   0   0 193 228 218 213 198 180
+%% 212 210 211 213 223 220 243 202   0]
+%%  [  0   0   0   0   0   0   0   0   0   1   3   0  12 219 220 212 218 192 169
+%% 227 208 218 224 212 226 197 209  52]
+%%  [  0   0   0   0   0   0   0   0   0   0   6   0  99 244 222 220 218 203 198
+%% 221 215 213 222 220 245 119 167  56]
+%%  [  0   0   0   0   0   0   0   0   0   4   0   0  55 236 228 230 228 240 232
+%% 213 218 223 234 217 217 209  92   0]
+%%  [  0   0   1   4   6   7   2   0   0   0   0   0 237 226 217 223 222 219 222
+%% 221 216 223 229 215 218 255  77   0]
+%%  [  0   3   0   0   0   0   0   0   0  62 145 204 228 207 213 221 218 208 211
+%% 218 224 223 219 215 224 244 159   0]
+%%  [  0   0   0   0  18  44  82 107 189 228 220 222 217 226 200 205 211 230 224
+%% 234 176 188 250 248 233 238 215   0]
+%%  [  0  57 187 208 224 221 224 208 204 214 208 209 200 159 245 193 206 223 255
+%% 255 221 234 221 211 220 232 246   0]
+%%  [  3 202 228 224 221 211 211 214 205 205 205 220 240  80 150 255 229 221 188
+%% 154 191 210 204 209 222 228 225   0]
+%%  [ 98 233 198 210 222 229 229 234 249 220 194 215 217 241  65  73 106 117 168
+%% 219 221 215 217 223 223 224 229  29]
+%%  [ 75 204 212 204 193 205 211 225 216 185 197 206 198 213 240 195 227 245 239
+%% 223 218 212 209 222 220 221 230  67]
+%%  [ 48 203 183 194 213 197 185 190 194 192 202 214 219 221 220 236 225 216 199
+%% 206 186 181 177 172 181 205 206 115]
+%%  [  0 122 219 193 179 171 183 196 204 210 213 207 211 210 200 196 194 191 195
+%% 191 198 192 176 156 167 177 210  92]
+%%  [  0   0  74 189 212 191 175 172 175 181 185 188 189 188 193 198 204 209 210
+%% 210 211 188 188 194 192 216 170   0]
+%%  [  2   0   0   0  66 200 222 237 239 242 246 243 244 221 220 193 191 179 182
+%% 182 181 176 166 168  99  58   0   0]
+%%  [  0   0   0   0   0   0   0  40  61  44  72  41  35   0   0   0   0   0   0
+%% 0   0   0   0   0   0   0   0   0]
+%%  [  0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0
+%% 0   0   0   0   0   0   0   0   0]
+%%  [  0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0
+%% 0   0   0   0   0   0   0   0   0]]
+%%     \end{Verbatim}
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_7_1.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    Habreis notado que todos los valores numericos están entre 0 y 255. Si
+estamos entrenando una red neuronal, una buena practica es transformar
+todos los valores entre 0 y 1, un proceso llamado ``normalización'' y
+afortunadamente en Python es fácil normalizar una lista. Lo puedes hacer
+de esta manera:
+
+    
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{5}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{training\PYZus{}images}  \PY{o}{=} \PY{n}{training\PYZus{}images} \PY{o}{/} \PY{l+m+mf}{255.0}
+\PY{n}{test\PYZus{}images} \PY{o}{=} \PY{n}{test\PYZus{}images} \PY{o}{/} \PY{l+m+mf}{255.0}
+\end{Verbatim}
+\end{tcolorbox}
+
+    Se agrega preprocesamiento sobre las etiquetas, será útil para hacer
+legible la clasificación hecha con la red neuronal.
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{6}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{c+c1}{\PYZsh{} Es necesario preprocesar las etiquetas de salida para que sean reconocidas como categorías}
+\PY{n}{training\PYZus{}labels} \PY{o}{=} \PY{n}{tf}\PY{o}{.}\PY{n}{keras}\PY{o}{.}\PY{n}{utils}\PY{o}{.}\PY{n}{to\PYZus{}categorical}\PY{p}{(}\PY{n}{training\PYZus{}labels}\PY{p}{,} \PY{l+m+mi}{10}\PY{p}{)}
+\PY{n}{test\PYZus{}labels} \PY{o}{=} \PY{n}{tf}\PY{o}{.}\PY{n}{keras}\PY{o}{.}\PY{n}{utils}\PY{o}{.}\PY{n}{to\PYZus{}categorical}\PY{p}{(}\PY{n}{test\PYZus{}labels}\PY{p}{,} \PY{l+m+mi}{10}\PY{p}{)}
+\end{Verbatim}
+\end{tcolorbox}
+
+    También se procesarán los resultados finales del modelo, así las
+predicciones del clasificador serán fácilmente interpretables. Para ello
+se usará una función.
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{7}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{c+c1}{\PYZsh{} Convertir las predicciones a sus respectivas etiquetas}
+\PY{k}{def} \PY{n+nf}{pred\PYZus{}to\PYZus{}label}\PY{p}{(}\PY{n}{predictions}\PY{p}{)}\PY{p}{:}
+    \PY{n}{pred} \PY{o}{=} \PY{n+nb}{list}\PY{p}{(}\PY{p}{)}
+    \PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{n+nb}{len}\PY{p}{(}\PY{n}{predictions}\PY{p}{)}\PY{p}{)}\PY{p}{:}
+        \PY{n}{pred}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{np}\PY{o}{.}\PY{n}{argmax}\PY{p}{(}\PY{n}{predictions}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{p}{)}\PY{p}{)}
+    \PY{k}{return} \PY{n}{pred}
+\end{Verbatim}
+\end{tcolorbox}
+
+    Por ejemplo, en seguida se muestra el primer valor de la variable
+\texttt{test\_labels}, luego se pasa por la función antes creada y se
+muestra de nuevo, así se puede ver la diferencia
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{8}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n+nb}{print}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{El valor de test\PYZus{}labels[0]:}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+\PY{n+nb}{print}\PY{p}{(}\PY{n}{test\PYZus{}labels}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{)}
+\PY{n+nb}{print}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{El valor de la etiqueta test\PYZus{}labels[0]:}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+\PY{n}{test\PYZus{}labels\PYZus{}redable} \PY{o}{=} \PY{n}{pred\PYZus{}to\PYZus{}label}\PY{p}{(}\PY{n}{test\PYZus{}labels}\PY{p}{)}
+\PY{n+nb}{print}\PY{p}{(}\PY{n}{test\PYZus{}labels\PYZus{}redable}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{)}
+\end{Verbatim}
+\end{tcolorbox}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+El valor de test\_labels[0]:
+[0. 0. 0. 0. 0. 0. 0. 0. 0. 1.]
+El valor de la etiqueta test\_labels[0]:
+9
+    \end{Verbatim}
+
+    Ahora vamos a definir el modelo, pero antes vamos a repasar algunos
+comandos y conceptos muy utiles: * \textbf{Sequential}: Eso define una
+SECUENCIA de capas en la red neuronal * \textbf{Dense}: Añade una capa
+de neuronas * \textbf{Flatten}: ¿Recuerdas que las imágenes cómo eran
+las imagenes cuando las imprimiste para poder verlas? Un cuadrado,
+Flatten sólo toma ese cuadrado y lo convierte en un vector de una
+dimensión.
+
+Cada capa de neuronas necesita una función de activación. Normalmente se
+usa la función relu en las capas intermedias y softmax en la ultima capa
+* \textbf{Relu} significa que ``Si X\textgreater0 devuelve X, si no,
+devuelve 0'', así que lo que hace es pasar sólo valores 0 o mayores a la
+siguiente capa de la red. * \textbf{Softmax} toma un conjunto de
+valores, y escoge el más grande.
+
+    \textbf{Pregunta 1 (3.5 puntos)}. Utilizando Keras, y preparando los
+datos de X e y como fuera necesario, define y entrena una red neuronal
+que sea capaz de clasificar imágenes de Fashion MNIST con las siguientes
+características:
+
+\begin{itemize}
+\tightlist
+\item
+  Una hidden layer de tamaños 128, utilizando unidades sigmoid
+  Optimizador Adam.
+\item
+  Durante el entrenamiento, la red tiene que mostrar resultados de loss
+  y accuracy por cada epoch.
+\item
+  La red debe entrenar durante 10 epochs y batch size de 64.
+\item
+  La última capa debe de ser una capa softmax.
+\item
+  Tu red tendría que ser capaz de superar fácilmente 80\% de accuracy.
+\end{itemize}
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{9}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{c+c1}{\PYZsh{}\PYZsh{}\PYZsh{} Tu código para la red neuronal de la pregunta 1 aquí \PYZsh{}\PYZsh{}\PYZsh{}}
+\PY{n}{nn} \PY{o}{=} \PY{n}{tf}\PY{o}{.}\PY{n}{keras}\PY{o}{.}\PY{n}{models}\PY{o}{.}\PY{n}{Sequential}\PY{p}{(}\PY{p}{[}
+      \PY{n}{tf}\PY{o}{.}\PY{n}{keras}\PY{o}{.}\PY{n}{layers}\PY{o}{.}\PY{n}{Flatten}\PY{p}{(}\PY{n}{input\PYZus{}shape}\PY{o}{=}\PY{p}{[}\PY{l+m+mi}{28}\PY{p}{,}\PY{l+m+mi}{28}\PY{p}{]}\PY{p}{)}\PY{p}{,} \PY{c+c1}{\PYZsh{} Según training\PYZus{}images.shape}
+      \PY{n}{tf}\PY{o}{.}\PY{n}{keras}\PY{o}{.}\PY{n}{layers}\PY{o}{.}\PY{n}{Dense}\PY{p}{(}\PY{l+m+mi}{128}\PY{p}{,} \PY{n}{activation}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{sigmoid}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}\PY{p}{,}
+      \PY{n}{tf}\PY{o}{.}\PY{n}{keras}\PY{o}{.}\PY{n}{layers}\PY{o}{.}\PY{n}{Dense}\PY{p}{(}\PY{l+m+mi}{10}\PY{p}{,} \PY{n}{activation}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{softmax}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)} \PY{c+c1}{\PYZsh{} número de clases np.unique(training\PYZus{}labels)}
+\PY{p}{]}\PY{p}{)}
+\PY{n}{nn}\PY{o}{.}\PY{n}{compile}\PY{p}{(}\PY{n}{loss}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{categorical\PYZus{}crossentropy}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{n}{optimizer}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{adam}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{n}{metrics}\PY{o}{=}\PY{p}{[}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{accuracy}\PY{l+s+s2}{\PYZdq{}}\PY{p}{]}\PY{p}{)}
+\PY{n}{nn}\PY{o}{.}\PY{n}{fit}\PY{p}{(}\PY{n}{training\PYZus{}images}\PY{p}{,} \PY{n}{training\PYZus{}labels}\PY{p}{,} \PY{n}{batch\PYZus{}size}\PY{o}{=}\PY{l+m+mi}{64}\PY{p}{,} \PY{n}{epochs}\PY{o}{=}\PY{l+m+mi}{10}\PY{p}{)}
+\end{Verbatim}
+\end{tcolorbox}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+Epoch 1/10
+938/938 [==============================] - 3s 3ms/step - loss: 0.5957 -
+accuracy: 0.8008
+Epoch 2/10
+938/938 [==============================] - 3s 3ms/step - loss: 0.4117 -
+accuracy: 0.8537
+Epoch 3/10
+938/938 [==============================] - 3s 3ms/step - loss: 0.3740 -
+accuracy: 0.8673
+Epoch 4/10
+938/938 [==============================] - 3s 3ms/step - loss: 0.3502 -
+accuracy: 0.8743
+Epoch 5/10
+938/938 [==============================] - 5s 5ms/step - loss: 0.3311 -
+accuracy: 0.8807
+Epoch 6/10
+938/938 [==============================] - 6s 6ms/step - loss: 0.3164 -
+accuracy: 0.8845
+Epoch 7/10
+938/938 [==============================] - 4s 4ms/step - loss: 0.3029 -
+accuracy: 0.8903
+Epoch 8/10
+938/938 [==============================] - 6s 6ms/step - loss: 0.2920 -
+accuracy: 0.8924
+Epoch 9/10
+938/938 [==============================] - 8s 8ms/step - loss: 0.2821 -
+accuracy: 0.8973
+Epoch 10/10
+938/938 [==============================] - 7s 7ms/step - loss: 0.2721 -
+accuracy: 0.9005
+    \end{Verbatim}
+
+            \begin{tcolorbox}[breakable, size=fbox, boxrule=.5pt, pad at break*=1mm, opacityfill=0]
+\prompt{Out}{outcolor}{9}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+<keras.callbacks.History at 0x7f4362640af0>
+\end{Verbatim}
+\end{tcolorbox}
+        
+    Para concluir el entrenamiento de la red neuronal, una buena practica es
+evaluar el modelo para ver si la precisión de entrenamiento es real
+
+\textbf{pregunta 2 (0.5 puntos)}: evalua el modelo con las imagenes y
+etiquetas test.
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{10}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{c+c1}{\PYZsh{}\PYZsh{}\PYZsh{} Tu código para la evaluación de la red neuronal de la pregunta 2 aquí \PYZsh{}\PYZsh{}\PYZsh{}}
+\PY{n}{score} \PY{o}{=} \PY{n}{nn}\PY{o}{.}\PY{n}{evaluate}\PY{p}{(}\PY{n}{test\PYZus{}images}\PY{p}{,} \PY{n}{test\PYZus{}labels}\PY{p}{)}
+\end{Verbatim}
+\end{tcolorbox}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+313/313 [==============================] - 1s 1ms/step - loss: 0.3596 -
+accuracy: 0.8706
+    \end{Verbatim}
+
+    Ahora vamos a explorar el código con una serie de ejercicios para
+alcanzar un grado de comprensión mayor sobre las redes neuronales y su
+entrenamiento.
+
+\hypertarget{ejercicio-1-funcionamiento-de-las-predicciuxf3n-de-la-red-neuronal}{%
+\section{\texorpdfstring{\textbf{Ejercicio 1: Funcionamiento de las
+predicción de la red
+neuronal}}{Ejercicio 1: Funcionamiento de las predicción de la red neuronal}}\label{ejercicio-1-funcionamiento-de-las-predicciuxf3n-de-la-red-neuronal}}
+
+Para este primer ejercicio sigue los siguientes pasos:
+
+\begin{itemize}
+\tightlist
+\item
+  Crea una variable llamada \textbf{classifications} para construir un
+  clasificador para las imágenes de prueba, para ello puedes utilizar la
+  función predict sobre el conjunto de test
+\item
+  Imprime con la función print la primera entrada en las
+  clasificaciones.
+\end{itemize}
+
+\textbf{pregunta 3.1 (0.25 puntos)}, el resultado al imprimirlo es un
+vector de números, * ¿Por qué crees que ocurre esto, y qué representa
+este vector de números?
+
+\textbf{pregunta 3.2 (0.25 puntos)} * ¿Cúal es la clase de la primera
+entrada\# de la variable \textbf{classifications}? La respuesta puede
+ser un número o su etiqueta/clase equivalente.
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{11}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{c+c1}{\PYZsh{}\PYZsh{}\PYZsh{} Tu código del clasificador de la pregunta 3 aquí \PYZsh{}\PYZsh{}\PYZsh{}}
+\PY{n}{classifications} \PY{o}{=} \PY{n}{nn}\PY{o}{.}\PY{n}{predict}\PY{p}{(}\PY{n}{test\PYZus{}images}\PY{p}{)}
+\PY{n+nb}{print}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{El primer valor de salida de la red neuronal es:}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+\PY{n+nb}{print}\PY{p}{(}\PY{n}{classifications}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{)}
+\PY{n}{classifications\PYZus{}redable} \PY{o}{=} \PY{n}{pred\PYZus{}to\PYZus{}label}\PY{p}{(}\PY{n}{classifications}\PY{p}{)}
+\PY{n+nb}{print}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{El primer valor predicho es:}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{n}{classifications\PYZus{}redable}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{,} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{y su valor esperado es:}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{n}{test\PYZus{}labels\PYZus{}redable}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{)}
+\end{Verbatim}
+\end{tcolorbox}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+313/313 [==============================] - 1s 1ms/step
+El primer valor de salida de la red neuronal es:
+[6.0270954e-06 4.8652731e-07 1.7790466e-05 2.1860997e-05 2.8347647e-05
+5.0766636e-02 6.2340114e-05 1.2115291e-02 1.6463656e-04 9.3681657e-01]
+El primer valor predicho es: 9 y su valor esperado es: 9
+    \end{Verbatim}
+
+    \textbf{Tu respuesta a la pregunta 3.1 aquí:} La razón es que cada elemento es un
+vector que representa un valor de la función real que la red neuronal
+está imitando, en una palabra, son probabilidades. En este caso es un
+vector de diez componentes porque ese es el número posible de
+categorias.
+
+    \textbf{Tu respuesta a la pregunta 3.2 aquí:} Si bien varia respecto a la
+ejecución, es posible ver el valor en el código de la pregunta 3, suele
+ser 0 o 9 (el correcto y más común).
+
+    \hypertarget{ejercicio-2-impacto-variar-el-nuxfamero-de-neuronas-en-las-capas-ocultas}{%
+\section{\texorpdfstring{\textbf{Ejercicio 2: Impacto variar el número
+de neuronas en las capas
+ocultas}}{Ejercicio 2: Impacto variar el número de neuronas en las capas ocultas}}\label{ejercicio-2-impacto-variar-el-nuxfamero-de-neuronas-en-las-capas-ocultas}}
+
+En este ejercicio vamos a experimentar con nuestra red neuronal
+cambiando el numero de neuronas por 512 y por 1024. Para ello, utiliza
+la red neuronal de la pregunta 1, y su capa oculta cambia las 128
+neuronas:
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{pregunta 4.1 (0.25 puntos)}: 512 neuronas en la capa oculta
+\item
+  \textbf{pregunta 4.2 (0.25 puntos)}:1024 neuronas en la capa oculta
+\end{itemize}
+
+y entrena la red en ambos casos.
+
+\textbf{pregunta 4.3 (0.5 puntos)}: ¿Cual es el impacto que tiene la red
+neuronal?
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{12}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{c+c1}{\PYZsh{}\PYZsh{}\PYZsh{} Tu código para 512 neuronas aquí \PYZsh{}\PYZsh{}\PYZsh{}}
+\PY{n}{nn\PYZus{}512} \PY{o}{=} \PY{n}{tf}\PY{o}{.}\PY{n}{keras}\PY{o}{.}\PY{n}{models}\PY{o}{.}\PY{n}{Sequential}\PY{p}{(}\PY{p}{[}
+    \PY{n}{tf}\PY{o}{.}\PY{n}{keras}\PY{o}{.}\PY{n}{layers}\PY{o}{.}\PY{n}{Flatten}\PY{p}{(}\PY{n}{input\PYZus{}shape}\PY{o}{=}\PY{p}{[}\PY{l+m+mi}{28}\PY{p}{,}\PY{l+m+mi}{28}\PY{p}{]}\PY{p}{)}\PY{p}{,} \PY{c+c1}{\PYZsh{} Según training\PYZus{}images.shape}
+    \PY{n}{tf}\PY{o}{.}\PY{n}{keras}\PY{o}{.}\PY{n}{layers}\PY{o}{.}\PY{n}{Dense}\PY{p}{(}\PY{l+m+mi}{512}\PY{p}{,} \PY{n}{activation}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{sigmoid}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}\PY{p}{,}
+    \PY{n}{tf}\PY{o}{.}\PY{n}{keras}\PY{o}{.}\PY{n}{layers}\PY{o}{.}\PY{n}{Dense}\PY{p}{(}\PY{l+m+mi}{10}\PY{p}{,} \PY{n}{activation}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{softmax}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)} \PY{c+c1}{\PYZsh{} número de clases np.unique(training\PYZus{}labels)}
+\PY{p}{]}\PY{p}{)}
+\PY{n}{nn\PYZus{}512}\PY{o}{.}\PY{n}{compile}\PY{p}{(}\PY{n}{loss}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{categorical\PYZus{}crossentropy}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{n}{optimizer}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{adam}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{n}{metrics}\PY{o}{=}\PY{p}{[}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{accuracy}\PY{l+s+s2}{\PYZdq{}}\PY{p}{]}\PY{p}{)}
+\PY{n}{h512} \PY{o}{=} \PY{n}{nn\PYZus{}512}\PY{o}{.}\PY{n}{fit}\PY{p}{(}\PY{n}{training\PYZus{}images}\PY{p}{,} \PY{n}{training\PYZus{}labels}\PY{p}{,} \PY{n}{batch\PYZus{}size}\PY{o}{=}\PY{l+m+mi}{64}\PY{p}{,} \PY{n}{epochs}\PY{o}{=}\PY{l+m+mi}{10}\PY{p}{,} \PY{n}{validation\PYZus{}data}\PY{o}{=}\PY{p}{(}\PY{n}{test\PYZus{}images}\PY{p}{,} \PY{n}{test\PYZus{}labels}\PY{p}{)}\PY{p}{)}
+\end{Verbatim}
+\end{tcolorbox}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+Epoch 1/10
+938/938 [==============================] - 5s 5ms/step - loss: 0.5284 -
+accuracy: 0.8144 - val\_loss: 0.4469 - val\_accuracy: 0.8379
+Epoch 2/10
+938/938 [==============================] - 5s 6ms/step - loss: 0.4014 -
+accuracy: 0.8558 - val\_loss: 0.4299 - val\_accuracy: 0.8445
+Epoch 3/10
+938/938 [==============================] - 5s 6ms/step - loss: 0.3639 -
+accuracy: 0.8674 - val\_loss: 0.3885 - val\_accuracy: 0.8631
+Epoch 4/10
+938/938 [==============================] - 5s 5ms/step - loss: 0.3355 -
+accuracy: 0.8773 - val\_loss: 0.3671 - val\_accuracy: 0.8693
+Epoch 5/10
+938/938 [==============================] - 5s 5ms/step - loss: 0.3148 -
+accuracy: 0.8845 - val\_loss: 0.3814 - val\_accuracy: 0.8608
+Epoch 6/10
+938/938 [==============================] - 5s 5ms/step - loss: 0.2987 -
+accuracy: 0.8895 - val\_loss: 0.3476 - val\_accuracy: 0.8738
+Epoch 7/10
+938/938 [==============================] - 5s 5ms/step - loss: 0.2829 -
+accuracy: 0.8948 - val\_loss: 0.3439 - val\_accuracy: 0.8788
+Epoch 8/10
+938/938 [==============================] - 5s 5ms/step - loss: 0.2682 -
+accuracy: 0.9010 - val\_loss: 0.3396 - val\_accuracy: 0.8772
+Epoch 9/10
+938/938 [==============================] - 5s 5ms/step - loss: 0.2564 -
+accuracy: 0.9054 - val\_loss: 0.3372 - val\_accuracy: 0.8798
+Epoch 10/10
+938/938 [==============================] - 10s 11ms/step - loss: 0.2447 -
+accuracy: 0.9097 - val\_loss: 0.3255 - val\_accuracy: 0.8837
+    \end{Verbatim}
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{13}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{score\PYZus{}512} \PY{o}{=} \PY{n}{nn\PYZus{}512}\PY{o}{.}\PY{n}{evaluate}\PY{p}{(}\PY{n}{test\PYZus{}images}\PY{p}{,} \PY{n}{test\PYZus{}labels}\PY{p}{)}
+\end{Verbatim}
+\end{tcolorbox}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+313/313 [==============================] - 1s 4ms/step - loss: 0.3255 -
+accuracy: 0.8837
+    \end{Verbatim}
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{14}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{c+c1}{\PYZsh{}\PYZsh{}\PYZsh{} Tu código para 1024 neuronas aquí \PYZsh{}\PYZsh{}\PYZsh{}}
+\PY{n}{nn\PYZus{}1024} \PY{o}{=} \PY{n}{tf}\PY{o}{.}\PY{n}{keras}\PY{o}{.}\PY{n}{models}\PY{o}{.}\PY{n}{Sequential}\PY{p}{(}\PY{p}{[}
+     \PY{n}{tf}\PY{o}{.}\PY{n}{keras}\PY{o}{.}\PY{n}{layers}\PY{o}{.}\PY{n}{Flatten}\PY{p}{(}\PY{n}{input\PYZus{}shape}\PY{o}{=}\PY{p}{[}\PY{l+m+mi}{28}\PY{p}{,}\PY{l+m+mi}{28}\PY{p}{]}\PY{p}{)}\PY{p}{,} \PY{c+c1}{\PYZsh{} Según training\PYZus{}images.shape}
+     \PY{n}{tf}\PY{o}{.}\PY{n}{keras}\PY{o}{.}\PY{n}{layers}\PY{o}{.}\PY{n}{Dense}\PY{p}{(}\PY{l+m+mi}{1024}\PY{p}{,} \PY{n}{activation}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{sigmoid}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}\PY{p}{,}
+     \PY{n}{tf}\PY{o}{.}\PY{n}{keras}\PY{o}{.}\PY{n}{layers}\PY{o}{.}\PY{n}{Dense}\PY{p}{(}\PY{l+m+mi}{10}\PY{p}{,} \PY{n}{activation}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{softmax}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)} \PY{c+c1}{\PYZsh{} número de clases np.unique(training\PYZus{}labels)}
+\PY{p}{]}\PY{p}{)}
+\PY{n}{nn\PYZus{}1024}\PY{o}{.}\PY{n}{compile}\PY{p}{(}\PY{n}{loss}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{categorical\PYZus{}crossentropy}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{n}{optimizer}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{adam}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{n}{metrics}\PY{o}{=}\PY{p}{[}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{accuracy}\PY{l+s+s2}{\PYZdq{}}\PY{p}{]}\PY{p}{)}
+\PY{n}{h1024} \PY{o}{=} \PY{n}{nn\PYZus{}1024}\PY{o}{.}\PY{n}{fit}\PY{p}{(}\PY{n}{training\PYZus{}images}\PY{p}{,} \PY{n}{training\PYZus{}labels}\PY{p}{,} \PY{n}{batch\PYZus{}size}\PY{o}{=}\PY{l+m+mi}{64}\PY{p}{,} \PY{n}{epochs}\PY{o}{=}\PY{l+m+mi}{10}\PY{p}{,} \PY{n}{validation\PYZus{}data}\PY{o}{=}\PY{p}{(}\PY{n}{test\PYZus{}images}\PY{p}{,} \PY{n}{test\PYZus{}labels}\PY{p}{)}\PY{p}{)}
+\end{Verbatim}
+\end{tcolorbox}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+Epoch 1/10
+938/938 [==============================] - 12s 12ms/step - loss: 0.5229 -
+accuracy: 0.8127 - val\_loss: 0.4502 - val\_accuracy: 0.8397
+Epoch 2/10
+938/938 [==============================] - 16s 17ms/step - loss: 0.4040 -
+accuracy: 0.8537 - val\_loss: 0.4313 - val\_accuracy: 0.8428
+Epoch 3/10
+938/938 [==============================] - 14s 15ms/step - loss: 0.3637 -
+accuracy: 0.8672 - val\_loss: 0.3874 - val\_accuracy: 0.8602
+Epoch 4/10
+938/938 [==============================] - 14s 15ms/step - loss: 0.3348 -
+accuracy: 0.8780 - val\_loss: 0.3796 - val\_accuracy: 0.8663
+Epoch 5/10
+938/938 [==============================] - 14s 15ms/step - loss: 0.3122 -
+accuracy: 0.8850 - val\_loss: 0.3633 - val\_accuracy: 0.8713
+Epoch 6/10
+938/938 [==============================] - 12s 13ms/step - loss: 0.2924 -
+accuracy: 0.8917 - val\_loss: 0.3765 - val\_accuracy: 0.8604
+Epoch 7/10
+938/938 [==============================] - 13s 14ms/step - loss: 0.2779 -
+accuracy: 0.8959 - val\_loss: 0.3441 - val\_accuracy: 0.8732
+Epoch 8/10
+938/938 [==============================] - 13s 13ms/step - loss: 0.2615 -
+accuracy: 0.9024 - val\_loss: 0.3760 - val\_accuracy: 0.8626
+Epoch 9/10
+938/938 [==============================] - 19s 20ms/step - loss: 0.2481 -
+accuracy: 0.9084 - val\_loss: 0.3315 - val\_accuracy: 0.8831
+Epoch 10/10
+938/938 [==============================] - 14s 15ms/step - loss: 0.2353 -
+accuracy: 0.9114 - val\_loss: 0.3198 - val\_accuracy: 0.8882
+    \end{Verbatim}
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{15}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{score\PYZus{}1024} \PY{o}{=} \PY{n}{nn\PYZus{}1024}\PY{o}{.}\PY{n}{evaluate}\PY{p}{(}\PY{n}{test\PYZus{}images}\PY{p}{,} \PY{n}{test\PYZus{}labels}\PY{p}{)}
+\end{Verbatim}
+\end{tcolorbox}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+313/313 [==============================] - 2s 5ms/step - loss: 0.3198 -
+accuracy: 0.8882
+    \end{Verbatim}
+
+    \textbf{Tu respuesta a la pregunta 4.3 aquí:} Aumentó el accuracy. Es posible
+verlo al evaluar las redes resultantes. Sin embargo, esta mejora tiene
+un límite, en el caso de las 1024 neuronas el cambio es menor. En
+algunos casos se puede ver también una pequeña disminución de la
+perdida, pero ese cambio no siempre ocurre.
+
+    Si ahora entrenais el modelo de esta forma (con 512 y 1024 neuronas en
+la capa oculta) y volveis a ejecutar el predictor guardado en la
+variable \textbf{classifications}, escribir el código del clasificador
+del ejercicio 1 de nuevo e imprimid el primer objeto guardado en la
+variable classifications.
+
+\textbf{pregunta 5.1 (0.25 puntos)}:
+
+\begin{itemize}
+\tightlist
+\item
+  ¿En que clase esta clasificado ahora la primera prenda de vestir de la
+  variable classifications?
+\end{itemize}
+
+\textbf{pregunta 5.1 (0.25 puntos)}:
+
+\begin{itemize}
+\tightlist
+\item
+  ¿Porque crees que ha ocurrido esto?
+\end{itemize}
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{16}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{c+c1}{\PYZsh{}\PYZsh{}\PYZsh{} Tu código del clasificador de la pregunta 5 aquí \PYZsh{}\PYZsh{}\PYZsh{}}
+\PY{n}{classifications\PYZus{}512} \PY{o}{=} \PY{n}{nn\PYZus{}512}\PY{o}{.}\PY{n}{evaluate}\PY{p}{(}\PY{n}{test\PYZus{}images}\PY{p}{,} \PY{n}{test\PYZus{}labels}\PY{p}{)}
+\PY{n}{classifications\PYZus{}512} \PY{o}{=} \PY{n}{pred\PYZus{}to\PYZus{}label}\PY{p}{(}\PY{n}{classifications\PYZus{}512}\PY{p}{)}
+\PY{n}{classifications\PYZus{}1024} \PY{o}{=} \PY{n}{nn\PYZus{}1024}\PY{o}{.}\PY{n}{evaluate}\PY{p}{(}\PY{n}{test\PYZus{}images}\PY{p}{,} \PY{n}{test\PYZus{}labels}\PY{p}{)}
+\PY{n}{classifications\PYZus{}1024} \PY{o}{=} \PY{n}{pred\PYZus{}to\PYZus{}label}\PY{p}{(}\PY{n}{classifications\PYZus{}1024}\PY{p}{)}
+\PY{n+nb}{print}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Para la red con 512 neuronas:}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+\PY{n+nb}{print}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{El primer valor predicho es}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{n}{classifications\PYZus{}512}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{,}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{y el valor esperado es}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,}\PY{n}{test\PYZus{}labels\PYZus{}redable}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{)}
+\PY{n+nb}{print}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Para la red con 1024 neuronas:}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+\PY{n+nb}{print}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{El primer valor predicho es}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{n}{classifications\PYZus{}1024}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{,}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{y el valor esperado es}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,}\PY{n}{test\PYZus{}labels\PYZus{}redable}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{)}
+\end{Verbatim}
+\end{tcolorbox}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+313/313 [==============================] - 1s 4ms/step - loss: 0.3255 -
+accuracy: 0.8837
+313/313 [==============================] - 2s 5ms/step - loss: 0.3198 -
+accuracy: 0.8882
+Para la red con 512 neuronas:
+El primer valor predicho es 0 y el valor esperado es 9
+Para la red con 1024 neuronas:
+El primer valor predicho es 0 y el valor esperado es 9
+    \end{Verbatim}
+
+    \textbf{Tu respuesta a la pregunta 5.1 aquí:} Si bien, el valor sigue variando
+con cada ejecución del código, lo más común parece ser 0 y no 9. Cabe
+resaltar que 0 es el valor incorrecto.
+
+    \textbf{Tu respuesta a la pregunta 5.2 aquí:} Para estas redes neuronales se
+agregaron datos de validación con el objetivo de contestar esta
+pregunta. En la gráfica siguiente se puede observar que el valor del
+accuracy se comporta correctamente, pero el valor de la perdida no es
+tan bueno en los datos de validación, existe un pico y el valor se va
+alejando según avanzan las epoch, es posible atribuir el valor de la red
+neuronal a este comportamiento.
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{17}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{k+kn}{import} \PY{n+nn}{pandas} \PY{k}{as} \PY{n+nn}{pd}
+\PY{k+kn}{import} \PY{n+nn}{matplotlib}\PY{n+nn}{.}\PY{n+nn}{pyplot} \PY{k}{as} \PY{n+nn}{plt}
+\PY{n}{pd}\PY{o}{.}\PY{n}{DataFrame}\PY{p}{(}\PY{n}{h512}\PY{o}{.}\PY{n}{history}\PY{p}{)}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{n}{figsize}\PY{o}{=}\PY{p}{(}\PY{l+m+mi}{8}\PY{p}{,}\PY{l+m+mi}{5}\PY{p}{)}\PY{p}{)}
+\PY{n}{plt}\PY{o}{.}\PY{n}{grid}\PY{p}{(}\PY{k+kc}{True}\PY{p}{)}
+\PY{n}{plt}\PY{o}{.}\PY{n}{gca}\PY{p}{(}\PY{p}{)}\PY{o}{.}\PY{n}{set\PYZus{}ylim}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{,}\PY{l+m+mi}{1}\PY{p}{)}
+\PY{n}{plt}\PY{o}{.}\PY{n}{show}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+\end{tcolorbox}
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_36_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \hypertarget{ejercicio-3-por-quuxe9-es-tan-importante-la-capa-flatten}{%
+\section{\texorpdfstring{\textbf{Ejercicio 3: ¿por qué es tan importante
+la capa
+Flatten?}}{Ejercicio 3: ¿por qué es tan importante la capa Flatten?}}\label{ejercicio-3-por-quuxe9-es-tan-importante-la-capa-flatten}}
+
+En este ejercicio vamos a ver que ocurre cuando quitamos la capa
+flatten, para ello, escribe la red neuronal de la pregunta 1 y no pongas
+la capa Flatten.
+
+\textbf{pregunta 6 (0.5 puntos):} ¿puedes explicar porque da el error
+que da?
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{18}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{c+c1}{\PYZsh{}\PYZsh{}\PYZsh{} Tu código de la red neuronal sin capa flatten de la pregunta 6 aquí \PYZsh{}\PYZsh{}\PYZsh{}}
+\PY{n}{nn} \PY{o}{=} \PY{n}{tf}\PY{o}{.}\PY{n}{keras}\PY{o}{.}\PY{n}{models}\PY{o}{.}\PY{n}{Sequential}\PY{p}{(}\PY{p}{[}
+     \PY{n}{tf}\PY{o}{.}\PY{n}{keras}\PY{o}{.}\PY{n}{layers}\PY{o}{.}\PY{n}{Dense}\PY{p}{(}\PY{l+m+mi}{128}\PY{p}{,} \PY{n}{activation}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{sigmoid}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}\PY{p}{,}
+     \PY{n}{tf}\PY{o}{.}\PY{n}{keras}\PY{o}{.}\PY{n}{layers}\PY{o}{.}\PY{n}{Dense}\PY{p}{(}\PY{l+m+mi}{10}\PY{p}{,} \PY{n}{activation}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{softmax}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)} \PY{c+c1}{\PYZsh{} número de clases np.unique(training\PYZus{}labels)}
+\PY{p}{]}\PY{p}{)}
+\PY{n}{nn}\PY{o}{.}\PY{n}{compile}\PY{p}{(}\PY{n}{loss}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{categorical\PYZus{}crossentropy}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{n}{optimizer}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{adam}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{n}{metrics}\PY{o}{=}\PY{p}{[}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{accuracy}\PY{l+s+s2}{\PYZdq{}}\PY{p}{]}\PY{p}{)}
+\PY{n}{nn}\PY{o}{.}\PY{n}{fit}\PY{p}{(}\PY{n}{training\PYZus{}images}\PY{p}{,} \PY{n}{training\PYZus{}labels}\PY{p}{,} \PY{n}{batch\PYZus{}size}\PY{o}{=}\PY{l+m+mi}{64}\PY{p}{,} \PY{n}{epochs}\PY{o}{=}\PY{l+m+mi}{10}\PY{p}{)}
+\end{Verbatim}
+\end{tcolorbox}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+Epoch 1/10
+    \end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}, frame=single, framerule=2mm, rulecolor=\color{outerrorbackground}]
+\textcolor{ansi-red}{---------------------------------------------------------------------------}
+\textcolor{ansi-red}{ValueError}                                Traceback (most recent call last)
+\textcolor{ansi-green}{<ipython-input-18-0561f009f7dd>} in \textcolor{ansi-cyan}{<cell line: 7>}\textcolor{ansi-blue}{()}
+\textcolor{ansi-green-intense}{\textbf{      5}} ])
+\textcolor{ansi-green-intense}{\textbf{      6}} nn\textcolor{ansi-blue}{.}compile\textcolor{ansi-blue}{(}loss\textcolor{ansi-blue}{=}\textcolor{ansi-blue}{"categorical\_crossentropy"}\textcolor{ansi-blue}{,} optimizer\textcolor{ansi-blue}{=}\textcolor{ansi-blue}{"adam"}\textcolor{ansi-blue}{,} metrics\textcolor{ansi-blue}{=}\textcolor{ansi-blue}{[}\textcolor{ansi-blue}{"accuracy"}\textcolor{ansi-blue}{]}\textcolor{ansi-blue}{)}
+\textcolor{ansi-green}{----> 7}\textcolor{ansi-red}{ }nn\textcolor{ansi-blue}{.}fit\textcolor{ansi-blue}{(}training\_images\textcolor{ansi-blue}{,} training\_labels\textcolor{ansi-blue}{,} batch\_size\textcolor{ansi-blue}{=}\textcolor{ansi-cyan}{64}\textcolor{ansi-blue}{,} epochs\textcolor{ansi-blue}{=}\textcolor{ansi-cyan}{10}\textcolor{ansi-blue}{)}
+
+\textcolor{ansi-green}{/shared-libs/python3.9/py/lib/python3.9/site-packages/keras/utils/traceback\_utils.py} in \textcolor{ansi-cyan}{error\_handler}\textcolor{ansi-blue}{(*args, **kwargs)}
+\textcolor{ansi-green-intense}{\textbf{     65}}     \textcolor{ansi-green}{except} Exception \textcolor{ansi-green}{as} e\textcolor{ansi-blue}{:}  \textcolor{ansi-red}{\# pylint: disable=broad-except}
+\textcolor{ansi-green-intense}{\textbf{     66}}       filtered\_tb \textcolor{ansi-blue}{=} \_process\_traceback\_frames\textcolor{ansi-blue}{(}e\textcolor{ansi-blue}{.}\_\_traceback\_\_\textcolor{ansi-blue}{)}
+\textcolor{ansi-green}{---> 67}\textcolor{ansi-red}{       }\textcolor{ansi-green}{raise} e\textcolor{ansi-blue}{.}with\_traceback\textcolor{ansi-blue}{(}filtered\_tb\textcolor{ansi-blue}{)} \textcolor{ansi-green}{from} \textcolor{ansi-green}{None}
+\textcolor{ansi-green-intense}{\textbf{     68}}     \textcolor{ansi-green}{finally}\textcolor{ansi-blue}{:}
+\textcolor{ansi-green-intense}{\textbf{     69}}       \textcolor{ansi-green}{del} filtered\_tb
+
+\textcolor{ansi-green}{/shared-libs/python3.9/py/lib/python3.9/site-packages/keras/engine/training.py} in \textcolor{ansi-cyan}{tf\_\_train\_function}\textcolor{ansi-blue}{(iterator)}
+\textcolor{ansi-green-intense}{\textbf{     13}}                 \textcolor{ansi-green}{try}\textcolor{ansi-blue}{:}
+\textcolor{ansi-green-intense}{\textbf{     14}}                     do\_return \textcolor{ansi-blue}{=} \textcolor{ansi-green}{True}
+\textcolor{ansi-green}{---> 15}\textcolor{ansi-red}{                     }retval\_ \textcolor{ansi-blue}{=} ag\_\_\textcolor{ansi-blue}{.}converted\_call\textcolor{ansi-blue}{(}ag\_\_\textcolor{ansi-blue}{.}ld\textcolor{ansi-blue}{(}step\_function\textcolor{ansi-blue}{)}\textcolor{ansi-blue}{,} \textcolor{ansi-blue}{(}ag\_\_\textcolor{ansi-blue}{.}ld\textcolor{ansi-blue}{(}self\textcolor{ansi-blue}{)}\textcolor{ansi-blue}{,} ag\_\_\textcolor{ansi-blue}{.}ld\textcolor{ansi-blue}{(}iterator\textcolor{ansi-blue}{)}\textcolor{ansi-blue}{)}\textcolor{ansi-blue}{,} \textcolor{ansi-green}{None}\textcolor{ansi-blue}{,} fscope\textcolor{ansi-blue}{)}
+\textcolor{ansi-green-intense}{\textbf{     16}}                 \textcolor{ansi-green}{except}\textcolor{ansi-blue}{:}
+\textcolor{ansi-green-intense}{\textbf{     17}}                     do\_return \textcolor{ansi-blue}{=} \textcolor{ansi-green}{False}
+
+\textcolor{ansi-red}{ValueError}: in user code:
+
+    File "/shared-libs/python3.9/py/lib/python3.9/site-packages/keras/engine/training.py", line 1051, in train\_function  *
+        return step\_function(self, iterator)
+    File "/shared-libs/python3.9/py/lib/python3.9/site-packages/keras/engine/training.py", line 1040, in step\_function  **
+        outputs = model.distribute\_strategy.run(run\_step, args=(data,))
+    File "/shared-libs/python3.9/py/lib/python3.9/site-packages/keras/engine/training.py", line 1030, in run\_step  **
+        outputs = model.train\_step(data)
+    File "/shared-libs/python3.9/py/lib/python3.9/site-packages/keras/engine/training.py", line 890, in train\_step
+        loss = self.compute\_loss(x, y, y\_pred, sample\_weight)
+    File "/shared-libs/python3.9/py/lib/python3.9/site-packages/keras/engine/training.py", line 948, in compute\_loss
+        return self.compiled\_loss(
+    File "/shared-libs/python3.9/py/lib/python3.9/site-packages/keras/engine/compile\_utils.py", line 201, in \_\_call\_\_
+        loss\_value = loss\_obj(y\_t, y\_p, sample\_weight=sw)
+    File "/shared-libs/python3.9/py/lib/python3.9/site-packages/keras/losses.py", line 139, in \_\_call\_\_
+        losses = call\_fn(y\_true, y\_pred)
+    File "/shared-libs/python3.9/py/lib/python3.9/site-packages/keras/losses.py", line 243, in call  **
+        return ag\_fn(y\_true, y\_pred, **self.\_fn\_kwargs)
+    File "/shared-libs/python3.9/py/lib/python3.9/site-packages/keras/losses.py", line 1787, in categorical\_crossentropy
+        return backend.categorical\_crossentropy(
+    File "/shared-libs/python3.9/py/lib/python3.9/site-packages/keras/backend.py", line 5119, in categorical\_crossentropy
+        target.shape.assert\_is\_compatible\_with(output.shape)
+
+    ValueError: Shapes (None, 10) and (None, 28, 10) are incompatible
+
+    \end{Verbatim}
+
+    \textbf{Tu respuesta a la pregunta 6 aquí:} Lo que ocurre es que la dimensión de
+los datos de entrada superan los datos esperados por la red. La capa
+eliminada sirve para adaptar esas dimensiones, crea datos
+unidimensionales.
+
+    \hypertarget{ejercicio-4-nuxfamero-de-neuronas-de-la-capa-de-salida}{%
+\section{\texorpdfstring{\textbf{Ejercicio 4: Número de neuronas de la
+capa de
+salida}}{Ejercicio 4: Número de neuronas de la capa de salida}}\label{ejercicio-4-nuxfamero-de-neuronas-de-la-capa-de-salida}}
+
+Considerad la capa final, la de salida de la red neuronal de la pregunta
+1.
+
+\textbf{pregunta 7.1 (0.25 puntos)}: ¿Por qué son 10 las neuronas de la
+última capa?
+
+\textbf{pregunta 7.2 (0.25 puntos)}: ¿Qué pasaría si tuvieras una
+cantidad diferente a 10?
+
+Por ejemplo, intenta entrenar la red con 5, para ello utiliza la red
+neuronal de la pregunta 1 y cambia a 5 el número de neuronas en la
+última capa.
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{19}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{c+c1}{\PYZsh{}\PYZsh{}\PYZsh{} Tu código de la red neuronal con 5 neuronas en la capa de salida de la pregunta 7 aquí \PYZsh{}\PYZsh{}\PYZsh{}}
+\PY{n}{nn} \PY{o}{=} \PY{n}{tf}\PY{o}{.}\PY{n}{keras}\PY{o}{.}\PY{n}{models}\PY{o}{.}\PY{n}{Sequential}\PY{p}{(}\PY{p}{[}
+     \PY{n}{tf}\PY{o}{.}\PY{n}{keras}\PY{o}{.}\PY{n}{layers}\PY{o}{.}\PY{n}{Flatten}\PY{p}{(}\PY{n}{input\PYZus{}shape}\PY{o}{=}\PY{p}{[}\PY{l+m+mi}{28}\PY{p}{,}\PY{l+m+mi}{28}\PY{p}{]}\PY{p}{)}\PY{p}{,} \PY{c+c1}{\PYZsh{} Según training\PYZus{}images.shape}
+     \PY{n}{tf}\PY{o}{.}\PY{n}{keras}\PY{o}{.}\PY{n}{layers}\PY{o}{.}\PY{n}{Dense}\PY{p}{(}\PY{l+m+mi}{1024}\PY{p}{,} \PY{n}{activation}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{sigmoid}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}\PY{p}{,}
+     \PY{n}{tf}\PY{o}{.}\PY{n}{keras}\PY{o}{.}\PY{n}{layers}\PY{o}{.}\PY{n}{Dense}\PY{p}{(}\PY{l+m+mi}{5}\PY{p}{,} \PY{n}{activation}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{softmax}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)} \PY{c+c1}{\PYZsh{} número de clases np.unique(training\PYZus{}labels)}
+\PY{p}{]}\PY{p}{)}
+\PY{n}{nn}\PY{o}{.}\PY{n}{compile}\PY{p}{(}\PY{n}{loss}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{categorical\PYZus{}crossentropy}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{n}{optimizer}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{adam}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{n}{metrics}\PY{o}{=}\PY{p}{[}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{accuracy}\PY{l+s+s2}{\PYZdq{}}\PY{p}{]}\PY{p}{)}
+\PY{n}{nn}\PY{o}{.}\PY{n}{fit}\PY{p}{(}\PY{n}{training\PYZus{}images}\PY{p}{,} \PY{n}{training\PYZus{}labels}\PY{p}{,} \PY{n}{batch\PYZus{}size}\PY{o}{=}\PY{l+m+mi}{64}\PY{p}{,} \PY{n}{epochs}\PY{o}{=}\PY{l+m+mi}{10}\PY{p}{)}
+\end{Verbatim}
+\end{tcolorbox}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+Epoch 1/10
+    \end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}, frame=single, framerule=2mm, rulecolor=\color{outerrorbackground}]
+\textcolor{ansi-red}{---------------------------------------------------------------------------}
+\textcolor{ansi-red}{ValueError}                                Traceback (most recent call last)
+\textcolor{ansi-green}{<ipython-input-19-a16e008f006d>} in \textcolor{ansi-cyan}{<cell line: 8>}\textcolor{ansi-blue}{()}
+\textcolor{ansi-green-intense}{\textbf{      6}} ])
+\textcolor{ansi-green-intense}{\textbf{      7}} nn\textcolor{ansi-blue}{.}compile\textcolor{ansi-blue}{(}loss\textcolor{ansi-blue}{=}\textcolor{ansi-blue}{"categorical\_crossentropy"}\textcolor{ansi-blue}{,} optimizer\textcolor{ansi-blue}{=}\textcolor{ansi-blue}{"adam"}\textcolor{ansi-blue}{,} metrics\textcolor{ansi-blue}{=}\textcolor{ansi-blue}{[}\textcolor{ansi-blue}{"accuracy"}\textcolor{ansi-blue}{]}\textcolor{ansi-blue}{)}
+\textcolor{ansi-green}{----> 8}\textcolor{ansi-red}{ }nn\textcolor{ansi-blue}{.}fit\textcolor{ansi-blue}{(}training\_images\textcolor{ansi-blue}{,} training\_labels\textcolor{ansi-blue}{,} batch\_size\textcolor{ansi-blue}{=}\textcolor{ansi-cyan}{64}\textcolor{ansi-blue}{,} epochs\textcolor{ansi-blue}{=}\textcolor{ansi-cyan}{10}\textcolor{ansi-blue}{)}
+
+\textcolor{ansi-green}{/shared-libs/python3.9/py/lib/python3.9/site-packages/keras/utils/traceback\_utils.py} in \textcolor{ansi-cyan}{error\_handler}\textcolor{ansi-blue}{(*args, **kwargs)}
+\textcolor{ansi-green-intense}{\textbf{     65}}     \textcolor{ansi-green}{except} Exception \textcolor{ansi-green}{as} e\textcolor{ansi-blue}{:}  \textcolor{ansi-red}{\# pylint: disable=broad-except}
+\textcolor{ansi-green-intense}{\textbf{     66}}       filtered\_tb \textcolor{ansi-blue}{=} \_process\_traceback\_frames\textcolor{ansi-blue}{(}e\textcolor{ansi-blue}{.}\_\_traceback\_\_\textcolor{ansi-blue}{)}
+\textcolor{ansi-green}{---> 67}\textcolor{ansi-red}{       }\textcolor{ansi-green}{raise} e\textcolor{ansi-blue}{.}with\_traceback\textcolor{ansi-blue}{(}filtered\_tb\textcolor{ansi-blue}{)} \textcolor{ansi-green}{from} \textcolor{ansi-green}{None}
+\textcolor{ansi-green-intense}{\textbf{     68}}     \textcolor{ansi-green}{finally}\textcolor{ansi-blue}{:}
+\textcolor{ansi-green-intense}{\textbf{     69}}       \textcolor{ansi-green}{del} filtered\_tb
+
+\textcolor{ansi-green}{/shared-libs/python3.9/py/lib/python3.9/site-packages/keras/engine/training.py} in \textcolor{ansi-cyan}{tf\_\_train\_function}\textcolor{ansi-blue}{(iterator)}
+\textcolor{ansi-green-intense}{\textbf{     13}}                 \textcolor{ansi-green}{try}\textcolor{ansi-blue}{:}
+\textcolor{ansi-green-intense}{\textbf{     14}}                     do\_return \textcolor{ansi-blue}{=} \textcolor{ansi-green}{True}
+\textcolor{ansi-green}{---> 15}\textcolor{ansi-red}{                     }retval\_ \textcolor{ansi-blue}{=} ag\_\_\textcolor{ansi-blue}{.}converted\_call\textcolor{ansi-blue}{(}ag\_\_\textcolor{ansi-blue}{.}ld\textcolor{ansi-blue}{(}step\_function\textcolor{ansi-blue}{)}\textcolor{ansi-blue}{,} \textcolor{ansi-blue}{(}ag\_\_\textcolor{ansi-blue}{.}ld\textcolor{ansi-blue}{(}self\textcolor{ansi-blue}{)}\textcolor{ansi-blue}{,} ag\_\_\textcolor{ansi-blue}{.}ld\textcolor{ansi-blue}{(}iterator\textcolor{ansi-blue}{)}\textcolor{ansi-blue}{)}\textcolor{ansi-blue}{,} \textcolor{ansi-green}{None}\textcolor{ansi-blue}{,} fscope\textcolor{ansi-blue}{)}
+\textcolor{ansi-green-intense}{\textbf{     16}}                 \textcolor{ansi-green}{except}\textcolor{ansi-blue}{:}
+\textcolor{ansi-green-intense}{\textbf{     17}}                     do\_return \textcolor{ansi-blue}{=} \textcolor{ansi-green}{False}
+
+\textcolor{ansi-red}{ValueError}: in user code:
+
+    File "/shared-libs/python3.9/py/lib/python3.9/site-packages/keras/engine/training.py", line 1051, in train\_function  *
+        return step\_function(self, iterator)
+    File "/shared-libs/python3.9/py/lib/python3.9/site-packages/keras/engine/training.py", line 1040, in step\_function  **
+        outputs = model.distribute\_strategy.run(run\_step, args=(data,))
+    File "/shared-libs/python3.9/py/lib/python3.9/site-packages/keras/engine/training.py", line 1030, in run\_step  **
+        outputs = model.train\_step(data)
+    File "/shared-libs/python3.9/py/lib/python3.9/site-packages/keras/engine/training.py", line 890, in train\_step
+        loss = self.compute\_loss(x, y, y\_pred, sample\_weight)
+    File "/shared-libs/python3.9/py/lib/python3.9/site-packages/keras/engine/training.py", line 948, in compute\_loss
+        return self.compiled\_loss(
+    File "/shared-libs/python3.9/py/lib/python3.9/site-packages/keras/engine/compile\_utils.py", line 201, in \_\_call\_\_
+        loss\_value = loss\_obj(y\_t, y\_p, sample\_weight=sw)
+    File "/shared-libs/python3.9/py/lib/python3.9/site-packages/keras/losses.py", line 139, in \_\_call\_\_
+        losses = call\_fn(y\_true, y\_pred)
+    File "/shared-libs/python3.9/py/lib/python3.9/site-packages/keras/losses.py", line 243, in call  **
+        return ag\_fn(y\_true, y\_pred, **self.\_fn\_kwargs)
+    File "/shared-libs/python3.9/py/lib/python3.9/site-packages/keras/losses.py", line 1787, in categorical\_crossentropy
+        return backend.categorical\_crossentropy(
+    File "/shared-libs/python3.9/py/lib/python3.9/site-packages/keras/backend.py", line 5119, in categorical\_crossentropy
+        target.shape.assert\_is\_compatible\_with(output.shape)
+
+    ValueError: Shapes (None, 10) and (None, 5) are incompatible
+
+    \end{Verbatim}
+
+    \textbf{Tu respuestas a la pregunta 7.1 aquí:} Es el tamaño del vector de salida
+porque es el número de categorías existentes.
+
+    \textbf{Tu respuestas a la pregunta 7.2 aquí:} El vector de salida no será
+compatible en tamaño y causará un error. Es un problema de
+dimensionalidad.
+
+    \hypertarget{ejercicio-5-aumento-de-epoch-y-su-efecto-en-la-red-neuronal}{%
+\section{Ejercicio 5: Aumento de epoch y su efecto en la red
+neuronal}\label{ejercicio-5-aumento-de-epoch-y-su-efecto-en-la-red-neuronal}}
+
+En este ejercicio vamos a ver el impacto de aumentar los epoch en el
+entrenamiento. Usando la red neuronal de la pregunta 1:
+
+\textbf{pregunta 8.1 (0.20 puntos)} * Intentad 15 epoch para su
+entrenamiento, probablemente obtendras un modelo con una pérdida mucho
+mejor que el que tiene 5.
+
+\textbf{pregunta 8.2 (0.20 puntos)} * Intenta ahora con 30 epoch para su
+entrenamiento, podrás ver que el valor de la pérdida deja de disminuir,
+y a veces aumenta.
+
+\textbf{pregunta 8.3 (0.60 puntos)} * ¿Porque que piensas que ocurre
+esto? Explica tu respuesta y da el nombre de este efecto si lo conoces.
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{20}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{c+c1}{\PYZsh{}\PYZsh{}\PYZsh{} Tu código para 15 epoch aquí \PYZsh{}\PYZsh{}\PYZsh{}}
+\PY{n}{nn\PYZus{}15} \PY{o}{=} \PY{n}{tf}\PY{o}{.}\PY{n}{keras}\PY{o}{.}\PY{n}{models}\PY{o}{.}\PY{n}{Sequential}\PY{p}{(}\PY{p}{[}
+     \PY{n}{tf}\PY{o}{.}\PY{n}{keras}\PY{o}{.}\PY{n}{layers}\PY{o}{.}\PY{n}{Flatten}\PY{p}{(}\PY{n}{input\PYZus{}shape}\PY{o}{=}\PY{p}{[}\PY{l+m+mi}{28}\PY{p}{,}\PY{l+m+mi}{28}\PY{p}{]}\PY{p}{)}\PY{p}{,} \PY{c+c1}{\PYZsh{} Según training\PYZus{}images.shape}
+     \PY{n}{tf}\PY{o}{.}\PY{n}{keras}\PY{o}{.}\PY{n}{layers}\PY{o}{.}\PY{n}{Dense}\PY{p}{(}\PY{l+m+mi}{128}\PY{p}{,} \PY{n}{activation}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{sigmoid}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}\PY{p}{,}
+     \PY{n}{tf}\PY{o}{.}\PY{n}{keras}\PY{o}{.}\PY{n}{layers}\PY{o}{.}\PY{n}{Dense}\PY{p}{(}\PY{l+m+mi}{10}\PY{p}{,} \PY{n}{activation}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{softmax}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)} \PY{c+c1}{\PYZsh{} número de clases np.unique(training\PYZus{}labels)}
+\PY{p}{]}\PY{p}{)}
+\PY{n}{nn\PYZus{}15}\PY{o}{.}\PY{n}{compile}\PY{p}{(}\PY{n}{loss}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{categorical\PYZus{}crossentropy}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{n}{optimizer}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{adam}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{n}{metrics}\PY{o}{=}\PY{p}{[}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{accuracy}\PY{l+s+s2}{\PYZdq{}}\PY{p}{]}\PY{p}{)}
+\PY{n}{nn\PYZus{}15}\PY{o}{.}\PY{n}{fit}\PY{p}{(}\PY{n}{training\PYZus{}images}\PY{p}{,} \PY{n}{training\PYZus{}labels}\PY{p}{,} \PY{n}{batch\PYZus{}size}\PY{o}{=}\PY{l+m+mi}{64}\PY{p}{,} \PY{n}{epochs}\PY{o}{=}\PY{l+m+mi}{15}\PY{p}{)}
+\end{Verbatim}
+\end{tcolorbox}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+Epoch 1/15
+938/938 [==============================] - 3s 2ms/step - loss: 0.5948 -
+accuracy: 0.8012
+Epoch 2/15
+938/938 [==============================] - 2s 3ms/step - loss: 0.4098 -
+accuracy: 0.8534
+Epoch 3/15
+938/938 [==============================] - 2s 3ms/step - loss: 0.3730 -
+accuracy: 0.8662
+Epoch 4/15
+938/938 [==============================] - 2s 2ms/step - loss: 0.3497 -
+accuracy: 0.8730
+Epoch 5/15
+938/938 [==============================] - 2s 2ms/step - loss: 0.3311 -
+accuracy: 0.8800
+Epoch 6/15
+938/938 [==============================] - 3s 3ms/step - loss: 0.3153 -
+accuracy: 0.8866
+Epoch 7/15
+938/938 [==============================] - 4s 4ms/step - loss: 0.3029 -
+accuracy: 0.8902
+Epoch 8/15
+938/938 [==============================] - 3s 3ms/step - loss: 0.2921 -
+accuracy: 0.8929
+Epoch 9/15
+938/938 [==============================] - 4s 4ms/step - loss: 0.2823 -
+accuracy: 0.8964
+Epoch 10/15
+938/938 [==============================] - 4s 4ms/step - loss: 0.2725 -
+accuracy: 0.8999
+Epoch 11/15
+938/938 [==============================] - 3s 3ms/step - loss: 0.2636 -
+accuracy: 0.9032
+Epoch 12/15
+938/938 [==============================] - 3s 3ms/step - loss: 0.2570 -
+accuracy: 0.9052
+Epoch 13/15
+938/938 [==============================] - 3s 3ms/step - loss: 0.2480 -
+accuracy: 0.9087
+Epoch 14/15
+938/938 [==============================] - 2s 3ms/step - loss: 0.2413 -
+accuracy: 0.9115
+Epoch 15/15
+938/938 [==============================] - 2s 3ms/step - loss: 0.2360 -
+accuracy: 0.9136
+    \end{Verbatim}
+
+            \begin{tcolorbox}[breakable, size=fbox, boxrule=.5pt, pad at break*=1mm, opacityfill=0]
+\prompt{Out}{outcolor}{20}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+<keras.callbacks.History at 0x7f432c193a60>
+\end{Verbatim}
+\end{tcolorbox}
+        
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{21}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{score\PYZus{}15} \PY{o}{=} \PY{n}{nn\PYZus{}15}\PY{o}{.}\PY{n}{evaluate}\PY{p}{(}\PY{n}{test\PYZus{}images}\PY{p}{,} \PY{n}{test\PYZus{}labels}\PY{p}{)}
+\end{Verbatim}
+\end{tcolorbox}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+313/313 [==============================] - 1s 1ms/step - loss: 0.3298 -
+accuracy: 0.8807
+    \end{Verbatim}
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{22}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{c+c1}{\PYZsh{}\PYZsh{}\PYZsh{} Tu código para 30 epoch aquí \PYZsh{}\PYZsh{}\PYZsh{}}
+\PY{n}{nn\PYZus{}30} \PY{o}{=} \PY{n}{tf}\PY{o}{.}\PY{n}{keras}\PY{o}{.}\PY{n}{models}\PY{o}{.}\PY{n}{Sequential}\PY{p}{(}\PY{p}{[}
+     \PY{n}{tf}\PY{o}{.}\PY{n}{keras}\PY{o}{.}\PY{n}{layers}\PY{o}{.}\PY{n}{Flatten}\PY{p}{(}\PY{n}{input\PYZus{}shape}\PY{o}{=}\PY{p}{[}\PY{l+m+mi}{28}\PY{p}{,}\PY{l+m+mi}{28}\PY{p}{]}\PY{p}{)}\PY{p}{,} \PY{c+c1}{\PYZsh{} Según training\PYZus{}images.shape}
+     \PY{n}{tf}\PY{o}{.}\PY{n}{keras}\PY{o}{.}\PY{n}{layers}\PY{o}{.}\PY{n}{Dense}\PY{p}{(}\PY{l+m+mi}{128}\PY{p}{,} \PY{n}{activation}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{sigmoid}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}\PY{p}{,}
+     \PY{n}{tf}\PY{o}{.}\PY{n}{keras}\PY{o}{.}\PY{n}{layers}\PY{o}{.}\PY{n}{Dense}\PY{p}{(}\PY{l+m+mi}{10}\PY{p}{,} \PY{n}{activation}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{softmax}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)} \PY{c+c1}{\PYZsh{} número de clases np.unique(training\PYZus{}labels)}
+\PY{p}{]}\PY{p}{)}
+\PY{n}{nn\PYZus{}30}\PY{o}{.}\PY{n}{compile}\PY{p}{(}\PY{n}{loss}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{categorical\PYZus{}crossentropy}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{n}{optimizer}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{adam}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{n}{metrics}\PY{o}{=}\PY{p}{[}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{accuracy}\PY{l+s+s2}{\PYZdq{}}\PY{p}{]}\PY{p}{)}
+\PY{n}{nn\PYZus{}30}\PY{o}{.}\PY{n}{fit}\PY{p}{(}\PY{n}{training\PYZus{}images}\PY{p}{,} \PY{n}{training\PYZus{}labels}\PY{p}{,} \PY{n}{batch\PYZus{}size}\PY{o}{=}\PY{l+m+mi}{64}\PY{p}{,} \PY{n}{epochs}\PY{o}{=}\PY{l+m+mi}{30}\PY{p}{)}
+\end{Verbatim}
+\end{tcolorbox}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+Epoch 1/30
+938/938 [==============================] - 3s 2ms/step - loss: 0.5838 -
+accuracy: 0.8061
+Epoch 2/30
+938/938 [==============================] - 2s 3ms/step - loss: 0.4102 -
+accuracy: 0.8536
+Epoch 3/30
+938/938 [==============================] - 2s 2ms/step - loss: 0.3735 -
+accuracy: 0.8656
+Epoch 4/30
+938/938 [==============================] - 2s 2ms/step - loss: 0.3486 -
+accuracy: 0.8740
+Epoch 5/30
+938/938 [==============================] - 2s 2ms/step - loss: 0.3303 -
+accuracy: 0.8805
+Epoch 6/30
+938/938 [==============================] - 2s 3ms/step - loss: 0.3148 -
+accuracy: 0.8857
+Epoch 7/30
+938/938 [==============================] - 2s 2ms/step - loss: 0.3015 -
+accuracy: 0.8903
+Epoch 8/30
+938/938 [==============================] - 2s 2ms/step - loss: 0.2901 -
+accuracy: 0.8951
+Epoch 9/30
+938/938 [==============================] - 2s 2ms/step - loss: 0.2812 -
+accuracy: 0.8984
+Epoch 10/30
+938/938 [==============================] - 2s 3ms/step - loss: 0.2720 -
+accuracy: 0.9012
+Epoch 11/30
+938/938 [==============================] - 2s 2ms/step - loss: 0.2630 -
+accuracy: 0.9039
+Epoch 12/30
+938/938 [==============================] - 2s 2ms/step - loss: 0.2566 -
+accuracy: 0.9052
+Epoch 13/30
+938/938 [==============================] - 2s 2ms/step - loss: 0.2479 -
+accuracy: 0.9110
+Epoch 14/30
+938/938 [==============================] - 2s 2ms/step - loss: 0.2404 -
+accuracy: 0.9115
+Epoch 15/30
+938/938 [==============================] - 2s 3ms/step - loss: 0.2338 -
+accuracy: 0.9141
+Epoch 16/30
+938/938 [==============================] - 2s 2ms/step - loss: 0.2282 -
+accuracy: 0.9170
+Epoch 17/30
+938/938 [==============================] - 2s 3ms/step - loss: 0.2232 -
+accuracy: 0.9190
+Epoch 18/30
+938/938 [==============================] - 2s 2ms/step - loss: 0.2170 -
+accuracy: 0.9202
+Epoch 19/30
+938/938 [==============================] - 2s 2ms/step - loss: 0.2111 -
+accuracy: 0.9234
+Epoch 20/30
+938/938 [==============================] - 2s 2ms/step - loss: 0.2077 -
+accuracy: 0.9248
+Epoch 21/30
+938/938 [==============================] - 2s 2ms/step - loss: 0.2009 -
+accuracy: 0.9275
+Epoch 22/30
+938/938 [==============================] - 2s 2ms/step - loss: 0.1974 -
+accuracy: 0.9279
+Epoch 23/30
+938/938 [==============================] - 2s 3ms/step - loss: 0.1928 -
+accuracy: 0.9305
+Epoch 24/30
+938/938 [==============================] - 2s 3ms/step - loss: 0.1878 -
+accuracy: 0.9330
+Epoch 25/30
+938/938 [==============================] - 2s 2ms/step - loss: 0.1836 -
+accuracy: 0.9345
+Epoch 26/30
+938/938 [==============================] - 2s 2ms/step - loss: 0.1802 -
+accuracy: 0.9352
+Epoch 27/30
+938/938 [==============================] - 2s 2ms/step - loss: 0.1757 -
+accuracy: 0.9374
+Epoch 28/30
+938/938 [==============================] - 2s 3ms/step - loss: 0.1718 -
+accuracy: 0.9391
+Epoch 29/30
+938/938 [==============================] - 3s 3ms/step - loss: 0.1698 -
+accuracy: 0.9391
+Epoch 30/30
+938/938 [==============================] - 2s 2ms/step - loss: 0.1653 -
+accuracy: 0.9406
+    \end{Verbatim}
+
+            \begin{tcolorbox}[breakable, size=fbox, boxrule=.5pt, pad at break*=1mm, opacityfill=0]
+\prompt{Out}{outcolor}{22}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+<keras.callbacks.History at 0x7f432cdd1cd0>
+\end{Verbatim}
+\end{tcolorbox}
+        
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{23}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{score\PYZus{}30} \PY{o}{=} \PY{n}{nn\PYZus{}30}\PY{o}{.}\PY{n}{evaluate}\PY{p}{(}\PY{n}{test\PYZus{}images}\PY{p}{,} \PY{n}{test\PYZus{}labels}\PY{p}{)}
+\end{Verbatim}
+\end{tcolorbox}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+313/313 [==============================] - 1s 1ms/step - loss: 0.3338 -
+accuracy: 0.8858
+    \end{Verbatim}
+
+    \textbf{Tu respuesta a la pregunta 8.3 aquí:} En realidad, se puede observar que
+epoch a epoch el valor de loss continúa bajando. Pese a ello, el valor
+resultado de la evaluación no se ve disminuido sustancialmente entre las
+redes de 15 y 30 epoch (a veces puede aumentar). Todo lo anterior indica
+que el logaritmo de la probabilidad de clasificación correcta disminuye
+con cada lote de datos que avanza en la red neuronal, pero en el total
+de los datos procesados este valor se estanca luego de determinado
+número epoch y luego es posible que aumente, señal de la existencia de
+overfit, es decir, la red neuronal memoriza pero no aprende.
+
+    \hypertarget{ejercicio-6-early-stop}{%
+\section{Ejercicio 6: Early stop}\label{ejercicio-6-early-stop}}
+
+En el ejercicio anterior, cuando entrenabas con epoch extras, tenías un
+problema en el que tu pérdida podía cambiar. Puede que te haya llevado
+un poco de tiempo esperar a que el entrenamiento lo hiciera, y puede que
+hayas pensado ``¿no estaría bien si pudiera parar el entrenamiento
+cuando alcance un valor deseado?'', es decir, una precisión del 85\%
+podría ser suficiente para ti, y si alcanzas eso después de 3 epoch,
+¿por qué sentarte a esperar a que termine muchas más épocas? Como
+cualquier otro programa existen formas de parar la ejecución
+
+A partir del ejemplo de código que se da, hacer una nueva función que
+tenga en cuenta la perdida (loss) y que pueda parar el código para
+evitar que ocurra el efeto secundario que vimos en el ejercicio 5.
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{ }{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{c+c1}{\PYZsh{}\PYZsh{}\PYZsh{} Ejemplo de código}
+
+\PY{k}{class} \PY{n+nc}{myCallback}\PY{p}{(}\PY{n}{tf}\PY{o}{.}\PY{n}{keras}\PY{o}{.}\PY{n}{callbacks}\PY{o}{.}\PY{n}{Callback}\PY{p}{)}\PY{p}{:}
+      \PY{k}{def} \PY{n+nf}{on\PYZus{}epoch\PYZus{}end}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{,} \PY{n}{epoch}\PY{p}{,} \PY{n}{logs}\PY{o}{=}\PY{p}{\PYZob{}}\PY{p}{\PYZcb{}}\PY{p}{)}\PY{p}{:}
+        \PY{k}{if}\PY{p}{(}\PY{n}{logs}\PY{o}{.}\PY{n}{get}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{accuracy}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{o}{\PYZgt{}} \PY{l+m+mf}{0.85}\PY{p}{)}\PY{p}{:}
+              \PY{n+nb}{print}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+se}{\PYZbs{}n}\PY{l+s+s2}{Alcanzado el 85}\PY{l+s+si}{\PYZpc{} d}\PY{l+s+s2}{e precisión, se cancela el entrenamiento!!}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+              \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{model}\PY{o}{.}\PY{n}{stop\PYZus{}training} \PY{o}{=} \PY{k+kc}{True}
+\end{Verbatim}
+\end{tcolorbox}
+
+    \textbf{Pregunta 9 (2 puntos)}: Completa el siguiente código con una
+clase callback que una vez alcanzado el 40\% de perdida detenga el
+entrenamiento.
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{24}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{k+kn}{import} \PY{n+nn}{tensorflow} \PY{k}{as} \PY{n+nn}{tf}
+\PY{n+nb}{print}\PY{p}{(}\PY{n}{tf}\PY{o}{.}\PY{n}{\PYZus{}\PYZus{}version\PYZus{}\PYZus{}}\PY{p}{)}
+
+\PY{c+c1}{\PYZsh{}\PYZsh{}\PYZsh{} Tu código de la función callback para parar el entrenamiento de la red neuronal al 40\PYZpc{} de loss aqui: \PYZsh{}\PYZsh{}\PYZsh{}}
+\PY{k}{class} \PY{n+nc}{myCallback}\PY{p}{(}\PY{n}{tf}\PY{o}{.}\PY{n}{keras}\PY{o}{.}\PY{n}{callbacks}\PY{o}{.}\PY{n}{Callback}\PY{p}{)}\PY{p}{:}
+    \PY{k}{def} \PY{n+nf}{on\PYZus{}epoch\PYZus{}end}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{,} \PY{n}{epoch}\PY{p}{,} \PY{n}{logs}\PY{o}{=}\PY{p}{\PYZob{}}\PY{p}{\PYZcb{}}\PY{p}{)}\PY{p}{:}
+        \PY{k}{if}\PY{p}{(}\PY{n}{logs}\PY{o}{.}\PY{n}{get}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{loss}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{o}{\PYZgt{}}\PY{l+m+mf}{0.4}\PY{p}{)}\PY{p}{:}
+            \PY{n+nb}{print}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+se}{\PYZbs{}n}\PY{l+s+s2}{Pérdida del 40}\PY{l+s+s2}{\PYZpc{}}\PY{l+s+s2}{. Fin del entrenamiento.}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+            \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{model}\PY{o}{.}\PY{n}{stop\PYZus{}training} \PY{o}{=} \PY{k+kc}{True}
+
+\PY{n}{callbacks} \PY{o}{=} \PY{n}{myCallback}\PY{p}{(}\PY{p}{)}
+\PY{n}{mnist} \PY{o}{=} \PY{n}{tf}\PY{o}{.}\PY{n}{keras}\PY{o}{.}\PY{n}{datasets}\PY{o}{.}\PY{n}{fashion\PYZus{}mnist}
+\PY{p}{(}\PY{n}{training\PYZus{}images}\PY{p}{,} \PY{n}{training\PYZus{}labels}\PY{p}{)} \PY{p}{,}  \PY{p}{(}\PY{n}{test\PYZus{}images}\PY{p}{,} \PY{n}{test\PYZus{}labels}\PY{p}{)} \PY{o}{=} \PY{n}{mnist}\PY{o}{.}\PY{n}{load\PYZus{}data}\PY{p}{(}\PY{p}{)}
+
+\PY{n}{training\PYZus{}images} \PY{o}{=} \PY{n}{training\PYZus{}images}\PY{o}{/}\PY{l+m+mf}{255.0}
+\PY{n}{test\PYZus{}images} \PY{o}{=} \PY{n}{test\PYZus{}images}\PY{o}{/}\PY{l+m+mf}{255.0}
+
+\PY{n}{model} \PY{o}{=} \PY{n}{tf}\PY{o}{.}\PY{n}{keras}\PY{o}{.}\PY{n}{models}\PY{o}{.}\PY{n}{Sequential}\PY{p}{(}\PY{p}{[}\PY{n}{tf}\PY{o}{.}\PY{n}{keras}\PY{o}{.}\PY{n}{layers}\PY{o}{.}\PY{n}{Flatten}\PY{p}{(}\PY{p}{)}\PY{p}{,}
+                                    \PY{n}{tf}\PY{o}{.}\PY{n}{keras}\PY{o}{.}\PY{n}{layers}\PY{o}{.}\PY{n}{Dense}\PY{p}{(}\PY{l+m+mi}{512}\PY{p}{,} \PY{n}{activation}\PY{o}{=}\PY{n}{tf}\PY{o}{.}\PY{n}{nn}\PY{o}{.}\PY{n}{relu}\PY{p}{)}\PY{p}{,}
+                                    \PY{n}{tf}\PY{o}{.}\PY{n}{keras}\PY{o}{.}\PY{n}{layers}\PY{o}{.}\PY{n}{Dense}\PY{p}{(}\PY{l+m+mi}{10}\PY{p}{,} \PY{n}{activation}\PY{o}{=}\PY{n}{tf}\PY{o}{.}\PY{n}{nn}\PY{o}{.}\PY{n}{softmax}\PY{p}{)}\PY{p}{]}\PY{p}{)}
+
+\PY{n}{model}\PY{o}{.}\PY{n}{compile}\PY{p}{(}\PY{n}{optimizer} \PY{o}{=} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{adam}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}
+              \PY{n}{loss} \PY{o}{=} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{sparse\PYZus{}categorical\PYZus{}crossentropy}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}
+              \PY{n}{metrics}\PY{o}{=}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{accuracy}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{)} 
+
+\PY{n}{model}\PY{o}{.}\PY{n}{fit}\PY{p}{(}\PY{n}{training\PYZus{}images}\PY{p}{,} \PY{n}{training\PYZus{}labels}\PY{p}{,} \PY{n}{epochs}\PY{o}{=}\PY{l+m+mi}{50}\PY{p}{,} \PY{n}{callbacks}\PY{o}{=}\PY{p}{[}\PY{n}{callbacks}\PY{p}{]}\PY{p}{)}
+\end{Verbatim}
+\end{tcolorbox}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+2.9.1
+Epoch 1/50
+1868/1875 [============================>.] - ETA: 0s - loss: 0.4766 - accuracy:
+0.8288
+Pérdida del 40\%. Fin del entrenamiento.
+1875/1875 [==============================] - 11s 6ms/step - loss: 0.4765 -
+accuracy: 0.8288
+    \end{Verbatim}
+
+            \begin{tcolorbox}[breakable, size=fbox, boxrule=.5pt, pad at break*=1mm, opacityfill=0]
+\prompt{Out}{outcolor}{24}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+<keras.callbacks.History at 0x7f432ccdfe50>
+\end{Verbatim}
+\end{tcolorbox}
+        
+
+    % Add a bibliography block to the postdoc
+    
+    
+    
+\end{document}
