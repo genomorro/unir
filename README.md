@@ -27,6 +27,35 @@ Para la instalación local solo corre:
 
 Ver en linea: Ver en línea: [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gl/genomorro%2Funir/NLP-A2?labpath=Actividad2.ipynb)
 
+Para ejecutar el archivo `py`, solo es necesario ejecutar:
+
+	python Actividad2.py
+	
+Esto ejecutará el script como si del notebook se tratara. Si se desea utilizar el programa con otros ejemplos, es necesario importar el archivo como módulo y luego ejecutar la función `find_solutions()`:
+
+	import Actividad2
+	# Para ejecutar el algoritmo CKY
+	options = find_solutions("Time flies like an arrow",
+                        grammar_rules(file_grammar),
+                        lexicon_dictionary,
+                        "S")
+	pprint(options)
+	# Para ejecutar el algoritmo PCKY
+	options = find_solutions("Time flies like an arrow",
+                        grammar_rules(file_grammar),
+                        lexicon_dictionary,
+                        "S",probabilities)
+	pprint(options)
+	# Guarda en cky la matriz producto del algoritmo CKY, el argumento verbose
+	# muestra cada paso ejecutado por el algoritmo
+	cky = pcky_parser("Time flies like an arrow",
+		grammar_rules(file_grammar),
+		lexicon_dictionary,verbose=True)
+	# Guarda en pcky la matriz producto del algoritmo PCKY
+	pcky = pcky_parser("Time flies like an arrow",
+		grammar_rules(file_grammar),
+		lexicon_dictionary,probabilities)
+
 Cada proyecto usa archivos `ipynb` y `py` de forma indistinta, gracias a jupytext se pueden sincronizar. Para saber como hacerlo de momento lo mejor es consultar [jupytext](https://jupytext.readthedocs.io/en/latest/index.html "la documentación de jupytext"), después pondré aquí los comandos que use más comúnmente. 
 
 Si inicio con un `ipynb` lo convierto a `py`:
