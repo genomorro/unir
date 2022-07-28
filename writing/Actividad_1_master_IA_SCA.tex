@@ -1285,12 +1285,12 @@ Epoch 15/15
 accuracy: 0.9136
     \end{Verbatim}
 
-            \begin{tcolorbox}[breakable, size=fbox, boxrule=.5pt, pad at break*=1mm, opacityfill=0]
-\prompt{Out}{outcolor}{20}{\boxspacing}
-\begin{Verbatim}[commandchars=\\\{\}]
-<keras.callbacks.History at 0x7f432c193a60>
-\end{Verbatim}
-\end{tcolorbox}
+%%             \begin{tcolorbox}[breakable, size=fbox, boxrule=.5pt, pad at break*=1mm, opacityfill=0]
+%% \prompt{Out}{outcolor}{20}{\boxspacing}
+%% \begin{Verbatim}[commandchars=\\\{\}]
+%% <keras.callbacks.History at 0x7f432c193a60>
+%% \end{Verbatim}
+%% \end{tcolorbox}
         
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
 \prompt{In}{incolor}{21}{\boxspacing}
@@ -1411,12 +1411,12 @@ Epoch 30/30
 accuracy: 0.9406
     \end{Verbatim}
 
-            \begin{tcolorbox}[breakable, size=fbox, boxrule=.5pt, pad at break*=1mm, opacityfill=0]
-\prompt{Out}{outcolor}{22}{\boxspacing}
-\begin{Verbatim}[commandchars=\\\{\}]
-<keras.callbacks.History at 0x7f432cdd1cd0>
-\end{Verbatim}
-\end{tcolorbox}
+%%             \begin{tcolorbox}[breakable, size=fbox, boxrule=.5pt, pad at break*=1mm, opacityfill=0]
+%% \prompt{Out}{outcolor}{22}{\boxspacing}
+%% \begin{Verbatim}[commandchars=\\\{\}]
+%% <keras.callbacks.History at 0x7f432cdd1cd0>
+%% \end{Verbatim}
+%% \end{tcolorbox}
         
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
 \prompt{In}{incolor}{23}{\boxspacing}
@@ -1515,14 +1515,20 @@ Pérdida del 40\%. Fin del entrenamiento.
 accuracy: 0.8288
     \end{Verbatim}
 
-            \begin{tcolorbox}[breakable, size=fbox, boxrule=.5pt, pad at break*=1mm, opacityfill=0]
-\prompt{Out}{outcolor}{24}{\boxspacing}
-\begin{Verbatim}[commandchars=\\\{\}]
-<keras.callbacks.History at 0x7f432ccdfe50>
-\end{Verbatim}
-\end{tcolorbox}
-        
+%%             \begin{tcolorbox}[breakable, size=fbox, boxrule=.5pt, pad at break*=1mm, opacityfill=0]
+%% \prompt{Out}{outcolor}{24}{\boxspacing}
+%% \begin{Verbatim}[commandchars=\\\{\}]
+%% <keras.callbacks.History at 0x7f432ccdfe50>
+%% \end{Verbatim}
+%% \end{tcolorbox}
 
+\section{Conclusión} 
+
+En esta práctica se ha creado una red neuronal sencilla de una sola capa oculta. Se han ido cambiando los hiperparámetros de la red, con el objetivo de ver la repercusión de estos cambios en el aprendizaje de la red.
+
+Es importante decir que la práctica se comenzó a escribir en la plataforma de \href{https://mybinder.org}{My Binder}, pero se tuvieron problemas debido al limitado hardware que pone a disposición del usuario. Para hacer la práctica fue necesario que python detectara una tarjeta gráfica, proceso que el sistema realiza de manera automática. Lo anterior es relevante porque pese a la sencillez de la red implementada existió el problema, es posible suponer entonces que redes más complejas tendrán requisitos realmente elevados a nivel hardware, de ahí el uso de servicios en línea más profesionales.
+
+En tanto a los resultados, lo más notable es que aunque el resultado del notebook puede considerarse constante, pueden observarse ocasiones en donde hay una variación visible en los resultados, principalmente en las predicciones hechas por la red neuronal, dichas variaciones son comentadas en las respuestas presentadas en el documento.
     % Add a bibliography block to the postdoc
     
     
