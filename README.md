@@ -34,27 +34,19 @@ Para ejecutar el archivo `py`, solo es necesario ejecutar:
 Esto ejecutará el script como si del notebook se tratara. Si se desea utilizar el programa con otros ejemplos, es necesario importar el archivo como módulo y luego ejecutar la función `find_solutions()`:
 
 	import Actividad2
+    file = open("ds/grammar.txt",'r')
+    grammar_file = file.read()
+    grammar_rules, lexicon_rules, probabilities = read_rules(grammar_file)
 	# Para ejecutar el algoritmo CKY
-	options = find_solutions("Time flies like an arrow",
-                        grammar_rules(file_grammar),
-                        lexicon_dictionary,
-                        "S")
-	pprint(options)
+    options, matrix = find_solutions("Time flies like an arrow",
+                        grammar_rules,lexicon_rules,"S")
+    pprint(options)
+    print(matrix)
 	# Para ejecutar el algoritmo PCKY
-	options = find_solutions("Time flies like an arrow",
-                        grammar_rules(file_grammar),
-                        lexicon_dictionary,
-                        "S",probabilities)
-	pprint(options)
-	# Guarda en cky la matriz producto del algoritmo CKY, el argumento verbose
-	# muestra cada paso ejecutado por el algoritmo
-	cky = pcky_parser("Time flies like an arrow",
-		grammar_rules(file_grammar),
-		lexicon_dictionary,verbose=True)
-	# Guarda en pcky la matriz producto del algoritmo PCKY
-	pcky = pcky_parser("Time flies like an arrow",
-		grammar_rules(file_grammar),
-		lexicon_dictionary,probabilities)
+    options, matrix = find_solutions("Time flies like an arrow",
+                        grammar_rules,lexicon_rules,"S",probabilities)
+    pprint(options)
+    print(matrix)
 
 Cada proyecto usa archivos `ipynb` y `py` de forma indistinta, gracias a jupytext se pueden sincronizar. Para saber como hacerlo de momento lo mejor es consultar [jupytext](https://jupytext.readthedocs.io/en/latest/index.html "la documentación de jupytext"), después pondré aquí los comandos que use más comúnmente. 
 
