@@ -1,0 +1,985 @@
+\documentclass[12pt,a4paper,table]{article}
+
+    \usepackage[breakable]{tcolorbox}
+    \usepackage{parskip} % Stop auto-indenting (to mimic markdown behaviour)
+    
+
+    % Basic figure setup, for now with no caption control since it's done
+    % automatically by Pandoc (which extracts ![](path) syntax from Markdown).
+    \usepackage{graphicx}
+    % Maintain compatibility with old templates. Remove in nbconvert 6.0
+    \let\Oldincludegraphics\includegraphics
+    % Ensure that by default, figures have no caption (until we provide a
+    % proper Figure object with a Caption API and a way to capture that
+    % in the conversion process - todo).
+    \usepackage{caption}
+    \DeclareCaptionFormat{nocaption}{}
+    \captionsetup{format=nocaption,aboveskip=0pt,belowskip=0pt}
+
+    \usepackage{float}
+    \floatplacement{figure}{H} % forces figures to be placed at the correct location
+    \usepackage{xcolor} % Allow colors to be defined
+    \usepackage{enumerate} % Needed for markdown enumerations to work
+    \usepackage{geometry} % Used to adjust the document margins
+    \usepackage{amsmath} % Equations
+    \usepackage{amssymb} % Equations
+    \usepackage{textcomp} % defines textquotesingle
+    % Hack from http://tex.stackexchange.com/a/47451/13684:
+    \AtBeginDocument{%
+        \def\PYZsq{\textquotesingle}% Upright quotes in Pygmentized code
+    }
+    \usepackage{upquote} % Upright quotes for verbatim code
+    \usepackage{eurosym} % defines \euro
+
+    \usepackage{iftex}
+    \ifPDFTeX
+        \usepackage[T1]{fontenc}
+        \IfFileExists{alphabeta.sty}{
+              \usepackage{alphabeta}
+          }{
+              \usepackage[mathletters]{ucs}
+              \usepackage[utf8x]{inputenc}
+          }
+    \else
+        \usepackage{fontspec}
+        \usepackage{unicode-math}
+    \fi
+
+    \usepackage{fancyvrb} % verbatim replacement that allows latex
+    \usepackage{grffile} % extends the file name processing of package graphics 
+                         % to support a larger range
+    \makeatletter % fix for old versions of grffile with XeLaTeX
+    \@ifpackagelater{grffile}{2019/11/01}
+    {
+      % Do nothing on new versions
+    }
+    {
+      \def\Gread@@xetex#1{%
+        \IfFileExists{"\Gin@base".bb}%
+        {\Gread@eps{\Gin@base.bb}}%
+        {\Gread@@xetex@aux#1}%
+      }
+    }
+    \makeatother
+    \usepackage[Export]{adjustbox} % Used to constrain images to a maximum size
+    \adjustboxset{max size={0.9\linewidth}{0.9\paperheight}}
+
+    % The hyperref package gives us a pdf with properly built
+    % internal navigation ('pdf bookmarks' for the table of contents,
+    % internal cross-reference links, web links for URLs, etc.)
+    \usepackage{hyperref}
+    % The default LaTeX title has an obnoxious amount of whitespace. By default,
+    % titling removes some of it. It also provides customization options.
+    \usepackage{titling}
+    \usepackage{longtable} % longtable support required by pandoc >1.10
+    \usepackage{booktabs}  % table support for pandoc > 1.12.2
+    \usepackage{array}     % table support for pandoc >= 2.11.3
+    \usepackage{calc}      % table minipage width calculation for pandoc >= 2.11.1
+    \usepackage[inline]{enumitem} % IRkernel/repr support (it uses the enumerate* environment)
+    \usepackage[normalem]{ulem} % ulem is needed to support strikethroughs (\sout)
+                                % normalem makes italics be italics, not underlines
+    \usepackage{mathrsfs}
+    
+
+    
+    % Colors for the hyperref package
+    \definecolor{urlcolor}{rgb}{0,.145,.698}
+    \definecolor{linkcolor}{rgb}{.71,0.21,0.01}
+    \definecolor{citecolor}{rgb}{.12,.54,.11}
+
+    % ANSI colors
+    \definecolor{ansi-black}{HTML}{3E424D}
+    \definecolor{ansi-black-intense}{HTML}{282C36}
+    \definecolor{ansi-red}{HTML}{E75C58}
+    \definecolor{ansi-red-intense}{HTML}{B22B31}
+    \definecolor{ansi-green}{HTML}{00A250}
+    \definecolor{ansi-green-intense}{HTML}{007427}
+    \definecolor{ansi-yellow}{HTML}{DDB62B}
+    \definecolor{ansi-yellow-intense}{HTML}{B27D12}
+    \definecolor{ansi-blue}{HTML}{208FFB}
+    \definecolor{ansi-blue-intense}{HTML}{0065CA}
+    \definecolor{ansi-magenta}{HTML}{D160C4}
+    \definecolor{ansi-magenta-intense}{HTML}{A03196}
+    \definecolor{ansi-cyan}{HTML}{60C6C8}
+    \definecolor{ansi-cyan-intense}{HTML}{258F8F}
+    \definecolor{ansi-white}{HTML}{C5C1B4}
+    \definecolor{ansi-white-intense}{HTML}{A1A6B2}
+    \definecolor{ansi-default-inverse-fg}{HTML}{FFFFFF}
+    \definecolor{ansi-default-inverse-bg}{HTML}{000000}
+
+    % common color for the border for error outputs.
+    \definecolor{outerrorbackground}{HTML}{FFDFDF}
+
+    % commands and environments needed by pandoc snippets
+    % extracted from the output of `pandoc -s`
+    \providecommand{\tightlist}{%
+      \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+    \DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+    % Add ',fontsize=\small' for more characters per line
+    \newenvironment{Shaded}{}{}
+    \newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{{#1}}}}
+    \newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.56,0.13,0.00}{{#1}}}
+    \newcommand{\DecValTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
+    \newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
+    \newcommand{\FloatTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
+    \newcommand{\CharTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+    \newcommand{\StringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+    \newcommand{\CommentTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textit{{#1}}}}
+    \newcommand{\OtherTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{{#1}}}
+    \newcommand{\AlertTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{{#1}}}}
+    \newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.02,0.16,0.49}{{#1}}}
+    \newcommand{\RegionMarkerTok}[1]{{#1}}
+    \newcommand{\ErrorTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{{#1}}}}
+    \newcommand{\NormalTok}[1]{{#1}}
+    
+    % Additional commands for more recent versions of Pandoc
+    \newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.53,0.00,0.00}{{#1}}}
+    \newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+    \newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+    \newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.73,0.40,0.53}{{#1}}}
+    \newcommand{\ImportTok}[1]{{#1}}
+    \newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.73,0.13,0.13}{\textit{{#1}}}}
+    \newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{{#1}}}}}
+    \newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{{#1}}}}}
+    \newcommand{\VariableTok}[1]{\textcolor[rgb]{0.10,0.09,0.49}{{#1}}}
+    \newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{{#1}}}}
+    \newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.40,0.40,0.40}{{#1}}}
+    \newcommand{\BuiltInTok}[1]{{#1}}
+    \newcommand{\ExtensionTok}[1]{{#1}}
+    \newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.74,0.48,0.00}{{#1}}}
+    \newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.49,0.56,0.16}{{#1}}}
+    \newcommand{\InformationTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{{#1}}}}}
+    \newcommand{\WarningTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{{#1}}}}}
+    
+    
+    % Define a nice break command that doesn't care if a line doesn't already
+    % exist.
+    \def\br{\hspace*{\fill} \\* }
+    % Math Jax compatibility definitions
+    \def\gt{>}
+    \def\lt{<}
+    \let\Oldtex\TeX
+    \let\Oldlatex\LaTeX
+    \renewcommand{\TeX}{\textrm{\Oldtex}}
+    \renewcommand{\LaTeX}{\textrm{\Oldlatex}}
+    % Document parameters
+    % Document title
+    \title{Actividad 2: Análisis sintáctico}
+    
+    
+    
+    
+    
+% Pygments definitions
+\makeatletter
+\def\PY@reset{\let\PY@it=\relax \let\PY@bf=\relax%
+    \let\PY@ul=\relax \let\PY@tc=\relax%
+    \let\PY@bc=\relax \let\PY@ff=\relax}
+\def\PY@tok#1{\csname PY@tok@#1\endcsname}
+\def\PY@toks#1+{\ifx\relax#1\empty\else%
+    \PY@tok{#1}\expandafter\PY@toks\fi}
+\def\PY@do#1{\PY@bc{\PY@tc{\PY@ul{%
+    \PY@it{\PY@bf{\PY@ff{#1}}}}}}}
+\def\PY#1#2{\PY@reset\PY@toks#1+\relax+\PY@do{#2}}
+
+\@namedef{PY@tok@w}{\def\PY@tc##1{\textcolor[rgb]{0.73,0.73,0.73}{##1}}}
+\@namedef{PY@tok@c}{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.24,0.48,0.48}{##1}}}
+\@namedef{PY@tok@cp}{\def\PY@tc##1{\textcolor[rgb]{0.61,0.40,0.00}{##1}}}
+\@namedef{PY@tok@k}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\@namedef{PY@tok@kp}{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\@namedef{PY@tok@kt}{\def\PY@tc##1{\textcolor[rgb]{0.69,0.00,0.25}{##1}}}
+\@namedef{PY@tok@o}{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\@namedef{PY@tok@ow}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.67,0.13,1.00}{##1}}}
+\@namedef{PY@tok@nb}{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\@namedef{PY@tok@nf}{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\@namedef{PY@tok@nc}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\@namedef{PY@tok@nn}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\@namedef{PY@tok@ne}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.80,0.25,0.22}{##1}}}
+\@namedef{PY@tok@nv}{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\@namedef{PY@tok@no}{\def\PY@tc##1{\textcolor[rgb]{0.53,0.00,0.00}{##1}}}
+\@namedef{PY@tok@nl}{\def\PY@tc##1{\textcolor[rgb]{0.46,0.46,0.00}{##1}}}
+\@namedef{PY@tok@ni}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.44,0.44,0.44}{##1}}}
+\@namedef{PY@tok@na}{\def\PY@tc##1{\textcolor[rgb]{0.41,0.47,0.13}{##1}}}
+\@namedef{PY@tok@nt}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\@namedef{PY@tok@nd}{\def\PY@tc##1{\textcolor[rgb]{0.67,0.13,1.00}{##1}}}
+\@namedef{PY@tok@s}{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\@namedef{PY@tok@sd}{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\@namedef{PY@tok@si}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.64,0.35,0.47}{##1}}}
+\@namedef{PY@tok@se}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.67,0.36,0.12}{##1}}}
+\@namedef{PY@tok@sr}{\def\PY@tc##1{\textcolor[rgb]{0.64,0.35,0.47}{##1}}}
+\@namedef{PY@tok@ss}{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\@namedef{PY@tok@sx}{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\@namedef{PY@tok@m}{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\@namedef{PY@tok@gh}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.50}{##1}}}
+\@namedef{PY@tok@gu}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.50,0.00,0.50}{##1}}}
+\@namedef{PY@tok@gd}{\def\PY@tc##1{\textcolor[rgb]{0.63,0.00,0.00}{##1}}}
+\@namedef{PY@tok@gi}{\def\PY@tc##1{\textcolor[rgb]{0.00,0.52,0.00}{##1}}}
+\@namedef{PY@tok@gr}{\def\PY@tc##1{\textcolor[rgb]{0.89,0.00,0.00}{##1}}}
+\@namedef{PY@tok@ge}{\let\PY@it=\textit}
+\@namedef{PY@tok@gs}{\let\PY@bf=\textbf}
+\@namedef{PY@tok@gp}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.50}{##1}}}
+\@namedef{PY@tok@go}{\def\PY@tc##1{\textcolor[rgb]{0.44,0.44,0.44}{##1}}}
+\@namedef{PY@tok@gt}{\def\PY@tc##1{\textcolor[rgb]{0.00,0.27,0.87}{##1}}}
+\@namedef{PY@tok@err}{\def\PY@bc##1{{\setlength{\fboxsep}{\string -\fboxrule}\fcolorbox[rgb]{1.00,0.00,0.00}{1,1,1}{\strut ##1}}}}
+\@namedef{PY@tok@kc}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\@namedef{PY@tok@kd}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\@namedef{PY@tok@kn}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\@namedef{PY@tok@kr}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\@namedef{PY@tok@bp}{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\@namedef{PY@tok@fm}{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\@namedef{PY@tok@vc}{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\@namedef{PY@tok@vg}{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\@namedef{PY@tok@vi}{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\@namedef{PY@tok@vm}{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\@namedef{PY@tok@sa}{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\@namedef{PY@tok@sb}{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\@namedef{PY@tok@sc}{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\@namedef{PY@tok@dl}{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\@namedef{PY@tok@s2}{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\@namedef{PY@tok@sh}{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\@namedef{PY@tok@s1}{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\@namedef{PY@tok@mb}{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\@namedef{PY@tok@mf}{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\@namedef{PY@tok@mh}{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\@namedef{PY@tok@mi}{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\@namedef{PY@tok@il}{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\@namedef{PY@tok@mo}{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\@namedef{PY@tok@ch}{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.24,0.48,0.48}{##1}}}
+\@namedef{PY@tok@cm}{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.24,0.48,0.48}{##1}}}
+\@namedef{PY@tok@cpf}{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.24,0.48,0.48}{##1}}}
+\@namedef{PY@tok@c1}{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.24,0.48,0.48}{##1}}}
+\@namedef{PY@tok@cs}{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.24,0.48,0.48}{##1}}}
+
+\def\PYZbs{\char`\\}
+\def\PYZus{\char`\_}
+\def\PYZob{\char`\{}
+\def\PYZcb{\char`\}}
+\def\PYZca{\char`\^}
+\def\PYZam{\char`\&}
+\def\PYZlt{\char`\<}
+\def\PYZgt{\char`\>}
+\def\PYZsh{\char`\#}
+\def\PYZpc{\char`\%}
+\def\PYZdl{\char`\$}
+\def\PYZhy{\char`\-}
+\def\PYZsq{\char`\'}
+\def\PYZdq{\char`\"}
+\def\PYZti{\char`\~}
+% for compatibility with earlier versions
+\def\PYZat{@}
+\def\PYZlb{[}
+\def\PYZrb{]}
+\makeatother
+
+
+    % For linebreaks inside Verbatim environment from package fancyvrb. 
+    \makeatletter
+        \newbox\Wrappedcontinuationbox 
+        \newbox\Wrappedvisiblespacebox 
+        \newcommand*\Wrappedvisiblespace {\textcolor{red}{\textvisiblespace}} 
+        \newcommand*\Wrappedcontinuationsymbol {\textcolor{red}{\llap{\tiny$\m@th\hookrightarrow$}}} 
+        \newcommand*\Wrappedcontinuationindent {3ex } 
+        \newcommand*\Wrappedafterbreak {\kern\Wrappedcontinuationindent\copy\Wrappedcontinuationbox} 
+        % Take advantage of the already applied Pygments mark-up to insert 
+        % potential linebreaks for TeX processing. 
+        %        {, <, #, %, $, ' and ": go to next line. 
+        %        _, }, ^, &, >, - and ~: stay at end of broken line. 
+        % Use of \textquotesingle for straight quote. 
+        \newcommand*\Wrappedbreaksatspecials {% 
+            \def\PYGZus{\discretionary{\char`\_}{\Wrappedafterbreak}{\char`\_}}% 
+            \def\PYGZob{\discretionary{}{\Wrappedafterbreak\char`\{}{\char`\{}}% 
+            \def\PYGZcb{\discretionary{\char`\}}{\Wrappedafterbreak}{\char`\}}}% 
+            \def\PYGZca{\discretionary{\char`\^}{\Wrappedafterbreak}{\char`\^}}% 
+            \def\PYGZam{\discretionary{\char`\&}{\Wrappedafterbreak}{\char`\&}}% 
+            \def\PYGZlt{\discretionary{}{\Wrappedafterbreak\char`\<}{\char`\<}}% 
+            \def\PYGZgt{\discretionary{\char`\>}{\Wrappedafterbreak}{\char`\>}}% 
+            \def\PYGZsh{\discretionary{}{\Wrappedafterbreak\char`\#}{\char`\#}}% 
+            \def\PYGZpc{\discretionary{}{\Wrappedafterbreak\char`\%}{\char`\%}}% 
+            \def\PYGZdl{\discretionary{}{\Wrappedafterbreak\char`\$}{\char`\$}}% 
+            \def\PYGZhy{\discretionary{\char`\-}{\Wrappedafterbreak}{\char`\-}}% 
+            \def\PYGZsq{\discretionary{}{\Wrappedafterbreak\textquotesingle}{\textquotesingle}}% 
+            \def\PYGZdq{\discretionary{}{\Wrappedafterbreak\char`\"}{\char`\"}}% 
+            \def\PYGZti{\discretionary{\char`\~}{\Wrappedafterbreak}{\char`\~}}% 
+        } 
+        % Some characters . , ; ? ! / are not pygmentized. 
+        % This macro makes them "active" and they will insert potential linebreaks 
+        \newcommand*\Wrappedbreaksatpunct {% 
+            \lccode`\~`\.\lowercase{\def~}{\discretionary{\hbox{\char`\.}}{\Wrappedafterbreak}{\hbox{\char`\.}}}% 
+            \lccode`\~`\,\lowercase{\def~}{\discretionary{\hbox{\char`\,}}{\Wrappedafterbreak}{\hbox{\char`\,}}}% 
+            \lccode`\~`\;\lowercase{\def~}{\discretionary{\hbox{\char`\;}}{\Wrappedafterbreak}{\hbox{\char`\;}}}% 
+            \lccode`\~`\:\lowercase{\def~}{\discretionary{\hbox{\char`\:}}{\Wrappedafterbreak}{\hbox{\char`\:}}}% 
+            \lccode`\~`\?\lowercase{\def~}{\discretionary{\hbox{\char`\?}}{\Wrappedafterbreak}{\hbox{\char`\?}}}% 
+            \lccode`\~`\!\lowercase{\def~}{\discretionary{\hbox{\char`\!}}{\Wrappedafterbreak}{\hbox{\char`\!}}}% 
+            \lccode`\~`\/\lowercase{\def~}{\discretionary{\hbox{\char`\/}}{\Wrappedafterbreak}{\hbox{\char`\/}}}% 
+            \catcode`\.\active
+            \catcode`\,\active 
+            \catcode`\;\active
+            \catcode`\:\active
+            \catcode`\?\active
+            \catcode`\!\active
+            \catcode`\/\active 
+            \lccode`\~`\~ 	
+        }
+    \makeatother
+
+    \let\OriginalVerbatim=\Verbatim
+    \makeatletter
+    \renewcommand{\Verbatim}[1][1]{%
+        %\parskip\z@skip
+        \sbox\Wrappedcontinuationbox {\Wrappedcontinuationsymbol}%
+        \sbox\Wrappedvisiblespacebox {\FV@SetupFont\Wrappedvisiblespace}%
+        \def\FancyVerbFormatLine ##1{\hsize\linewidth
+            \vtop{\raggedright\hyphenpenalty\z@\exhyphenpenalty\z@
+                \doublehyphendemerits\z@\finalhyphendemerits\z@
+                \strut ##1\strut}%
+        }%
+        % If the linebreak is at a space, the latter will be displayed as visible
+        % space at end of first line, and a continuation symbol starts next line.
+        % Stretch/shrink are however usually zero for typewriter font.
+        \def\FV@Space {%
+            \nobreak\hskip\z@ plus\fontdimen3\font minus\fontdimen4\font
+            \discretionary{\copy\Wrappedvisiblespacebox}{\Wrappedafterbreak}
+            {\kern\fontdimen2\font}%
+        }%
+        
+        % Allow breaks at special characters using \PYG... macros.
+        \Wrappedbreaksatspecials
+        % Breaks at punctuation characters . , ; ? ! and / need catcode=\active 	
+        \OriginalVerbatim[#1,codes*=\Wrappedbreaksatpunct]%
+    }
+    \makeatother
+
+    % Exact colors from NB
+    \definecolor{incolor}{HTML}{303F9F}
+    \definecolor{outcolor}{HTML}{D84315}
+    \definecolor{cellborder}{HTML}{CFCFCF}
+    \definecolor{cellbackground}{HTML}{F7F7F7}
+    
+    % prompt
+    \makeatletter
+    \newcommand{\boxspacing}{\kern\kvtcb@left@rule\kern\kvtcb@boxsep}
+    \makeatother
+    \newcommand{\prompt}[4]{
+        {\ttfamily\llap{{\color{#2}[#3]:\hspace{3pt}#4}}\vspace{-\baselineskip}}
+    }
+    
+
+    
+    % Prevent overflowing lines due to hard-to-break entities
+    \sloppy 
+    % Setup hyperref package
+    \hypersetup{
+      breaklinks=true,  % so long urls are correctly broken across lines
+      colorlinks=true,
+      urlcolor=urlcolor,
+      linkcolor=linkcolor,
+      citecolor=citecolor,
+      }
+    % Slightly bigger margins than the latex defaults
+    
+    \geometry{verbose,tmargin=1in,bmargin=1in,lmargin=1in,rmargin=1in}
+    
+    %% BEGIN: UNIR
+    \usepackage[spanish,mexico]{babel}
+    \usepackage[sfdefault,lf]{carlito}
+    \makeatletter
+    \let\newtitle\@title
+    \makeatother
+    \usepackage{amsmath}
+    \usepackage{multirow}
+    \definecolor{UnirLight}{HTML}{E6F4F9}
+    \definecolor{UnirDark}{HTML}{0098CD}
+    \arrayrulecolor{UnirDark}
+    \usepackage{titlesec}
+    \titleformat*{\section}{\color{UnirDark}\normalsize\bfseries}
+    \titleformat*{\subsection}{\color{UnirDark}\normalsize\bfseries}
+    \titleformat*{\subsubsection}{\color{UnirDark}\normalsize\bfseries}
+    \usepackage{fancyhdr}
+    \pagestyle{fancy}
+    \renewcommand{\headrulewidth}{0pt}
+    \headheight=60pt
+    \setlength{\footskip}{64pt}
+    \linespread{1.5}
+    \lhead{}
+    \chead{
+    \begin{tabular}{|c|l|c|}
+     \hline
+     \rowcolor{UnirLight}
+     \textcolor{UnirDark}{Asignatura} & \textcolor{UnirDark}{Datos del alumno} & \textcolor{UnirDark}{Fecha} \\
+     \hline
+     & Bernal Castillo Aldo Alberto & \\
+     \textbf{Aprendizaje Automático} & Domínguez Espinoza Edgar Uriel & \today \\
+     & Valdivia Medina Frank Edil & \\
+     \hline      
+    \end{tabular}}
+    \rhead{}
+    \lfoot{}
+    \cfoot{}
+    \rfoot{\makebox(70,56)[t]{\textcolor{UnirDark}{Actividades}}
+        \colorbox{UnirDark}{
+            \makebox(10,56)[t]{
+                \textcolor{white}{\thepage}}}}
+    \usepackage[color={[gray]{0.5}}, angle=90,fontsize=9pt,anchor=lb,pos={0.03\paperwidth,0.95\paperheight}]{draftwatermark}
+    \SetWatermarkText{{\copyright} Universidad Internacional de La Rioja en México (UNIR)}
+    \hypersetup{
+      pdfauthor={Edgar Uriel Domínguez Espinoza},
+      pdftitle={Análisis sintáctico},
+      pdfkeywords={nlp,cky,pcky,análisis sintáctico},
+      pdfsubject={Procesamiento del lenguaje natural},
+      pdfcreator={Emacs 28.1}, 
+      pdflang={Spanish}}
+    \usepackage[round]{natbib}
+    \usepackage{tikz}
+    \usepackage{tikz-qtree}
+    %% END: UNIR    
+
+
+\begin{document}
+    
+    
+    
+
+    
+    \hypertarget{implementaciuxf3n-del-algoritmo-pcky}{%
+%%       \section{Implementación del algoritmo PCKY}
+      \textcolor{UnirDark}{\Large\bfseries\newtitle}
+\label{implementaciuxf3n-del-algoritmo-pcky}}
+
+\hypertarget{libreruxedas-a-utilizar}{%
+\subsection*{Librerías a utilizar}\label{libreruxedas-a-utilizar}}
+
+Para la implementación del algoritmo CKY solo serán necesarias tres
+paquetes adicionales, el primero (\texttt{itemgetter}) permite seleccionar un elemento de una
+lista a partir del índice, el segundo (\texttt{pprint}) mostrará de manera más clara los
+resultados de los árboles y finalmente, pandas que permitirá mostrar la
+matriz CKY en forma tabular, como un dataframe.
+
+%%     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+%% \prompt{In}{incolor}{ }{\boxspacing}
+%% \begin{Verbatim}[commandchars=\\\{\}]
+%% \PY{k+kn}{from} \PY{n+nn}{operator} \PY{k+kn}{import} \PY{n}{itemgetter}
+%% \PY{k+kn}{from} \PY{n+nn}{pprint} \PY{k+kn}{import} \PY{n}{pprint}
+%% \PY{k+kn}{import} \PY{n+nn}{pandas} \PY{k}{as} \PY{n+nn}{pd}
+%% \end{Verbatim}
+%% \end{tcolorbox}
+
+    \hypertarget{datos-de-entrada}{%
+\subsection*{Datos de entrada}\label{datos-de-entrada}}
+
+La variable \texttt{grammar\_file} que aparece en el código contendrá las
+reglas gramaticales escritas en un archivo de texto. En este caso se han
+escrito las reglas propias del ejercicio, pero pueden variar (ver notebook adjunto).
+
+%%     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+%% \prompt{In}{incolor}{ }{\boxspacing}
+%% \begin{Verbatim}[commandchars=\\\{\}]
+%% \PY{n}{file} \PY{o}{=} \PY{n+nb}{open}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{ds/grammar.txt}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{r}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+%% \PY{n}{grammar\PYZus{}file} \PY{o}{=} \PY{n}{file}\PY{o}{.}\PY{n}{read}\PY{p}{(}\PY{p}{)}
+%% \end{Verbatim}
+%% \end{tcolorbox}
+
+    La función \texttt{read\_rules()} (ver notebook adjunto) recibe como argumento un texto con
+reglas gramaticales y probabilidades para convierlas en tres
+diccionarios que permiten buscar los datos necesarios para completar los
+algoritmos CKY y PCKY.
+
+Se crea el lexicón, de forma común, en lingüística se dice que un
+elemento del lexicón en la entrada de un diccionario, entonces se define
+como tal en el código.
+
+Se expresan las reglas gramaticales y léxicas en forma de tuplas como
+claves de una probabilidad que se usará para obtener las probabilidades
+de cada árbol obtenido por el algoritmo. Se eligen tuplas porque son
+fáciles de manejar, similar a los lenguajes Lisp.
+
+%%     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+%% \prompt{In}{incolor}{ }{\boxspacing}
+%% \begin{Verbatim}[commandchars=\\\{\}]
+%% \PY{k}{def} \PY{n+nf}{read\PYZus{}rules}\PY{p}{(}\PY{n}{grammar\PYZus{}file}\PY{p}{)}\PY{p}{:}
+%%     \PY{n}{gr\PYZus{}temp\PYZus{}rules} \PY{o}{=} \PY{n+nb}{list}\PY{p}{(}\PY{p}{)}
+%%     \PY{n}{lexicon\PYZus{}rules} \PY{o}{=} \PY{n+nb}{dict}\PY{p}{(}\PY{p}{)}
+%%     \PY{n}{probabilities} \PY{o}{=} \PY{n+nb}{dict}\PY{p}{(}\PY{p}{)}
+%%     \PY{n}{grammar\PYZus{}rules} \PY{o}{=} \PY{n+nb}{dict}\PY{p}{(}\PY{p}{)}
+%%     \PY{k}{for} \PY{n}{line} \PY{o+ow}{in} \PY{n}{grammar\PYZus{}file}\PY{o}{.}\PY{n}{strip}\PY{p}{(}\PY{p}{)}\PY{o}{.}\PY{n}{split}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+se}{\PYZbs{}n}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}\PY{p}{:}
+%%         \PY{n}{parent}\PY{p}{,} \PY{n}{children} \PY{o}{=} \PY{n}{line}\PY{o}{.}\PY{n}{strip}\PY{p}{(}\PY{p}{)}\PY{o}{.}\PY{n}{split}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{\PYZhy{}\PYZgt{}}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+%%         \PY{n}{parent} \PY{o}{=} \PY{n}{parent}\PY{o}{.}\PY{n}{strip}\PY{p}{(}\PY{p}{)}
+%%         \PY{n}{children} \PY{o}{=} \PY{n}{children}\PY{o}{.}\PY{n}{split}\PY{p}{(}\PY{p}{)}
+%%         \PY{k}{if} \PY{n+nb}{len}\PY{p}{(}\PY{n}{children}\PY{p}{)} \PY{o}{==} \PY{l+m+mi}{2}\PY{p}{:}
+%%             \PY{k}{if} \PY{n}{parent} \PY{o+ow}{not} \PY{o+ow}{in} \PY{n}{lexicon\PYZus{}rules}\PY{p}{:}
+%%                 \PY{n}{lexicon\PYZus{}rules}\PY{p}{[}\PY{n}{parent}\PY{p}{]} \PY{o}{=} \PY{n+nb}{set}\PY{p}{(}\PY{p}{)}
+%%             \PY{n}{lexicon\PYZus{}rules}\PY{p}{[}\PY{n}{parent}\PY{p}{]}\PY{o}{.}\PY{n}{add}\PY{p}{(}\PY{n}{children}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{)}
+%%             \PY{n}{probabilities}\PY{p}{[}\PY{n}{parent}\PY{p}{,}\PY{n}{children}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{]} \PY{o}{=} \PY{n+nb}{float}\PY{p}{(}\PY{n}{children}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{)}
+%%         \PY{k}{else}\PY{p}{:}
+%%             \PY{n}{rule} \PY{o}{=} \PY{p}{(}\PY{n}{parent}\PY{p}{,} \PY{n+nb}{tuple}\PY{p}{(}\PY{n}{children}\PY{p}{[}\PY{p}{:}\PY{l+m+mi}{2}\PY{p}{]}\PY{p}{)}\PY{p}{)}
+%%             \PY{n}{probabilities}\PY{p}{[}\PY{n}{rule}\PY{p}{]} \PY{o}{=} \PY{n+nb}{float}\PY{p}{(}\PY{n}{children}\PY{p}{[}\PY{l+m+mi}{2}\PY{p}{]}\PY{p}{)}
+%%             \PY{n}{gr\PYZus{}temp\PYZus{}rules}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{rule}\PY{p}{)}
+%%     \PY{k}{for} \PY{p}{(}\PY{n}{parent}\PY{p}{,} \PY{p}{(}\PY{n}{lc}\PY{p}{,} \PY{n}{rc}\PY{p}{)}\PY{p}{)} \PY{o+ow}{in} \PY{n}{gr\PYZus{}temp\PYZus{}rules}\PY{p}{:}
+%%         \PY{k}{if} \PY{p}{(}\PY{n}{lc}\PY{p}{,} \PY{n}{rc}\PY{p}{)} \PY{o+ow}{not} \PY{o+ow}{in} \PY{n}{grammar\PYZus{}rules}\PY{p}{:}
+%%             \PY{n}{grammar\PYZus{}rules}\PY{p}{[}\PY{n}{lc}\PY{p}{,} \PY{n}{rc}\PY{p}{]} \PY{o}{=} \PY{n+nb}{list}\PY{p}{(}\PY{p}{)}
+%%         \PY{n}{grammar\PYZus{}rules}\PY{p}{[}\PY{n}{lc}\PY{p}{,}\PY{n}{rc}\PY{p}{]}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{parent}\PY{p}{)}
+%%     \PY{k}{return} \PY{n}{grammar\PYZus{}rules}\PY{p}{,}\PY{n}{lexicon\PYZus{}rules}\PY{p}{,}\PY{n}{probabilities}
+%% \end{Verbatim}
+%% \end{tcolorbox}
+
+    \hypertarget{algoritmos-cky-y-pcky}{%
+\subsection*{Algoritmos CKY y PCKY}\label{algoritmos-cky-y-pcky}}
+
+Ahora se implementa el algoritmo CKY, mismo que recibe como entrada una
+oración en forma de cadena de texto, un diccionario con reglas
+gramaticales y un lexicón adecuado a la gramática. Opcionalmente, se
+puede definir el argumento de entrada \texttt{verbose} al valor
+\texttt{True}, de esta manera se mostrará en pantalla cada uno de los
+pasos que sigue el algoritmo para crear la matriz correspondiente. Esta
+matriz también tendrá forma de diccionario (ver notebook anexo).
+
+%%     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+%% \prompt{In}{incolor}{ }{\boxspacing}
+%% \begin{Verbatim}[commandchars=\\\{\}]
+%% \PY{k}{def} \PY{n+nf}{cky\PYZus{}parser}\PY{p}{(}\PY{n}{sentence}\PY{p}{,} \PY{n}{grammar}\PY{p}{,} \PY{n}{lexicon}\PY{p}{,} \PY{n}{verbose}\PY{o}{=}\PY{k+kc}{False}\PY{p}{)}\PY{p}{:}
+%%     \PY{n}{words} \PY{o}{=} \PY{n}{sentence}\PY{o}{.}\PY{n}{lower}\PY{p}{(}\PY{p}{)}\PY{o}{.}\PY{n}{split}\PY{p}{(}\PY{p}{)}
+%%     \PY{k}{if} \PY{n}{verbose}\PY{p}{:}
+%%         \PY{n+nb}{print}\PY{p}{(}\PY{n}{words}\PY{p}{)}
+%%     \PY{n}{matrix\PYZus{}cky} \PY{o}{=} \PY{n+nb}{dict}\PY{p}{(}\PY{p}{)}
+%%     \PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{n+nb}{len}\PY{p}{(}\PY{n}{words}\PY{p}{)}\PY{p}{)}\PY{p}{:}
+%%         \PY{n}{ordinate} \PY{o}{=} \PY{l+m+mi}{0}
+%%         \PY{k}{if} \PY{n}{verbose}\PY{p}{:}
+%%             \PY{n+nb}{print}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{0: i=}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,}\PY{n}{i}\PY{p}{)}
+%%         \PY{k}{for} \PY{n}{abscissa} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{n}{i}\PY{o}{+}\PY{l+m+mi}{1}\PY{p}{,} \PY{n+nb}{len}\PY{p}{(}\PY{n}{words}\PY{p}{)}\PY{o}{+}\PY{l+m+mi}{1}\PY{p}{)}\PY{p}{:}
+%%             \PY{n}{matrix\PYZus{}cky}\PY{p}{[}\PY{p}{(}\PY{n}{ordinate}\PY{p}{,} \PY{n}{abscissa}\PY{p}{)}\PY{p}{]} \PY{o}{=} \PY{n+nb}{list}\PY{p}{(}\PY{p}{)}
+%%             \PY{k}{if} \PY{n}{verbose}\PY{p}{:}
+%%                 \PY{n+nb}{print}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{1: abscissa=}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,}\PY{n}{abscissa}\PY{p}{,}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{ordinate=}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,}\PY{n}{ordinate}\PY{p}{,}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{a\PYZhy{}o=}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,}\PY{n}{abscissa}\PY{o}{\PYZhy{}}\PY{n}{ordinate}\PY{p}{)}
+%%             \PY{k}{if}\PY{p}{(}\PY{n}{abscissa}\PY{o}{\PYZhy{}}\PY{n}{ordinate} \PY{o}{==} \PY{l+m+mi}{1}\PY{p}{)}\PY{p}{:}
+%%                 \PY{k}{for} \PY{n}{key} \PY{o+ow}{in} \PY{n}{lexicon}\PY{p}{:}
+%%                     \PY{k}{if} \PY{n}{verbose}\PY{p}{:}
+%%                         \PY{n+nb}{print}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{2: key=}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,}\PY{n}{key}\PY{p}{,}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{word=}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,}\PY{n}{words}\PY{p}{[}\PY{n}{ordinate}\PY{p}{]}\PY{p}{)}
+%%                     \PY{k}{if}\PY{p}{(}\PY{n}{words}\PY{p}{[}\PY{n}{ordinate}\PY{p}{]} \PY{o+ow}{in} \PY{n}{lexicon}\PY{p}{[}\PY{n}{key}\PY{p}{]}\PY{p}{)}\PY{p}{:}
+%%                         \PY{n}{matrix\PYZus{}cky}\PY{p}{[}\PY{p}{(}\PY{n}{ordinate}\PY{p}{,}\PY{n}{abscissa}\PY{p}{)}\PY{p}{]}\PY{o}{.}\PY{n}{append}\PY{p}{(}
+%%                             \PY{p}{(}\PY{n}{key}\PY{p}{,}\PY{l+m+mi}{0}\PY{p}{,}\PY{n}{words}\PY{p}{[}\PY{n}{ordinate}\PY{p}{]}\PY{p}{,}\PY{n}{words}\PY{p}{[}\PY{n}{ordinate}\PY{p}{]}\PY{p}{)}\PY{p}{)}
+%%                         \PY{k}{if} \PY{n}{verbose}\PY{p}{:}
+%%                             \PY{n+nb}{print}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{2:}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,}\PY{n}{matrix\PYZus{}cky}\PY{p}{)}
+%%             \PY{k}{elif}\PY{p}{(}\PY{n}{abscissa}\PY{o}{\PYZhy{}}\PY{n}{ordinate} \PY{o}{\PYZgt{}} \PY{l+m+mi}{1}\PY{p}{)}\PY{p}{:}
+%%                 \PY{k}{if} \PY{n}{verbose}\PY{p}{:}
+%%                     \PY{n+nb}{print}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{3:}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{(}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,}\PY{n}{ordinate}\PY{p}{,}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{,}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,}\PY{n}{abscissa}\PY{p}{,}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{)}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+%%                 \PY{k}{for} \PY{n}{index} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{n}{abscissa}\PY{o}{\PYZhy{}}\PY{n}{ordinate}\PY{o}{\PYZhy{}}\PY{l+m+mi}{1}\PY{p}{)}\PY{p}{:}
+%%                     \PY{n}{left} \PY{o}{=} \PY{n}{matrix\PYZus{}cky}\PY{p}{[}\PY{p}{(}\PY{n}{ordinate}\PY{p}{,}\PY{n}{abscissa}\PY{o}{\PYZhy{}}\PY{l+m+mi}{1}\PY{o}{\PYZhy{}}\PY{n}{index}\PY{p}{)}\PY{p}{]}
+%%                     \PY{n}{down} \PY{o}{=} \PY{n}{matrix\PYZus{}cky}\PY{p}{[}\PY{p}{(}\PY{n}{abscissa}\PY{o}{\PYZhy{}}\PY{l+m+mi}{1}\PY{o}{\PYZhy{}}\PY{n}{index}\PY{p}{,}\PY{n}{abscissa}\PY{p}{)}\PY{p}{]}
+%%                     \PY{k}{if} \PY{n}{verbose}\PY{p}{:}
+%%                         \PY{n+nb}{print}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{4: index=}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,}\PY{n}{index}\PY{p}{)}
+%%                         \PY{n+nb}{print}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{4: left=}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,}\PY{n}{left}\PY{p}{,}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+se}{\PYZbs{}n}\PY{l+s+s2}{  }\PY{l+s+s2}{\PYZdq{}}\PY{p}{,}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{down=}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,}\PY{n}{down}\PY{p}{)}
+%%                     \PY{k}{if} \PY{o+ow}{not} \PY{n}{left} \PY{o+ow}{or} \PY{o+ow}{not} \PY{n}{down}\PY{p}{:}
+%%                         \PY{k}{if} \PY{n}{verbose}\PY{p}{:}
+%%                             \PY{n+nb}{print}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{5: Nothing to do}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+%%                     \PY{k}{else}\PY{p}{:}
+%%                         \PY{k}{for} \PY{n}{a} \PY{o+ow}{in} \PY{n}{left}\PY{p}{:}
+%%                             \PY{k}{for} \PY{n}{b} \PY{o+ow}{in} \PY{n}{down}\PY{p}{:}
+%%                                 \PY{k}{if}\PY{p}{(}\PY{p}{(}\PY{n}{a}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{,}\PY{n}{b}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{)} \PY{o+ow}{in} \PY{n}{grammar}\PY{p}{)}\PY{p}{:}
+%%                                     \PY{n}{matrix\PYZus{}cky}\PY{p}{[}\PY{p}{(}\PY{n}{ordinate}\PY{p}{,}\PY{n}{abscissa}\PY{p}{)}\PY{p}{]}\PY{o}{.}\PY{n}{append}\PY{p}{(}
+%%                                         \PY{p}{(}\PY{n}{grammar}\PY{p}{[}\PY{p}{(}\PY{n}{a}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{,}\PY{n}{b}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{)}\PY{p}{]}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{,}
+%%                                         \PY{n}{abscissa}\PY{o}{\PYZhy{}}\PY{l+m+mi}{1}\PY{o}{\PYZhy{}}\PY{n}{index}\PY{p}{,}\PY{n}{a}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{,}\PY{n}{b}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{)}\PY{p}{)}
+%%                                     \PY{k}{if} \PY{n}{verbose}\PY{p}{:}
+%%                                         \PY{n+nb}{print}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{6: add=}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,}\PY{n}{grammar}\PY{p}{[}\PY{p}{(}\PY{n}{a}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{,}\PY{n}{b}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{)}\PY{p}{]}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{,}\PY{n}{abscissa}\PY{o}{\PYZhy{}}\PY{l+m+mi}{1}\PY{o}{\PYZhy{}}\PY{n}{index}\PY{p}{,}\PY{n}{a}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{,}\PY{n}{b}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{)}
+%%                                 \PY{k}{else}\PY{p}{:}
+%%                                     \PY{k}{if} \PY{n}{verbose}\PY{p}{:}
+%%                                         \PY{n+nb}{print}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{6: Nothing to do}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+%%             \PY{k}{if} \PY{n}{verbose}\PY{p}{:}
+%%                 \PY{n+nb}{print}\PY{p}{(}\PY{n}{matrix\PYZus{}cky}\PY{p}{)}
+%%                 \PY{n+nb}{print}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{9: Next Ordinate}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+%%             \PY{n}{ordinate}\PY{o}{+}\PY{o}{=}\PY{l+m+mi}{1}
+%%     \PY{k}{return} \PY{n}{matrix\PYZus{}cky}
+%% \end{Verbatim}
+%% \end{tcolorbox}
+
+    Enseguida se crean dos funciones, la primera, \texttt{get\_prob()}, se
+usará para obtener las probabilidades del diccionario de probabilidades,
+la segunda, \texttt{update\_prob()}, se usará para actualizar las
+probabilidades desde los nodos intermedios hasta el nodo padre (ver notebook anexo).
+
+%%     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+%% \prompt{In}{incolor}{ }{\boxspacing}
+%% \begin{Verbatim}[commandchars=\\\{\}]
+%% \PY{k}{def} \PY{n+nf}{get\PYZus{}prob}\PY{p}{(}\PY{n}{node}\PY{p}{,} \PY{n}{prob\PYZus{}dict}\PY{p}{)}\PY{p}{:}
+%%     \PY{k}{return} \PY{n}{prob\PYZus{}dict}\PY{p}{[}\PY{n}{node}\PY{p}{]}
+
+%% \PY{k}{def} \PY{n+nf}{update\PYZus{}prob}\PY{p}{(}\PY{n}{left}\PY{p}{,} \PY{n}{down}\PY{p}{,} \PY{n}{actual}\PY{p}{,} \PY{n}{prob\PYZus{}dict}\PY{p}{)}\PY{p}{:}
+%%     \PY{n}{actual\PYZus{}prob} \PY{o}{=} \PY{n}{get\PYZus{}prob}\PY{p}{(}\PY{p}{(}\PY{n}{actual}\PY{p}{,}\PY{p}{(}\PY{n}{left}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{,}\PY{n}{down}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{)}\PY{p}{)}\PY{p}{,}\PY{n}{prob\PYZus{}dict}\PY{p}{)}
+%%     \PY{n}{prob} \PY{o}{=} \PY{n}{left}\PY{p}{[}\PY{l+m+mi}{4}\PY{p}{]}\PY{o}{*}\PY{n}{down}\PY{p}{[}\PY{l+m+mi}{4}\PY{p}{]}\PY{o}{*}\PY{n}{actual\PYZus{}prob}
+%%     \PY{k}{return} \PY{n}{prob}
+%% \end{Verbatim}
+%% \end{tcolorbox}
+
+    Se actualiza \texttt{cky\_parser()}. Ahora \texttt{pcky\_parser()}
+agregará la información de la probabilidad a cada lista agregada a
+\texttt{matrix\_pcky}, con esto se completa el algoritmo solicitado por la práctica.
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{ }{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{k}{def} \PY{n+nf}{pcky\PYZus{}parser}\PY{p}{(}\PY{n}{sentence}\PY{p}{,} \PY{n}{grammar}\PY{p}{,} \PY{n}{lexicon}\PY{p}{,} \PY{n}{probabilities\PYZus{}table}\PY{p}{,} \PY{n}{verbose}\PY{o}{=}\PY{k+kc}{False}\PY{p}{)}\PY{p}{:}
+    \PY{n}{words} \PY{o}{=} \PY{n}{sentence}\PY{o}{.}\PY{n}{lower}\PY{p}{(}\PY{p}{)}\PY{o}{.}\PY{n}{split}\PY{p}{(}\PY{p}{)}
+    \PY{k}{if} \PY{n}{verbose}\PY{p}{:}
+        \PY{n+nb}{print}\PY{p}{(}\PY{n}{words}\PY{p}{)}
+    \PY{n}{matrix\PYZus{}pcky} \PY{o}{=} \PY{n+nb}{dict}\PY{p}{(}\PY{p}{)}
+    \PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{n+nb}{len}\PY{p}{(}\PY{n}{words}\PY{p}{)}\PY{p}{)}\PY{p}{:}
+        \PY{n}{ordinate} \PY{o}{=} \PY{l+m+mi}{0}
+        \PY{k}{if} \PY{n}{verbose}\PY{p}{:}
+            \PY{n+nb}{print}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{0: i=}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,}\PY{n}{i}\PY{p}{)}
+        \PY{k}{for} \PY{n}{abscissa} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{n}{i}\PY{o}{+}\PY{l+m+mi}{1}\PY{p}{,}\PY{n+nb}{len}\PY{p}{(}\PY{n}{words}\PY{p}{)}\PY{o}{+}\PY{l+m+mi}{1}\PY{p}{)}\PY{p}{:}
+            \PY{n}{matrix\PYZus{}pcky}\PY{p}{[}\PY{p}{(}\PY{n}{ordinate}\PY{p}{,} \PY{n}{abscissa}\PY{p}{)}\PY{p}{]} \PY{o}{=} \PY{n+nb}{list}\PY{p}{(}\PY{p}{)}
+            \PY{k}{if} \PY{n}{verbose}\PY{p}{:}
+                \PY{n+nb}{print}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{1: abscissa=}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,}\PY{n}{abscissa}\PY{p}{,}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{ordinate=}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,}\PY{n}{ordinate}\PY{p}{,}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{a\PYZhy{}o=}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,}\PY{n}{abscissa}\PY{o}{\PYZhy{}}\PY{n}{ordinate}\PY{p}{)}
+            \PY{k}{if}\PY{p}{(}\PY{n}{abscissa}\PY{o}{\PYZhy{}}\PY{n}{ordinate} \PY{o}{==} \PY{l+m+mi}{1}\PY{p}{)}\PY{p}{:}
+                \PY{k}{for} \PY{n}{key} \PY{o+ow}{in} \PY{n}{lexicon}\PY{p}{:}
+                    \PY{k}{if} \PY{n}{verbose}\PY{p}{:}
+                        \PY{n+nb}{print}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{2: key=}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,}\PY{n}{key}\PY{p}{,}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{word=}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,}\PY{n}{words}\PY{p}{[}\PY{n}{ordinate}\PY{p}{]}\PY{p}{)}
+                    \PY{k}{if}\PY{p}{(}\PY{n}{words}\PY{p}{[}\PY{n}{ordinate}\PY{p}{]} \PY{o+ow}{in} \PY{n}{lexicon}\PY{p}{[}\PY{n}{key}\PY{p}{]}\PY{p}{)}\PY{p}{:}
+                        \PY{n}{matrix\PYZus{}pcky}\PY{p}{[}\PY{p}{(}\PY{n}{ordinate}\PY{p}{,}\PY{n}{abscissa}\PY{p}{)}\PY{p}{]}\PY{o}{.}\PY{n}{append}\PY{p}{(}
+                            \PY{p}{(}\PY{n}{key}\PY{p}{,}\PY{l+m+mi}{0}\PY{p}{,}\PY{n}{words}\PY{p}{[}\PY{n}{ordinate}\PY{p}{]}\PY{p}{,}\PY{n}{words}\PY{p}{[}\PY{n}{ordinate}\PY{p}{]}\PY{p}{,}
+                            \PY{n}{get\PYZus{}prob}\PY{p}{(}\PY{p}{(}\PY{n}{key}\PY{p}{,}\PY{n}{words}\PY{p}{[}\PY{n}{ordinate}\PY{p}{]}\PY{p}{)}\PY{p}{,}\PY{n}{probabilities\PYZus{}table}\PY{p}{)}\PY{p}{)}\PY{p}{)}
+                        \PY{k}{if} \PY{n}{verbose}\PY{p}{:}
+                            \PY{n+nb}{print}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{2:}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,}\PY{n}{matrix\PYZus{}pcky}\PY{p}{)}
+            \PY{k}{elif}\PY{p}{(}\PY{n}{abscissa}\PY{o}{\PYZhy{}}\PY{n}{ordinate} \PY{o}{\PYZgt{}} \PY{l+m+mi}{1}\PY{p}{)}\PY{p}{:}
+                \PY{k}{if} \PY{n}{verbose}\PY{p}{:}
+                    \PY{n+nb}{print}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{3:}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{(}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,}\PY{n}{ordinate}\PY{p}{,}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{,}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,}\PY{n}{abscissa}\PY{p}{,}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{)}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+                \PY{k}{for} \PY{n}{index} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{n}{abscissa}\PY{o}{\PYZhy{}}\PY{n}{ordinate}\PY{o}{\PYZhy{}}\PY{l+m+mi}{1}\PY{p}{)}\PY{p}{:}
+                    \PY{n}{left} \PY{o}{=} \PY{n}{matrix\PYZus{}pcky}\PY{p}{[}\PY{p}{(}\PY{n}{ordinate}\PY{p}{,}\PY{n}{abscissa}\PY{o}{\PYZhy{}}\PY{l+m+mi}{1}\PY{o}{\PYZhy{}}\PY{n}{index}\PY{p}{)}\PY{p}{]}
+                    \PY{n}{down} \PY{o}{=} \PY{n}{matrix\PYZus{}pcky}\PY{p}{[}\PY{p}{(}\PY{n}{abscissa}\PY{o}{\PYZhy{}}\PY{l+m+mi}{1}\PY{o}{\PYZhy{}}\PY{n}{index}\PY{p}{,}\PY{n}{abscissa}\PY{p}{)}\PY{p}{]}
+                    \PY{k}{if} \PY{n}{verbose}\PY{p}{:}
+                        \PY{n+nb}{print}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{4: index=}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,}\PY{n}{index}\PY{p}{)}
+                        \PY{n+nb}{print}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{4: left=}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,}\PY{n}{left}\PY{p}{,}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+se}{\PYZbs{}n}\PY{l+s+s2}{  }\PY{l+s+s2}{\PYZdq{}}\PY{p}{,}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{down=}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,}\PY{n}{down}\PY{p}{)}
+                    \PY{k}{if} \PY{o+ow}{not} \PY{n}{left} \PY{o+ow}{or} \PY{o+ow}{not} \PY{n}{down}\PY{p}{:}
+                        \PY{k}{if} \PY{n}{verbose}\PY{p}{:}
+                            \PY{n+nb}{print}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{5: Nothing to do}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+                    \PY{k}{else}\PY{p}{:}
+                        \PY{k}{for} \PY{n}{a} \PY{o+ow}{in} \PY{n}{left}\PY{p}{:}
+                            \PY{k}{for} \PY{n}{b} \PY{o+ow}{in} \PY{n}{down}\PY{p}{:}
+                                \PY{k}{if}\PY{p}{(}\PY{p}{(}\PY{n}{a}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{,}\PY{n}{b}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{)} \PY{o+ow}{in} \PY{n}{grammar}\PY{p}{)}\PY{p}{:}
+                                    \PY{n}{matrix\PYZus{}pcky}\PY{p}{[}\PY{p}{(}\PY{n}{ordinate}\PY{p}{,}\PY{n}{abscissa}\PY{p}{)}\PY{p}{]}\PY{o}{.}\PY{n}{append}\PY{p}{(}
+                                        \PY{p}{(}\PY{n}{grammar}\PY{p}{[}\PY{p}{(}\PY{n}{a}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{,}\PY{n}{b}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{)}\PY{p}{]}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{,}
+                                        \PY{n}{abscissa}\PY{o}{\PYZhy{}}\PY{l+m+mi}{1}\PY{o}{\PYZhy{}}\PY{n}{index}\PY{p}{,}\PY{n}{a}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{,}\PY{n}{b}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{,}
+                                        \PY{n}{update\PYZus{}prob}\PY{p}{(}\PY{n}{a}\PY{p}{,}\PY{n}{b}\PY{p}{,}\PY{n}{grammar}\PY{p}{[}\PY{p}{(}\PY{n}{a}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{,}\PY{n}{b}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{)}\PY{p}{]}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{,}\PY{n}{probabilities\PYZus{}table}\PY{p}{)}\PY{p}{)}
+                                        \PY{p}{)}
+                                    \PY{k}{if} \PY{n}{verbose}\PY{p}{:}
+                                        \PY{n+nb}{print}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{6: add=}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,}\PY{n}{grammar}\PY{p}{[}\PY{p}{(}\PY{n}{a}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{,}\PY{n}{b}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{)}\PY{p}{]}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{,}\PY{n}{abscissa}\PY{o}{\PYZhy{}}\PY{l+m+mi}{1}\PY{o}{\PYZhy{}}\PY{n}{index}\PY{p}{,}\PY{n}{a}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{,}\PY{n}{b}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{)}
+                                \PY{k}{else}\PY{p}{:}
+                                    \PY{k}{if} \PY{n}{verbose}\PY{p}{:}
+                                        \PY{n+nb}{print}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{6: Nothing to do}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+            \PY{k}{if} \PY{n}{verbose}\PY{p}{:}
+                \PY{n+nb}{print}\PY{p}{(}\PY{n}{matrix\PYZus{}pcky}\PY{p}{)}
+                \PY{n+nb}{print}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{9: Next Ordinate}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+            \PY{n}{ordinate}\PY{o}{+}\PY{o}{=}\PY{l+m+mi}{1}
+    \PY{k}{return} \PY{n}{matrix\PYZus{}pcky}
+\end{Verbatim}
+\end{tcolorbox}
+
+    \hypertarget{obtenciuxf3n-de-resultados}{%
+\subsection*{Obtención de resultados}\label{obtenciuxf3n-de-resultados}}
+
+La función \texttt{tree()} recorre una matriz generada por el algoritmo
+CKY en busca de árboles a partir del valor de un nodo en particular,
+tomando en cuenta una ruta a través de un índice (llamado backpointer en el algoritmo) creado por el
+algoritmo.
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{ }{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{k}{def} \PY{n+nf}{tree} \PY{p}{(}\PY{n}{matrix}\PY{p}{,} \PY{n}{cell}\PY{p}{,} \PY{n}{parent}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{S}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{n}{index}\PY{o}{=}\PY{l+m+mi}{0}\PY{p}{,} \PY{n}{pcky}\PY{o}{=}\PY{k+kc}{False}\PY{p}{)}\PY{p}{:}
+    \PY{n+nb}{list} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+    \PY{k}{if} \PY{n+nb}{len}\PY{p}{(}\PY{n}{matrix}\PY{p}{[}\PY{n}{cell}\PY{p}{]}\PY{p}{)} \PY{o}{==} \PY{l+m+mi}{0}\PY{p}{:}
+        \PY{k}{return} \PY{n+nb}{list}
+    \PY{k}{if} \PY{n}{matrix}\PY{p}{[}\PY{n}{cell}\PY{p}{]}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]} \PY{o}{==} \PY{l+m+mi}{0}\PY{p}{:}
+        \PY{k}{if} \PY{n}{matrix}\PY{p}{[}\PY{n}{cell}\PY{p}{]}\PY{p}{[}\PY{n}{index}\PY{p}{]}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]} \PY{o}{==} \PY{n}{parent}\PY{p}{:}
+            \PY{k}{if} \PY{n}{pcky}\PY{p}{:}
+                \PY{k}{return} \PY{p}{[}\PY{p}{(}\PY{n}{matrix}\PY{p}{[}\PY{n}{cell}\PY{p}{]}\PY{p}{[}\PY{n}{index}\PY{p}{]}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{,}\PY{n}{matrix}\PY{p}{[}\PY{n}{cell}\PY{p}{]}\PY{p}{[}\PY{n}{index}\PY{p}{]}\PY{p}{[}\PY{l+m+mi}{4}\PY{p}{]}\PY{p}{)}\PY{p}{,}
+                         \PY{n}{matrix}\PY{p}{[}\PY{n}{cell}\PY{p}{]}\PY{p}{[}\PY{n}{index}\PY{p}{]}\PY{p}{[}\PY{l+m+mi}{2}\PY{p}{]}\PY{p}{]}
+            \PY{k}{else}\PY{p}{:}
+                \PY{k}{return} \PY{p}{[}\PY{n}{matrix}\PY{p}{[}\PY{n}{cell}\PY{p}{]}\PY{p}{[}\PY{n}{index}\PY{p}{]}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{,} \PY{n}{matrix}\PY{p}{[}\PY{n}{cell}\PY{p}{]}\PY{p}{[}\PY{n}{index}\PY{p}{]}\PY{p}{[}\PY{l+m+mi}{2}\PY{p}{]}\PY{p}{]}
+        \PY{k}{else}\PY{p}{:}
+            \PY{k}{if} \PY{n}{index}\PY{o}{+}\PY{l+m+mi}{1} \PY{o}{\PYZlt{}} \PY{n+nb}{len}\PY{p}{(}\PY{n}{matrix}\PY{p}{[}\PY{n}{cell}\PY{p}{]}\PY{p}{)}\PY{p}{:}
+                \PY{k}{if} \PY{n}{pcky}\PY{p}{:}
+                    \PY{k}{return} \PY{n}{tree}\PY{p}{(}\PY{n}{matrix}\PY{p}{,}\PY{n}{cell}\PY{p}{,}\PY{n}{parent}\PY{p}{,}\PY{n}{index}\PY{o}{+}\PY{l+m+mi}{1}\PY{p}{,}\PY{n}{pcky}\PY{o}{=}\PY{k+kc}{True}\PY{p}{)}
+                \PY{k}{else}\PY{p}{:}
+                    \PY{k}{return} \PY{n}{tree}\PY{p}{(}\PY{n}{matrix}\PY{p}{,}\PY{n}{cell}\PY{p}{,}\PY{n}{parent}\PY{p}{,}\PY{n}{index}\PY{o}{+}\PY{l+m+mi}{1}\PY{p}{)}
+            \PY{k}{else}\PY{p}{:}
+                \PY{k}{return} \PY{n+nb}{list}
+    \PY{k}{elif} \PY{p}{(}\PY{n}{matrix}\PY{p}{[}\PY{n}{cell}\PY{p}{]}\PY{p}{[}\PY{n}{index}\PY{p}{]}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{)} \PY{o}{==} \PY{n}{parent}\PY{p}{:}
+        \PY{k}{if} \PY{n}{pcky}\PY{p}{:}
+            \PY{n+nb}{list}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{p}{(}\PY{n}{matrix}\PY{p}{[}\PY{n}{cell}\PY{p}{]}\PY{p}{[}\PY{n}{index}\PY{p}{]}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{,}\PY{n}{matrix}\PY{p}{[}\PY{n}{cell}\PY{p}{]}\PY{p}{[}\PY{n}{index}\PY{p}{]}\PY{p}{[}\PY{l+m+mi}{4}\PY{p}{]}\PY{p}{)}\PY{p}{)}
+        \PY{k}{else}\PY{p}{:}
+            \PY{n+nb}{list}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{matrix}\PY{p}{[}\PY{n}{cell}\PY{p}{]}\PY{p}{[}\PY{n}{index}\PY{p}{]}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{)}
+        \PY{n}{child} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+        \PY{k}{if} \PY{n}{pcky}\PY{p}{:}
+            \PY{n}{child}\PY{o}{.}\PY{n}{append}\PY{p}{(}
+                \PY{n}{tree}\PY{p}{(}\PY{n}{matrix}\PY{p}{,}
+                     \PY{p}{(}\PY{n}{cell}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{,}\PY{n}{matrix}\PY{p}{[}\PY{n}{cell}\PY{p}{]}\PY{p}{[}\PY{n}{index}\PY{p}{]}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{)}\PY{p}{,}
+                     \PY{n}{matrix}\PY{p}{[}\PY{n}{cell}\PY{p}{]}\PY{p}{[}\PY{n}{index}\PY{p}{]}\PY{p}{[}\PY{l+m+mi}{2}\PY{p}{]}\PY{p}{,}\PY{n}{pcky}\PY{o}{=}\PY{k+kc}{True}\PY{p}{)}\PY{p}{)}
+        \PY{k}{else}\PY{p}{:}
+            \PY{n}{child}\PY{o}{.}\PY{n}{append}\PY{p}{(}
+                \PY{n}{tree}\PY{p}{(}\PY{n}{matrix}\PY{p}{,}
+                     \PY{p}{(}\PY{n}{cell}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{,}\PY{n}{matrix}\PY{p}{[}\PY{n}{cell}\PY{p}{]}\PY{p}{[}\PY{n}{index}\PY{p}{]}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{)}\PY{p}{,}
+                     \PY{n}{matrix}\PY{p}{[}\PY{n}{cell}\PY{p}{]}\PY{p}{[}\PY{n}{index}\PY{p}{]}\PY{p}{[}\PY{l+m+mi}{2}\PY{p}{]}\PY{p}{)}\PY{p}{)}
+        \PY{k}{if} \PY{n}{pcky}\PY{p}{:}
+            \PY{n}{child}\PY{o}{.}\PY{n}{append}\PY{p}{(}
+                \PY{n}{tree}\PY{p}{(}\PY{n}{matrix}\PY{p}{,}
+                     \PY{p}{(}\PY{n}{matrix}\PY{p}{[}\PY{n}{cell}\PY{p}{]}\PY{p}{[}\PY{n}{index}\PY{p}{]}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{,}\PY{n}{cell}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{)}\PY{p}{,}
+                     \PY{n}{matrix}\PY{p}{[}\PY{n}{cell}\PY{p}{]}\PY{p}{[}\PY{n}{index}\PY{p}{]}\PY{p}{[}\PY{l+m+mi}{3}\PY{p}{]}\PY{p}{,}\PY{n}{pcky}\PY{o}{=}\PY{k+kc}{True}\PY{p}{)}\PY{p}{)}
+        \PY{k}{else}\PY{p}{:}
+            \PY{n}{child}\PY{o}{.}\PY{n}{append}\PY{p}{(}
+                \PY{n}{tree}\PY{p}{(}\PY{n}{matrix}\PY{p}{,}
+                     \PY{p}{(}\PY{n}{matrix}\PY{p}{[}\PY{n}{cell}\PY{p}{]}\PY{p}{[}\PY{n}{index}\PY{p}{]}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{,}\PY{n}{cell}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{)}\PY{p}{,}
+                     \PY{n}{matrix}\PY{p}{[}\PY{n}{cell}\PY{p}{]}\PY{p}{[}\PY{n}{index}\PY{p}{]}\PY{p}{[}\PY{l+m+mi}{3}\PY{p}{]}\PY{p}{)}\PY{p}{)}
+        \PY{n+nb}{list}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{child}\PY{p}{)}
+        \PY{k}{return} \PY{n+nb}{list}
+    \PY{k}{else}\PY{p}{:}
+        \PY{k}{if} \PY{n}{index}\PY{o}{+}\PY{l+m+mi}{1} \PY{o}{\PYZlt{}} \PY{n+nb}{len}\PY{p}{(}\PY{n}{matrix}\PY{p}{[}\PY{n}{cell}\PY{p}{]}\PY{p}{)}\PY{p}{:}
+            \PY{k}{if} \PY{n}{pcky}\PY{p}{:}
+                \PY{k}{return} \PY{n}{tree}\PY{p}{(}\PY{n}{matrix}\PY{p}{,}\PY{n}{cell}\PY{p}{,}\PY{n}{parent}\PY{p}{,}\PY{n}{index}\PY{o}{+}\PY{l+m+mi}{1}\PY{p}{,}\PY{n}{pcky}\PY{o}{=}\PY{k+kc}{True}\PY{p}{)}
+            \PY{k}{else}\PY{p}{:}
+                \PY{k}{return} \PY{n}{tree}\PY{p}{(}\PY{n}{matrix}\PY{p}{,}\PY{n}{cell}\PY{p}{,}\PY{n}{parent}\PY{p}{,}\PY{n}{index}\PY{o}{+}\PY{l+m+mi}{1}\PY{p}{)}
+        \PY{k}{else}\PY{p}{:}
+            \PY{k}{return} \PY{n+nb}{list}
+\end{Verbatim}
+\end{tcolorbox}
+
+    La función \texttt{find\_solutions()} servirá como \emph{frontend} para
+todas las funciones anteriores, brindará la respuesta propuesta por el
+algoritmo y la matrix correspondiente. Dependerá de los argumentos si usará CKY o PCKY (ver notebook adjunto).
+
+%%     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+%% \prompt{In}{incolor}{ }{\boxspacing}
+%% \begin{Verbatim}[commandchars=\\\{\}]
+%% \PY{k}{def} \PY{n+nf}{find\PYZus{}solutions}\PY{p}{(}\PY{n}{sentence}\PY{p}{,} \PY{n}{grammar}\PY{p}{,} \PY{n}{lexicon}\PY{p}{,} \PY{n}{axiom}\PY{p}{,} \PY{n}{probabilities\PYZus{}table}\PY{o}{=}\PY{p}{\PYZob{}}\PY{p}{\PYZcb{}}\PY{p}{,} \PY{n}{verbose}\PY{o}{=}\PY{k+kc}{False}\PY{p}{)}\PY{p}{:}
+%%     \PY{n}{N} \PY{o}{=} \PY{n+nb}{len}\PY{p}{(}\PY{n}{sentence}\PY{o}{.}\PY{n}{split}\PY{p}{(}\PY{p}{)}\PY{p}{)}
+%%     \PY{n}{solutions} \PY{o}{=} \PY{n+nb}{list}\PY{p}{(}\PY{p}{)}
+%%     \PY{k}{if} \PY{n}{probabilities\PYZus{}table}\PY{p}{:}
+%%         \PY{n}{matrix} \PY{o}{=} \PY{n}{pcky\PYZus{}parser}\PY{p}{(}\PY{n}{sentence}\PY{p}{,}\PY{n}{grammar}\PY{p}{,}\PY{n}{lexicon}\PY{p}{,}\PY{n}{probabilities\PYZus{}table}\PY{p}{,}\PY{n}{verbose}\PY{p}{)}
+%%         \PY{n}{candidates} \PY{o}{=} \PY{n+nb}{list}\PY{p}{(}\PY{p}{)}
+%%         \PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n+nb}{enumerate}\PY{p}{(}\PY{n}{matrix}\PY{p}{[}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{,}\PY{n}{N}\PY{p}{)}\PY{p}{]}\PY{p}{)}\PY{p}{:}
+%%             \PY{k}{if} \PY{n}{i}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]} \PY{o}{==} \PY{n}{axiom}\PY{p}{:}
+%%                 \PY{n}{candidates}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{p}{[}\PY{n}{i}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{,}\PY{n}{i}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{[}\PY{l+m+mi}{4}\PY{p}{]}\PY{p}{]}\PY{p}{)}
+%%         \PY{n}{candidates} \PY{o}{=} \PY{n+nb}{max}\PY{p}{(}\PY{n}{candidates}\PY{p}{,}\PY{n}{key}\PY{o}{=}\PY{n}{itemgetter}\PY{p}{(}\PY{l+m+mi}{1}\PY{p}{)}\PY{p}{)}
+%%         \PY{n}{solutions} \PY{o}{=} \PY{n}{tree}\PY{p}{(}\PY{n}{matrix}\PY{p}{,}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{,}\PY{n}{N}\PY{p}{)}\PY{p}{,}\PY{n}{index}\PY{o}{=}\PY{n}{candidates}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{,}\PY{n}{pcky}\PY{o}{=}\PY{k+kc}{True}\PY{p}{)}
+%%     \PY{k}{else}\PY{p}{:}
+%%         \PY{n}{matrix} \PY{o}{=} \PY{n}{cky\PYZus{}parser}\PY{p}{(}\PY{n}{sentence}\PY{p}{,}\PY{n}{grammar}\PY{p}{,}\PY{n}{lexicon}\PY{p}{,}\PY{n}{verbose}\PY{p}{)}
+%%         \PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n+nb}{enumerate}\PY{p}{(}\PY{n}{matrix}\PY{p}{[}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{,}\PY{n}{N}\PY{p}{)}\PY{p}{]}\PY{p}{)}\PY{p}{:}
+%%             \PY{k}{if} \PY{n}{i}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]} \PY{o}{==} \PY{n}{axiom}\PY{p}{:}
+%%                 \PY{n}{solutions}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{tree}\PY{p}{(}\PY{n}{matrix}\PY{p}{,}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{,}\PY{n}{N}\PY{p}{)}\PY{p}{,}\PY{n}{index}\PY{o}{=}\PY{n}{i}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{)}\PY{p}{)}
+%%     \PY{n}{df} \PY{o}{=} \PY{n}{pd}\PY{o}{.}\PY{n}{DataFrame}\PY{p}{(}\PY{n}{columns} \PY{o}{=} \PY{p}{[}\PY{n}{i} \PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{,}\PY{n}{N}\PY{p}{)}\PY{p}{]}\PY{p}{,}
+%%                         \PY{n}{index} \PY{o}{=} \PY{p}{[}\PY{n}{i} \PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{l+m+mi}{1}\PY{p}{,}\PY{n}{N}\PY{o}{+}\PY{l+m+mi}{1}\PY{p}{)}\PY{p}{]}\PY{p}{)}
+%%     \PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{,}\PY{l+m+mi}{5}\PY{p}{)}\PY{p}{:}
+%%         \PY{k}{for} \PY{n}{j} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{,}\PY{l+m+mi}{5}\PY{o}{\PYZhy{}}\PY{n}{i}\PY{p}{)}\PY{p}{:}
+%%             \PY{n}{df}\PY{o}{.}\PY{n}{loc}\PY{p}{[}\PY{n}{j}\PY{o}{+}\PY{n}{i}\PY{o}{+}\PY{l+m+mi}{1}\PY{p}{,}\PY{n}{i}\PY{p}{]} \PY{o}{=} \PY{n}{matrix}\PY{p}{[}\PY{p}{(}\PY{n}{i}\PY{p}{,}\PY{n}{j}\PY{o}{+}\PY{n}{i}\PY{o}{+}\PY{l+m+mi}{1}\PY{p}{)}\PY{p}{]}
+%%     \PY{n}{df} \PY{o}{=} \PY{n}{df}\PY{o}{.}\PY{n}{transpose}\PY{p}{(}\PY{p}{)}
+%%     \PY{k}{return} \PY{n}{solutions}\PY{p}{,} \PY{n}{df}
+%% \end{Verbatim}
+%% \end{tcolorbox}
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{ }{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{grammar\PYZus{}rules}\PY{p}{,} \PY{n}{lexicon\PYZus{}rules}\PY{p}{,} \PY{n}{probabilities} \PY{o}{=} \PY{n}{read\PYZus{}rules}\PY{p}{(}\PY{n}{grammar\PYZus{}file}\PY{p}{)}
+\end{Verbatim}
+\end{tcolorbox}
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{ }{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{options}\PY{p}{,} \PY{n}{matrix} \PY{o}{=} \PY{n}{find\PYZus{}solutions}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Time flies like an arrow}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,}
+                        \PY{n}{grammar\PYZus{}rules}\PY{p}{,}\PY{n}{lexicon\PYZus{}rules}\PY{p}{,}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{S}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+\PY{n}{pprint}\PY{p}{(}\PY{n}{options}\PY{p}{)}
+\end{Verbatim}
+\end{tcolorbox}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+[['S',
+  [['NP', [['Nominal', 'time'], ['Nominal', 'flies']]],
+   ['VP', [['Verb', 'like'], ['NP', [['Det', 'an'], ['Nominal', 'arrow']]]]]]],
+ ['S',
+  [['NP', 'time'],
+   ['VP',
+    [['Verb', 'flies'],
+     ['PP',
+      [['Preposition', 'like'],
+       ['NP', [['Det', 'an'], ['Nominal', 'arrow']]]]]]]]]]
+    \end{Verbatim}
+
+%%             \begin{tcolorbox}[breakable, size=fbox, boxrule=.5pt, pad at break*=1mm, opacityfill=0]
+%% \prompt{Out}{outcolor}{ }{\boxspacing}
+%% \begin{Verbatim}[commandchars=\\\{\}]
+%%                                                    1  \textbackslash{}
+%% 0  [(NP, 0, time, time), (Nominal, 0, time, time){\ldots}
+%% 1                                                NaN
+%% 2                                                NaN
+%% 3                                                NaN
+%% 4                                                NaN
+
+%%                                                    2  \textbackslash{}
+%% 0  [(S, 1, NP, VP), (NP, 1, Nominal, Nominal), (N{\ldots}
+%% 1  [(NP, 0, flies, flies), (Nominal, 0, flies, fl{\ldots}
+%% 2                                                NaN
+%% 3                                                NaN
+%% 4                                                NaN
+
+%%                                                    3                   4  \textbackslash{}
+%% 0                                   [(S, 2, NP, VP)]                  []
+%% 1                                   [(S, 2, NP, VP)]                  []
+%% 2  [(VP, 0, like, like), (Verb, 0, like, like), ({\ldots}                  []
+%% 3                                                NaN  [(Det, 0, an, an)]
+%% 4                                                NaN                 NaN
+
+%%                                                    5
+%% 0  [(S, 2, NP, VP), (Nominal, 2, Nominal, PP), (S{\ldots}
+%% 1  [(S, 2, NP, VP), (Nominal, 2, Nominal, PP), (V{\ldots}
+%% 2      [(VP, 3, Verb, NP), (PP, 3, Preposition, NP)]
+%% 3                            [(NP, 4, Det, Nominal)]
+%% 4  [(NP, 0, arrow, arrow), (Nominal, 0, arrow, ar{\ldots}
+%% \end{Verbatim}
+%% \end{tcolorbox}
+        
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{ }{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{options}\PY{p}{,} \PY{n}{matrix} \PY{o}{=} \PY{n}{find\PYZus{}solutions}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Time flies like an arrow}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,}
+                        \PY{n}{grammar\PYZus{}rules}\PY{p}{,}\PY{n}{lexicon\PYZus{}rules}\PY{p}{,}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{S}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,}\PY{n}{probabilities}\PY{p}{)}
+\PY{n}{pprint}\PY{p}{(}\PY{n}{options}\PY{p}{)}
+\end{Verbatim}
+\end{tcolorbox}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+[('S', 9.600000000000002e-13),
+ [[('NP', 0.002), 'time'],
+  [('VP', 6.000000000000001e-10),
+   [[('Verb', 0.02), 'flies'],
+    [('PP', 1.5000000000000002e-07),
+     [[('Preposition', 0.05), 'like'],
+      [('NP', 3e-05),
+       [[('Det', 0.05), 'an'], [('Nominal', 0.002), 'arrow']]]]]]]]]
+    \end{Verbatim}
+
+%%             \begin{tcolorbox}[breakable, size=fbox, boxrule=.5pt, pad at break*=1mm, opacityfill=0]
+%% \prompt{Out}{outcolor}{ }{\boxspacing}
+%% \begin{Verbatim}[commandchars=\\\{\}]
+%%                                                    1  \textbackslash{}
+%% 0  [(NP, 0, time, time, 0.002), (Nominal, 0, time{\ldots}
+%% 1                                                NaN
+%% 2                                                NaN
+%% 3                                                NaN
+%% 4                                                NaN
+
+%%                                                    2  \textbackslash{}
+%% 0  [(S, 1, NP, VP, 1.28e-05), (NP, 1, Nominal, No{\ldots}
+%% 1  [(NP, 0, flies, flies, 0.002), (Nominal, 0, fl{\ldots}
+%% 2                                                NaN
+%% 3                                                NaN
+%% 4                                                NaN
+
+%%                                                    3  \textbackslash{}
+%% 0           [(S, 2, NP, VP, 5.1200000000000005e-09)]
+%% 1                         [(S, 2, NP, VP, 1.28e-05)]
+%% 2  [(VP, 0, like, like, 0.008), (Verb, 0, like, l{\ldots}
+%% 3                                                NaN
+%% 4                                                NaN
+
+%%                           4                                                  5
+%% 0                        []  [(S, 2, NP, VP, 1.1520000000000003e-13), (Nomi{\ldots}
+%% 1                        []  [(S, 2, NP, VP, 2.8800000000000004e-10), (Nomi{\ldots}
+%% 2                        []  [(VP, 3, Verb, NP, 1.8000000000000002e-07), (P{\ldots}
+%% 3  [(Det, 0, an, an, 0.05)]                     [(NP, 4, Det, Nominal, 3e-05)]
+%% 4                       NaN  [(NP, 0, arrow, arrow, 0.002), (Nominal, 0, ar{\ldots}
+%% \end{Verbatim}
+%% \end{tcolorbox}
+        
+    \hypertarget{cuestionario}{%
+\subsection*{Cuestionario}\label{cuestionario}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  ¿Es correcto el análisis sintáctico que se ha obtenido? Justifica la
+  respuesta.
+\end{enumerate}
+
+Sí. Basado en la gramática proporcionada el resultado es satisfactorio y
+se muestra a continuación.
+
+\begin{figure}[!ht]
+    \centering
+        \Tree [.S~(9.600000000000002e-13)
+                [.NP~(0.002) time ]
+                [.VP 
+                    [.Verb~(0.02) flies ]
+                    [.PP~(1.5000000000000002e-07) 
+                        [.Preposition~(0.05) like ]
+                        [.NP~(3e-05) 
+                            [.Det~(0.05) an ]
+                            [.Nominal~(0.002) arrow ] ] ] ] ]
+\caption{Árbol sintáctico proporcionado por el algoritmo PCKY}
+\end{figure}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{1}
+\tightlist
+\item
+  ¿Cuáles son las limitaciones de aplicar el algoritmo CKY
+  probabilístico para realizar el análisis sintáctico? Justifica la
+  respuesta.
+\end{enumerate}
+
+Los problemas se presentan debido a la información guardada en la
+gramática, si ésta no tiene un elemento particular necesario para el
+análisis, proporcionará resultados truncos.
+
+Por supuesto, las probabilidades de aparición de la gramática podrían
+llevar a resultados dudosos, incluso cuando su objetivo es el contrario,
+pero estas probabilidades siempre dependerán del corpus de origen, que
+puede ser distinto al de la oración a analizar, ya sea en registro, en
+dialecto, etc.
+
+En el caso particular de este ejercicio, el hecho de tener algunos
+símbolos intermedios creados para llegar a la forma normal de Chomsky
+permite que el algoritmo genere posibles soluciones impensables para el
+análisis linguístico. El algoritmo CKY propone dos soluciones y el PCKY
+seleccionó el correcto, pero si se examina la opción desechada se puede
+observar:
+
+\begin{verbatim}
+['NP', [['Nominal', 'time'], ['Nominal', 'flies']]]
+\end{verbatim}
+
+Lo cual es un elemento impensable pues sugiere que una frase nomimal
+puede tener dos núcleos. Este análisis va en contra del principio de
+endocentrismo que establece, como su nombre indica, que cada frase tiene
+un núcleo que determina el tipo de la frase.
+
+Finalmente, el algoritmo que usa este tipo de gramáticas, arrastra la
+misma gran crítica que los lingǘistas hacen a la teoría de Chomsky: No
+es capaz de analizar lenguas aglutinantes.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{2}
+\tightlist
+\item
+  ¿Qué posibles mejoras que se podrían aplicar para mejorar el
+  rendimiento del análisis sintáctico? Justifica la respuesta.
+\end{enumerate}
+
+El algoritmo se basa en el uso de cualquier gramática en forma normal de
+Chomsky, esto es porque computacionalmente es posible generar
+automáticamente gramáticas mediante corpus de análisis, sin embargo, el
+programa minimalista de Chomsky sugiere la teoría X-barra que tiene su
+principio en los estudios de Ray Jackendoff. Esta teoría proporciona la
+posibilidad de crear gramáticas consistentes siempre en la forma normal
+de Chomsky. Dejar de ignorar el conocimiento linguístico proporcionaría
+mejores gramáticas para la IA.
+
+Por otra parte, analizar solo las probabilidades de los subárboles que
+llevan a una propuesta de solución aumentaría el rendimiento a nivel de
+cómputo.
+
+    % Add a bibliography block to the postdoc
+    
+    
+    
+\end{document}
