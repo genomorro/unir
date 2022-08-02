@@ -16,12 +16,12 @@ openpyxl
 
 ## Extra
 # matplotlib
-nltk
+# nltk
 # opencv-python
 # opencv-contrib-python
 # scikit-learn
 # seaborn
-spacy
+# spacy
 # tensorflow
 # graphviz
 # pydotplus
